@@ -44,8 +44,6 @@ body {
     background-repeat: no-repeat;
 }
 
-/* Floating leaves */
-
 .leaf {
     position: absolute;
     font-size: 42px;
@@ -87,8 +85,6 @@ body {
     }
 }
 
-/* Safari animals */
-
 .safari-animal {
     position: absolute;
     font-size: 55px;
@@ -129,8 +125,6 @@ body {
     }
 }
 
-/* Extra animals */
-
 .floating-animal {
     position: absolute;
     font-size: 35px;
@@ -163,8 +157,6 @@ body {
     }
 }
 
-/* Balloons */
-
 .balloon {
     position: absolute;
     font-size: 42px;
@@ -192,8 +184,6 @@ body {
     }
 }
 
-/* Main animals */
-
 .animals {
     font-size: 48px;
     margin-bottom: 5px;
@@ -211,8 +201,6 @@ body {
         transform: translateY(-9px);
     }
 }
-
-/* Cover text */
 
 .cover h1 {
     font-size: clamp(42px, 10vw, 76px);
@@ -250,8 +238,6 @@ body {
         2px 2px 5px rgba(0,0,0,.8);
 }
 
-/* Orion photo */
-
 .photo-frame {
     width: min(280px, 75vw);
     height: min(280px, 75vw);
@@ -279,8 +265,6 @@ body {
     object-fit: cover;
 }
 
-/* Birthday title */
-
 .birthday-title {
     color: white;
     font-size: 26px;
@@ -290,8 +274,6 @@ body {
     text-shadow:
         3px 3px 5px rgba(0,0,0,.8);
 }
-
-/* Button */
 
 .enter-btn {
     border: none;
@@ -304,7 +286,6 @@ body {
     cursor: pointer;
 
     box-shadow: 0 7px 0 #bd7040;
-
     transition: .2s;
 
     position: relative;
@@ -337,8 +318,6 @@ body {
 
     text-align: center;
 }
-
-/* Floating decorations */
 
 .inside-animal {
     position: absolute;
@@ -399,7 +378,10 @@ body {
     line-height: 1.6;
 }
 
-/* Cards */
+
+/* =========================
+   CARDS
+========================= */
 
 .cards {
     max-width: 900px;
@@ -450,6 +432,199 @@ body {
 
 
 /* =========================
+   GALLERY POPUP
+========================= */
+
+.gallery-overlay {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(52, 39, 27, .82);
+
+    z-index: 1000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.gallery-box {
+    width: min(1000px, 100%);
+    max-height: 92vh;
+
+    background:
+        linear-gradient(
+            rgba(255,249,233,.98),
+            rgba(255,253,246,.98)
+        );
+
+    border-radius: 30px;
+
+    border: 5px solid #d6ae6d;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35);
+
+    padding: 25px;
+
+    position: relative;
+
+    overflow-y: auto;
+}
+
+.gallery-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #e89b58;
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 0 #bd7040;
+}
+
+.gallery-close:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #bd7040;
+}
+
+.gallery-decorations {
+    font-size: 35px;
+    margin-bottom: 5px;
+}
+
+.gallery-box h2 {
+    margin: 5px 0;
+    color: #76552f;
+    font-size: 30px;
+}
+
+.gallery-box > p {
+    margin-top: 5px;
+    margin-bottom: 22px;
+}
+
+.gallery-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 5px solid #ead7a8;
+
+    background: #fffdf6;
+
+    box-shadow:
+        0 5px 12px rgba(91,70,54,.18);
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.03) rotate(-1deg);
+    box-shadow:
+        0 8px 20px rgba(91,70,54,.28);
+}
+
+.gallery-note {
+    margin-top: 22px !important;
+    margin-bottom: 0 !important;
+    color: #806b56;
+    font-size: 15px;
+}
+
+
+/* =========================
+   FULL PHOTO VIEWER
+========================= */
+
+.photo-viewer {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,.92);
+
+    z-index: 2000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 25px;
+
+    cursor: pointer;
+}
+
+.photo-viewer img {
+    max-width: 95vw;
+    max-height: 90vh;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.5);
+
+    cursor: default;
+}
+
+.viewer-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #5b4636;
+
+    font-size: 24px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+
+/* =========================
    MAMA'S LETTER
 ========================= */
 
@@ -479,8 +654,6 @@ body {
     margin-top: 0;
 }
 
-/* Mama & Orion photo */
-
 .letter-photo {
     width: 210px;
     height: 210px;
@@ -504,8 +677,6 @@ body {
     font-size: 17px;
 }
 
-/* Clear photo float */
-
 .letter::after {
     content: "";
     display: block;
@@ -513,16 +684,15 @@ body {
 }
 
 
-/* Footer */
+/* =========================
+   FOOTER + BACK BUTTON
+========================= */
 
 footer {
     margin-top: 45px;
     font-size: 16px;
     color: #806b56;
 }
-
-
-/* Back button */
 
 .back-btn {
     margin-top: 35px;
@@ -547,7 +717,7 @@ footer {
    MOBILE
 ========================= */
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
 
     .safari-animal {
         font-size: 38px;
@@ -593,7 +763,43 @@ footer {
         line-height: 1.7;
     }
 
+    .gallery-box {
+        padding: 20px 15px;
+        border-radius: 25px;
+    }
+
+    .gallery-box h2 {
+        font-size: 25px;
+        padding: 0 35px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .gallery-grid img {
+        height: 180px;
+        border-width: 4px;
+        border-radius: 15px;
+    }
+
+    .gallery-decorations {
+        font-size: 28px;
+    }
 }
+
+@media (max-width: 400px) {
+
+    .gallery-grid img {
+        height: 150px;
+    }
+
+    .gallery-box {
+        padding: 18px 10px;
+    }
+}
+
 </style>
 </head>
 
@@ -701,10 +907,13 @@ footer {
         <div class="cards">
 
 
+            <!-- GALLERY CARD -->
+
             <div
                 class="card"
-                onclick="alert('📸 Soon we will fill this with Orion\\'s favorite photos!')"
+                onclick="openGallery()"
             >
+
                 <div class="card-icon">
                     📸
                 </div>
@@ -716,13 +925,17 @@ footer {
                 <p>
                     My favorite moments and memories.
                 </p>
+
             </div>
 
+
+            <!-- FAVORITE THINGS -->
 
             <div
                 class="card"
                 onclick="alert('🧸 Cars, buses, trains, animals, books and so many things Orion loves!')"
             >
+
                 <div class="card-icon">
                     🧸
                 </div>
@@ -734,13 +947,17 @@ footer {
                 <p>
                     The things that make Orion excited.
                 </p>
+
             </div>
 
+
+            <!-- LITTLE WORDS -->
 
             <div
                 class="card"
                 onclick="alert('🗣️ Mama • Tete • Lala • Tata • Tate • Baba • Ba-ba')"
             >
+
                 <div class="card-icon">
                     🗣️
                 </div>
@@ -752,13 +969,17 @@ footer {
                 <p>
                     Orion's very own little words.
                 </p>
+
             </div>
 
+
+            <!-- ANIMAL SOUNDS -->
 
             <div
                 class="card"
                 onclick="alert('🦁 Rawr! 🐑 Baba! 🐶 Aw aw! Orion loves animals!')"
             >
+
                 <div class="card-icon">
                     🦁
                 </div>
@@ -770,13 +991,17 @@ footer {
                 <p>
                     Listen... can you hear Orion's animals?
                 </p>
+
             </div>
 
+
+            <!-- FUNNY ORION -->
 
             <div
                 class="card"
                 onclick="alert('😂 Bringing his bottle, helping clean, pulling Mama to his books, and all his other funny little habits!')"
             >
+
                 <div class="card-icon">
                     😂
                 </div>
@@ -788,13 +1013,17 @@ footer {
                 <p>
                     The little things that make Mama laugh.
                 </p>
+
             </div>
 
+
+            <!-- WHAT I KNOW -->
 
             <div
                 class="card"
                 onclick="alert('🌈 Colors • Animals • Fruits • Body parts • Shapes • People • Books and more!')"
             >
+
                 <div class="card-icon">
                     📚
                 </div>
@@ -806,6 +1035,7 @@ footer {
                 <p>
                     All the wonderful things Orion is learning.
                 </p>
+
             </div>
 
         </div>
@@ -831,178 +1061,211 @@ footer {
 
 
             <p>
-                My dearest Orion,
+                Dear Orion,
             </p>
 
             <p>
-                As I write this, you are turning two years old. You are still so little,
-                but somehow, you have already filled my life with so many memories
-                that I know I will carry with me forever.
+                Happy 2nd birthday, my baby. ❤️
             </p>
 
             <p>
-               One day, you will be old enough to read this letter. You might look at
-               your two-year-old pictures and laugh at your tiny face, your little
-               clothes, and all the things you used to do. You may not remember these
-               days, so Mama wants to remember them for you.
+                As I write this, you are turning two years old.
+                You are still so little, but somehow, you have already
+                filled my life with so many memories that I know I will
+                carry with me forever.
             </p>
 
             <p>
-                At two years old, you love animals. You love looking at animal cards
-                and books, making animal sounds, and saying “rawr” like a little lion.
-                You love cars, buses, trains, balloons, and your picture books. You
-                even have your own little study time. You pull Mama toward your books
-                when you want to read, and you get upset when our little lesson is
-                interrupted. You are always curious and eager to learn.
+                One day, you will be old enough to read this letter.
+                You might look at your two-year-old pictures and laugh
+                at your tiny face, your little clothes, and all the things
+                you used to do. You may not remember these days, so Mama
+                wants to remember them for you.
             </p>
 
             <p>
-                 You remember so many little things. You know where your things belong.
-        You help clean your toys. You know the broom. You bring things to Mama.
-        You even know little routines that I sometimes forget you are watching.
-    </p>
+                At two years old, you love animals. You love looking at
+                animal cards and books, making animal sounds, and saying
+                “rawr” like a little lion. You love cars, buses, trains,
+                balloons, and your picture books. You even have your own
+                little study time. You pull Mama toward your books when
+                you want to read, and you get upset when our little lesson
+                is interrupted. You are always curious and eager to learn.
+            </p>
 
-    <p>
-        You are watching everything, my love.
-    </p>
+            <p>
+                You may not have many words yet, but you have always found
+                your own ways to communicate with me. You say “mama,”
+                “papa,” “lala,” “lolo,” “tata,” “nene,” and your own little
+                words for the things and people you love. Sometimes you
+                call us with your little “maaa,” “taaa,” “laaaa,” or
+                “loooo,” and Mama knows exactly what you mean.
+            </p>
 
-    <p>
-        You are learning from the world around you every single day, and Mama
-        hopes that as you grow, you will always keep that curiosity and
-        kindness inside you.
-    </p>
+            <p>
+                You remember so many little things. You know where your
+                things belong. You help clean your toys. You know the broom.
+                You bring things to Mama. You even know little routines that
+                I sometimes forget you are watching.
+            </p>
 
-    <p>
-        I want you to know something very important, Orion.
-    </p>
+            <p>
+                You are watching everything, my love.
+            </p>
 
-    <p>
-        <strong>You have always been loved.</strong>
-    </p>
+            <p>
+                You are learning from the world around you every single day,
+                and Mama hopes that as you grow, you will always keep that
+                curiosity and kindness inside you.
+            </p>
 
-    <p>
-        Even during the days when Mama was tired. Even during the days when
-        Mama had to work. Even when I couldn't spend as much time with you as
-        I wanted. None of those moments ever meant that I loved you less.
-    </p>
+            <p>
+                I want you to know something very important, Orion.
+            </p>
 
-    <p>
-        Mama worked because I wanted to give you a good life. I wanted you to
-        have the things you needed, to learn, to explore, to dream, and to
-        grow up knowing that you were worth fighting for.
-    </p>
+            <p>
+                You have always been loved.
+            </p>
 
-    <p>
-        If you ever wonder whether Mama loved you enough when you were little,
-        I hope you will look at these memories and know the answer.
-    </p>
+            <p>
+                Even during the days when Mama was tired. Even during the
+                days when Mama had to work. Even when I couldn't spend as
+                much time with you as I wanted. None of those moments ever
+                meant that I loved you less.
+            </p>
 
-    <p>
-        <strong>I loved you more than you could understand.</strong>
-    </p>
+            <p>
+                Mama worked because I wanted to give you a good life.
+                I wanted you to have the things you needed, to learn,
+                to explore, to dream, and to grow up knowing that you
+                were worth fighting for.
+            </p>
 
-    <p>
-        You were my little boy who loved books, animals, cars, and “rawr.”
-        You were the little boy who brought things to Mama, who reached for
-        hugs, who smiled when we clapped and praised you, and who made
-        ordinary days feel special.
-    </p>
+            <p>
+                If you ever wonder whether Mama loved you enough when you
+                were little, I hope you will look at these memories and
+                know the answer.
+            </p>
 
-    <p>
-        And even though you were only two, you had already taught Mama so much.
-    </p>
+            <p>
+                I loved you more than you could understand.
+            </p>
 
-    <p>
-        You taught me patience.<br>
-        You taught me strength.<br>
-        You taught me that the smallest moments can become the biggest memories.
-    </p>
+            <p>
+                You were my little boy who loved books, animals, cars,
+                and “rawr.” You were the little boy who brought things
+                to Mama, who reached for hugs, who smiled when we clapped
+                and praised you, and who made ordinary days feel special.
+            </p>
 
-    <p>
-        I hope that when you read this someday, you will know that you were
-        never a burden to Mama. You were never something that stopped my life.
-    </p>
+            <p>
+                And even though you were only two, you had already taught
+                Mama so much.
+            </p>
 
-    <p>
-        <strong>You were one of the reasons I kept going.</strong>
-    </p>
+            <p>
+                You taught me patience.<br>
+                You taught me strength.<br>
+                You taught me that the smallest moments can become the
+                biggest memories.
+            </p>
 
-    <p>
-        I hope you grow up kind. I hope you respect people. I hope you are
-        brave enough to chase what makes you happy. I hope you never feel
-        ashamed of asking for help, and I hope you always remember where you
-        came from.
-    </p>
+            <p>
+                I hope that when you read this someday, you will know that
+                you were never a burden to Mama. You were never something
+                that stopped my life.
+            </p>
 
-    <p>
-        Most of all, I hope you know that you don't have to be perfect for
-        Mama to be proud of you.
-    </p>
+            <p>
+                You were one of the reasons I kept going.
+            </p>
 
-    <p>
-        I will be proud of you simply because you are my Orion.
-    </p>
+            <p>
+                I hope you grow up kind. I hope you respect people.
+                I hope you are brave enough to chase what makes you happy.
+                I hope you never feel ashamed of asking for help, and I
+                hope you always remember where you came from.
+            </p>
 
-    <p>
-        Today, you are two.
-    </p>
+            <p>
+                Most of all, I hope you know that you don't have to be
+                perfect for Mama to be proud of you.
+            </p>
 
-    <p>
-        But someday, you'll be ten, fifteen, twenty, or even older. You may
-        have dreams that Mama can't even imagine yet. You may have your own
-        friends, your own adventures, and your own life.
-    </p>
+            <p>
+                I will be proud of you simply because you are my Orion.
+            </p>
 
-    <p>
-        And that's okay.
-    </p>
+            <p>
+                Today, you are two.
+            </p>
 
-    <p>
-        Mama doesn't want to keep you little forever.
-    </p>
+            <p>
+                But someday, you'll be ten, fifteen, twenty, or even older.
+                You may have dreams that Mama can't even imagine yet.
+                You may have your own friends, your own adventures, and
+                your own life.
+            </p>
 
-    <p>
-        I just wish I could freeze this little version of you for a moment—
-        the little boy who loves animals, books, cars, and Mama's hugs.
-    </p>
+            <p>
+                And that's okay.
+            </p>
 
-    <p>
-        So if you're reading this many years from now, please remember this:
-    </p>
+            <p>
+                Mama doesn't want to keep you little forever.
+            </p>
 
-    <p>
-        <strong>
-            Before you were old enough to remember these days, Mama was already
-            making memories of you.
-        </strong>
-    </p>
+            <p>
+                I just wish I could freeze this little version of you
+                for a moment—the little boy who loves animals, books,
+                cars, and Mama's hugs.
+            </p>
 
-    <p>
-        Before you understood what love meant, you were already loved more
-        than you could ever know.
-    </p>
+            <p>
+                So if you're reading this many years from now, please
+                remember this:
+            </p>
 
-    <p>
-        And no matter how old you become, no matter where life takes you,
-        you will always be my little boy.
-    </p>
+            <p>
+                Before you were old enough to remember these days,
+                Mama was already making memories of you.
+            </p>
 
-    <p>
-        <strong>You were loved at two.</strong><br>
-        <strong>You are loved now.</strong><br>
-        <strong>And you always will be.</strong>
-    </p>
+            <p>
+                Before you understood what love meant, you were already
+                loved more than you could ever know.
+            </p>
 
-    <p>
-        Happy 2nd birthday, Orion.
-    </p>
+            <p>
+                And no matter how old you become, no matter where life
+                takes you, you will always be my little boy.
+            </p>
 
-    <p style="text-align:right;">
-        Love always,<br><br>
-        <strong>Mama ❤️</strong>
-    </p>
+            <p>
+                You were loved at two.
+            </p>
 
-</div>
+            <p>
+                You are loved now.
+            </p>
+
+            <p>
+                And you always will be.
+            </p>
+
+            <p>
+                Happy 2nd birthday, Orion.
+            </p>
+
+            <p>
+                Love always,
+            </p>
+
+            <p style="text-align:right;">
+                <strong>Mama ❤️</strong>
+            </p>
+
+        </div>
 
 
         <footer>
@@ -1020,6 +1283,159 @@ footer {
     </div>
 
 </section>
+
+
+
+<!-- =========================
+     GALLERY POPUP
+========================= -->
+
+<div
+    id="galleryOverlay"
+    class="gallery-overlay"
+    onclick="closeGalleryBackground(event)"
+>
+
+    <div
+        class="gallery-box"
+        onclick="event.stopPropagation()"
+    >
+
+        <button
+            class="gallery-close"
+            onclick="closeGallery()"
+        >
+            ✕
+        </button>
+
+
+        <div class="gallery-decorations">
+            🦁 🌿 📸 🌿 🦒
+        </div>
+
+
+        <h2>
+            📸 Orion's Little Gallery
+        </h2>
+
+        <p>
+            My favorite moments and memories. ❤️
+        </p>
+
+
+        <div class="gallery-grid">
+
+            <img
+                src="Orion1.jpg"
+                alt="Orion memory 1"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion2.jpg"
+                alt="Orion memory 2"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion3.jpg"
+                alt="Orion memory 3"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion4.jpg"
+                alt="Orion memory 4"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion5.jpg"
+                alt="Orion memory 5"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion6.jpg"
+                alt="Orion memory 6"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion7.jpg"
+                alt="Orion memory 7"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion8.jpg"
+                alt="Orion memory 8"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion9.jpg"
+                alt="Orion memory 9"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion10.jpg"
+                alt="Orion memory 10"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion11.jpg"
+                alt="Orion memory 11"
+                onclick="viewPhoto(this.src)"
+            >
+
+            <img
+                src="Orion12.jpg"
+                alt="Orion memory 12"
+                onclick="viewPhoto(this.src)"
+            >
+
+        </div>
+
+
+        <p class="gallery-note">
+            Every picture holds a little piece of Orion's story. 🐾💛
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     FULL PHOTO VIEWER
+========================= -->
+
+<div
+    id="photoViewer"
+    class="photo-viewer"
+    onclick="closePhoto()"
+>
+
+    <button
+        class="viewer-close"
+        onclick="event.stopPropagation(); closePhoto()"
+    >
+        ✕
+    </button>
+
+
+    <img
+        id="fullPhoto"
+        src=""
+        alt="Enlarged Orion memory"
+        onclick="event.stopPropagation()"
+    >
+
+</div>
 
 
 
@@ -1049,6 +1465,81 @@ function goBack() {
         behavior: "smooth"
     });
 }
+
+
+/* =========================
+   OPEN GALLERY
+========================= */
+
+function openGallery() {
+
+    document.getElementById("galleryOverlay").style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+/* =========================
+   CLOSE GALLERY
+========================= */
+
+function closeGallery() {
+
+    document.getElementById("galleryOverlay").style.display = "none";
+
+    document.body.style.overflow = "";
+}
+
+
+function closeGalleryBackground(event) {
+
+    if (event.target === document.getElementById("galleryOverlay")) {
+
+        closeGallery();
+
+    }
+
+}
+
+
+/* =========================
+   VIEW LARGE PHOTO
+========================= */
+
+function viewPhoto(src) {
+
+    document.getElementById("fullPhoto").src = src;
+
+    document.getElementById("photoViewer").style.display = "flex";
+}
+
+
+/* =========================
+   CLOSE LARGE PHOTO
+========================= */
+
+function closePhoto() {
+
+    document.getElementById("photoViewer").style.display = "none";
+
+}
+
+
+/* =========================
+   ESC KEY
+========================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        closePhoto();
+
+        closeGallery();
+
+    }
+
+});
 
 </script>
 
