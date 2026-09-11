@@ -33,20 +33,24 @@ body {
     position: relative;
     overflow: hidden;
 
-   background-image: url("safari-cover.jpg");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.18),
+            rgba(0, 0, 0, 0.18)
+        ),
+        url("safari-cover.jpg");
+
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
 }
 
-/* Floating leaves */
+/* Moving leaves */
 
 .leaf {
     position: absolute;
     font-size: 42px;
-    opacity: .75;
+    opacity: .8;
     animation: leafFloat 5s ease-in-out infinite;
     pointer-events: none;
 }
@@ -189,7 +193,7 @@ background-repeat: no-repeat;
     }
 }
 
-/* Main animals */
+/* Main animal row */
 
 .animals {
     font-size: 48px;
@@ -209,26 +213,45 @@ background-repeat: no-repeat;
     }
 }
 
-/* Title */
+/* Cover text */
 
 .cover h1 {
     font-size: clamp(42px, 10vw, 76px);
     margin: 5px 0;
-    color: #76552f;
+    color: #ffffff;
     line-height: 1;
     position: relative;
     z-index: 3;
-    text-shadow: 2px 3px 0 rgba(255,255,255,.6);
+
+    text-shadow:
+        3px 3px 0 #5b4636,
+        0 4px 12px rgba(0,0,0,.7);
+}
+
+.welcome-text {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    z-index: 3;
+
+    text-shadow:
+        2px 2px 4px rgba(0,0,0,.8);
 }
 
 .subtitle {
     font-size: 20px;
     margin: 15px 0 22px;
+    color: white;
+    font-weight: bold;
     position: relative;
     z-index: 3;
+
+    text-shadow:
+        2px 2px 5px rgba(0,0,0,.8);
 }
 
-/* ORION PHOTO */
+/* Orion's photo */
 
 .photo-frame {
     width: min(280px, 75vw);
@@ -236,14 +259,17 @@ background-repeat: no-repeat;
     border-radius: 50%;
     background: #fffdf3;
     border: 9px solid #c99d55;
+
     box-shadow:
-        0 10px 25px rgba(91,70,54,.20),
-        0 0 0 7px rgba(255,255,255,.55);
+        0 10px 25px rgba(0,0,0,.35),
+        0 0 0 7px rgba(255,255,255,.6);
+
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     margin: 10px 0 20px;
+
     position: relative;
     z-index: 5;
 }
@@ -260,11 +286,16 @@ background-repeat: no-repeat;
     color: #8b745c;
 }
 
-/* Birthday text */
+/* Birthday title */
 
-.cover h2 {
+.birthday-title {
+    color: white;
+    font-size: 26px;
     position: relative;
     z-index: 3;
+
+    text-shadow:
+        3px 3px 5px rgba(0,0,0,.8);
 }
 
 /* Button */
@@ -278,8 +309,11 @@ background-repeat: no-repeat;
     padding: 16px 30px;
     border-radius: 50px;
     cursor: pointer;
+
     box-shadow: 0 7px 0 #bd7040;
+
     transition: .2s;
+
     position: relative;
     z-index: 5;
 }
@@ -315,8 +349,12 @@ background-repeat: no-repeat;
 .cards {
     max-width: 900px;
     margin: auto;
+
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
     gap: 18px;
 }
 
@@ -325,9 +363,14 @@ background-repeat: no-repeat;
     border-radius: 25px;
     padding: 25px 18px;
     min-height: 180px;
-    box-shadow: 0 6px 18px rgba(91,70,54,.12);
+
+    box-shadow:
+        0 6px 18px rgba(91,70,54,.12);
+
     border: 3px solid #ead7a8;
+
     cursor: pointer;
+
     transition: .25s;
 }
 
@@ -350,16 +393,23 @@ background-repeat: no-repeat;
     line-height: 1.5;
 }
 
-/* LETTER */
+/* Letter */
 
 .letter {
     max-width: 750px;
     margin: 45px auto 0;
+
     background: #fffdf6;
+
     padding: 35px 25px;
+
     border-radius: 25px;
+
     border: 3px dashed #d6ae6d;
-    box-shadow: 0 8px 20px rgba(91,70,54,.1);
+
+    box-shadow:
+        0 8px 20px rgba(91,70,54,.1);
+
     text-align: left;
 }
 
@@ -375,12 +425,19 @@ background-repeat: no-repeat;
 
 .back-btn {
     margin-top: 35px;
+
     border: none;
+
     background: #91ad70;
+
     color: white;
+
     padding: 13px 25px;
+
     border-radius: 30px;
+
     font-size: 16px;
+
     cursor: pointer;
 }
 
@@ -414,6 +471,10 @@ footer {
         width: 240px;
         height: 240px;
     }
+
+    .birthday-title {
+        font-size: 22px;
+    }
 }
 </style>
 </head>
@@ -426,7 +487,7 @@ footer {
 
 <section class="cover" id="cover">
 
-    <!-- Moving safari decorations -->
+    <!-- Moving decorations -->
 
     <div class="leaf leaf1">🌿</div>
     <div class="leaf leaf2">🍃</div>
@@ -444,13 +505,14 @@ footer {
     <div class="balloon balloon1">🎈</div>
     <div class="balloon balloon2">🎈</div>
 
+
     <!-- Main cover -->
 
     <div class="animals">
         🦁 🐘 🦒 🐒
     </div>
 
-    <div style="font-size:18px; position:relative; z-index:3;">
+    <div class="welcome-text">
         WELCOME TO
     </div>
 
@@ -463,17 +525,25 @@ footer {
         🌿 A little collection of big memories 🌿
     </div>
 
-    <!-- Orion's photo stays the same -->
+
+    <!-- Orion's photo -->
 
     <div class="photo-frame">
 
         <img
             src="701312354_1512336296938135_1169129443103858509_n.jpg"
             alt="Orion"
-            onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+
+            onerror="
+                this.style.display='none';
+                this.nextElementSibling.style.display='block';
+            "
         >
 
-        <div class="photo-placeholder" style="display:none;">
+        <div
+            class="photo-placeholder"
+            style="display:none;"
+        >
             📸<br><br>
             Orion's photo<br>
             will go here! 🥰
@@ -481,11 +551,16 @@ footer {
 
     </div>
 
-    <h2>
+
+    <h2 class="birthday-title">
         🎂 ORION TURNS TWO! 🎂
     </h2>
 
-    <button class="enter-btn" onclick="enterWorld()">
+
+    <button
+        class="enter-btn"
+        onclick="enterWorld()"
+    >
         🌿 Enter Orion's World 🐾
     </button>
 
@@ -512,58 +587,129 @@ footer {
         Come explore Orion's little safari! 🐾
     </p>
 
+
     <div class="cards">
 
-        <div class="card"
-             onclick="alert('📸 Soon we will fill this with Orion\\'s favorite photos!')">
-            <div class="card-icon">📸</div>
-            <h3>My Little Gallery</h3>
-            <p>My favorite moments and memories.</p>
+
+        <div
+            class="card"
+            onclick="alert('📸 Soon we will fill this with Orion\\'s favorite photos!')"
+        >
+            <div class="card-icon">
+                📸
+            </div>
+
+            <h3>
+                My Little Gallery
+            </h3>
+
+            <p>
+                My favorite moments and memories.
+            </p>
         </div>
 
-        <div class="card"
-             onclick="alert('🧸 Cars, buses, trains, animals, books and so many things Orion loves!')">
-            <div class="card-icon">🧸</div>
-            <h3>My Favorite Things</h3>
-            <p>The things that make Orion excited.</p>
+
+        <div
+            class="card"
+            onclick="alert('🧸 Cars, buses, trains, animals, books and so many things Orion loves!')"
+        >
+            <div class="card-icon">
+                🧸
+            </div>
+
+            <h3>
+                My Favorite Things
+            </h3>
+
+            <p>
+                The things that make Orion excited.
+            </p>
         </div>
 
-        <div class="card"
-             onclick="alert('🗣️ Mama • Tete • Lala • Tata • Tate • Baba • Ba-ba')">
-            <div class="card-icon">🗣️</div>
-            <h3>My Little Words</h3>
-            <p>Orion's very own little words.</p>
+
+        <div
+            class="card"
+            onclick="alert('🗣️ Mama • Tete • Lala • Tata • Tate • Baba • Ba-ba')"
+        >
+            <div class="card-icon">
+                🗣️
+            </div>
+
+            <h3>
+                My Little Words
+            </h3>
+
+            <p>
+                Orion's very own little words.
+            </p>
         </div>
 
-        <div class="card"
-             onclick="alert('🦁 Rawr! 🐑 Baba! 🐶 Aw aw! Orion loves animals!')">
-            <div class="card-icon">🦁</div>
-            <h3>Animal Sounds</h3>
-            <p>Listen... can you hear Orion's animals?</p>
+
+        <div
+            class="card"
+            onclick="alert('🦁 Rawr! 🐑 Baba! 🐶 Aw aw! Orion loves animals!')"
+        >
+            <div class="card-icon">
+                🦁
+            </div>
+
+            <h3>
+                Animal Sounds
+            </h3>
+
+            <p>
+                Listen... can you hear Orion's animals?
+            </p>
         </div>
 
-        <div class="card"
-             onclick="alert('😂 Bringing his bottle, helping clean, pulling Mama to his books, and all his other funny little habits!')">
-            <div class="card-icon">😂</div>
-            <h3>Funny Little Orion</h3>
-            <p>The little things that make Mama laugh.</p>
+
+        <div
+            class="card"
+            onclick="alert('😂 Bringing his bottle, helping clean, pulling Mama to his books, and all his other funny little habits!')"
+        >
+            <div class="card-icon">
+                😂
+            </div>
+
+            <h3>
+                Funny Little Orion
+            </h3>
+
+            <p>
+                The little things that make Mama laugh.
+            </p>
         </div>
 
-        <div class="card"
-             onclick="alert('🌈 Colors • Animals • Fruits • Body parts • Shapes • People • Books and more!')">
-            <div class="card-icon">📚</div>
-            <h3>What I Know at Two</h3>
-            <p>All the wonderful things Orion is learning.</p>
+
+        <div
+            class="card"
+            onclick="alert('🌈 Colors • Animals • Fruits • Body parts • Shapes • People • Books and more!')"
+        >
+            <div class="card-icon">
+                📚
+            </div>
+
+            <h3>
+                What I Know at Two
+            </h3>
+
+            <p>
+                All the wonderful things Orion is learning.
+            </p>
         </div>
 
     </div>
 
 
-    <!-- MAMA'S LETTER -->
+    <!-- =========================
+         MAMA'S LETTER
+    ========================= -->
 
     <div class="letter">
 
-        <h2>💌 A Letter From Mama</h2>
+        <h2>
+            💌 A Letter From Mama
+        </h2>
 
         <p>
             My dearest Orion,
@@ -606,11 +752,16 @@ footer {
 
     </div>
 
+
     <footer>
         🐾 Made with love by Mama for Orion's 2nd Birthday 🐾
     </footer>
 
-    <button class="back-btn" onclick="goBack()">
+
+    <button
+        class="back-btn"
+        onclick="goBack()"
+    >
         ← Back to Cover
     </button>
 
@@ -630,6 +781,7 @@ function enterWorld() {
         behavior: "smooth"
     });
 }
+
 
 function goBack() {
 
