@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Orion's Little Safari 🦁</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Trebuchet MS", Arial, sans-serif;
+        background: #f8f1dc;
+        color: #5b4636;
+        text-align: center;
+    }
+
+    /* MAIN COVER */
+    .cover {
+        min-height: 100vh;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background:
+            radial-gradient(circle at 10% 20%, #fff8d9 0 8%, transparent 9%),
+            radial-gradient(circle at 90% 15%, #dce9b8 0 7%, transparent 8%),
+            linear-gradient(#dcebbf, #f8f1dc);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .leaf {
+        position: absolute;
+        font-size: 40px;
+        opacity: .6;
+        animation: float 4s ease-in-out infinite;
+    }
+
+    .leaf1 { top: 8%; left: 8%; }
+    .leaf2 { top: 20%; right: 7%; animation-delay: 1s; }
+    .leaf3 { bottom: 12%; left: 12%; animation-delay: 2s; }
+    .leaf4 { bottom: 18%; right: 10%; animation-delay: 1.5s; }
+
+    @keyframes float {
+        0%,100% { transform: translateY(0) rotate(-4deg); }
+        50% { transform: translateY(-12px) rotate(5deg); }
+    }
+
+    .animals {
+        font-size: 48px;
+        margin-bottom: 10px;
+        animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+        0%,100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+
+    h1 {
+        font-size: clamp(42px, 10vw, 76px);
+        margin: 5px 0;
+        color: #76552f;
+        line-height: 1;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        margin: 15px 0 22px;
+    }
+
+    /* ORION PHOTO */
+    .photo-frame {
+        width: min(280px, 75vw);
+        height: min(280px, 75vw);
+        border-radius: 50%;
+        background: #fffdf3;
+        border: 9px solid #c99d55;
+        box-shadow: 0 10px 25px rgba(91,70,54,.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin: 10px 0 20px;
+    }
+
+    .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .photo-placeholder {
+        padding: 25px;
+        font-size: 18px;
+        color: #8b745c;
+    }
+
+    .enter-btn {
+        border: none;
+        background: #e89b58;
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 16px 30px;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 7px 0 #bd7040;
+        transition: .2s;
+    }
+
+    .enter-btn:hover {
+        transform: translateY(3px);
+        box-shadow: 0 4px 0 #bd7040;
+    }
+
+    /* MEMORY BOOK */
+    #memoryBook {
+        display: none;
+        padding: 35px 18px 60px;
+        background: #fff9e9;
+    }
+
+    .section-title {
+        font-size: 34px;
+        color: #76552f;
+        margin-bottom: 8px;
+    }
+
+    .intro {
+        max-width: 650px;
+        margin: 0 auto 30px;
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .cards {
+        max-width: 900px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 25px;
+        padding: 25px 18px;
+        min-height: 180px;
+        box-shadow: 0 6px 18px rgba(91,70,54,.12);
+        border: 3px solid #ead7a8;
+        cursor: pointer;
+        transition: .25s;
+    }
+
+    .card:hover {
+        transform: translateY(-7px) rotate(-1deg);
+    }
+
+    .card-icon {
+        font-size: 48px;
+    }
+
+    .card h3 {
+        margin: 10px 0 7px;
+        color: #76552f;
+        font-size: 21px;
+    }
+
+    .card p {
+        margin: 0;
+        line-height: 1.5;
+    }
+
+    /* LETTER */
+    .letter {
+        max-width: 750px;
+        margin: 45px auto 0;
+        background: #fffdf6;
+        padding: 35px 25px;
+        border-radius: 25px;
+        border: 3px dashed #d6ae6d;
+        box-shadow: 0 8px 20px rgba(91,70,54,.1);
+        text-align: left;
+    }
+
+    .letter h2 {
+        text-align: center;
+        color: #76552f;
+    }
+
+    .letter p {
+        line-height: 1.8;
+        font-size: 17px;
+    }
+
+    .back-btn {
+        margin-top: 35px;
+        border: none;
+        background: #91ad70;
+        color: white;
+        padding: 13px 25px;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    footer {
+        margin-top: 45px;
+        font-size: 16px;
+        color: #806b56;
+    }
+</style>
+</head>
+
+<body>
+
+<!-- COVER -->
+<section class="cover" id="cover">
+
+    <div class="leaf leaf1">🌿</div>
+    <div class="leaf leaf2">🍃</div>
+    <div class="leaf leaf3">🌿</div>
+    <div class="leaf leaf4">🍃</div>
+
+    <div class="animals">🦁 🐘 🦒 🐒</div>
+
+    <div style="font-size:18px;">WELCOME TO</div>
+
+    <h1>Orion's<br>Little Safari</h1>
+
+    <div class="subtitle">
+        🌿 A little collection of big memories 🌿
+    </div>
+
+    <div class="photo-frame">
+
+        <!-- LATER WE WILL PUT ORION'S PHOTO HERE -->
+        <!-- Rename his photo to Orion.jpg -->
+
+        <img src="Orion.jpg"
+             alt="Orion"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+
+        <div class="photo-placeholder" style="display:none;">
+            📸<br><br>
+            Orion's photo<br>
+            will go here! 🥰
+        </div>
+
+    </div>
+
+    <h2>🎂 ORION TURNS TWO! 🎂</h2>
+
+    <button class="enter-btn" onclick="enterWorld()">
+        🌿 Enter Orion's World 🐾
+    </button>
+
+</section>
+
+
+<!-- MEMORY BOOK -->
+<section id="memoryBook">
+
+    <div style="font-size:48px;">🦁🌿🎈🌿🦒</div>
+
+    <h2 class="section-title">
+        Welcome to Orion's World! 💛
+    </h2>
+
+    <p class="intro">
+        Two years of little adventures, funny moments,
+        new words, favorite things, big hugs, and so much love.
+        Come explore Orion's little safari! 🐾
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card" onclick="alert('📸 Soon we will fill this with Orion\\'s favorite photos!')">
+            <div class="card-icon">📸</div>
+            <h3>My Little Gallery</h3>
+            <p>My favorite moments and memories.</p>
+        </div>
+
+
+        <div class="card" onclick="alert('🧸 Cars, buses, trains, animals, books and so many things Orion loves!')">
+            <div class="card-icon">🧸</div>
+            <h3>My Favorite Things</h3>
+            <p>The things that make Orion excited.</p>
+        </div>
+
+
+        <div class="card" onclick="alert('🗣️ Mama • Tete • Lala • Tata • Tate • Baba • Ba-ba')">
+            <div class="card-icon">🗣️</div>
+            <h3>My Little Words</h3>
+            <p>Orion's very own little words.</p>
+        </div>
+
+
+        <div class="card" onclick="alert('🦁 Rawr! 🐑 Baba! 🐶 Aw aw! Orion loves animals!')">
+            <div class="card-icon">🦁</div>
+            <h3>Animal Sounds</h3>
+            <p>Listen... can you hear Orion's animals?</p>
+        </div>
+
+
+        <div class="card" onclick="alert('😂 Bringing his bottle, helping clean, pulling Mama to his books, and all his other funny little habits!')">
+            <div class="card-icon">😂</div>
+            <h3>Funny Little Orion</h3>
+            <p>The little things that make Mama laugh.</p>
+        </div>
+
+
+        <div class="card" onclick="alert('🌈 Colors • Animals • Fruits • Body parts • Shapes • People • Books and more!')">
+            <div class="card-icon">📚</div>
+            <h3>What I Know at Two</h3>
+            <p>All the wonderful things Orion is learning.</p>
+        </div>
+
+    </div>
+
+
+    <!-- MAMA'S LETTER -->
+    <div class="letter">
+
+        <h2>💌 A Letter From Mama</h2>
+
+        <p>
+            My dearest Orion,
+        </p>
+
+        <p>
+            Today you are two years old. It feels like yesterday
+            that Mama first held you, and now you are growing into
+            your own little person with your own words, ideas,
+            smiles, and funny little ways.
+        </p>
+
+        <p>
+            I hope someday, when you are old enough to read this,
+            you will know how much joy you brought into Mama's life.
+            Every little thing you learned, every new word you said,
+            every hug, every smile, and every silly moment became
+            a memory Mama wanted to keep forever.
+        </p>
+
+        <p>
+            You don't have to be perfect, Orion.
+            Just keep being curious, kind, happy, and wonderfully
+            yourself.
+        </p>
+
+        <p>
+            No matter how big you become, you will always be
+            Mama's little boy. 🥹💛
+        </p>
+
+        <p>
+            Happy 2nd Birthday, my love. 🎂🦁
+        </p>
+
+        <p style="text-align:right;">
+            With all my love,<br>
+            <strong>Mama ❤️</strong>
+        </p>
+
+    </div>
+
+
+    <footer>
+        🐾 Made with love by Mama for Orion's 2nd Birthday 🐾
+    </footer>
+
+    <button class="back-btn" onclick="goBack()">
+        ← Back to Cover
+    </button>
+
+</section>
+
+
+<script>
+
+function enterWorld() {
+    document.getElementById("cover").style.display = "none";
+    document.getElementById("memoryBook").style.display = "block";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function goBack() {
+    document.getElementById("memoryBook").style.display = "none";
+    document.getElementById("cover").style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
