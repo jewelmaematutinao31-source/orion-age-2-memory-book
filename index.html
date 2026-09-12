@@ -432,7 +432,7 @@ body {
 
 
 /* =========================
-   FAVORITE THINGS POPUP
+   POPUP COMMON STYLE
 ========================= */
 
 .favorite-overlay {
@@ -1117,7 +1117,7 @@ footer {
 
             <div
                 class="card"
-                onclick="alert('🗣️ Mama • Tete • Lala • Tata • Tate • Baba • Ba-ba')"
+                onclick="openLittleWords()"
             >
 
                 <div class="card-icon">
@@ -1480,8 +1480,6 @@ footer {
         </p>
 
 
-        <!-- VEHICLES -->
-
         <div class="favorite-section">
 
             <h3>
@@ -1519,8 +1517,6 @@ footer {
 
         </div>
 
-
-        <!-- ANIMALS -->
 
         <div class="favorite-section">
 
@@ -1560,8 +1556,6 @@ footer {
         </div>
 
 
-        <!-- BOOKS -->
-
         <div class="favorite-section">
 
             <h3>
@@ -1600,8 +1594,6 @@ footer {
         </div>
 
 
-        <!-- SONGS -->
-
         <div class="favorite-section">
 
             <h3>
@@ -1634,8 +1626,6 @@ footer {
 
         </div>
 
-
-        <!-- FUN -->
 
         <div class="favorite-section">
 
@@ -1670,8 +1660,6 @@ footer {
         </div>
 
 
-        <!-- HELPING MAMA -->
-
         <div class="favorite-section">
 
             <h3>
@@ -1704,8 +1692,6 @@ footer {
 
         </div>
 
-
-        <!-- MAMA TIME -->
 
         <div class="favorite-section">
 
@@ -1749,6 +1735,239 @@ footer {
             These are the little things that made Orion smile,
             curious, excited, and ready to explore the world
             at age two. 🌿🦁💛
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     LITTLE WORDS POPUP
+========================= -->
+
+<div
+    id="littleWordsOverlay"
+    class="favorite-overlay"
+    onclick="closeLittleWordsBackground(event)"
+>
+
+    <div
+        class="favorite-box"
+        onclick="event.stopPropagation()"
+    >
+
+        <button
+            class="favorite-close"
+            onclick="closeLittleWords()"
+        >
+            ✕
+        </button>
+
+        <div style="font-size:45px;">
+            🗣️🦁🌿💛
+        </div>
+
+        <h2>
+            🗣️ Orion's Little Words
+        </h2>
+
+        <p>
+            Orion's very own little words — tiny sounds and names
+            that became such a big part of Mama's everyday life. 💛
+        </p>
+
+
+        <!-- PEOPLE HE LOVES -->
+
+        <div class="favorite-section">
+
+            <h3>
+                👩‍👦 The People He Loves
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>👩</span>
+                    <strong>Mama</strong>
+                    <br>
+                    Mama ❤️
+                </div>
+
+                <div class="favorite-item">
+                    <span>👨</span>
+                    <strong>Papa</strong>
+                    <br>
+                    Papa
+                </div>
+
+                <div class="favorite-item">
+                    <span>👵</span>
+                    <strong>Lala</strong>
+                    <br>
+                    Lola
+                </div>
+
+                <div class="favorite-item">
+                    <span>👴</span>
+                    <strong>Lolo</strong>
+                    <br>
+                    Lolo
+                </div>
+
+                <div class="favorite-item">
+                    <span>👩</span>
+                    <strong>Tata</strong>
+                    <br>
+                    Tita
+                </div>
+
+                <div class="favorite-item">
+                    <span>👩</span>
+                    <strong>Nene</strong>
+                    <br>
+                    Nene
+                </div>
+
+                <div class="favorite-item">
+                    <span>👧</span>
+                    <strong>Tate</strong>
+                    <br>
+                    Ate
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EVERYDAY WORDS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🍼 Little Everyday Words
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🍼</span>
+                    <strong>Tete</strong>
+                    <br>
+                    Milk
+                </div>
+
+                <div class="favorite-item">
+                    <span>🐑</span>
+                    <strong>Baba</strong>
+                    <br>
+                    Sheep
+                </div>
+
+                <div class="favorite-item">
+                    <span>⚽</span>
+                    <strong>Ba-ba / Buh-buh</strong>
+                    <br>
+                    Ball
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍌</span>
+                    <strong>Ba-na-na / Na-na</strong>
+                    <br>
+                    Banana
+                </div>
+
+                <div class="favorite-item">
+                    <span>🏍️</span>
+                    <strong>Boom boom</strong>
+                    <br>
+                    Motorcycle
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FUNNY SOUNDS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🦁 Orion's Funny Little Sounds
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🦁</span>
+                    <strong>Rawr!</strong>
+                    <br>
+                    Lion
+                </div>
+
+                <div class="favorite-item">
+                    <span>💛</span>
+                    <strong>Maaa</strong>
+                    <br>
+                    One of Orion's little calling sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>💛</span>
+                    <strong>Taaa</strong>
+                    <br>
+                    One of Orion's little calling sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>💛</span>
+                    <strong>Laaaa</strong>
+                    <br>
+                    One of Orion's little calling sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>💛</span>
+                    <strong>Loooo</strong>
+                    <br>
+                    One of Orion's little calling sounds
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAMA'S FAVORITE PART -->
+
+        <div class="favorite-section">
+
+            <h3>
+                💛 Mama's Favorite Part
+            </h3>
+
+            <p style="
+                text-align:center;
+                line-height:1.8;
+                font-size:1.05rem;
+                margin:10px 0;
+            ">
+                Every little word was a big milestone.
+                These were the sounds that filled Mama's days
+                with smiles, surprises, and so much love. 🥹💛
+            </p>
+
+        </div>
+
+
+        <p class="favorite-footer">
+            One day, these little words may change as Orion grows.
+            But Mama will always remember the tiny voice that first
+            filled her days with them. 🥹🦁💛
         </p>
 
     </div>
@@ -1967,6 +2186,40 @@ function closeFavoriteBackground(event) {
 
 
 /* =========================
+   LITTLE WORDS POPUP
+========================= */
+
+function openLittleWords() {
+
+    document.getElementById("littleWordsOverlay").style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeLittleWords() {
+
+    document.getElementById("littleWordsOverlay").style.display = "none";
+
+    document.body.style.overflow = "";
+}
+
+
+function closeLittleWordsBackground(event) {
+
+    if (
+        event.target ===
+        document.getElementById("littleWordsOverlay")
+    ) {
+
+        closeLittleWords();
+
+    }
+
+}
+
+
+/* =========================
    OPEN GALLERY
 ========================= */
 
@@ -2040,6 +2293,8 @@ document.addEventListener("keydown", function(event) {
         closeGallery();
 
         closeFavoriteThings();
+
+        closeLittleWords();
 
     }
 
