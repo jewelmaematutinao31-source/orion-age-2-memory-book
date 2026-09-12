@@ -454,7 +454,10 @@ body {
 }
 
 .favorite-box {
-    width: min(650px, 100%);
+    width: min(700px, 100%);
+    max-height: 90vh;
+
+    overflow-y: auto;
 
     background:
         linear-gradient(
@@ -500,10 +503,15 @@ body {
     box-shadow: 0 4px 0 #bd7040;
 }
 
+.favorite-close:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #bd7040;
+}
+
 .favorite-box h2 {
     color: #76552f;
     font-size: 30px;
-    margin: 8px 0;
+    margin: 8px 0 10px;
 }
 
 .favorite-box > p {
@@ -512,41 +520,70 @@ body {
     margin-bottom: 22px;
 }
 
-.favorite-list {
+.favorite-section {
+    margin-top: 24px;
+    text-align: left;
+}
+
+.favorite-section h3 {
+    color: #76552f;
+    font-size: 21px;
+
+    margin-bottom: 12px;
+
+    padding-bottom: 7px;
+
+    border-bottom:
+        2px dashed #dfc58e;
+}
+
+.favorite-items {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 10px;
 }
 
 .favorite-item {
     background: white;
-    border: 2px solid #ead7a8;
+
+    border:
+        2px solid #ead7a8;
+
     border-radius: 18px;
-    padding: 15px 10px;
-    font-size: 16px;
+
+    padding: 13px 10px;
+
+    font-size: 15px;
+
     line-height: 1.4;
+
+    text-align: center;
 }
 
 .favorite-item span {
     display: block;
-    font-size: 32px;
+
+    font-size: 30px;
+
     margin-bottom: 5px;
 }
 
 .favorite-footer {
-    margin-top: 22px;
+    margin-top: 28px;
+
+    padding-top: 18px;
+
     color: #806b56;
+
     font-size: 15px;
-}
 
-@media (max-width: 500px) {
-    .favorite-list {
-        grid-template-columns: 1fr;
-    }
+    line-height: 1.6;
 
-    .favorite-box {
-        padding: 25px 18px;
-    }
+    border-top:
+        2px dashed #dfc58e;
 }
 
 
@@ -672,6 +709,7 @@ body {
 
 .gallery-grid img:hover {
     transform: scale(1.03) rotate(-1deg);
+
     box-shadow:
         0 8px 20px rgba(91,70,54,.28);
 }
@@ -880,6 +918,19 @@ footer {
     .letter p {
         font-size: 16px;
         line-height: 1.7;
+    }
+
+    .favorite-box {
+        padding: 25px 18px;
+        max-height: 88vh;
+    }
+
+    .favorite-box h2 {
+        font-size: 26px;
+    }
+
+    .favorite-items {
+        grid-template-columns: 1fr;
     }
 
     .gallery-box {
@@ -1424,55 +1475,280 @@ footer {
         </h2>
 
         <p>
-            The little things that make Orion excited. 💛
+            The little things that made Orion smile, curious,
+            excited, and ready to explore the world at age two. 💛
         </p>
 
-        <div class="favorite-list">
 
-            <div class="favorite-item">
-                <span>🦁</span>
-                Animals & Animal Sounds
-            </div>
+        <!-- VEHICLES -->
 
-            <div class="favorite-item">
-                <span>📚</span>
-                Books & Picture Charts
-            </div>
+        <div class="favorite-section">
 
-            <div class="favorite-item">
-                <span>🚗</span>
-                Cars, Buses & Trains
-            </div>
+            <h3>
+                🚗 Vehicles & Things That Go
+            </h3>
 
-            <div class="favorite-item">
-                <span>🎶</span>
-                Wheels on the Bus
-            </div>
+            <div class="favorite-items">
 
-            <div class="favorite-item">
-                <span>🎨</span>
-                Colors, Shapes & Learning
-            </div>
+                <div class="favorite-item">
+                    <span>🚗</span>
+                    Cars
+                </div>
 
-            <div class="favorite-item">
-                <span>🎈</span>
-                Balloons
-            </div>
+                <div class="favorite-item">
+                    <span>🚌</span>
+                    Buses
+                </div>
 
-            <div class="favorite-item">
-                <span>🧹</span>
-                Helping Mama Clean
-            </div>
+                <div class="favorite-item">
+                    <span>🚂</span>
+                    Trains
+                </div>
 
-            <div class="favorite-item">
-                <span>📱</span>
-                His LCD Writing Tablet
+                <div class="favorite-item">
+                    <span>🏍️</span>
+                    Motorcycles — “boom boom”
+                </div>
+
+                <div class="favorite-item">
+                    <span>🛞</span>
+                    Wheels & Things That Move
+                </div>
+
             </div>
 
         </div>
 
+
+        <!-- ANIMALS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🦁 Animals
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🦁</span>
+                    Lions & “rawr!”
+                </div>
+
+                <div class="favorite-item">
+                    <span>🃏</span>
+                    Animal Cards
+                </div>
+
+                <div class="favorite-item">
+                    <span>🐾</span>
+                    Looking at Different Animals
+                </div>
+
+                <div class="favorite-item">
+                    <span>🐶</span>
+                    Learning Animal Sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>📖</span>
+                    Animals in Books
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                📚 Books & Picture Time
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>📚</span>
+                    Picture Books
+                </div>
+
+                <div class="favorite-item">
+                    <span>🦁</span>
+                    Animal Books
+                </div>
+
+                <div class="favorite-item">
+                    <span>👩‍👦</span>
+                    Bringing Books to Mama
+                </div>
+
+                <div class="favorite-item">
+                    <span>🖼️</span>
+                    Picture Charts
+                </div>
+
+                <div class="favorite-item">
+                    <span>📖</span>
+                    Looking Through Pages
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SONGS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🎶 Songs & Sounds
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🚌</span>
+                    Wheels on the Bus
+                </div>
+
+                <div class="favorite-item">
+                    <span>🐾</span>
+                    Animal Sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>🎵</span>
+                    Making Little Sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>🗣️</span>
+                    Practicing Little Words
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FUN -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🎈 Fun Little Things
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🎈</span>
+                    Balloons
+                </div>
+
+                <div class="favorite-item">
+                    <span>🧸</span>
+                    His Toys
+                </div>
+
+                <div class="favorite-item">
+                    <span>📱</span>
+                    His LCD Writing Tablet
+                </div>
+
+                <div class="favorite-item">
+                    <span>🖼️</span>
+                    Looking at Pictures
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HELPING MAMA -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🧹 Helping Mama
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🧹</span>
+                    Sweeping with Mama
+                </div>
+
+                <div class="favorite-item">
+                    <span>🧸</span>
+                    Putting Toys Away
+                </div>
+
+                <div class="favorite-item">
+                    <span>🗑️</span>
+                    Helping with the Trash
+                </div>
+
+                <div class="favorite-item">
+                    <span>🤲</span>
+                    Bringing Things to Mama
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- MAMA TIME -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🤗 Mama Time
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🤗</span>
+                    Mama's Hugs
+                </div>
+
+                <div class="favorite-item">
+                    <span>👏</span>
+                    Mama's Praise
+                </div>
+
+                <div class="favorite-item">
+                    <span>📚</span>
+                    Reading Together
+                </div>
+
+                <div class="favorite-item">
+                    <span>📖</span>
+                    Little Study Time
+                </div>
+
+                <div class="favorite-item">
+                    <span>❤️</span>
+                    Spending Time with Mama
+                </div>
+
+            </div>
+
+        </div>
+
+
         <p class="favorite-footer">
-            And of course... Mama's hugs and praise! 🤗💛
+            These are the little things that made Orion smile,
+            curious, excited, and ready to explore the world
+            at age two. 🌿🦁💛
         </p>
 
     </div>
@@ -1678,7 +1954,10 @@ function closeFavoriteThings() {
 
 function closeFavoriteBackground(event) {
 
-    if (event.target === document.getElementById("favoriteOverlay")) {
+    if (
+        event.target ===
+        document.getElementById("favoriteOverlay")
+    ) {
 
         closeFavoriteThings();
 
@@ -1713,7 +1992,10 @@ function closeGallery() {
 
 function closeGalleryBackground(event) {
 
-    if (event.target === document.getElementById("galleryOverlay")) {
+    if (
+        event.target ===
+        document.getElementById("galleryOverlay")
+    ) {
 
         closeGallery();
 
