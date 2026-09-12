@@ -588,6 +588,29 @@ body {
 
 
 /* =========================
+   VIDEO
+========================= */
+
+.what-i-know-video {
+    width: 100%;
+    max-height: 500px;
+
+    display: block;
+
+    border-radius: 20px;
+
+    border: 4px solid #ead7a8;
+
+    background: #000;
+
+    box-shadow:
+        0 6px 15px rgba(91,70,54,.2);
+
+    margin-top: 15px;
+}
+
+
+/* =========================
    GALLERY POPUP
 ========================= */
 
@@ -933,6 +956,11 @@ footer {
         grid-template-columns: 1fr;
     }
 
+    .what-i-know-video {
+        max-height: 350px;
+        border-width: 3px;
+    }
+
     .gallery-box {
         padding: 20px 15px;
         border-radius: 25px;
@@ -1183,7 +1211,7 @@ footer {
 
             <div
                 class="card"
-                onclick="alert('🌈 Colors • Animals • Fruits • Body parts • Shapes • People • Books and more!')"
+                onclick="openWhatIKnow()"
             >
 
                 <div class="card-icon">
@@ -1976,6 +2004,425 @@ footer {
 
 
 <!-- =========================
+     WHAT I KNOW AT TWO POPUP
+========================= -->
+
+<div
+    id="whatIKnowOverlay"
+    class="favorite-overlay"
+    onclick="closeWhatIKnowBackground(event)"
+>
+
+    <div
+        class="favorite-box"
+        onclick="event.stopPropagation()"
+    >
+
+        <button
+            class="favorite-close"
+            onclick="closeWhatIKnow()"
+        >
+            ✕
+        </button>
+
+        <div style="font-size:45px;">
+            📚🦁🍎🌈
+        </div>
+
+        <h2>
+            📚 What I Know at Two
+        </h2>
+
+        <p>
+            All the wonderful things Orion is learning,
+            remembering, recognizing, and discovering. 💛
+        </p>
+
+
+        <!-- ANIMAL CARDS VIDEO -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🦁 Finding His Animal Friends
+            </h3>
+
+            <p style="
+                text-align:center;
+                line-height:1.7;
+                font-size:1.05rem;
+            ">
+                Orion points to and finds his animal cards,
+                showing how much he remembers and loves learning
+                about animals. 🐾💛
+            </p>
+
+            <video
+                id="animalCardsVideo"
+                class="what-i-know-video"
+                controls
+                playsinline
+                preload="metadata"
+            >
+
+                <source
+                    src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4"
+                    type="video/mp4"
+                >
+
+                Your browser does not support the video tag.
+
+            </video>
+
+            <p style="
+                text-align:center;
+                color:#806b56;
+                font-size:14px;
+                margin-top:10px;
+            ">
+                🎥 Orion finding his animal cards. 🥹💛
+            </p>
+
+        </div>
+
+
+        <!-- COLORS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🌈 Colors I Know
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>💛</span>
+                    Yellow
+                </div>
+
+                <div class="favorite-item">
+                    <span>💙</span>
+                    Blue
+                </div>
+
+                <div class="favorite-item">
+                    <span>💚</span>
+                    Green
+                </div>
+
+                <div class="favorite-item">
+                    <span>🩷</span>
+                    Pink
+                </div>
+
+                <div class="favorite-item">
+                    <span>🖤</span>
+                    Black
+                </div>
+
+                <div class="favorite-item">
+                    <span>🤍</span>
+                    White
+                </div>
+
+                <div class="favorite-item">
+                    <span>💜</span>
+                    Purple
+                </div>
+
+                <div class="favorite-item">
+                    <span>🧡</span>
+                    Orange
+                </div>
+
+                <div class="favorite-item">
+                    <span>❤️</span>
+                    Red
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- SHAPES -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🔵 Shapes I Know
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>⚪</span>
+                    Circle
+                </div>
+
+                <div class="favorite-item">
+                    <span>⬜</span>
+                    Square
+                </div>
+
+                <div class="favorite-item">
+                    <span>🔺</span>
+                    Triangle
+                </div>
+
+                <div class="favorite-item">
+                    <span>⭐</span>
+                    Different Shapes
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FRUITS AND VEGETABLES -->
+
+        <div class="favorite-section">
+
+            <h3>
+                🍎 Fruits & Vegetables
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🍎</span>
+                    Apples
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍌</span>
+                    Bananas
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍊</span>
+                    Oranges
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍇</span>
+                    Grapes
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍉</span>
+                    Watermelon
+                </div>
+
+                <div class="favorite-item">
+                    <span>🥭</span>
+                    Mangoes
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍍</span>
+                    Pineapple
+                </div>
+
+                <div class="favorite-item">
+                    <span>🥕</span>
+                    Carrots
+                </div>
+
+                <div class="favorite-item">
+                    <span>🌽</span>
+                    Corn
+                </div>
+
+                <div class="favorite-item">
+                    <span>🥦</span>
+                    Broccoli
+                </div>
+
+                <div class="favorite-item">
+                    <span>🥔</span>
+                    Potatoes
+                </div>
+
+                <div class="favorite-item">
+                    <span>🍅</span>
+                    Tomatoes
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BODY PARTS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                👶 Body Parts I Know
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>👀</span>
+                    Eyes
+                </div>
+
+                <div class="favorite-item">
+                    <span>👃</span>
+                    Nose
+                </div>
+
+                <div class="favorite-item">
+                    <span>👄</span>
+                    Mouth
+                </div>
+
+                <div class="favorite-item">
+                    <span>👂</span>
+                    Ears
+                </div>
+
+                <div class="favorite-item">
+                    <span>✋</span>
+                    Hands
+                </div>
+
+                <div class="favorite-item">
+                    <span>🦶</span>
+                    Feet
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PEOPLE AND MEMORY -->
+
+        <div class="favorite-section">
+
+            <h3>
+                👨‍👩‍👦 People & Pictures I Recognize
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>👩</span>
+                    Mama
+                </div>
+
+                <div class="favorite-item">
+                    <span>👨</span>
+                    Papa
+                </div>
+
+                <div class="favorite-item">
+                    <span>👵</span>
+                    Lala / Lola
+                </div>
+
+                <div class="favorite-item">
+                    <span>👴</span>
+                    Lolo
+                </div>
+
+                <div class="favorite-item">
+                    <span>👩</span>
+                    Tata / Tita
+                </div>
+
+                <div class="favorite-item">
+                    <span>👧</span>
+                    Tate / Ate
+                </div>
+
+                <div class="favorite-item">
+                    <span>🖼️</span>
+                    Family Photos
+                </div>
+
+                <div class="favorite-item">
+                    <span>📱</span>
+                    People in Videos
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BOOKS AND ANIMALS -->
+
+        <div class="favorite-section">
+
+            <h3>
+                📖 Things I Remember
+            </h3>
+
+            <div class="favorite-items">
+
+                <div class="favorite-item">
+                    <span>🦁</span>
+                    Animals
+                </div>
+
+                <div class="favorite-item">
+                    <span>🐶</span>
+                    Animal Sounds
+                </div>
+
+                <div class="favorite-item">
+                    <span>📚</span>
+                    Books
+                </div>
+
+                <div class="favorite-item">
+                    <span>🖼️</span>
+                    Picture Charts
+                </div>
+
+                <div class="favorite-item">
+                    <span>🚗</span>
+                    Cars
+                </div>
+
+                <div class="favorite-item">
+                    <span>🚌</span>
+                    Buses
+                </div>
+
+                <div class="favorite-item">
+                    <span>🚂</span>
+                    Trains
+                </div>
+
+                <div class="favorite-item">
+                    <span>🏍️</span>
+                    Motorcycles
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <p class="favorite-footer">
+            At two years old, Orion is already showing Mama how much
+            he notices, remembers, recognizes, and loves to learn.
+            Every little discovery is a memory worth keeping. 🥹💛
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
      GALLERY POPUP
 ========================= -->
 
@@ -2220,6 +2667,47 @@ function closeLittleWordsBackground(event) {
 
 
 /* =========================
+   WHAT I KNOW AT TWO POPUP
+========================= */
+
+function openWhatIKnow() {
+
+    document.getElementById("whatIKnowOverlay").style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeWhatIKnow() {
+
+    const video = document.getElementById("animalCardsVideo");
+
+    if (video) {
+        video.pause();
+        video.currentTime = 0;
+    }
+
+    document.getElementById("whatIKnowOverlay").style.display = "none";
+
+    document.body.style.overflow = "";
+}
+
+
+function closeWhatIKnowBackground(event) {
+
+    if (
+        event.target ===
+        document.getElementById("whatIKnowOverlay")
+    ) {
+
+        closeWhatIKnow();
+
+    }
+
+}
+
+
+/* =========================
    OPEN GALLERY
 ========================= */
 
@@ -2295,6 +2783,8 @@ document.addEventListener("keydown", function(event) {
         closeFavoriteThings();
 
         closeLittleWords();
+
+        closeWhatIKnow();
 
     }
 
