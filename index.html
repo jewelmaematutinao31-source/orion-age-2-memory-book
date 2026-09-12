@@ -432,6 +432,125 @@ body {
 
 
 /* =========================
+   FAVORITE THINGS POPUP
+========================= */
+
+.favorite-overlay {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(52, 39, 27, .82);
+
+    z-index: 1500;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    overflow-y: auto;
+}
+
+.favorite-box {
+    width: min(650px, 100%);
+
+    background:
+        linear-gradient(
+            rgba(255,249,233,.98),
+            rgba(255,253,246,.98)
+        );
+
+    border-radius: 30px;
+
+    border: 5px solid #d6ae6d;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.35);
+
+    padding: 30px 25px;
+
+    position: relative;
+
+    text-align: center;
+}
+
+.favorite-close {
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #e89b58;
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 0 #bd7040;
+}
+
+.favorite-box h2 {
+    color: #76552f;
+    font-size: 30px;
+    margin: 8px 0;
+}
+
+.favorite-box > p {
+    font-size: 17px;
+    line-height: 1.6;
+    margin-bottom: 22px;
+}
+
+.favorite-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.favorite-item {
+    background: white;
+    border: 2px solid #ead7a8;
+    border-radius: 18px;
+    padding: 15px 10px;
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.favorite-item span {
+    display: block;
+    font-size: 32px;
+    margin-bottom: 5px;
+}
+
+.favorite-footer {
+    margin-top: 22px;
+    color: #806b56;
+    font-size: 15px;
+}
+
+@media (max-width: 500px) {
+    .favorite-list {
+        grid-template-columns: 1fr;
+    }
+
+    .favorite-box {
+        padding: 25px 18px;
+    }
+}
+
+
+/* =========================
    GALLERY POPUP
 ========================= */
 
@@ -925,7 +1044,7 @@ footer {
 
             <div
                 class="card"
-                onclick="alert('🧸 Cars, buses, trains, animals, books and so many things Orion loves!')"
+                onclick="openFavoriteThings()"
             >
 
                 <div class="card-icon">
@@ -1275,6 +1394,93 @@ footer {
 
 
 <!-- =========================
+     FAVORITE THINGS POPUP
+========================= -->
+
+<div
+    id="favoriteOverlay"
+    class="favorite-overlay"
+    onclick="closeFavoriteBackground(event)"
+>
+
+    <div
+        class="favorite-box"
+        onclick="event.stopPropagation()"
+    >
+
+        <button
+            class="favorite-close"
+            onclick="closeFavoriteThings()"
+        >
+            ✕
+        </button>
+
+        <div style="font-size:45px;">
+            🧸🦁🌿🎈
+        </div>
+
+        <h2>
+            🧸 My Favorite Things
+        </h2>
+
+        <p>
+            The little things that make Orion excited. 💛
+        </p>
+
+        <div class="favorite-list">
+
+            <div class="favorite-item">
+                <span>🦁</span>
+                Animals & Animal Sounds
+            </div>
+
+            <div class="favorite-item">
+                <span>📚</span>
+                Books & Picture Charts
+            </div>
+
+            <div class="favorite-item">
+                <span>🚗</span>
+                Cars, Buses & Trains
+            </div>
+
+            <div class="favorite-item">
+                <span>🎶</span>
+                Wheels on the Bus
+            </div>
+
+            <div class="favorite-item">
+                <span>🎨</span>
+                Colors, Shapes & Learning
+            </div>
+
+            <div class="favorite-item">
+                <span>🎈</span>
+                Balloons
+            </div>
+
+            <div class="favorite-item">
+                <span>🧹</span>
+                Helping Mama Clean
+            </div>
+
+            <div class="favorite-item">
+                <span>📱</span>
+                His LCD Writing Tablet
+            </div>
+
+        </div>
+
+        <p class="favorite-footer">
+            And of course... Mama's hugs and praise! 🤗💛
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
      GALLERY POPUP
 ========================= -->
 
@@ -1451,6 +1657,37 @@ function goBack() {
 
 
 /* =========================
+   FAVORITE THINGS POPUP
+========================= */
+
+function openFavoriteThings() {
+
+    document.getElementById("favoriteOverlay").style.display = "flex";
+
+    document.body.style.overflow = "hidden";
+}
+
+
+function closeFavoriteThings() {
+
+    document.getElementById("favoriteOverlay").style.display = "none";
+
+    document.body.style.overflow = "";
+}
+
+
+function closeFavoriteBackground(event) {
+
+    if (event.target === document.getElementById("favoriteOverlay")) {
+
+        closeFavoriteThings();
+
+    }
+
+}
+
+
+/* =========================
    OPEN GALLERY
 ========================= */
 
@@ -1519,6 +1756,8 @@ document.addEventListener("keydown", function(event) {
         closePhoto();
 
         closeGallery();
+
+        closeFavoriteThings();
 
     }
 
