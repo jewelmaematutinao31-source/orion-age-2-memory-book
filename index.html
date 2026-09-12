@@ -1,2569 +1,1400 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Orion's Little Safari 🦁</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Orion's Little Safari</title>
 
 <style>
-* {
-    box-sizing: border-box;
+
+*{
+    box-sizing:border-box;
 }
 
-body {
-    margin: 0;
-    font-family: "Trebuchet MS", Arial, sans-serif;
-    color: #5b4636;
-    text-align: center;
+body{
+    margin:0;
+    font-family:Georgia,serif;
+    background:#f8efd9;
+    color:#5b4636;
+    overflow-x:hidden;
 }
 
 /* =========================
-   FIRST COVER
+   COVER
 ========================= */
 
-.cover {
-    min-height: 100vh;
-    padding: 30px 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-
+#cover{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
     background-image:
         linear-gradient(
-            rgba(0, 0, 0, 0.18),
-            rgba(0, 0, 0, 0.18)
+            rgba(67,48,29,.25),
+            rgba(67,48,29,.25)
         ),
         url("safari-cover.jpg.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:center;
+    overflow:hidden;
 }
 
-.leaf {
-    position: absolute;
-    font-size: 42px;
-    opacity: .8;
-    animation: leafFloat 5s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.leaf1 {
-    top: 8%;
-    left: 7%;
-}
-
-.leaf2 {
-    top: 18%;
-    right: 8%;
-    animation-delay: 1s;
-}
-
-.leaf3 {
-    bottom: 13%;
-    left: 10%;
-    animation-delay: 2s;
-}
-
-.leaf4 {
-    bottom: 20%;
-    right: 9%;
-    animation-delay: 3s;
-}
-
-@keyframes leafFloat {
-    0%,100% {
-        transform: translateY(0) rotate(-5deg);
-    }
-
-    50% {
-        transform: translateY(-18px) rotate(8deg);
-    }
-}
-
-.safari-animal {
-    position: absolute;
-    font-size: 55px;
-    animation: animalMove 4s ease-in-out infinite;
-    pointer-events: none;
-}
-
-.lion {
-    left: 4%;
-    bottom: 12%;
-}
-
-.elephant {
-    right: 4%;
-    bottom: 13%;
-    animation-delay: 1s;
-}
-
-.giraffe {
-    left: 3%;
-    top: 20%;
-    animation-delay: 2s;
-}
-
-.monkey {
-    right: 5%;
-    top: 20%;
-    animation-delay: 1.5s;
-}
-
-@keyframes animalMove {
-    0%,100% {
-        transform: translateY(0) rotate(-2deg);
-    }
-
-    50% {
-        transform: translateY(-14px) rotate(3deg);
-    }
-}
-
-.floating-animal {
-    position: absolute;
-    font-size: 35px;
-    animation: floatAcross 9s ease-in-out infinite;
-    opacity: .9;
-}
-
-.animal1 {
-    top: 7%;
-    left: 35%;
-}
-
-.animal2 {
-    bottom: 7%;
-    right: 35%;
-    animation-delay: 3s;
-}
-
-@keyframes floatAcross {
-    0% {
-        transform: translateX(-20px);
-    }
-
-    50% {
-        transform: translateX(25px) translateY(-12px);
-    }
-
-    100% {
-        transform: translateX(-20px);
-    }
-}
-
-.balloon {
-    position: absolute;
-    font-size: 42px;
-    animation: balloonFloat 4s ease-in-out infinite;
-}
-
-.balloon1 {
-    top: 9%;
-    left: 22%;
-}
-
-.balloon2 {
-    top: 12%;
-    right: 22%;
-    animation-delay: 1.5s;
-}
-
-@keyframes balloonFloat {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
-.animals {
-    font-size: 48px;
-    margin-bottom: 5px;
-    animation: bounce 2s ease-in-out infinite;
-    position: relative;
-    z-index: 3;
-}
-
-@keyframes bounce {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-9px);
-    }
-}
-
-.cover h1 {
-    font-size: clamp(42px, 10vw, 76px);
-    margin: 5px 0;
-    color: #ffffff;
-    line-height: 1;
-    position: relative;
-    z-index: 3;
-
+.cover-content{
+    position:relative;
+    z-index:5;
+    padding:25px;
+    color:white;
     text-shadow:
-        3px 3px 0 #5b4636,
-        0 4px 12px rgba(0,0,0,.7);
+        2px 2px 5px rgba(0,0,0,.6);
 }
 
-.welcome-text {
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    position: relative;
-    z-index: 3;
-
-    text-shadow:
-        2px 2px 4px rgba(0,0,0,.8);
-}
-
-.subtitle {
-    font-size: 20px;
-    margin: 15px 0 22px;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    z-index: 3;
-
-    text-shadow:
-        2px 2px 5px rgba(0,0,0,.8);
-}
-
-.photo-frame {
-    width: min(280px, 75vw);
-    height: min(280px, 75vw);
-    border-radius: 50%;
-    background: #fffdf3;
-    border: 9px solid #c99d55;
-
+.cover-photo{
+    width:190px;
+    height:190px;
+    object-fit:cover;
+    border-radius:50%;
+    border:7px solid #fff4d6;
     box-shadow:
-        0 10px 25px rgba(0,0,0,.35),
-        0 0 0 7px rgba(255,255,255,.6);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    margin: 10px 0 20px;
-
-    position: relative;
-    z-index: 5;
+        0 8px 25px rgba(0,0,0,.35);
+    margin-bottom:20px;
 }
 
-.photo-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.cover-content h1{
+    font-size:3rem;
+    margin:10px 0;
 }
 
-.birthday-title {
-    color: white;
-    font-size: 26px;
-    position: relative;
-    z-index: 3;
-
-    text-shadow:
-        3px 3px 5px rgba(0,0,0,.8);
+.cover-content h2{
+    font-size:1.6rem;
+    margin:10px 0 25px;
 }
 
-.enter-btn {
-    border: none;
-    background: #e89b58;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 16px 30px;
-    border-radius: 50px;
-    cursor: pointer;
-
-    box-shadow: 0 7px 0 #bd7040;
-    transition: .2s;
-
-    position: relative;
-    z-index: 5;
+.cover-content p{
+    font-size:1.1rem;
 }
 
-.enter-btn:hover {
-    transform: translateY(3px);
-    box-shadow: 0 4px 0 #bd7040;
+.enter-btn{
+    border:none;
+    background:#d88b35;
+    color:white;
+    padding:14px 28px;
+    border-radius:30px;
+    font-size:1.1rem;
+    cursor:pointer;
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.25);
 }
 
+.enter-btn:hover{
+    transform:scale(1.05);
+}
+
+/* Safari decorations */
+
+.leaf{
+    position:absolute;
+    font-size:3rem;
+    opacity:.75;
+    animation:float 5s infinite ease-in-out;
+}
+
+.leaf1{
+    left:5%;
+    top:10%;
+}
+
+.leaf2{
+    right:7%;
+    top:18%;
+    animation-delay:1s;
+}
+
+.leaf3{
+    left:8%;
+    bottom:10%;
+    animation-delay:2s;
+}
+
+.leaf4{
+    right:8%;
+    bottom:12%;
+    animation-delay:3s;
+}
+
+@keyframes float{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-15px);
+    }
+
+}
 
 /* =========================
-   SECOND PAGE
+   MEMORY BOOK
 ========================= */
 
-#memoryBook {
-    display: none;
-    min-height: 100vh;
-    padding: 35px 18px 60px;
-
-    position: relative;
-    overflow: hidden;
-
+#memoryBook{
+    display:none;
+    min-height:100vh;
+    padding:40px 20px 60px;
     background:
         linear-gradient(
-            rgba(255,249,233,.93),
-            rgba(255,249,233,.97)
+            rgba(248,239,217,.94),
+            rgba(248,239,217,.97)
         );
-
-    text-align: center;
 }
 
-.inside-animal {
-    position: absolute;
-    font-size: 48px;
-    animation: insideFloat 4s ease-in-out infinite;
-    opacity: .8;
-    pointer-events: none;
+.book-container{
+    max-width:1100px;
+    margin:auto;
 }
 
-.inside-lion {
-    left: 3%;
-    top: 5%;
+.book-title{
+    text-align:center;
+    color:#704b2a;
+    margin-bottom:10px;
 }
 
-.inside-giraffe {
-    right: 3%;
-    top: 12%;
-    animation-delay: 1s;
+.book-subtitle{
+    text-align:center;
+    color:#8b7259;
+    margin-bottom:35px;
 }
-
-.inside-elephant {
-    left: 4%;
-    bottom: 12%;
-    animation-delay: 2s;
-}
-
-.inside-monkey {
-    right: 4%;
-    bottom: 15%;
-    animation-delay: 3s;
-}
-
-@keyframes insideFloat {
-    0%,100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-.inside-content {
-    position: relative;
-    z-index: 2;
-}
-
-.section-title {
-    font-size: 34px;
-    color: #76552f;
-    margin-bottom: 8px;
-}
-
-.intro {
-    max-width: 650px;
-    margin: 0 auto 30px;
-    font-size: 17px;
-    line-height: 1.6;
-}
-
 
 /* =========================
-   CARDS
+   MEMORY CARDS
 ========================= */
 
-.cards {
-    max-width: 900px;
-    margin: auto;
-
-    display: grid;
-
+.memory-grid{
+    display:grid;
     grid-template-columns:
-        repeat(auto-fit, minmax(220px, 1fr));
-
-    gap: 18px;
+        repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-.card {
-    background: white;
-    border-radius: 25px;
-    padding: 25px 18px;
-    min-height: 180px;
-
+.memory-card{
+    background:#fffaf0;
+    border-radius:22px;
+    padding:25px 18px;
+    text-align:center;
+    cursor:pointer;
     box-shadow:
-        0 6px 18px rgba(91,70,54,.12);
-
-    border: 3px solid #ead7a8;
-
-    cursor: pointer;
-
-    transition: .25s;
+        0 6px 20px rgba(96,70,43,.15);
+    border:2px solid #ead7b4;
+    transition:.25s;
 }
 
-.card:hover {
-    transform: translateY(-7px) rotate(-1deg);
+.memory-card:hover{
+    transform:translateY(-5px);
 }
 
-.card-icon {
-    font-size: 48px;
+.memory-card .icon{
+    font-size:3rem;
+    margin-bottom:10px;
 }
 
-.card h3 {
-    margin: 10px 0 7px;
-    color: #76552f;
-    font-size: 21px;
+.memory-card h3{
+    margin:8px 0;
+    color:#714b2c;
 }
 
-.card p {
-    margin: 0;
-    line-height: 1.5;
+.memory-card p{
+    color:#8a735d;
+    line-height:1.5;
 }
-
-
-/* =========================
-   POPUP COMMON STYLE
-========================= */
-
-.favorite-overlay {
-    display: none;
-
-    position: fixed;
-    inset: 0;
-
-    background: rgba(52, 39, 27, .82);
-
-    z-index: 1500;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    overflow-y: auto;
-}
-
-.favorite-box {
-    width: min(700px, 100%);
-    max-height: 90vh;
-
-    overflow-y: auto;
-
-    background:
-        linear-gradient(
-            rgba(255,249,233,.98),
-            rgba(255,253,246,.98)
-        );
-
-    border-radius: 30px;
-
-    border: 5px solid #d6ae6d;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.35);
-
-    padding: 30px 25px;
-
-    position: relative;
-
-    text-align: center;
-}
-
-.favorite-close {
-    position: absolute;
-
-    top: 12px;
-    right: 15px;
-
-    width: 42px;
-    height: 42px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #e89b58;
-    color: white;
-
-    font-size: 22px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow: 0 4px 0 #bd7040;
-}
-
-.favorite-close:hover {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #bd7040;
-}
-
-.favorite-box h2 {
-    color: #76552f;
-    font-size: 30px;
-    margin: 8px 0 10px;
-}
-
-.favorite-box > p {
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 22px;
-}
-
-.favorite-section {
-    margin-top: 24px;
-    text-align: left;
-}
-
-.favorite-section h3 {
-    color: #76552f;
-    font-size: 21px;
-
-    margin-bottom: 12px;
-
-    padding-bottom: 7px;
-
-    border-bottom:
-        2px dashed #dfc58e;
-}
-
-.favorite-items {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 10px;
-}
-
-.favorite-item {
-    background: white;
-
-    border:
-        2px solid #ead7a8;
-
-    border-radius: 18px;
-
-    padding: 13px 10px;
-
-    font-size: 15px;
-
-    line-height: 1.4;
-
-    text-align: center;
-}
-
-.favorite-item span {
-    display: block;
-
-    font-size: 30px;
-
-    margin-bottom: 5px;
-}
-
-.favorite-footer {
-    margin-top: 28px;
-
-    padding-top: 18px;
-
-    color: #806b56;
-
-    font-size: 15px;
-
-    line-height: 1.6;
-
-    border-top:
-        2px dashed #dfc58e;
-}
-
-
-/* =========================
-   VIDEO
-========================= */
-
-.what-i-know-video {
-    width: 100%;
-    max-height: 500px;
-
-    display: block;
-
-    border-radius: 20px;
-
-    border: 4px solid #ead7a8;
-
-    background: #000;
-
-    box-shadow:
-        0 6px 15px rgba(91,70,54,.2);
-
-    margin-top: 15px;
-}
-
-
-/* =========================
-   GALLERY POPUP
-========================= */
-
-.gallery-overlay {
-    display: none;
-
-    position: fixed;
-    inset: 0;
-
-    background: rgba(52, 39, 27, .82);
-
-    z-index: 1000;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 20px;
-
-    overflow-y: auto;
-}
-
-.gallery-box {
-    width: min(1000px, 100%);
-    max-height: 92vh;
-
-    background:
-        linear-gradient(
-            rgba(255,249,233,.98),
-            rgba(255,253,246,.98)
-        );
-
-    border-radius: 30px;
-
-    border: 5px solid #d6ae6d;
-
-    box-shadow:
-        0 15px 45px rgba(0,0,0,.35);
-
-    padding: 25px;
-
-    position: relative;
-
-    overflow-y: auto;
-}
-
-.gallery-close {
-    position: absolute;
-
-    top: 12px;
-    right: 15px;
-
-    width: 42px;
-    height: 42px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: #e89b58;
-    color: white;
-
-    font-size: 22px;
-    font-weight: bold;
-
-    cursor: pointer;
-
-    box-shadow: 0 4px 0 #bd7040;
-}
-
-.gallery-close:hover {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 #bd7040;
-}
-
-.gallery-decorations {
-    font-size: 35px;
-    margin-bottom: 5px;
-}
-
-.gallery-box h2 {
-    margin: 5px 0;
-    color: #76552f;
-    font-size: 30px;
-}
-
-.gallery-box > p {
-    margin-top: 5px;
-    margin-bottom: 22px;
-}
-
-.gallery-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 230px;
-
-    object-fit: cover;
-
-    border-radius: 20px;
-
-    border: 5px solid #ead7a8;
-
-    background: #fffdf6;
-
-    box-shadow:
-        0 5px 12px rgba(91,70,54,.18);
-
-    cursor: pointer;
-
-    transition: .25s;
-}
-
-.gallery-grid img:hover {
-    transform: scale(1.03) rotate(-1deg);
-
-    box-shadow:
-        0 8px 20px rgba(91,70,54,.28);
-}
-
-.gallery-note {
-    margin-top: 22px !important;
-    margin-bottom: 0 !important;
-    color: #806b56;
-    font-size: 15px;
-}
-
-
-/* =========================
-   FULL PHOTO VIEWER
-========================= */
-
-.photo-viewer {
-    display: none;
-
-    position: fixed;
-    inset: 0;
-
-    background: rgba(0,0,0,.92);
-
-    z-index: 2000;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 25px;
-
-    cursor: pointer;
-}
-
-.photo-viewer img {
-    max-width: 95vw;
-    max-height: 90vh;
-
-    object-fit: contain;
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 10px 40px rgba(0,0,0,.5);
-
-    cursor: default;
-}
-
-.viewer-close {
-    position: absolute;
-
-    top: 20px;
-    right: 25px;
-
-    width: 45px;
-    height: 45px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background: white;
-    color: #5b4636;
-
-    font-size: 24px;
-    font-weight: bold;
-
-    cursor: pointer;
-}
-
 
 /* =========================
    MAMA'S LETTER
 ========================= */
 
-.letter {
-    max-width: 900px;
-    margin: 45px auto 0;
-
-    background: #fffdf6;
-
-    padding: 35px;
-
-    border-radius: 25px;
-
-    border: 3px dashed #d6ae6d;
-
+.letter-section{
+    margin-top:45px;
+    background:#fffaf0;
+    border-radius:25px;
+    padding:30px 25px;
     box-shadow:
-        0 8px 20px rgba(91,70,54,.1);
-
-    text-align: left;
-
-    overflow: hidden;
+        0 6px 20px rgba(96,70,43,.15);
+    border:2px solid #ead7b4;
 }
 
-.letter h2 {
-    text-align: center;
-    color: #76552f;
-    margin-top: 0;
+.letter-section h2{
+    text-align:center;
+    color:#704b2a;
 }
 
-.letter-photo {
-    width: 210px;
-    height: 210px;
-
-    object-fit: cover;
-
-    border-radius: 25px;
-
-    border: 7px solid #d6ae6d;
-
-    box-shadow:
-        0 6px 15px rgba(91,70,54,.2);
-
-    float: left;
-
-    margin: 5px 25px 15px 0;
+.letter-photo{
+    display:block;
+    width:180px;
+    height:180px;
+    object-fit:cover;
+    border-radius:50%;
+    margin:20px auto;
+    border:6px solid #ead7b4;
 }
 
-.letter p {
-    line-height: 1.8;
-    font-size: 17px;
+.letter-text{
+    line-height:1.8;
+    font-size:1.05rem;
 }
 
-.letter::after {
-    content: "";
-    display: block;
-    clear: both;
+.book-footer{
+    text-align:center;
+    margin-top:35px;
+    color:#806b56;
 }
-
 
 /* =========================
-   FOOTER + BACK BUTTON
+   OVERLAYS
 ========================= */
 
-footer {
-    margin-top: 45px;
-    font-size: 16px;
-    color: #806b56;
+.overlay{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(54,39,24,.75);
+    z-index:100;
+    padding:20px;
+    overflow-y:auto;
 }
 
-.back-btn {
-    margin-top: 35px;
-
-    border: none;
-
-    background: #91ad70;
-
-    color: white;
-
-    padding: 13px 25px;
-
-    border-radius: 30px;
-
-    font-size: 16px;
-
-    cursor: pointer;
+.popup{
+    max-width:950px;
+    margin:30px auto;
+    background:#fffaf0;
+    border-radius:25px;
+    padding:30px 22px 40px;
+    position:relative;
+    box-shadow:
+        0 10px 40px rgba(0,0,0,.3);
 }
 
+.close-btn{
+    position:absolute;
+    right:15px;
+    top:10px;
+    border:none;
+    background:#d88b35;
+    color:white;
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    font-size:1.3rem;
+    cursor:pointer;
+}
+
+.popup h2{
+    text-align:center;
+    color:#704b2a;
+    margin-top:5px;
+    margin-bottom:25px;
+}
+
+.favorite-section{
+    margin:20px 0;
+    padding:18px;
+    background:#fff7e8;
+    border-radius:18px;
+    border:1px solid #ead7b4;
+}
+
+.favorite-section h3{
+    color:#79512e;
+    margin-top:0;
+}
+
+.favorite-section ul{
+    line-height:1.8;
+    padding-left:25px;
+}
+
+.favorite-section p{
+    color:#806b56;
+}
+
+/* =========================
+   VIDEOS
+========================= */
+
+.what-i-know-video{
+    width:100%;
+    max-width:720px;
+    display:block;
+    margin:18px auto;
+    border-radius:18px;
+    box-shadow:
+        0 5px 18px rgba(0,0,0,.18);
+    background:#000;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(150px,1fr));
+    gap:12px;
+}
+
+.gallery-grid img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:15px;
+    cursor:pointer;
+    border:3px solid #ead7b4;
+    transition:.2s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* =========================
+   PHOTO VIEWER
+========================= */
+
+#photoViewer{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.9);
+    z-index:300;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+#photoViewer img{
+    max-width:95%;
+    max-height:90vh;
+    object-fit:contain;
+    border-radius:12px;
+}
+
+.viewer-close{
+    position:absolute;
+    right:20px;
+    top:15px;
+    color:white;
+    font-size:2rem;
+    cursor:pointer;
+}
 
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 700px) {
+@media(max-width:600px){
 
-    .safari-animal {
-        font-size: 38px;
+    .cover-content h1{
+        font-size:2.2rem;
     }
 
-    .floating-animal {
-        font-size: 28px;
+    .cover-content h2{
+        font-size:1.3rem;
     }
 
-    .leaf {
-        font-size: 30px;
+    .cover-photo{
+        width:150px;
+        height:150px;
     }
 
-    .balloon {
-        font-size: 32px;
+    #memoryBook{
+        padding:30px 14px 50px;
     }
 
-    .photo-frame {
-        width: 240px;
-        height: 240px;
+    .popup{
+        padding:25px 15px 35px;
+        margin:15px auto;
     }
 
-    .birthday-title {
-        font-size: 22px;
+    .memory-grid{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
     }
 
-    .section-title {
-        font-size: 28px;
+    .memory-card{
+        padding:18px 10px;
     }
 
-    .letter {
-        padding: 22px;
+    .memory-card .icon{
+        font-size:2.3rem;
     }
 
-    .letter-photo {
-        width: 145px;
-        height: 145px;
-        margin-right: 18px;
+    .memory-card h3{
+        font-size:1rem;
     }
 
-    .letter p {
-        font-size: 16px;
-        line-height: 1.7;
+    .memory-card p{
+        font-size:.85rem;
     }
 
-    .favorite-box {
-        padding: 25px 18px;
-        max-height: 88vh;
+    .letter-section{
+        padding:25px 18px;
     }
 
-    .favorite-box h2 {
-        font-size: 26px;
+    .letter-text{
+        font-size:.98rem;
     }
 
-    .favorite-items {
-        grid-template-columns: 1fr;
-    }
-
-    .what-i-know-video {
-        max-height: 350px;
-        border-width: 3px;
-    }
-
-    .gallery-box {
-        padding: 20px 15px;
-        border-radius: 25px;
-    }
-
-    .gallery-box h2 {
-        font-size: 25px;
-        padding: 0 35px;
-    }
-
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-
-    .gallery-grid img {
-        height: 180px;
-        border-width: 4px;
-        border-radius: 15px;
-    }
-
-    .gallery-decorations {
-        font-size: 28px;
-    }
-}
-
-@media (max-width: 400px) {
-
-    .gallery-grid img {
-        height: 150px;
-    }
-
-    .gallery-box {
-        padding: 18px 10px;
-    }
 }
 
 </style>
+
 </head>
 
 <body>
 
-<!-- =========================
-     FIRST COVER
-========================= -->
 
-<section class="cover" id="cover">
+<!-- ==================================================
+     COVER
+================================================== -->
+
+<section id="cover">
 
     <div class="leaf leaf1">🌿</div>
     <div class="leaf leaf2">🍃</div>
-    <div class="leaf leaf3">🌿</div>
-    <div class="leaf leaf4">🍃</div>
+    <div class="leaf leaf3">🌴</div>
+    <div class="leaf leaf4">🌿</div>
 
-    <div class="safari-animal lion">🦁</div>
-    <div class="safari-animal elephant">🐘</div>
-    <div class="safari-animal giraffe">🦒</div>
-    <div class="safari-animal monkey">🐒</div>
-
-    <div class="floating-animal animal1">🦓</div>
-    <div class="floating-animal animal2">🦜</div>
-
-    <div class="balloon balloon1">🎈</div>
-    <div class="balloon balloon2">🎈</div>
-
-    <div class="animals">
-        🦁 🐘 🦒 🐒
-    </div>
-
-    <div class="welcome-text">
-        WELCOME TO
-    </div>
-
-    <h1>
-        Orion's<br>
-        Little Safari
-    </h1>
-
-    <div class="subtitle">
-        🌿 A little collection of big memories 🌿
-    </div>
-
-    <div class="photo-frame">
+    <div class="cover-content">
 
         <img
             src="701312354_1512336296938135_1169129443103858509_n.jpg"
+            class="cover-photo"
             alt="Orion"
         >
 
+        <h1>
+            Orion's Little Safari
+        </h1>
+
+        <h2>
+            🎂 ORION TURNS TWO! 🎂
+        </h2>
+
+        <p>
+            A little memory book filled with
+            love, learning, laughter, and adventures. 🦁💛
+        </p>
+
+        <button
+            class="enter-btn"
+            onclick="enterWorld()"
+        >
+            🌿 Enter Orion's Safari
+        </button>
+
     </div>
-
-    <h2 class="birthday-title">
-        🎂 ORION TURNS TWO! 🎂
-    </h2>
-
-    <button
-        class="enter-btn"
-        onclick="enterWorld()"
-    >
-        🌿 Enter Orion's World 🐾
-    </button>
 
 </section>
 
 
-<!-- =========================
-     SECOND PAGE
-========================= -->
+<!-- ==================================================
+     MEMORY BOOK
+================================================== -->
 
 <section id="memoryBook">
 
-    <div class="inside-animal inside-lion">🦁</div>
-    <div class="inside-animal inside-giraffe">🦒</div>
-    <div class="inside-animal inside-elephant">🐘</div>
-    <div class="inside-animal inside-monkey">🐒</div>
+<div class="book-container">
 
-    <div class="inside-content">
+    <h1 class="book-title">
+        🦁 Welcome to Orion's Little Safari 🦁
+    </h1>
 
-        <div style="font-size:48px;">
-            🦁🌿🎈🌿🦒
+    <p class="book-subtitle">
+        A keepsake of my little boy at age two. 💛
+    </p>
+
+
+    <!-- MEMORY CARDS -->
+
+    <div class="memory-grid">
+
+
+        <!-- GALLERY -->
+
+        <div
+            class="memory-card"
+            onclick="openGallery()"
+        >
+
+            <div class="icon">
+                📸
+            </div>
+
+            <h3>
+                My Little Gallery
+            </h3>
+
+            <p>
+                Little moments Mama wants
+                to remember forever.
+            </p>
+
         </div>
 
-        <h2 class="section-title">
-            Welcome to Orion's World! 💛
+
+        <!-- FAVORITE THINGS -->
+
+        <div
+            class="memory-card"
+            onclick="openFavoriteThings()"
+        >
+
+            <div class="icon">
+                🧸
+            </div>
+
+            <h3>
+                My Favorite Things
+            </h3>
+
+            <p>
+                The toys, animals, books,
+                songs, and little things I love.
+            </p>
+
+        </div>
+
+
+        <!-- LITTLE WORDS -->
+
+        <div
+            class="memory-card"
+            onclick="openLittleWords()"
+        >
+
+            <div class="icon">
+                💬
+            </div>
+
+            <h3>
+                My Little Words
+            </h3>
+
+            <p>
+                The funny and precious words
+                Orion says at age two.
+            </p>
+
+        </div>
+
+
+        <!-- ANIMAL SOUNDS -->
+
+        <div
+            class="memory-card"
+            onclick="
+                alert(
+                    '🦁 Rawr! 🐑 Baba! 🐶 Woof! 🐱 Meow!\\n\\nOrion loves animals and enjoys learning their sounds. 💛'
+                )
+            "
+        >
+
+            <div class="icon">
+                🦁
+            </div>
+
+            <h3>
+                Animal Sounds
+            </h3>
+
+            <p>
+                Rawr, baba, and all the
+                little animal sounds I love.
+            </p>
+
+        </div>
+
+
+        <!-- FUNNY ORION -->
+
+        <div
+            class="memory-card"
+            onclick="
+                alert(
+                    '😂 Little Orion has so many funny habits, sounds, expressions, and adorable little ways of doing things. Mama wants to remember them all!'
+                )
+            "
+        >
+
+            <div class="icon">
+                😂
+            </div>
+
+            <h3>
+                Funny Little Orion
+            </h3>
+
+            <p>
+                The little habits and moments
+                that make Mama smile.
+            </p>
+
+        </div>
+
+
+        <!-- WHAT I KNOW -->
+
+        <div
+            class="memory-card"
+            onclick="openWhatIKnow()"
+        >
+
+            <div class="icon">
+                🧠
+            </div>
+
+            <h3>
+                What I Know at Two
+            </h3>
+
+            <p>
+                Colors, shapes, animals,
+                fruits, body parts, and more.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         MAMA'S LETTER
+    ================================================== -->
+
+    <div class="letter-section">
+
+        <h2>
+            💌 A Letter From Mama
         </h2>
 
-        <p class="intro">
-            Two years of little adventures, funny moments,
-            new words, favorite things, big hugs, and so much love.
-            Come explore Orion's little safari! 🐾
-        </p>
+        <img
+            src="mama and orion.jpg"
+            class="letter-photo"
+            alt="Mama and Orion"
+        >
 
-
-        <!-- MEMORY CARDS -->
-
-        <div class="cards">
-
-            <!-- GALLERY CARD -->
-
-            <div
-                class="card"
-                onclick="openGallery()"
-            >
-
-                <div class="card-icon">
-                    📸
-                </div>
-
-                <h3>
-                    My Little Gallery
-                </h3>
-
-                <p>
-                    My favorite moments and memories.
-                </p>
-
-            </div>
-
-
-            <!-- FAVORITE THINGS -->
-
-            <div
-                class="card"
-                onclick="openFavoriteThings()"
-            >
-
-                <div class="card-icon">
-                    🧸
-                </div>
-
-                <h3>
-                    My Favorite Things
-                </h3>
-
-                <p>
-                    The things that make Orion excited.
-                </p>
-
-            </div>
-
-
-            <!-- LITTLE WORDS -->
-
-            <div
-                class="card"
-                onclick="openLittleWords()"
-            >
-
-                <div class="card-icon">
-                    🗣️
-                </div>
-
-                <h3>
-                    My Little Words
-                </h3>
-
-                <p>
-                    Orion's very own little words.
-                </p>
-
-            </div>
-
-
-            <!-- ANIMAL SOUNDS -->
-
-            <div
-                class="card"
-                onclick="alert('🦁 Rawr! 🐑 Baba! 🐶 Aw aw! Orion loves animals!')"
-            >
-
-                <div class="card-icon">
-                    🦁
-                </div>
-
-                <h3>
-                    Animal Sounds
-                </h3>
-
-                <p>
-                    Listen... can you hear Orion's animals?
-                </p>
-
-            </div>
-
-
-            <!-- FUNNY ORION -->
-
-            <div
-                class="card"
-                onclick="alert('😂 Bringing his bottle, helping clean, pulling Mama to his books, and all his other funny little habits!')"
-            >
-
-                <div class="card-icon">
-                    😂
-                </div>
-
-                <h3>
-                    Funny Little Orion
-                </h3>
-
-                <p>
-                    The little things that make Mama laugh.
-                </p>
-
-            </div>
-
-
-            <!-- WHAT I KNOW -->
-
-            <div
-                class="card"
-                onclick="openWhatIKnow()"
-            >
-
-                <div class="card-icon">
-                    📚
-                </div>
-
-                <h3>
-                    What I Know at Two
-                </h3>
-
-                <p>
-                    All the wonderful things Orion is learning.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================
-             MAMA'S LETTER
-        ========================= -->
-
-        <div class="letter">
-
-            <h2>
-                💌 A Letter From Mama
-            </h2>
-
-            <img
-                src="mama and orion.jpg"
-                alt="Mama and Orion"
-                class="letter-photo"
-            >
+        <div class="letter-text">
 
             <p>
-                Dear Orion,
+                My dearest Orion,
             </p>
 
             <p>
-                Happy 2nd birthday, my baby. ❤️
+                Today you are almost two years old,
+                and Mama still finds it hard to believe
+                how quickly the days have passed.
             </p>
 
             <p>
-                As I write this, you are turning two years old.
-                You are still so little, but somehow, you have already
-                filled my life with so many memories that I know I will
-                carry with me forever.
+                You have grown from my tiny baby into
+                this curious, clever, funny little boy
+                who loves animals, books, cars, buses,
+                trains, colors, songs, and learning new things.
             </p>
 
             <p>
-                One day, you will be old enough to read this letter.
-                You might look at your two-year-old pictures and laugh
-                at your tiny face, your little clothes, and all the things
-                you used to do. You may not remember these days, so Mama
-                wants to remember them for you.
+                I love watching the way you remember things,
+                the way you point at pictures, the way you
+                bring books to me, and the way you celebrate
+                when you learn something new.
             </p>
 
             <p>
-                At two years old, you love animals. You love looking at
-                animal cards and books, making animal sounds, and saying
-                “rawr” like a little lion. You love cars, buses, trains,
-                balloons, and your picture books. You even have your own
-                little study time. You pull Mama toward your books when
-                you want to read, and you get upset when our little lesson
-                is interrupted. You are always curious and eager to learn.
+                There are days when Mama has to work,
+                and I wish I could spend every single moment
+                beside you. But please always remember this:
+                Mama works because I love you and want to give
+                you a good life.
             </p>
 
             <p>
-                You may not have many words yet, but you have always found
-                your own ways to communicate with me. You say “mama,”
-                “papa,” “lala,” “lolo,” “tata,” “nene,” and your own little
-                words for the things and people you love. Sometimes you
-                call us with your little “maaa,” “taaa,” “laaaa,” or
-                “loooo,” and Mama knows exactly what you mean.
+                Working does not mean I love you any less.
+                Every effort I make is also an expression of
+                my love for you.
             </p>
 
             <p>
-                You remember so many little things. You know where your
-                things belong. You help clean your toys. You know the broom.
-                You bring things to Mama. You even know little routines that
-                I sometimes forget you are watching.
+                I hope that when you are older and read this,
+                you will know just how deeply you were loved
+                from the very beginning.
             </p>
 
             <p>
-                You are watching everything, my love.
+                You are one of the greatest gifts of my life,
+                Orion.
             </p>
 
             <p>
-                You are learning from the world around you every single day,
-                and Mama hopes that as you grow, you will always keep that
-                curiosity and kindness inside you.
-            </p>
-
-            <p>
-                I want you to know something very important, Orion.
-            </p>
-
-            <p>
-                You have always been loved.
-            </p>
-
-            <p>
-                Even during the days when Mama was tired. Even during the
-                days when Mama had to work. Even when I couldn't spend as
-                much time with you as I wanted. None of those moments ever
-                meant that I loved you less.
-            </p>
-
-            <p>
-                Mama worked because I wanted to give you a good life.
-                I wanted you to have the things you needed, to learn,
-                to explore, to dream, and to grow up knowing that you
-                were worth fighting for.
-            </p>
-
-            <p>
-                If you ever wonder whether Mama loved you enough when you
-                were little, I hope you will look at these memories and
-                know the answer.
-            </p>
-
-            <p>
-                I loved you more than you could understand.
-            </p>
-
-            <p>
-                You were my little boy who loved books, animals, cars,
-                and “rawr.” You were the little boy who brought things
-                to Mama, who reached for hugs, who smiled when we clapped
-                and praised you, and who made ordinary days feel special.
-            </p>
-
-            <p>
-                And even though you were only two, you had already taught
-                Mama so much.
-            </p>
-
-            <p>
-                You taught me patience.<br>
-                You taught me strength.<br>
-                You taught me that the smallest moments can become the
-                biggest memories.
-            </p>
-
-            <p>
-                I hope that when you read this someday, you will know that
-                you were never a burden to Mama. You were never something
-                that stopped my life.
-            </p>
-
-            <p>
-                You were one of the reasons I kept going.
-            </p>
-
-            <p>
-                I hope you grow up kind. I hope you respect people.
-                I hope you are brave enough to chase what makes you happy.
-                I hope you never feel ashamed of asking for help, and I
-                hope you always remember where you came from.
-            </p>
-
-            <p>
-                Most of all, I hope you know that you don't have to be
-                perfect for Mama to be proud of you.
-            </p>
-
-            <p>
-                I will be proud of you simply because you are my Orion.
-            </p>
-
-            <p>
-                Today, you are two.
-            </p>
-
-            <p>
-                But someday, you'll be ten, fifteen, twenty, or even older.
-                You may have dreams that Mama can't even imagine yet.
-                You may have your own friends, your own adventures, and
-                your own life.
-            </p>
-
-            <p>
-                And that's okay.
-            </p>
-
-            <p>
-                Mama doesn't want to keep you little forever.
-            </p>
-
-            <p>
-                I just wish I could freeze this little version of you
-                for a moment—the little boy who loves animals, books,
-                cars, and Mama's hugs.
-            </p>
-
-            <p>
-                So if you're reading this many years from now, please
-                remember this:
-            </p>
-
-            <p>
-                Before you were old enough to remember these days,
-                Mama was already making memories of you.
-            </p>
-
-            <p>
-                Before you understood what love meant, you were already
-                loved more than you could ever know.
-            </p>
-
-            <p>
-                And no matter how old you become, no matter where life
-                takes you, you will always be my little boy.
-            </p>
-
-            <p>
-                You were loved at two.
-            </p>
-
-            <p>
-                You are loved now.
-            </p>
-
-            <p>
-                And you always will be.
-            </p>
-
-            <p>
-                Happy 2nd birthday, Orion.
+                Happy 2nd birthday, my little safari boy.
+                🦁🌿💛
             </p>
 
             <p>
                 Love always,
-            </p>
-
-            <p style="text-align:right;">
-                <strong>Mama ❤️</strong>
+                <br>
+                Mama
             </p>
 
         </div>
 
-
-        <footer>
-            🐾 Made with love by Mama for Orion's 2nd Birthday 🐾
-        </footer>
+    </div>
 
 
-        <button
-            class="back-btn"
-            onclick="goBack()"
-        >
-            ← Back to Cover
-        </button>
+    <div class="book-footer">
+
+        Made with all of Mama's love for Orion. 💛🌿🦁
 
     </div>
+
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- ==================================================
      FAVORITE THINGS POPUP
-========================= -->
+================================================== -->
 
 <div
     id="favoriteOverlay"
-    class="favorite-overlay"
-    onclick="closeFavoriteBackground(event)"
+    class="overlay"
 >
 
-    <div
-        class="favorite-box"
-        onclick="event.stopPropagation()"
+<div class="popup">
+
+    <button
+        class="close-btn"
+        onclick="closeFavoriteThings()"
     >
+        ×
+    </button>
 
-        <button
-            class="favorite-close"
-            onclick="closeFavoriteThings()"
-        >
-            ✕
-        </button>
+    <h2>
+        🧸 My Favorite Things
+    </h2>
 
-        <div style="font-size:45px;">
-            🧸🦁🌿🎈
-        </div>
 
-        <h2>
-            🧸 My Favorite Things
-        </h2>
+    <div class="favorite-section">
 
-        <p>
-            The little things that made Orion smile, curious,
-            excited, and ready to explore the world at age two. 💛
-        </p>
+        <h3>
+            🚗 Vehicles & Things That Go
+        </h3>
 
+        <ul>
+            <li>Cars</li>
+            <li>Buses</li>
+            <li>Trains</li>
+            <li>Motorcycles — “boom boom”</li>
+            <li>Wheels & things that move</li>
+        </ul>
 
-        <div class="favorite-section">
+    </div>
 
-            <h3>
-                🚗 Vehicles & Things That Go
-            </h3>
 
-            <div class="favorite-items">
+    <div class="favorite-section">
 
-                <div class="favorite-item">
-                    <span>🚗</span>
-                    Cars
-                </div>
+        <h3>
+            🦁 Animals
+        </h3>
 
-                <div class="favorite-item">
-                    <span>🚌</span>
-                    Buses
-                </div>
+        <ul>
+            <li>Lions & “rawr!”</li>
+            <li>Animal cards</li>
+            <li>Looking at different animals</li>
+            <li>Learning animal sounds</li>
+            <li>Animals in books</li>
+        </ul>
 
-                <div class="favorite-item">
-                    <span>🚂</span>
-                    Trains
-                </div>
+    </div>
 
-                <div class="favorite-item">
-                    <span>🏍️</span>
-                    Motorcycles — “boom boom”
-                </div>
 
-                <div class="favorite-item">
-                    <span>🛞</span>
-                    Wheels & Things That Move
-                </div>
+    <div class="favorite-section">
 
-            </div>
+        <h3>
+            📚 Books & Picture Time
+        </h3>
 
-        </div>
+        <ul>
+            <li>Picture books</li>
+            <li>Animal books</li>
+            <li>Bringing books to Mama</li>
+            <li>Picture charts</li>
+            <li>Looking through pages</li>
+        </ul>
 
+    </div>
 
-        <div class="favorite-section">
 
-            <h3>
-                🦁 Animals
-            </h3>
+    <div class="favorite-section">
 
-            <div class="favorite-items">
+        <h3>
+            🎵 Songs & Sounds
+        </h3>
 
-                <div class="favorite-item">
-                    <span>🦁</span>
-                    Lions & “rawr!”
-                </div>
+        <ul>
+            <li>Wheels on the Bus</li>
+            <li>Animal sounds</li>
+            <li>Making little sounds</li>
+            <li>Practicing little words</li>
+        </ul>
 
-                <div class="favorite-item">
-                    <span>🃏</span>
-                    Animal Cards
-                </div>
+    </div>
 
-                <div class="favorite-item">
-                    <span>🐾</span>
-                    Looking at Different Animals
-                </div>
 
-                <div class="favorite-item">
-                    <span>🐶</span>
-                    Learning Animal Sounds
-                </div>
+    <div class="favorite-section">
 
-                <div class="favorite-item">
-                    <span>📖</span>
-                    Animals in Books
-                </div>
+        <h3>
+            🎈 Fun Little Things
+        </h3>
 
-            </div>
+        <ul>
+            <li>Balloons</li>
+            <li>His toys</li>
+            <li>LCD writing tablet</li>
+            <li>Looking at pictures</li>
+        </ul>
 
-        </div>
+    </div>
 
 
-        <div class="favorite-section">
+    <div class="favorite-section">
 
-            <h3>
-                📚 Books & Picture Time
-            </h3>
+        <h3>
+            🧹 Helping Mama
+        </h3>
 
-            <div class="favorite-items">
+        <ul>
+            <li>Sweeping with Mama</li>
+            <li>Putting toys away</li>
+            <li>Helping with trash</li>
+            <li>Bringing things to Mama</li>
+        </ul>
 
-                <div class="favorite-item">
-                    <span>📚</span>
-                    Picture Books
-                </div>
+    </div>
 
-                <div class="favorite-item">
-                    <span>🦁</span>
-                    Animal Books
-                </div>
 
-                <div class="favorite-item">
-                    <span>👩‍👦</span>
-                    Bringing Books to Mama
-                </div>
+    <div class="favorite-section">
 
-                <div class="favorite-item">
-                    <span>🖼️</span>
-                    Picture Charts
-                </div>
+        <h3>
+            💛 Mama Time
+        </h3>
 
-                <div class="favorite-item">
-                    <span>📖</span>
-                    Looking Through Pages
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="favorite-section">
-
-            <h3>
-                🎶 Songs & Sounds
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🚌</span>
-                    Wheels on the Bus
-                </div>
-
-                <div class="favorite-item">
-                    <span>🐾</span>
-                    Animal Sounds
-                </div>
-
-                <div class="favorite-item">
-                    <span>🎵</span>
-                    Making Little Sounds
-                </div>
-
-                <div class="favorite-item">
-                    <span>🗣️</span>
-                    Practicing Little Words
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="favorite-section">
-
-            <h3>
-                🎈 Fun Little Things
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🎈</span>
-                    Balloons
-                </div>
-
-                <div class="favorite-item">
-                    <span>🧸</span>
-                    His Toys
-                </div>
-
-                <div class="favorite-item">
-                    <span>📱</span>
-                    His LCD Writing Tablet
-                </div>
-
-                <div class="favorite-item">
-                    <span>🖼️</span>
-                    Looking at Pictures
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="favorite-section">
-
-            <h3>
-                🧹 Helping Mama
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🧹</span>
-                    Sweeping with Mama
-                </div>
-
-                <div class="favorite-item">
-                    <span>🧸</span>
-                    Putting Toys Away
-                </div>
-
-                <div class="favorite-item">
-                    <span>🗑️</span>
-                    Helping with the Trash
-                </div>
-
-                <div class="favorite-item">
-                    <span>🤲</span>
-                    Bringing Things to Mama
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="favorite-section">
-
-            <h3>
-                🤗 Mama Time
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🤗</span>
-                    Mama's Hugs
-                </div>
-
-                <div class="favorite-item">
-                    <span>👏</span>
-                    Mama's Praise
-                </div>
-
-                <div class="favorite-item">
-                    <span>📚</span>
-                    Reading Together
-                </div>
-
-                <div class="favorite-item">
-                    <span>📖</span>
-                    Little Study Time
-                </div>
-
-                <div class="favorite-item">
-                    <span>❤️</span>
-                    Spending Time with Mama
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <p class="favorite-footer">
-            These are the little things that made Orion smile,
-            curious, excited, and ready to explore the world
-            at age two. 🌿🦁💛
-        </p>
+        <ul>
+            <li>Mama's hugs</li>
+            <li>Mama's praise</li>
+            <li>Reading together</li>
+            <li>Little study time</li>
+            <li>Spending time with Mama</li>
+        </ul>
 
     </div>
 
 </div>
 
+</div>
 
-<!-- =========================
+
+<!-- ==================================================
      LITTLE WORDS POPUP
-========================= -->
+================================================== -->
 
 <div
     id="littleWordsOverlay"
-    class="favorite-overlay"
-    onclick="closeLittleWordsBackground(event)"
+    class="overlay"
 >
 
-    <div
-        class="favorite-box"
-        onclick="event.stopPropagation()"
+<div class="popup">
+
+    <button
+        class="close-btn"
+        onclick="closeLittleWords()"
     >
+        ×
+    </button>
 
-        <button
-            class="favorite-close"
-            onclick="closeLittleWords()"
-        >
-            ✕
-        </button>
+    <h2>
+        💬 My Little Words
+    </h2>
 
-        <div style="font-size:45px;">
-            🗣️🦁🌿💛
-        </div>
 
-        <h2>
-            🗣️ Orion's Little Words
-        </h2>
+    <div class="favorite-section">
+
+        <h3>
+            👨‍👩‍👦 People
+        </h3>
+
+        <ul>
+            <li>Mama</li>
+            <li>Papa</li>
+            <li>Lala = Lola</li>
+            <li>Lolo</li>
+            <li>Tata = Tita</li>
+            <li>Nene</li>
+            <li>Tate = Ate</li>
+        </ul>
+
+    </div>
+
+
+    <div class="favorite-section">
+
+        <h3>
+            🍼 Everyday Words
+        </h3>
+
+        <ul>
+            <li>Tete = Milk</li>
+            <li>Baba = Sheep</li>
+            <li>Ba-ba / Buh-buh = Ball</li>
+            <li>Ba-na-na / Na-na = Banana</li>
+            <li>Boom boom = Motorcycle</li>
+        </ul>
+
+    </div>
+
+
+    <div class="favorite-section">
+
+        <h3>
+            🦁 Funny Little Sounds
+        </h3>
+
+        <ul>
+            <li>Rawr = Lion</li>
+            <li>Maaa</li>
+            <li>Taaa</li>
+            <li>Laaaa</li>
+            <li>Loooo</li>
+        </ul>
 
         <p>
-            Orion's very own little words — tiny sounds and names
-            that became such a big part of Mama's everyday life. 💛
+            These little sounds are some of Mama's
+            favorite memories of you. 💛
         </p>
 
-
-        <!-- PEOPLE HE LOVES -->
-
-        <div class="favorite-section">
-
-            <h3>
-                👩‍👦 The People He Loves
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>👩</span>
-                    <strong>Mama</strong>
-                    <br>
-                    Mama ❤️
-                </div>
-
-                <div class="favorite-item">
-                    <span>👨</span>
-                    <strong>Papa</strong>
-                    <br>
-                    Papa
-                </div>
-
-                <div class="favorite-item">
-                    <span>👵</span>
-                    <strong>Lala</strong>
-                    <br>
-                    Lola
-                </div>
-
-                <div class="favorite-item">
-                    <span>👴</span>
-                    <strong>Lolo</strong>
-                    <br>
-                    Lolo
-                </div>
-
-                <div class="favorite-item">
-                    <span>👩</span>
-                    <strong>Tata</strong>
-                    <br>
-                    Tita
-                </div>
-
-                <div class="favorite-item">
-                    <span>👩</span>
-                    <strong>Nene</strong>
-                    <br>
-                    Nene
-                </div>
-
-                <div class="favorite-item">
-                    <span>👧</span>
-                    <strong>Tate</strong>
-                    <br>
-                    Ate
-                </div>
-
-            </div>
-
-        </div>
+    </div>
 
 
-        <!-- EVERYDAY WORDS -->
+    <div class="favorite-section">
 
-        <div class="favorite-section">
+        <h3>
+            💛 Mama's Favorite Part
+        </h3>
 
-            <h3>
-                🍼 Little Everyday Words
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🍼</span>
-                    <strong>Tete</strong>
-                    <br>
-                    Milk
-                </div>
-
-                <div class="favorite-item">
-                    <span>🐑</span>
-                    <strong>Baba</strong>
-                    <br>
-                    Sheep
-                </div>
-
-                <div class="favorite-item">
-                    <span>⚽</span>
-                    <strong>Ba-ba / Buh-buh</strong>
-                    <br>
-                    Ball
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍌</span>
-                    <strong>Ba-na-na / Na-na</strong>
-                    <br>
-                    Banana
-                </div>
-
-                <div class="favorite-item">
-                    <span>🏍️</span>
-                    <strong>Boom boom</strong>
-                    <br>
-                    Motorcycle
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- FUNNY SOUNDS -->
-
-        <div class="favorite-section">
-
-            <h3>
-                🦁 Orion's Funny Little Sounds
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🦁</span>
-                    <strong>Rawr!</strong>
-                    <br>
-                    Lion
-                </div>
-
-                <div class="favorite-item">
-                    <span>💛</span>
-                    <strong>Maaa</strong>
-                    <br>
-                    One of Orion's little calling sounds
-                </div>
-
-                <div class="favorite-item">
-                    <span>💛</span>
-                    <strong>Taaa</strong>
-                    <br>
-                    One of Orion's little calling sounds
-                </div>
-
-                <div class="favorite-item">
-                    <span>💛</span>
-                    <strong>Laaaa</strong>
-                    <br>
-                    One of Orion's little calling sounds
-                </div>
-
-                <div class="favorite-item">
-                    <span>💛</span>
-                    <strong>Loooo</strong>
-                    <br>
-                    One of Orion's little calling sounds
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- MAMA'S FAVORITE PART -->
-
-        <div class="favorite-section">
-
-            <h3>
-                💛 Mama's Favorite Part
-            </h3>
-
-            <p style="
-                text-align:center;
-                line-height:1.8;
-                font-size:1.05rem;
-                margin:10px 0;
-            ">
-                Every little word was a big milestone.
-                These were the sounds that filled Mama's days
-                with smiles, surprises, and so much love. 🥹💛
-            </p>
-
-        </div>
-
-
-        <p class="favorite-footer">
-            One day, these little words may change as Orion grows.
-            But Mama will always remember the tiny voice that first
-            filled her days with them. 🥹🦁💛
+        <p>
+            Even the smallest words are special because
+            they are yours, Orion. Mama loves hearing
+            your little voice learning how to communicate
+            with the world.
         </p>
 
     </div>
 
 </div>
 
+</div>
 
-<!-- =========================
-     WHAT I KNOW AT TWO POPUP
-========================= -->
+
+<!-- ==================================================
+     WHAT I KNOW AT TWO
+================================================== -->
 
 <div
     id="whatIKnowOverlay"
-    class="favorite-overlay"
-    onclick="closeWhatIKnowBackground(event)"
+    class="overlay"
 >
 
-    <div
-        class="favorite-box"
-        onclick="event.stopPropagation()"
+<div class="popup">
+
+    <button
+        class="close-btn"
+        onclick="closeWhatIKnow()"
     >
+        ×
+    </button>
 
-        <button
-            class="favorite-close"
-            onclick="closeWhatIKnow()"
-        >
-            ✕
-        </button>
+    <h2>
+        🧠 What I Know at Two
+    </h2>
 
-        <div style="font-size:45px;">
-            📚🦁🍎🌈
-        </div>
 
-        <h2>
-            📚 What I Know at Two
-        </h2>
+    <!-- ANIMAL CARDS VIDEO -->
 
-        <p>
-            All the wonderful things Orion is learning,
-            remembering, recognizing, and discovering. 💛
+    <div class="favorite-section">
+
+        <h3>
+            🐾 Learning Animals
+        </h3>
+
+        <p style="
+            text-align:center;
+            line-height:1.7;
+            font-size:1.05rem;
+        ">
+            Orion points to and finds the animal cards
+            he knows. 🥹🦁🐶🐱
         </p>
 
+        <video
+            id="animalCardsVideo"
+            class="what-i-know-video"
+            controls
+            playsinline
+            preload="metadata"
+        >
 
-        <!-- ANIMAL CARDS VIDEO -->
-
-        <div class="favorite-section">
-
-            <h3>
-                🦁 Finding His Animal Friends
-            </h3>
-
-            <p style="
-                text-align:center;
-                line-height:1.7;
-                font-size:1.05rem;
-            ">
-                Orion points to and finds his animal cards,
-                showing how much he remembers and loves learning
-                about animals. 🐾💛
-            </p>
-
-            <video
-                id="animalCardsVideo"
-                class="what-i-know-video"
-                controls
-                playsinline
-                preload="metadata"
+            <source
+                src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4"
+                type="video/mp4"
             >
 
-                <source
-                    src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4"
-                    type="video/mp4"
-                >
-
-                Your browser does not support the video tag.
-
-            </video>
-
-            <p style="
-                text-align:center;
-                color:#806b56;
-                font-size:14px;
-                margin-top:10px;
-            ">
-                🎥 Orion finding his animal cards. 🥹💛
-            </p>
-
-        </div>
-
-
-        <!-- COLORS -->
-
-        <div class="favorite-section">
-
-            <h3>
-                🌈 Colors I Know
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>💛</span>
-                    Yellow
-                </div>
-
-                <div class="favorite-item">
-                    <span>💙</span>
-                    Blue
-                </div>
-
-                <div class="favorite-item">
-                    <span>💚</span>
-                    Green
-                </div>
-
-                <div class="favorite-item">
-                    <span>🩷</span>
-                    Pink
-                </div>
-
-                <div class="favorite-item">
-                    <span>🖤</span>
-                    Black
-                </div>
-
-                <div class="favorite-item">
-                    <span>🤍</span>
-                    White
-                </div>
-
-                <div class="favorite-item">
-                    <span>💜</span>
-                    Purple
-                </div>
-
-                <div class="favorite-item">
-                    <span>🧡</span>
-                    Orange
-                </div>
-
-                <div class="favorite-item">
-                    <span>❤️</span>
-                    Red
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- SHAPES -->
-
-        <div class="favorite-section">
-
-            <h3>
-                🔵 Shapes I Know
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>⚪</span>
-                    Circle
-                </div>
-
-                <div class="favorite-item">
-                    <span>⬜</span>
-                    Square
-                </div>
-
-                <div class="favorite-item">
-                    <span>🔺</span>
-                    Triangle
-                </div>
-
-                <div class="favorite-item">
-                    <span>⭐</span>
-                    Different Shapes
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- FRUITS AND VEGETABLES -->
-
-        <div class="favorite-section">
-
-            <h3>
-                🍎 Fruits & Vegetables
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🍎</span>
-                    Apples
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍌</span>
-                    Bananas
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍊</span>
-                    Oranges
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍇</span>
-                    Grapes
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍉</span>
-                    Watermelon
-                </div>
-
-                <div class="favorite-item">
-                    <span>🥭</span>
-                    Mangoes
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍍</span>
-                    Pineapple
-                </div>
-
-                <div class="favorite-item">
-                    <span>🥕</span>
-                    Carrots
-                </div>
-
-                <div class="favorite-item">
-                    <span>🌽</span>
-                    Corn
-                </div>
-
-                <div class="favorite-item">
-                    <span>🥦</span>
-                    Broccoli
-                </div>
-
-                <div class="favorite-item">
-                    <span>🥔</span>
-                    Potatoes
-                </div>
-
-                <div class="favorite-item">
-                    <span>🍅</span>
-                    Tomatoes
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- BODY PARTS -->
-
-        <div class="favorite-section">
-
-            <h3>
-                👶 Body Parts I Know
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>👀</span>
-                    Eyes
-                </div>
-
-                <div class="favorite-item">
-                    <span>👃</span>
-                    Nose
-                </div>
-
-                <div class="favorite-item">
-                    <span>👄</span>
-                    Mouth
-                </div>
-
-                <div class="favorite-item">
-                    <span>👂</span>
-                    Ears
-                </div>
-
-                <div class="favorite-item">
-                    <span>✋</span>
-                    Hands
-                </div>
-
-                <div class="favorite-item">
-                    <span>🦶</span>
-                    Feet
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- PEOPLE AND MEMORY -->
-
-        <div class="favorite-section">
-
-            <h3>
-                👨‍👩‍👦 People & Pictures I Recognize
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>👩</span>
-                    Mama
-                </div>
-
-                <div class="favorite-item">
-                    <span>👨</span>
-                    Papa
-                </div>
-
-                <div class="favorite-item">
-                    <span>👵</span>
-                    Lala / Lola
-                </div>
-
-                <div class="favorite-item">
-                    <span>👴</span>
-                    Lolo
-                </div>
-
-                <div class="favorite-item">
-                    <span>👩</span>
-                    Tata / Tita
-                </div>
-
-                <div class="favorite-item">
-                    <span>👧</span>
-                    Tate / Ate
-                </div>
-
-                <div class="favorite-item">
-                    <span>🖼️</span>
-                    Family Photos
-                </div>
-
-                <div class="favorite-item">
-                    <span>📱</span>
-                    People in Videos
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- BOOKS AND ANIMALS -->
-
-        <div class="favorite-section">
-
-            <h3>
-                📖 Things I Remember
-            </h3>
-
-            <div class="favorite-items">
-
-                <div class="favorite-item">
-                    <span>🦁</span>
-                    Animals
-                </div>
-
-                <div class="favorite-item">
-                    <span>🐶</span>
-                    Animal Sounds
-                </div>
-
-                <div class="favorite-item">
-                    <span>📚</span>
-                    Books
-                </div>
-
-                <div class="favorite-item">
-                    <span>🖼️</span>
-                    Picture Charts
-                </div>
-
-                <div class="favorite-item">
-                    <span>🚗</span>
-                    Cars
-                </div>
-
-                <div class="favorite-item">
-                    <span>🚌</span>
-                    Buses
-                </div>
-
-                <div class="favorite-item">
-                    <span>🚂</span>
-                    Trains
-                </div>
-
-                <div class="favorite-item">
-                    <span>🏍️</span>
-                    Motorcycles
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <p class="favorite-footer">
-            At two years old, Orion is already showing Mama how much
-            he notices, remembers, recognizes, and loves to learn.
-            Every little discovery is a memory worth keeping. 🥹💛
+            Your browser does not support the video tag.
+
+        </video>
+
+        <p style="
+            text-align:center;
+            color:#806b56;
+            font-size:14px;
+            margin-top:10px;
+        ">
+            🎥 Orion recognizing his animal cards. 💛
         </p>
 
     </div>
 
+
+    <!-- ==================================================
+         COLORS & BODY PARTS VIDEO
+    ================================================== -->
+
+    <div class="favorite-section">
+
+        <h3>
+            🌈 Learning Colors & Body Parts
+        </h3>
+
+        <p style="
+            text-align:center;
+            line-height:1.7;
+            font-size:1.05rem;
+        ">
+            Orion uses his colorful stars to find and place them
+            on the correct body parts of the picture Mama made.
+            🌟🧒💛
+        </p>
+
+        <video
+            id="colorsBodyPartsVideo"
+            class="what-i-know-video"
+            controls
+            playsinline
+            preload="metadata"
+        >
+
+            <source
+                src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4"
+                type="video/mp4"
+            >
+
+            Your browser does not support the video tag.
+
+        </video>
+
+        <p style="
+            text-align:center;
+            color:#806b56;
+            font-size:14px;
+            margin-top:10px;
+        ">
+            🎥 Orion learning colors and body parts. 🥹🌈💛
+        </p>
+
+    </div>
+
+
+    <!-- COLORS -->
+
+    <div class="favorite-section">
+
+        <h3>
+            🎨 Colors I Know
+        </h3>
+
+        <ul>
+            <li>Yellow</li>
+            <li>Blue</li>
+            <li>Green</li>
+            <li>Pink</li>
+            <li>Black</li>
+            <li>White</li>
+            <li>Purple</li>
+            <li>Orange</li>
+            <li>Red</li>
+        </ul>
+
+    </div>
+
+
+    <!-- SHAPES -->
+
+    <div class="favorite-section">
+
+        <h3>
+            🔵 Shapes I Know
+        </h3>
+
+        <ul>
+            <li>Circle</li>
+            <li>Square</li>
+            <li>Triangle</li>
+            <li>Different shapes</li>
+        </ul>
+
+    </div>
+
+
+    <!-- FRUITS & VEGETABLES -->
+
+    <div class="favorite-section">
+
+        <h3>
+            🍎 Fruits & Vegetables I Know
+        </h3>
+
+        <ul>
+            <li>Apples</li>
+            <li>Bananas</li>
+            <li>Oranges</li>
+            <li>Grapes</li>
+            <li>Watermelon</li>
+            <li>Mangoes</li>
+            <li>Pineapple</li>
+            <li>Carrots</li>
+            <li>Corn</li>
+            <li>Broccoli</li>
+            <li>Potatoes</li>
+            <li>Tomatoes</li>
+        </ul>
+
+    </div>
+
+
+    <!-- BODY PARTS -->
+
+    <div class="favorite-section">
+
+        <h3>
+            🧒 Body Parts I Know
+        </h3>
+
+        <ul>
+            <li>Eyes</li>
+            <li>Nose</li>
+            <li>Mouth</li>
+            <li>Ears</li>
+            <li>Hands</li>
+            <li>Feet</li>
+        </ul>
+
+    </div>
+
+
+    <!-- PEOPLE & PICTURES -->
+
+    <div class="favorite-section">
+
+        <h3>
+            👨‍👩‍👦 People & Pictures I Recognize
+        </h3>
+
+        <ul>
+            <li>Mama</li>
+            <li>Papa</li>
+            <li>Lala / Lola</li>
+            <li>Lolo</li>
+            <li>Tata / Tita</li>
+            <li>Tate / Ate</li>
+            <li>Family photos</li>
+            <li>People in videos</li>
+        </ul>
+
+    </div>
+
+
+    <!-- THINGS I REMEMBER -->
+
+    <div class="favorite-section">
+
+        <h3>
+            🌿 Things I Remember
+        </h3>
+
+        <ul>
+            <li>Animals</li>
+            <li>Animal sounds</li>
+            <li>Books</li>
+            <li>Picture charts</li>
+            <li>Cars</li>
+            <li>Buses</li>
+            <li>Trains</li>
+            <li>Motorcycles</li>
+        </ul>
+
+    </div>
+
+
+    <p style="
+        text-align:center;
+        color:#806b56;
+        line-height:1.7;
+        margin-top:30px;
+    ">
+        Every little thing you learn becomes
+        another beautiful memory for Mama. 💛🦁🌿
+    </p>
+
+</div>
+
 </div>
 
 
-<!-- =========================
-     GALLERY POPUP
-========================= -->
+<!-- ==================================================
+     GALLERY
+================================================== -->
 
 <div
     id="galleryOverlay"
-    class="gallery-overlay"
-    onclick="closeGalleryBackground(event)"
+    class="overlay"
 >
 
-    <div
-        class="gallery-box"
-        onclick="event.stopPropagation()"
+<div class="popup">
+
+    <button
+        class="close-btn"
+        onclick="closeGallery()"
     >
+        ×
+    </button>
 
-        <button
-            class="gallery-close"
-            onclick="closeGallery()"
+    <h2>
+        📸 My Little Gallery
+    </h2>
+
+    <div class="gallery-grid">
+
+        <img
+            src="Orion1.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 1"
         >
-            ✕
-        </button>
 
-        <div class="gallery-decorations">
-            🦁 🌿 📸 🌿 🦒
-        </div>
+        <img
+            src="Orion2.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 2"
+        >
 
-        <h2>
-            📸 Orion's Little Gallery
-        </h2>
+        <img
+            src="Orion3.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 3"
+        >
 
-        <p>
-            My favorite moments and memories. ❤️
-        </p>
+        <img
+            src="Orion4.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 4"
+        >
 
+        <img
+            src="orion5.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 5"
+        >
 
-        <div class="gallery-grid">
+        <img
+            src="Orion6.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 6"
+        >
 
-            <img
-                src="./Orion1.jpg"
-                alt="Orion memory 1"
-                onclick="viewPhoto(this.src)"
-            >
+        <img
+            src="Orion7.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 7"
+        >
 
-            <img
-                src="./Orion2.jpg"
-                alt="Orion memory 2"
-                onclick="viewPhoto(this.src)"
-            >
+        <img
+            src="Orion8.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 8"
+        >
 
-            <img
-                src="./Orion3.jpg"
-                alt="Orion memory 3"
-                onclick="viewPhoto(this.src)"
-            >
+        <img
+            src="Orion9.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 9"
+        >
 
-            <img
-                src="./Orion4.jpg"
-                alt="Orion memory 4"
-                onclick="viewPhoto(this.src)"
-            >
+        <img
+            src="Orion10.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 10"
+        >
 
-            <img
-                src="./orion5.jpg"
-                alt="Orion memory 5"
-                onclick="viewPhoto(this.src)"
-            >
+        <img
+            src="Orion11.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 11"
+        >
 
-            <img
-                src="./Orion6.jpg"
-                alt="Orion memory 6"
-                onclick="viewPhoto(this.src)"
-            >
-
-            <img
-                src="./Orion7.jpg"
-                alt="Orion memory 7"
-                onclick="viewPhoto(this.src)"
-            >
-
-            <img
-                src="./Orion8.jpg"
-                alt="Orion memory 8"
-                onclick="viewPhoto(this.src)"
-            >
-
-            <img
-                src="./Orion9.jpg"
-                alt="Orion memory 9"
-                onclick="viewPhoto(this.src)"
-            >
-
-            <img
-                src="./Orion10.jpg"
-                alt="Orion memory 10"
-                onclick="viewPhoto(this.src)"
-            >
-
-            <img
-                src="./Orion11.jpg"
-                alt="Orion memory 11"
-                onclick="viewPhoto(this.src)"
-            >
-
-            <img
-                src="./orion12.jpg"
-                alt="Orion memory 12"
-                onclick="viewPhoto(this.src)"
-            >
-
-        </div>
-
-
-        <p class="gallery-note">
-            Every picture holds a little piece of Orion's story. 🐾💛
-        </p>
+        <img
+            src="orion12.jpg"
+            onclick="openPhoto(this.src)"
+            alt="Orion 12"
+        >
 
     </div>
 
 </div>
 
+</div>
 
-<!-- =========================
-     FULL PHOTO VIEWER
-========================= -->
+
+<!-- ==================================================
+     PHOTO VIEWER
+================================================== -->
 
 <div
     id="photoViewer"
-    class="photo-viewer"
     onclick="closePhoto()"
 >
 
-    <button
-        class="viewer-close"
-        onclick="event.stopPropagation(); closePhoto()"
-    >
-        ✕
-    </button>
+    <span class="viewer-close">
+        ×
+    </span>
 
     <img
-        id="fullPhoto"
+        id="viewerImage"
         src=""
-        alt="Enlarged Orion memory"
+        alt="Orion photo"
         onclick="event.stopPropagation()"
     >
 
@@ -2572,225 +1403,206 @@ footer {
 
 <script>
 
-function enterWorld() {
+/* =========================
+   COVER
+========================= */
 
-    document.getElementById("cover").style.display = "none";
+function enterWorld(){
 
-    document.getElementById("memoryBook").style.display = "block";
+    document.getElementById("cover").style.display =
+        "none";
 
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
+    document.getElementById("memoryBook").style.display =
+        "block";
 
+    window.scrollTo(0,0);
 
-function goBack() {
-
-    document.getElementById("memoryBook").style.display = "none";
-
-    document.getElementById("cover").style.display = "flex";
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
 }
 
 
 /* =========================
-   FAVORITE THINGS POPUP
+   FAVORITE THINGS
 ========================= */
 
-function openFavoriteThings() {
+function openFavoriteThings(){
 
-    document.getElementById("favoriteOverlay").style.display = "flex";
+    document.getElementById("favoriteOverlay").style.display =
+        "block";
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
+
 }
 
 
-function closeFavoriteThings() {
+function closeFavoriteThings(){
 
-    document.getElementById("favoriteOverlay").style.display = "none";
+    document.getElementById("favoriteOverlay").style.display =
+        "none";
 
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+        "";
+
 }
 
 
-function closeFavoriteBackground(event) {
+/* =========================
+   LITTLE WORDS
+========================= */
 
-    if (
-        event.target ===
-        document.getElementById("favoriteOverlay")
-    ) {
+function openLittleWords(){
 
-        closeFavoriteThings();
+    document.getElementById("littleWordsOverlay").style.display =
+        "block";
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function closeLittleWords(){
+
+    document.getElementById("littleWordsOverlay").style.display =
+        "none";
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+/* =========================
+   WHAT I KNOW AT TWO
+========================= */
+
+function openWhatIKnow(){
+
+    document.getElementById("whatIKnowOverlay").style.display =
+        "block";
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+function closeWhatIKnow(){
+
+    const animalVideo =
+        document.getElementById("animalCardsVideo");
+
+    const colorsVideo =
+        document.getElementById("colorsBodyPartsVideo");
+
+
+    if(animalVideo){
+
+        animalVideo.pause();
+
+        animalVideo.currentTime = 0;
 
     }
 
-}
 
+    if(colorsVideo){
 
-/* =========================
-   LITTLE WORDS POPUP
-========================= */
+        colorsVideo.pause();
 
-function openLittleWords() {
-
-    document.getElementById("littleWordsOverlay").style.display = "flex";
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeLittleWords() {
-
-    document.getElementById("littleWordsOverlay").style.display = "none";
-
-    document.body.style.overflow = "";
-}
-
-
-function closeLittleWordsBackground(event) {
-
-    if (
-        event.target ===
-        document.getElementById("littleWordsOverlay")
-    ) {
-
-        closeLittleWords();
+        colorsVideo.currentTime = 0;
 
     }
 
-}
 
+    document.getElementById("whatIKnowOverlay").style.display =
+        "none";
 
-/* =========================
-   WHAT I KNOW AT TWO POPUP
-========================= */
-
-function openWhatIKnow() {
-
-    document.getElementById("whatIKnowOverlay").style.display = "flex";
-
-    document.body.style.overflow = "hidden";
-}
-
-
-function closeWhatIKnow() {
-
-    const video = document.getElementById("animalCardsVideo");
-
-    if (video) {
-        video.pause();
-        video.currentTime = 0;
-    }
-
-    document.getElementById("whatIKnowOverlay").style.display = "none";
-
-    document.body.style.overflow = "";
-}
-
-
-function closeWhatIKnowBackground(event) {
-
-    if (
-        event.target ===
-        document.getElementById("whatIKnowOverlay")
-    ) {
-
-        closeWhatIKnow();
-
-    }
+    document.body.style.overflow =
+        "";
 
 }
 
 
 /* =========================
-   OPEN GALLERY
+   GALLERY
 ========================= */
 
-function openGallery() {
+function openGallery(){
 
-    document.getElementById("galleryOverlay").style.display = "flex";
+    document.getElementById("galleryOverlay").style.display =
+        "block";
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
+
 }
 
 
-/* =========================
-   CLOSE GALLERY
-========================= */
+function closeGallery(){
 
-function closeGallery() {
+    document.getElementById("galleryOverlay").style.display =
+        "none";
 
-    document.getElementById("galleryOverlay").style.display = "none";
-
-    document.body.style.overflow = "";
-}
-
-
-function closeGalleryBackground(event) {
-
-    if (
-        event.target ===
-        document.getElementById("galleryOverlay")
-    ) {
-
-        closeGallery();
-
-    }
+    document.body.style.overflow =
+        "";
 
 }
 
 
 /* =========================
-   VIEW LARGE PHOTO
+   PHOTO VIEWER
 ========================= */
 
-function viewPhoto(src) {
+function openPhoto(src){
 
-    document.getElementById("fullPhoto").src = src;
+    document.getElementById("viewerImage").src =
+        src;
 
-    document.getElementById("photoViewer").style.display = "flex";
-}
-
-
-/* =========================
-   CLOSE LARGE PHOTO
-========================= */
-
-function closePhoto() {
-
-    document.getElementById("photoViewer").style.display = "none";
+    document.getElementById("photoViewer").style.display =
+        "flex";
 
 }
 
 
+function closePhoto(){
+
+    document.getElementById("photoViewer").style.display =
+        "none";
+
+    document.getElementById("viewerImage").src =
+        "";
+
+}
+
+
 /* =========================
-   ESC KEY
+   ESCAPE KEY
 ========================= */
 
-document.addEventListener("keydown", function(event) {
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if (event.key === "Escape") {
+        if(event.key === "Escape"){
 
-        closePhoto();
+            closePhoto();
 
-        closeGallery();
+            closeGallery();
 
-        closeFavoriteThings();
+            closeFavoriteThings();
 
-        closeLittleWords();
+            closeLittleWords();
 
-        closeWhatIKnow();
+            closeWhatIKnow();
+
+        }
 
     }
-
-});
+);
 
 </script>
 
+
 </body>
+
 </html>
