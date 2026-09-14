@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -23,6 +24,7 @@ body{
     color:#5b4636;
     overflow-x:hidden;
 }
+
 
 /* =========================
    COVER
@@ -90,13 +92,17 @@ body{
     cursor:pointer;
     box-shadow:
         0 5px 15px rgba(0,0,0,.25);
+    transition:.25s;
 }
 
 .enter-btn:hover{
     transform:scale(1.05);
 }
 
-/* Safari decorations */
+
+/* =========================
+   SAFARI DECORATIONS
+========================= */
 
 .leaf{
     position:absolute;
@@ -140,6 +146,7 @@ body{
 
 }
 
+
 /* =========================
    MEMORY BOOK
 ========================= */
@@ -172,47 +179,416 @@ body{
     margin-bottom:35px;
 }
 
+
 /* =========================
    MEMORY CARDS
+   ANIMAL SAFARI DESIGN
 ========================= */
 
 .memory-grid{
     display:grid;
     grid-template-columns:
-        repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
+        repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
+    padding:15px 5px;
 }
 
 .memory-card{
-    background:#fffaf0;
-    border-radius:22px;
-    padding:25px 18px;
+    position:relative;
+    min-height:300px;
+    padding:0 20px 25px;
     text-align:center;
     cursor:pointer;
+    border-radius:32px;
+    border:4px solid rgba(255,255,255,.75);
     box-shadow:
-        0 6px 20px rgba(96,70,43,.15);
-    border:2px solid #ead7b4;
-    transition:.25s;
+        0 10px 25px rgba(96,70,43,.20);
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    overflow:visible;
 }
 
 .memory-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-10px) rotate(-1deg);
+    box-shadow:
+        0 18px 35px rgba(96,70,43,.28);
 }
 
-.memory-card .icon{
-    font-size:3rem;
-    margin-bottom:10px;
+.memory-card:active{
+    transform:scale(.97);
 }
+
+
+/* =========================
+   ANIMAL FACE
+========================= */
+
+.animal-face{
+    position:relative;
+    width:145px;
+    height:125px;
+    margin:-15px auto 15px;
+    border-radius:48% 48% 45% 45%;
+    border:4px solid rgba(91,70,54,.25);
+    box-shadow:
+        0 7px 14px rgba(0,0,0,.15);
+    z-index:2;
+}
+
+
+/* EARS */
+
+.animal-face::before,
+.animal-face::after{
+    content:"";
+    position:absolute;
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    top:5px;
+    z-index:-1;
+}
+
+
+/* EYES */
+
+.animal-face .eye{
+    position:absolute;
+    width:17px;
+    height:20px;
+    background:#3d2b20;
+    border-radius:50%;
+    top:42px;
+}
+
+.animal-face .eye.left{
+    left:38px;
+}
+
+.animal-face .eye.right{
+    right:38px;
+}
+
+.animal-face .eye::after{
+    content:"";
+    position:absolute;
+    width:5px;
+    height:5px;
+    background:white;
+    border-radius:50%;
+    top:3px;
+    left:3px;
+}
+
+
+/* NOSE */
+
+.animal-face .nose{
+    position:absolute;
+    width:19px;
+    height:14px;
+    background:#4b3024;
+    border-radius:50%;
+    left:63px;
+    top:67px;
+}
+
+
+/* SMILE */
+
+.animal-face .mouth{
+    position:absolute;
+    width:30px;
+    height:15px;
+    left:57px;
+    top:79px;
+    border-bottom:3px solid #4b3024;
+    border-radius:50%;
+}
+
+
+/* =========================
+   LION
+========================= */
+
+.memory-card.lion{
+    background:
+        linear-gradient(145deg,#fff0b8,#f4c95d);
+}
+
+.lion .animal-face{
+    background:#d99532;
+    border-color:#a96620;
+}
+
+.lion .animal-face::before,
+.lion .animal-face::after{
+    background:#a96720;
+    border:5px solid #7d4b1d;
+    top:0;
+}
+
+.lion .animal-face::before{
+    left:-27px;
+}
+
+.lion .animal-face::after{
+    right:-27px;
+}
+
+
+/* =========================
+   ELEPHANT
+========================= */
+
+.memory-card.elephant{
+    background:
+        linear-gradient(145deg,#e7f1ed,#c7ddd7);
+}
+
+.elephant .animal-face{
+    background:#9ba9a5;
+    border-color:#687a75;
+}
+
+.elephant .animal-face::before,
+.elephant .animal-face::after{
+    width:65px;
+    height:80px;
+    top:20px;
+    background:#879792;
+    border:4px solid #687a75;
+    z-index:-1;
+}
+
+.elephant .animal-face::before{
+    left:-45px;
+}
+
+.elephant .animal-face::after{
+    right:-45px;
+}
+
+.elephant .animal-face .nose{
+    width:20px;
+    height:48px;
+    left:62px;
+    top:62px;
+    border-radius:12px 12px 18px 18px;
+}
+
+.elephant .animal-face .mouth{
+    display:none;
+}
+
+
+/* =========================
+   GIRAFFE
+========================= */
+
+.memory-card.giraffe{
+    background:
+        linear-gradient(145deg,#fff0a9,#f4d36d);
+}
+
+.giraffe .animal-face{
+    background:#e8b84a;
+    border-color:#b97d24;
+}
+
+.giraffe .animal-face::before,
+.giraffe .animal-face::after{
+    width:35px;
+    height:55px;
+    border-radius:45%;
+    top:-30px;
+    background:#dca43b;
+    border:4px solid #9d6c20;
+}
+
+.giraffe .animal-face::before{
+    left:18px;
+}
+
+.giraffe .animal-face::after{
+    right:18px;
+}
+
+
+/* =========================
+   ZEBRA
+========================= */
+
+.memory-card.zebra{
+    background:
+        linear-gradient(145deg,#f5f5f5,#d9d9d9);
+}
+
+.zebra .animal-face{
+    background:#eeeeee;
+    border-color:#4b4b4b;
+    background-image:
+        linear-gradient(
+            125deg,
+            transparent 0 22%,
+            #4b4b4b 23% 28%,
+            transparent 29% 45%,
+            #4b4b4b 46% 51%,
+            transparent 52% 70%,
+            #4b4b4b 71% 76%,
+            transparent 77%
+        );
+}
+
+.zebra .animal-face::before,
+.zebra .animal-face::after{
+    width:38px;
+    height:42px;
+    background:#eeeeee;
+    border:4px solid #4b4b4b;
+    top:-12px;
+    border-radius:50% 50% 20% 20%;
+}
+
+.zebra .animal-face::before{
+    left:10px;
+}
+
+.zebra .animal-face::after{
+    right:10px;
+}
+
+.zebra .animal-face .nose{
+    background:#303030;
+}
+
+
+/* =========================
+   MONKEY
+========================= */
+
+.memory-card.monkey{
+    background:
+        linear-gradient(145deg,#ead1b0,#c99b6b);
+}
+
+.monkey .animal-face{
+    background:#8b5a35;
+    border-color:#684125;
+}
+
+.monkey .animal-face::before,
+.monkey .animal-face::after{
+    width:55px;
+    height:55px;
+    top:25px;
+    background:#a86e43;
+    border:5px solid #684125;
+}
+
+.monkey .animal-face::before{
+    left:-32px;
+}
+
+.monkey .animal-face::after{
+    right:-32px;
+}
+
+.monkey .animal-face .nose{
+    background:#4c2c1d;
+}
+
+.monkey .animal-face .mouth{
+    border-color:#4c2c1d;
+}
+
+
+/* =========================
+   TIGER
+========================= */
+
+.memory-card.tiger{
+    background:
+        linear-gradient(145deg,#ffd7a3,#f3a64a);
+}
+
+.tiger .animal-face{
+    background:#ed9b32;
+    border-color:#a95f20;
+    background-image:
+        linear-gradient(
+            110deg,
+            transparent 0 25%,
+            #51301e 26% 30%,
+            transparent 31% 48%,
+            #51301e 49% 53%,
+            transparent 54% 70%,
+            #51301e 71% 75%,
+            transparent 76%
+        );
+}
+
+.tiger .animal-face::before,
+.tiger .animal-face::after{
+    width:42px;
+    height:42px;
+    background:#ed9b32;
+    border:4px solid #a95f20;
+    top:-12px;
+}
+
+.tiger .animal-face::before{
+    left:5px;
+}
+
+.tiger .animal-face::after{
+    right:5px;
+}
+
+.tiger .animal-face .nose{
+    background:#4d2d1e;
+}
+
+
+/* =========================
+   CARD TEXT
+========================= */
 
 .memory-card h3{
-    margin:8px 0;
-    color:#714b2c;
+    margin:8px 0 10px;
+    color:#604127;
+    font-size:1.35rem;
+    position:relative;
+    z-index:3;
 }
 
 .memory-card p{
-    color:#8a735d;
-    line-height:1.5;
+    color:#725d49;
+    line-height:1.6;
+    font-size:.96rem;
+    position:relative;
+    z-index:3;
 }
+
+.memory-card .icon{
+    font-size:2rem;
+    margin-top:5px;
+}
+
+
+/* PAW */
+
+.memory-card::after{
+    content:"🐾";
+    position:absolute;
+    right:12px;
+    bottom:10px;
+    font-size:1.7rem;
+    opacity:.35;
+    transform:rotate(-15deg);
+}
+
 
 /* =========================
    MAMA'S LETTER
@@ -253,6 +629,7 @@ body{
     margin-top:35px;
     color:#806b56;
 }
+
 
 /* =========================
    OVERLAYS
@@ -322,6 +699,7 @@ body{
     color:#806b56;
 }
 
+
 /* =========================
    VIDEOS
 ========================= */
@@ -336,6 +714,7 @@ body{
         0 5px 18px rgba(0,0,0,.18);
     background:#000;
 }
+
 
 /* =========================
    GALLERY
@@ -361,6 +740,7 @@ body{
 .gallery-grid img:hover{
     transform:scale(1.03);
 }
+
 
 /* =========================
    PHOTO VIEWER
@@ -393,6 +773,7 @@ body{
     cursor:pointer;
 }
 
+
 /* =========================
    MOBILE
 ========================= */
@@ -423,23 +804,60 @@ body{
 
     .memory-grid{
         grid-template-columns:1fr 1fr;
-        gap:12px;
+        gap:18px;
+        padding:10px 2px;
     }
 
     .memory-card{
-        padding:18px 10px;
+        min-height:270px;
+        padding:0 10px 18px;
+        border-radius:25px;
     }
 
-    .memory-card .icon{
-        font-size:2.3rem;
+    .animal-face{
+        width:105px;
+        height:95px;
+        margin:-10px auto 12px;
+    }
+
+    .animal-face .eye{
+        width:13px;
+        height:16px;
+        top:32px;
+    }
+
+    .animal-face .eye.left{
+        left:27px;
+    }
+
+    .animal-face .eye.right{
+        right:27px;
+    }
+
+    .animal-face .nose{
+        width:15px;
+        height:11px;
+        left:45px;
+        top:52px;
+    }
+
+    .animal-face .mouth{
+        left:39px;
+        top:64px;
+        width:27px;
     }
 
     .memory-card h3{
-        font-size:1rem;
+        font-size:.95rem;
     }
 
     .memory-card p{
-        font-size:.85rem;
+        font-size:.78rem;
+        line-height:1.45;
+    }
+
+    .memory-card .icon{
+        font-size:1.5rem;
     }
 
     .letter-section{
@@ -458,50 +876,50 @@ body{
 
 <body>
 
-
 <!-- ==================================================
      COVER
 ================================================== -->
 
 <section id="cover">
 
-    <div class="leaf leaf1">🌿</div>
-    <div class="leaf leaf2">🍃</div>
-    <div class="leaf leaf3">🌴</div>
-    <div class="leaf leaf4">🌿</div>
+```
+<div class="leaf leaf1">🌿</div>
+<div class="leaf leaf2">🍃</div>
+<div class="leaf leaf3">🌴</div>
+<div class="leaf leaf4">🌿</div>
 
-    <div class="cover-content">
+<div class="cover-content">
 
-        <img
-            src="701312354_1512336296938135_1169129443103858509_n.jpg"
-            class="cover-photo"
-            alt="Orion"
-        >
+    <img
+        src="701312354_1512336296938135_1169129443103858509_n.jpg"
+        class="cover-photo"
+        alt="Orion"
+    >
 
-        <h1>
-            Orion's Little Safari
-        </h1>
+    <h1>
+        Orion's Little Safari
+    </h1>
 
-        <h2>
-            🎂 ORION TURNS TWO! 🎂
-        </h2>
+    <h2>
+        🎂 ORION TURNS TWO! 🎂
+    </h2>
 
-        <p>
-            A little memory book filled with
-            love, learning, laughter, and adventures. 🦁💛
-        </p>
+    <p>
+        A little memory book filled with
+        love, learning, laughter, and adventures. 🦁💛
+    </p>
 
-        <button
-            class="enter-btn"
-            onclick="enterWorld()"
-        >
-            🌿 Enter Orion's Safari
-        </button>
+    <button
+        class="enter-btn"
+        onclick="enterWorld()"
+    >
+        🌿 Enter Orion's Safari
+    </button>
 
-    </div>
+</div>
+```
 
 </section>
-
 
 <!-- ==================================================
      MEMORY BOOK
@@ -511,261 +929,319 @@ body{
 
 <div class="book-container">
 
-    <h1 class="book-title">
-        🦁 Welcome to Orion's Little Safari 🦁
-    </h1>
+```
+<h1 class="book-title">
+    🦁 Welcome to Orion's Little Safari 🦁
+</h1>
 
-    <p class="book-subtitle">
-        A keepsake of my little boy at age two. 💛
-    </p>
-
-
-    <!-- MEMORY CARDS -->
-
-    <div class="memory-grid">
+<p class="book-subtitle">
+    A keepsake of my little boy at age two. 💛
+</p>
 
 
-        <!-- GALLERY -->
+<!-- ==================================================
+     SIX ANIMAL MEMORY CARDS
+================================================== -->
 
-        <div
-            class="memory-card"
-            onclick="openGallery()"
-        >
+<div class="memory-grid">
 
-            <div class="icon">
-                📸
-            </div>
 
-            <h3>
-                My Little Gallery
-            </h3>
+    <!-- LION -->
 
-            <p>
-                Little moments Mama wants
-                to remember forever.
-            </p>
+    <div
+        class="memory-card lion"
+        onclick="openGallery()"
+    >
+
+        <div class="animal-face">
+
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="nose"></span>
+            <span class="mouth"></span>
 
         </div>
 
-
-        <!-- FAVORITE THINGS -->
-
-        <div
-            class="memory-card"
-            onclick="openFavoriteThings()"
-        >
-
-            <div class="icon">
-                🧸
-            </div>
-
-            <h3>
-                My Favorite Things
-            </h3>
-
-            <p>
-                The toys, animals, books,
-                songs, and little things I love.
-            </p>
-
+        <div class="icon">
+            📸
         </div>
 
+        <h3>
+            My Little Gallery
+        </h3>
 
-        <!-- LITTLE WORDS -->
-
-        <div
-            class="memory-card"
-            onclick="openLittleWords()"
-        >
-
-            <div class="icon">
-                💬
-            </div>
-
-            <h3>
-                My Little Words
-            </h3>
-
-            <p>
-                The funny and precious words
-                Orion says at age two.
-            </p>
-
-        </div>
-
-
-        <!-- ANIMAL SOUNDS -->
-
-        <div
-            class="memory-card"
-            onclick="
-                alert(
-                    '🦁 Rawr! 🐑 Baba! 🐶 Woof! 🐱 Meow!\\n\\nOrion loves animals and enjoys learning their sounds. 💛'
-                )
-            "
-        >
-
-            <div class="icon">
-                🦁
-            </div>
-
-            <h3>
-                Animal Sounds
-            </h3>
-
-            <p>
-                Rawr, baba, and all the
-                little animal sounds I love.
-            </p>
-
-        </div>
-
-
-        <!-- FUNNY ORION -->
-
-        <div
-            class="memory-card"
-            onclick="
-                alert(
-                    '😂 Little Orion has so many funny habits, sounds, expressions, and adorable little ways of doing things. Mama wants to remember them all!'
-                )
-            "
-        >
-
-            <div class="icon">
-                😂
-            </div>
-
-            <h3>
-                Funny Little Orion
-            </h3>
-
-            <p>
-                The little habits and moments
-                that make Mama smile.
-            </p>
-
-        </div>
-
-
-        <!-- WHAT I KNOW -->
-
-        <div
-            class="memory-card"
-            onclick="openWhatIKnow()"
-        >
-
-            <div class="icon">
-                🧠
-            </div>
-
-            <h3>
-                What I Know at Two
-            </h3>
-
-            <p>
-                Colors, shapes, animals,
-                fruits, body parts, and more.
-            </p>
-
-        </div>
+        <p>
+            Little moments Mama wants
+            to remember forever.
+        </p>
 
     </div>
 
 
-    <!-- ==================================================
-         MAMA'S LETTER
-    ================================================== -->
+    <!-- ELEPHANT -->
 
-    <div class="letter-section">
+    <div
+        class="memory-card elephant"
+        onclick="openFavoriteThings()"
+    >
 
-        <h2>
-            💌 A Letter From Mama
-        </h2>
+        <div class="animal-face">
 
-        <img
-            src="mama and orion.jpg"
-            class="letter-photo"
-            alt="Mama and Orion"
-        >
-
-        <div class="letter-text">
-
-            <p>
-                My dearest Orion,
-            </p>
-
-            <p>
-                Today you are almost two years old,
-                and Mama still finds it hard to believe
-                how quickly the days have passed.
-            </p>
-
-            <p>
-                You have grown from my tiny baby into
-                this curious, clever, funny little boy
-                who loves animals, books, cars, buses,
-                trains, colors, songs, and learning new things.
-            </p>
-
-            <p>
-                I love watching the way you remember things,
-                the way you point at pictures, the way you
-                bring books to me, and the way you celebrate
-                when you learn something new.
-            </p>
-
-            <p>
-                There are days when Mama has to work,
-                and I wish I could spend every single moment
-                beside you. But please always remember this:
-                Mama works because I love you and want to give
-                you a good life.
-            </p>
-
-            <p>
-                Working does not mean I love you any less.
-                Every effort I make is also an expression of
-                my love for you.
-            </p>
-
-            <p>
-                I hope that when you are older and read this,
-                you will know just how deeply you were loved
-                from the very beginning.
-            </p>
-
-            <p>
-                You are one of the greatest gifts of my life,
-                Orion.
-            </p>
-
-            <p>
-                Happy 2nd birthday, my little safari boy.
-                🦁🌿💛
-            </p>
-
-            <p>
-                Love always,
-                <br>
-                Mama
-            </p>
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="nose"></span>
+            <span class="mouth"></span>
 
         </div>
+
+        <div class="icon">
+            🧸
+        </div>
+
+        <h3>
+            My Favorite Things
+        </h3>
+
+        <p>
+            The toys, animals, books,
+            songs, and little things I love.
+        </p>
 
     </div>
 
 
-    <div class="book-footer">
+    <!-- GIRAFFE -->
 
-        Made with all of Mama's love for Orion. 💛🌿🦁
+    <div
+        class="memory-card giraffe"
+        onclick="openLittleWords()"
+    >
+
+        <div class="animal-face">
+
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="nose"></span>
+            <span class="mouth"></span>
+
+        </div>
+
+        <div class="icon">
+            💬
+        </div>
+
+        <h3>
+            My Little Words
+        </h3>
+
+        <p>
+            The funny and precious words
+            Orion says at age two.
+        </p>
+
+    </div>
+
+
+    <!-- ZEBRA -->
+
+    <div
+        class="memory-card zebra"
+        onclick="
+            alert(
+                '🦁 Rawr! 🐑 Baba! 🐶 Woof! 🐱 Meow!\\n\\nOrion loves animals and enjoys learning their sounds. 💛'
+            )
+        "
+    >
+
+        <div class="animal-face">
+
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="nose"></span>
+            <span class="mouth"></span>
+
+        </div>
+
+        <div class="icon">
+            🦁
+        </div>
+
+        <h3>
+            Animal Sounds
+        </h3>
+
+        <p>
+            Rawr, baba, and all the
+            little animal sounds I love.
+        </p>
+
+    </div>
+
+
+    <!-- MONKEY -->
+
+    <div
+        class="memory-card monkey"
+        onclick="
+            alert(
+                '😂 Little Orion has so many funny habits, sounds, expressions, and adorable little ways of doing things. Mama wants to remember them all!'
+            )
+        "
+    >
+
+        <div class="animal-face">
+
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="nose"></span>
+            <span class="mouth"></span>
+
+        </div>
+
+        <div class="icon">
+            😂
+        </div>
+
+        <h3>
+            Funny Little Orion
+        </h3>
+
+        <p>
+            The little habits and moments
+            that make Mama smile.
+        </p>
+
+    </div>
+
+
+    <!-- TIGER -->
+
+    <div
+        class="memory-card tiger"
+        onclick="openWhatIKnow()"
+    >
+
+        <div class="animal-face">
+
+            <span class="eye left"></span>
+            <span class="eye right"></span>
+            <span class="nose"></span>
+            <span class="mouth"></span>
+
+        </div>
+
+        <div class="icon">
+            🧠
+        </div>
+
+        <h3>
+            What I Know at Two
+        </h3>
+
+        <p>
+            Colors, shapes, animals,
+            fruits, body parts, and more.
+        </p>
+
+    </div>
+
+
+</div>
+
+
+<!-- ==================================================
+     MAMA'S LETTER
+================================================== -->
+
+<div class="letter-section">
+
+    <h2>
+        💌 A Letter From Mama
+    </h2>
+
+    <img
+        src="mama and orion.jpg"
+        class="letter-photo"
+        alt="Mama and Orion"
+    >
+
+    <div class="letter-text">
+
+        <p>
+            My dearest Orion,
+        </p>
+
+        <p>
+            Today you are almost two years old,
+            and Mama still finds it hard to believe
+            how quickly the days have passed.
+        </p>
+
+        <p>
+            You have grown from my tiny baby into
+            this curious, clever, funny little boy
+            who loves animals, books, cars, buses,
+            trains, colors, songs, and learning new things.
+        </p>
+
+        <p>
+            I love watching the way you remember things,
+            the way you point at pictures, the way you
+            bring books to me, and the way you celebrate
+            when you learn something new.
+        </p>
+
+        <p>
+            There are days when Mama has to work,
+            and I wish I could spend every single moment
+            beside you. But please always remember this:
+            Mama works because I love you and want to give
+            you a good life.
+        </p>
+
+        <p>
+            Working does not mean I love you any less.
+            Every effort I make is also an expression of
+            my love for you.
+        </p>
+
+        <p>
+            I hope that when you are older and read this,
+            you will know just how deeply you were loved
+            from the very beginning.
+        </p>
+
+        <p>
+            You are one of the greatest gifts of my life,
+            Orion.
+        </p>
+
+        <p>
+            Happy 2nd birthday, my little safari boy.
+            🦁🌿💛
+        </p>
+
+        <p>
+            Love always,
+            <br>
+            Mama
+        </p>
 
     </div>
 
 </div>
 
-</section>
 
+<div class="book-footer">
+
+    Made with all of Mama's love for Orion. 💛🌿🦁
+
+</div>
+```
+
+</div>
+
+</section>
 
 <!-- ==================================================
      FAVORITE THINGS POPUP
@@ -778,137 +1254,138 @@ body{
 
 <div class="popup">
 
-    <button
-        class="close-btn"
-        onclick="closeFavoriteThings()"
-    >
-        ×
-    </button>
+```
+<button
+    class="close-btn"
+    onclick="closeFavoriteThings()"
+>
+    ×
+</button>
 
-    <h2>
-        🧸 My Favorite Things
-    </h2>
-
-
-    <div class="favorite-section">
-
-        <h3>
-            🚗 Vehicles & Things That Go
-        </h3>
-
-        <ul>
-            <li>Cars</li>
-            <li>Buses</li>
-            <li>Trains</li>
-            <li>Motorcycles — “boom boom”</li>
-            <li>Wheels & things that move</li>
-        </ul>
-
-    </div>
+<h2>
+    🧸 My Favorite Things
+</h2>
 
 
-    <div class="favorite-section">
+<div class="favorite-section">
 
-        <h3>
-            🦁 Animals
-        </h3>
+    <h3>
+        🚗 Vehicles & Things That Go
+    </h3>
 
-        <ul>
-            <li>Lions & “rawr!”</li>
-            <li>Animal cards</li>
-            <li>Looking at different animals</li>
-            <li>Learning animal sounds</li>
-            <li>Animals in books</li>
-        </ul>
+    <ul>
+        <li>Cars</li>
+        <li>Buses</li>
+        <li>Trains</li>
+        <li>Motorcycles — “boom boom”</li>
+        <li>Wheels & things that move</li>
+    </ul>
 
-    </div>
-
-
-    <div class="favorite-section">
-
-        <h3>
-            📚 Books & Picture Time
-        </h3>
-
-        <ul>
-            <li>Picture books</li>
-            <li>Animal books</li>
-            <li>Bringing books to Mama</li>
-            <li>Picture charts</li>
-            <li>Looking through pages</li>
-        </ul>
-
-    </div>
+</div>
 
 
-    <div class="favorite-section">
+<div class="favorite-section">
 
-        <h3>
-            🎵 Songs & Sounds
-        </h3>
+    <h3>
+        🦁 Animals
+    </h3>
 
-        <ul>
-            <li>Wheels on the Bus</li>
-            <li>Animal sounds</li>
-            <li>Making little sounds</li>
-            <li>Practicing little words</li>
-        </ul>
+    <ul>
+        <li>Lions & “rawr!”</li>
+        <li>Animal cards</li>
+        <li>Looking at different animals</li>
+        <li>Learning animal sounds</li>
+        <li>Animals in books</li>
+    </ul>
 
-    </div>
-
-
-    <div class="favorite-section">
-
-        <h3>
-            🎈 Fun Little Things
-        </h3>
-
-        <ul>
-            <li>Balloons</li>
-            <li>His toys</li>
-            <li>LCD writing tablet</li>
-            <li>Looking at pictures</li>
-        </ul>
-
-    </div>
+</div>
 
 
-    <div class="favorite-section">
+<div class="favorite-section">
 
-        <h3>
-            🧹 Helping Mama
-        </h3>
+    <h3>
+        📚 Books & Picture Time
+    </h3>
 
-        <ul>
-            <li>Sweeping with Mama</li>
-            <li>Putting toys away</li>
-            <li>Helping with trash</li>
-            <li>Bringing things to Mama</li>
-        </ul>
+    <ul>
+        <li>Picture books</li>
+        <li>Animal books</li>
+        <li>Bringing books to Mama</li>
+        <li>Picture charts</li>
+        <li>Looking through pages</li>
+    </ul>
 
-    </div>
+</div>
 
 
-    <div class="favorite-section">
+<div class="favorite-section">
 
-        <h3>
-            💛 Mama Time
-        </h3>
+    <h3>
+        🎵 Songs & Sounds
+    </h3>
 
-        <ul>
-            <li>Mama's hugs</li>
-            <li>Mama's praise</li>
-            <li>Reading together</li>
-            <li>Little study time</li>
-            <li>Spending time with Mama</li>
-        </ul>
+    <ul>
+        <li>Wheels on the Bus</li>
+        <li>Animal sounds</li>
+        <li>Making little sounds</li>
+        <li>Practicing little words</li>
+    </ul>
 
-    </div>
+</div>
+
+
+<div class="favorite-section">
+
+    <h3>
+        🎈 Fun Little Things
+    </h3>
+
+    <ul>
+        <li>Balloons</li>
+        <li>His toys</li>
+        <li>LCD writing tablet</li>
+        <li>Looking at pictures</li>
+    </ul>
+
+</div>
+
+
+<div class="favorite-section">
+
+    <h3>
+        🧹 Helping Mama
+    </h3>
+
+    <ul>
+        <li>Sweeping with Mama</li>
+        <li>Putting toys away</li>
+        <li>Helping with trash</li>
+        <li>Bringing things to Mama</li>
+    </ul>
+
+</div>
+
+
+<div class="favorite-section">
+
+    <h3>
+        💛 Mama Time
+    </h3>
+
+    <ul>
+        <li>Mama's hugs</li>
+        <li>Mama's praise</li>
+        <li>Reading together</li>
+        <li>Little study time</li>
+        <li>Spending time with Mama</li>
+    </ul>
+
+</div>
+```
 
 </div>
 
 </div>
-
 
 <!-- ==================================================
      LITTLE WORDS POPUP
@@ -921,95 +1398,96 @@ body{
 
 <div class="popup">
 
-    <button
-        class="close-btn"
-        onclick="closeLittleWords()"
-    >
-        ×
-    </button>
+```
+<button
+    class="close-btn"
+    onclick="closeLittleWords()"
+>
+    ×
+</button>
 
-    <h2>
-        💬 My Little Words
-    </h2>
-
-
-    <div class="favorite-section">
-
-        <h3>
-            👨‍👩‍👦 People
-        </h3>
-
-        <ul>
-            <li>Mama</li>
-            <li>Papa</li>
-            <li>Lala = Lola</li>
-            <li>Lolo</li>
-            <li>Tata = Tita</li>
-            <li>Nene</li>
-            <li>Tate = Ate</li>
-        </ul>
-
-    </div>
+<h2>
+    💬 My Little Words
+</h2>
 
 
-    <div class="favorite-section">
+<div class="favorite-section">
 
-        <h3>
-            🍼 Everyday Words
-        </h3>
+    <h3>
+        👨‍👩‍👦 People
+    </h3>
 
-        <ul>
-            <li>Tete = Milk</li>
-            <li>Baba = Sheep</li>
-            <li>Ba-ba / Buh-buh = Ball</li>
-            <li>Ba-na-na / Na-na = Banana</li>
-            <li>Boom boom = Motorcycle</li>
-        </ul>
+    <ul>
+        <li>Mama</li>
+        <li>Papa</li>
+        <li>Lala = Lola</li>
+        <li>Lolo</li>
+        <li>Tata = Tita</li>
+        <li>Nene</li>
+        <li>Tate = Ate</li>
+    </ul>
 
-    </div>
-
-
-    <div class="favorite-section">
-
-        <h3>
-            🦁 Funny Little Sounds
-        </h3>
-
-        <ul>
-            <li>Rawr = Lion</li>
-            <li>Maaa</li>
-            <li>Taaa</li>
-            <li>Laaaa</li>
-            <li>Loooo</li>
-        </ul>
-
-        <p>
-            These little sounds are some of Mama's
-            favorite memories of you. 💛
-        </p>
-
-    </div>
+</div>
 
 
-    <div class="favorite-section">
+<div class="favorite-section">
 
-        <h3>
-            💛 Mama's Favorite Part
-        </h3>
+    <h3>
+        🍼 Everyday Words
+    </h3>
 
-        <p>
-            Even the smallest words are special because
-            they are yours, Orion. Mama loves hearing
-            your little voice learning how to communicate
-            with the world.
-        </p>
+    <ul>
+        <li>Tete = Milk</li>
+        <li>Baba = Sheep</li>
+        <li>Ba-ba / Buh-buh = Ball</li>
+        <li>Ba-na-na / Na-na = Banana</li>
+        <li>Boom boom = Motorcycle</li>
+    </ul>
 
-    </div>
+</div>
+
+
+<div class="favorite-section">
+
+    <h3>
+        🦁 Funny Little Sounds
+    </h3>
+
+    <ul>
+        <li>Rawr = Lion</li>
+        <li>Maaa</li>
+        <li>Taaa</li>
+        <li>Laaaa</li>
+        <li>Loooo</li>
+    </ul>
+
+    <p>
+        These little sounds are some of Mama's
+        favorite memories of you. 💛
+    </p>
+
+</div>
+
+
+<div class="favorite-section">
+
+    <h3>
+        💛 Mama's Favorite Part
+    </h3>
+
+    <p>
+        Even the smallest words are special because
+        they are yours, Orion. Mama loves hearing
+        your little voice learning how to communicate
+        with the world.
+    </p>
+
+</div>
+```
 
 </div>
 
 </div>
-
 
 <!-- ==================================================
      WHAT I KNOW AT TWO
@@ -1022,258 +1500,257 @@ body{
 
 <div class="popup">
 
-    <button
-        class="close-btn"
-        onclick="closeWhatIKnow()"
+```
+<button
+    class="close-btn"
+    onclick="closeWhatIKnow()"
+>
+    ×
+</button>
+
+<h2>
+    🧠 What I Know at Two
+</h2>
+
+
+<!-- ANIMAL CARDS VIDEO -->
+
+<div class="favorite-section">
+
+    <h3>
+        🐾 Learning Animals
+    </h3>
+
+    <p style="
+        text-align:center;
+        line-height:1.7;
+        font-size:1.05rem;
+    ">
+        Orion points to and finds the animal cards
+        he knows. 🥹🦁🐶🐱
+    </p>
+
+    <video
+        id="animalCardsVideo"
+        class="what-i-know-video"
+        controls
+        playsinline
+        preload="metadata"
     >
-        ×
-    </button>
 
-    <h2>
-        🧠 What I Know at Two
-    </h2>
-
-
-    <!-- ANIMAL CARDS VIDEO -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🐾 Learning Animals
-        </h3>
-
-        <p style="
-            text-align:center;
-            line-height:1.7;
-            font-size:1.05rem;
-        ">
-            Orion points to and finds the animal cards
-            he knows. 🥹🦁🐶🐱
-        </p>
-
-        <video
-            id="animalCardsVideo"
-            class="what-i-know-video"
-            controls
-            playsinline
-            preload="metadata"
+        <source
+            src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4"
+            type="video/mp4"
         >
 
-            <source
-                src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4"
-                type="video/mp4"
-            >
+        Your browser does not support the video tag.
 
-            Your browser does not support the video tag.
-
-        </video>
-
-        <p style="
-            text-align:center;
-            color:#806b56;
-            font-size:14px;
-            margin-top:10px;
-        ">
-            🎥 Orion recognizing his animal cards. 💛
-        </p>
-
-    </div>
-
-
-    <!-- ==================================================
-         COLORS & BODY PARTS VIDEO
-    ================================================== -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🌈 Learning Colors & Body Parts
-        </h3>
-
-        <p style="
-            text-align:center;
-            line-height:1.7;
-            font-size:1.05rem;
-        ">
-            Orion uses his colorful stars to find and place them
-            on the correct body parts of the picture Mama made.
-            🌟🧒💛
-        </p>
-
-        <video
-            id="colorsBodyPartsVideo"
-            class="what-i-know-video"
-            controls
-            playsinline
-            preload="metadata"
-        >
-
-            <source
-                src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4"
-                type="video/mp4"
-            >
-
-            Your browser does not support the video tag.
-
-        </video>
-
-        <p style="
-            text-align:center;
-            color:#806b56;
-            font-size:14px;
-            margin-top:10px;
-        ">
-            🎥 Orion learning colors and body parts. 🥹🌈💛
-        </p>
-
-    </div>
-
-
-    <!-- COLORS -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🎨 Colors I Know
-        </h3>
-
-        <ul>
-            <li>Yellow</li>
-            <li>Blue</li>
-            <li>Green</li>
-            <li>Pink</li>
-            <li>Black</li>
-            <li>White</li>
-            <li>Purple</li>
-            <li>Orange</li>
-            <li>Red</li>
-        </ul>
-
-    </div>
-
-
-    <!-- SHAPES -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🔵 Shapes I Know
-        </h3>
-
-        <ul>
-            <li>Circle</li>
-            <li>Square</li>
-            <li>Triangle</li>
-            <li>Different shapes</li>
-        </ul>
-
-    </div>
-
-
-    <!-- FRUITS & VEGETABLES -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🍎 Fruits & Vegetables I Know
-        </h3>
-
-        <ul>
-            <li>Apples</li>
-            <li>Bananas</li>
-            <li>Oranges</li>
-            <li>Grapes</li>
-            <li>Watermelon</li>
-            <li>Mangoes</li>
-            <li>Pineapple</li>
-            <li>Carrots</li>
-            <li>Corn</li>
-            <li>Broccoli</li>
-            <li>Potatoes</li>
-            <li>Tomatoes</li>
-        </ul>
-
-    </div>
-
-
-    <!-- BODY PARTS -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🧒 Body Parts I Know
-        </h3>
-
-        <ul>
-            <li>Eyes</li>
-            <li>Nose</li>
-            <li>Mouth</li>
-            <li>Ears</li>
-            <li>Hands</li>
-            <li>Feet</li>
-        </ul>
-
-    </div>
-
-
-    <!-- PEOPLE & PICTURES -->
-
-    <div class="favorite-section">
-
-        <h3>
-            👨‍👩‍👦 People & Pictures I Recognize
-        </h3>
-
-        <ul>
-            <li>Mama</li>
-            <li>Papa</li>
-            <li>Lala / Lola</li>
-            <li>Lolo</li>
-            <li>Tata / Tita</li>
-            <li>Tate / Ate</li>
-            <li>Family photos</li>
-            <li>People in videos</li>
-        </ul>
-
-    </div>
-
-
-    <!-- THINGS I REMEMBER -->
-
-    <div class="favorite-section">
-
-        <h3>
-            🌿 Things I Remember
-        </h3>
-
-        <ul>
-            <li>Animals</li>
-            <li>Animal sounds</li>
-            <li>Books</li>
-            <li>Picture charts</li>
-            <li>Cars</li>
-            <li>Buses</li>
-            <li>Trains</li>
-            <li>Motorcycles</li>
-        </ul>
-
-    </div>
-
+    </video>
 
     <p style="
         text-align:center;
         color:#806b56;
-        line-height:1.7;
-        margin-top:30px;
+        font-size:14px;
+        margin-top:10px;
     ">
-        Every little thing you learn becomes
-        another beautiful memory for Mama. 💛🦁🌿
+        🎥 Orion recognizing his animal cards. 💛
     </p>
 
 </div>
 
+
+<!-- COLORS & BODY PARTS VIDEO -->
+
+<div class="favorite-section">
+
+    <h3>
+        🌈 Learning Colors & Body Parts
+    </h3>
+
+    <p style="
+        text-align:center;
+        line-height:1.7;
+        font-size:1.05rem;
+    ">
+        Orion uses his colorful stars to find and place them
+        on the correct body parts of the picture Mama made.
+        🌟🧒💛
+    </p>
+
+    <video
+        id="colorsBodyPartsVideo"
+        class="what-i-know-video"
+        controls
+        playsinline
+        preload="metadata"
+    >
+
+        <source
+            src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4"
+            type="video/mp4"
+        >
+
+        Your browser does not support the video tag.
+
+    </video>
+
+    <p style="
+        text-align:center;
+        color:#806b56;
+        font-size:14px;
+        margin-top:10px;
+    ">
+        🎥 Orion learning colors and body parts. 🥹🌈💛
+    </p>
+
 </div>
 
+
+<!-- COLORS -->
+
+<div class="favorite-section">
+
+    <h3>
+        🎨 Colors I Know
+    </h3>
+
+    <ul>
+        <li>Yellow</li>
+        <li>Blue</li>
+        <li>Green</li>
+        <li>Pink</li>
+        <li>Black</li>
+        <li>White</li>
+        <li>Purple</li>
+        <li>Orange</li>
+        <li>Red</li>
+    </ul>
+
+</div>
+
+
+<!-- SHAPES -->
+
+<div class="favorite-section">
+
+    <h3>
+        🔵 Shapes I Know
+    </h3>
+
+    <ul>
+        <li>Circle</li>
+        <li>Square</li>
+        <li>Triangle</li>
+        <li>Different shapes</li>
+    </ul>
+
+</div>
+
+
+<!-- FRUITS & VEGETABLES -->
+
+<div class="favorite-section">
+
+    <h3>
+        🍎 Fruits & Vegetables I Know
+    </h3>
+
+    <ul>
+        <li>Apples</li>
+        <li>Bananas</li>
+        <li>Oranges</li>
+        <li>Grapes</li>
+        <li>Watermelon</li>
+        <li>Mangoes</li>
+        <li>Pineapple</li>
+        <li>Carrots</li>
+        <li>Corn</li>
+        <li>Broccoli</li>
+        <li>Potatoes</li>
+        <li>Tomatoes</li>
+    </ul>
+
+</div>
+
+
+<!-- BODY PARTS -->
+
+<div class="favorite-section">
+
+    <h3>
+        🧒 Body Parts I Know
+    </h3>
+
+    <ul>
+        <li>Eyes</li>
+        <li>Nose</li>
+        <li>Mouth</li>
+        <li>Ears</li>
+        <li>Hands</li>
+        <li>Feet</li>
+    </ul>
+
+</div>
+
+
+<!-- PEOPLE & PICTURES -->
+
+<div class="favorite-section">
+
+    <h3>
+        👨‍👩‍👦 People & Pictures I Recognize
+    </h3>
+
+    <ul>
+        <li>Mama</li>
+        <li>Papa</li>
+        <li>Lala / Lola</li>
+        <li>Lolo</li>
+        <li>Tata / Tita</li>
+        <li>Tate / Ate</li>
+        <li>Family photos</li>
+        <li>People in videos</li>
+    </ul>
+
+</div>
+
+
+<!-- THINGS I REMEMBER -->
+
+<div class="favorite-section">
+
+    <h3>
+        🌿 Things I Remember
+    </h3>
+
+    <ul>
+        <li>Animals</li>
+        <li>Animal sounds</li>
+        <li>Books</li>
+        <li>Picture charts</li>
+        <li>Cars</li>
+        <li>Buses</li>
+        <li>Trains</li>
+        <li>Motorcycles</li>
+    </ul>
+
+</div>
+
+
+<p style="
+    text-align:center;
+    color:#806b56;
+    line-height:1.7;
+    margin-top:30px;
+">
+    Every little thing you learn becomes
+    another beautiful memory for Mama. 💛🦁🌿
+</p>
+```
+
+</div>
+
+</div>
 
 <!-- ==================================================
      GALLERY
@@ -1286,97 +1763,98 @@ body{
 
 <div class="popup">
 
-    <button
-        class="close-btn"
-        onclick="closeGallery()"
+```
+<button
+    class="close-btn"
+    onclick="closeGallery()"
+>
+    ×
+</button>
+
+<h2>
+    📸 My Little Gallery
+</h2>
+
+<div class="gallery-grid">
+
+    <img
+        src="Orion1.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 1"
     >
-        ×
-    </button>
 
-    <h2>
-        📸 My Little Gallery
-    </h2>
+    <img
+        src="Orion2.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 2"
+    >
 
-    <div class="gallery-grid">
+    <img
+        src="Orion3.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 3"
+    >
 
-        <img
-            src="Orion1.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 1"
-        >
+    <img
+        src="Orion4.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 4"
+    >
 
-        <img
-            src="Orion2.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 2"
-        >
+    <img
+        src="orion5.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 5"
+    >
 
-        <img
-            src="Orion3.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 3"
-        >
+    <img
+        src="Orion6.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 6"
+    >
 
-        <img
-            src="Orion4.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 4"
-        >
+    <img
+        src="Orion7.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 7"
+    >
 
-        <img
-            src="orion5.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 5"
-        >
+    <img
+        src="Orion8.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 8"
+    >
 
-        <img
-            src="Orion6.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 6"
-        >
+    <img
+        src="Orion9.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 9"
+    >
 
-        <img
-            src="Orion7.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 7"
-        >
+    <img
+        src="Orion10.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 10"
+    >
 
-        <img
-            src="Orion8.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 8"
-        >
+    <img
+        src="Orion11.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 11"
+    >
 
-        <img
-            src="Orion9.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 9"
-        >
+    <img
+        src="orion12.jpg"
+        onclick="openPhoto(this.src)"
+        alt="Orion 12"
+    >
 
-        <img
-            src="Orion10.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 10"
-        >
-
-        <img
-            src="Orion11.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 11"
-        >
-
-        <img
-            src="orion12.jpg"
-            onclick="openPhoto(this.src)"
-            alt="Orion 12"
-        >
-
-    </div>
+</div>
+```
 
 </div>
 
 </div>
-
 
 <!-- ==================================================
      PHOTO VIEWER
@@ -1387,21 +1865,23 @@ body{
     onclick="closePhoto()"
 >
 
-    <span class="viewer-close">
-        ×
-    </span>
+```
+<span class="viewer-close">
+    ×
+</span>
 
-    <img
-        id="viewerImage"
-        src=""
-        alt="Orion photo"
-        onclick="event.stopPropagation()"
-    >
+<img
+    id="viewerImage"
+    src=""
+    alt="Orion photo"
+    onclick="event.stopPropagation()"
+>
+```
 
 </div>
 
-
 <script>
+
 
 /* =========================
    COVER
@@ -1601,7 +2081,6 @@ document.addEventListener(
 );
 
 </script>
-
 
 </body>
 
