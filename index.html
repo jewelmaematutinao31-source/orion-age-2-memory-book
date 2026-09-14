@@ -6,2926 +6,2073 @@
 <title>Orion's Little Safari 🦁</title>
 
 <style>
-*{
-    box-sizing:border-box;
+* {
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-body{
-    margin:0;
-    font-family:"Trebuchet MS",Arial,sans-serif;
-    color:#4d3b28;
-    background-image:url("safari-cover.jpg.jpg");
-    background-position:center center;
-    background-size:cover;
-    background-repeat:no-repeat;
-    background-attachment:fixed;
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Comic Sans MS", Arial, sans-serif;
+  background: #f7f0d8;
+  color: #4d3824;
+  overflow-x: hidden;
 }
 
-button{
-    font-family:inherit;
-    cursor:pointer;
+button {
+  font-family: inherit;
+  cursor: pointer;
 }
 
-/* ================= COVER ================= */
-
-.cover{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:30px 18px;
-    text-align:center;
-}
-
-.cover-box{
-    width:min(900px,100%);
-    padding:35px 25px 45px;
-    border-radius:40px;
-    background:rgba(255,255,255,.72);
-    box-shadow:0 20px 55px rgba(70,55,35,.22);
-}
-
-.cover-photo{
-    width:190px;
-    height:190px;
-    object-fit:cover;
-    border-radius:50%;
-    border:8px solid white;
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
-}
-
-.cover h1{
-    margin:22px 0 8px;
-    font-size:clamp(36px,7vw,65px);
-    color:#765126;
-}
-
-.cover p{
-    font-size:20px;
-    margin:10px 0;
-}
-
-.enter-btn,
-.game-start,
-.match-start,
-.play-again,
-.back-btn{
-    border:0;
-    border-radius:999px;
-    padding:15px 25px;
-    font-size:18px;
-    font-weight:bold;
-    margin-top:18px;
-    background:#7e9b45;
-    color:white;
-    box-shadow:0 6px 15px rgba(0,0,0,.16);
-    transition:.2s;
-}
-
-.enter-btn:hover,
-.game-start:hover,
-.match-start:hover,
-.play-again:hover,
-.back-btn:hover{
-    transform:translateY(-2px);
-}
-
-/* ================= CHAPTER ================= */
-
-.chapter{
-    max-width:1100px;
-    margin:auto;
-    padding:45px 18px 80px;
-}
-
-.chapter-title{
-    text-align:center;
-    font-size:clamp(27px,5vw,45px);
-    color:#725127;
-    margin-bottom:40px;
+.cover {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(30, 65, 35, 0.28), rgba(30, 65, 35, 0.45)),
+    url("safari-cover.jpg.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 25px;
+  position: relative;
 }
 
-.cards{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:25px;
+.cover-content {
+  max-width: 720px;
+  color: white;
+  text-shadow: 0 3px 8px rgba(0,0,0,.5);
 }
 
-.memory-card{
-    border:0;
-    min-height:220px;
-    padding:30px 20px;
-    border-radius:35px;
-    background:rgba(255,255,255,.78);
-    box-shadow:0 12px 30px rgba(70,55,35,.15);
-    color:#4d3b28;
-    transition:.25s;
+.cover-photo {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid white;
+  box-shadow: 0 12px 35px rgba(0,0,0,.35);
+  margin-bottom: 20px;
 }
 
-.memory-card:hover{
-    transform:translateY(-5px);
-    box-shadow:0 18px 38px rgba(70,55,35,.22);
+.cover h1 {
+  font-size: clamp(42px, 8vw, 78px);
+  margin: 10px 0;
 }
 
-.memory-icon{
-    font-size:65px;
+.cover p {
+  font-size: 22px;
+  margin: 10px 0;
 }
 
-.memory-card h3{
-    font-size:25px;
-    margin:12px 0 8px;
+.enter-btn {
+  margin-top: 25px;
+  padding: 16px 28px;
+  border: none;
+  border-radius: 40px;
+  background: #fff4bd;
+  color: #4f3a1f;
+  font-size: 19px;
+  font-weight: bold;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+  transition: .25s;
 }
 
-.memory-card p{
-    font-size:16px;
-    line-height:1.5;
+.enter-btn:hover {
+  transform: translateY(-4px) scale(1.03);
 }
 
-/* ================= LETTER ================= */
-
-.letter{
-    margin-top:55px;
-    background:rgba(255,255,255,.82);
-    border-radius:35px;
-    padding:30px;
-    box-shadow:0 12px 30px rgba(70,55,35,.15);
-}
-
-.letter-photo{
-    display:block;
-    width:min(280px,90%);
-    max-height:350px;
-    object-fit:cover;
-    margin:0 auto 25px;
-    border-radius:25px;
-    box-shadow:0 8px 20px rgba(0,0,0,.18);
+.chapter {
+  padding: 70px 20px;
+  background:
+    radial-gradient(circle at top left, rgba(255,255,255,.8), transparent 35%),
+    #f7f0d8;
 }
 
-.letter h2{
-    text-align:center;
-    color:#765126;
+.chapter-inner {
+  max-width: 1050px;
+  margin: auto;
 }
 
-.letter p{
-    font-size:17px;
-    line-height:1.8;
+.section-title {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 10px;
+  color: #536b35;
 }
 
-/* ================= GALLERY ================= */
-
-.gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-}
-
-.gallery-grid img{
-    width:100%;
-    aspect-ratio:1;
-    object-fit:cover;
-    border-radius:18px;
-    cursor:pointer;
-    transition:.2s;
+.section-subtitle {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 35px;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-.gallery-grid img:hover{
-    transform:scale(1.03);
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
-
-/* ================= POPUPS ================= */
 
-.overlay{
-    position:fixed;
-    inset:0;
-    z-index:1000;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:18px;
-    background:rgba(35,27,18,.72);
+.memory-card {
+  background: rgba(255,255,255,.92);
+  border-radius: 25px;
+  padding: 28px 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(86,64,35,.12);
+  border: 3px solid rgba(120,150,70,.18);
+  transition: .25s;
 }
 
-.overlay.show{
-    display:flex;
+.memory-card:hover {
+  transform: translateY(-7px) rotate(-1deg);
 }
 
-.popup{
-    width:min(850px,100%);
-    max-height:90vh;
-    overflow:auto;
-    background:#fffaf0;
-    border-radius:30px;
-    padding:28px;
-    position:relative;
+.memory-card .icon {
+  font-size: 55px;
 }
 
-.close{
-    position:absolute;
-    right:15px;
-    top:12px;
-    width:42px;
-    height:42px;
-    border:0;
-    border-radius:50%;
-    background:#765126;
-    color:white;
-    font-size:22px;
+.memory-card h3 {
+  margin: 12px 0 8px;
+  color: #536b35;
 }
 
-.popup h2{
-    text-align:center;
-    color:#765126;
-    margin-top:5px;
+.memory-card p {
+  line-height: 1.5;
 }
 
-.info-box{
-    background:#fff;
-    border-radius:20px;
-    padding:20px;
-    margin:15px 0;
+.card-btn {
+  border: none;
+  background: #789548;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 25px;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-.info-box h3{
-    color:#718c3c;
+.card-btn:hover {
+  background: #5e7935;
 }
 
-.info-box li{
-    margin:7px 0;
+.letter {
+  max-width: 900px;
+  margin: 50px auto 0;
+  background: #fffaf0;
+  border-radius: 30px;
+  padding: 35px;
+  box-shadow: 0 12px 35px rgba(86,64,35,.15);
+  border: 2px dashed #b69a60;
 }
 
-/* ================= GAME 1 ================= */
-
-.game-section{
-    margin-top:55px;
+.letter img {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto 25px;
 }
 
-.game-card{
-    max-width:1000px;
-    margin:0 auto 55px;
-    padding:30px;
-    border-radius:35px;
-    background:rgba(255,255,255,.78);
-    border:3px solid rgba(255,255,255,.9);
-    box-shadow:0 15px 35px rgba(70,55,35,.14);
-    text-align:center;
+.letter h2 {
+  text-align: center;
+  color: #536b35;
 }
 
-.game-card-title{
-    font-size:30px;
-    color:#765126;
-    margin:10px 0;
+.letter p {
+  font-size: 18px;
+  line-height: 1.8;
 }
 
-.game-card-description{
-    font-size:17px;
-    line-height:1.6;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
 }
 
-.game-area{
-    display:none;
+.gallery-grid img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: .25s;
+  box-shadow: 0 5px 15px rgba(0,0,0,.12);
 }
 
-.game-area.show{
-    display:block;
+.gallery-grid img:hover {
+  transform: scale(1.04) rotate(1deg);
 }
 
-.game-score{
-    font-size:21px;
-    font-weight:bold;
-    margin:15px;
-}
+/* POPUPS */
 
-.progress-wrap{
-    width:100%;
-    height:15px;
-    background:#eadfc9;
-    border-radius:999px;
-    overflow:hidden;
-    margin:15px 0 25px;
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(25,35,20,.75);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-.progress-bar{
-    height:100%;
-    width:0%;
-    background:#7e9b45;
-    transition:.3s;
+.popup.show {
+  display: flex;
 }
 
-.question{
-    font-size:30px;
-    font-weight:bold;
-    color:#765126;
+.popup-box {
+  width: min(850px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #fffaf0;
+  border-radius: 30px;
+  padding: 30px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,.35);
 }
 
-.question-sub{
-    font-size:18px;
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+  border: none;
+  background: #789548;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 22px;
+  z-index: 3;
 }
 
-.animal-choice-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
-    margin-top:25px;
+.popup-box h2 {
+  color: #536b35;
+  text-align: center;
 }
 
-.animal-choice{
-    border:3px solid #eadfc9;
-    background:white;
-    border-radius:25px;
-    padding:20px 10px;
-    min-height:150px;
-    font-size:65px;
-    transition:.2s;
+.popup-box p,
+.popup-box li {
+  line-height: 1.7;
+  font-size: 17px;
 }
 
-.animal-choice:hover{
-    transform:scale(1.03);
+.list-box {
+  background: #f2ebce;
+  border-radius: 18px;
+  padding: 18px;
+  margin: 15px 0;
 }
 
-.animal-choice span{
-    display:block;
-    font-size:17px;
-    margin-top:8px;
-    color:#5c4934;
+.video-box video {
+  width: 100%;
+  border-radius: 18px;
+  margin-top: 15px;
 }
 
-.animal-choice.correct{
-    border-color:#7e9b45;
-    background:#eef6dc;
+.photo-viewer {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 20px;
+  object-fit: contain;
 }
 
-.animal-choice.wrong{
-    animation:shake .35s;
-    border-color:#c77b6b;
-}
+/* GAMES */
 
-@keyframes shake{
-    0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-7px)}
-    75%{transform:translateX(7px)}
+.game-section {
+  background:
+    linear-gradient(rgba(65,87,40,.07), rgba(65,87,40,.07)),
+    #e9efd5;
+  padding: 70px 20px;
 }
 
-.game-message{
-    min-height:30px;
-    font-weight:bold;
-    margin:15px;
+.game-card {
+  max-width: 1000px;
+  margin: 30px auto;
+  background: #fffdf4;
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 12px 35px rgba(61,76,35,.15);
+  border: 3px solid #d5dfb9;
+  text-align: center;
 }
 
-.game-finish{
-    display:none;
+.game-card h3 {
+  color: #536b35;
+  font-size: 29px;
 }
 
-.game-finish.show{
-    display:block;
+.start-game-btn,
+.play-again {
+  border: none;
+  padding: 15px 25px;
+  border-radius: 30px;
+  background: #789548;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  margin: 10px;
+  box-shadow: 0 5px 12px rgba(0,0,0,.15);
 }
 
-/* ================= GAME 2 ================= */
-
-.match-area{
-    display:none;
+.start-game-btn:hover,
+.play-again:hover {
+  transform: translateY(-3px);
 }
 
-.match-area.show{
-    display:block;
-}
+/* GAME 1 */
 
-.game-two-title{
-    font-size:30px;
-    color:#765126;
+.game1-area {
+  display: none;
 }
 
-.game-two-subtitle{
-    font-size:17px;
-    line-height:1.6;
+.game1-area.show {
+  display: block;
 }
 
-.match-progress{
-    font-size:20px;
-    font-weight:bold;
-    margin:20px 0;
+.animal-question {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 20px;
 }
 
-.match-progress-bar{
-    height:15px;
-    background:#eadfc9;
-    border-radius:999px;
-    overflow:hidden;
+.animal-options {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
-.match-progress-fill{
-    height:100%;
-    width:0%;
-    background:#d38b70;
-    transition:.3s;
+.animal-option {
+  width: 130px;
+  min-height: 120px;
+  border: 3px solid #d8dfbf;
+  background: #fff;
+  border-radius: 20px;
+  padding: 15px;
+  font-size: 42px;
+  transition: .2s;
 }
 
-.baby-prompt{
-    margin:25px 0 10px;
-    font-size:25px;
-    font-weight:bold;
-    color:#765126;
+.animal-option span {
+  display: block;
+  font-size: 15px;
+  margin-top: 5px;
+  font-weight: bold;
 }
 
-.baby-instruction{
-    font-size:16px;
+.animal-option:hover {
+  transform: scale(1.06);
 }
 
-.baby-stage{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-    margin:25px 0;
+.game-message {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px;
+  min-height: 30px;
 }
 
-.baby-box{
-    width:180px;
-    min-height:180px;
-    border:4px dashed #d8bd8c;
-    border-radius:25px;
-    background:#fff;
-    padding:20px;
-}
+/* GAME 2 */
 
-.baby-label{
-    font-weight:bold;
-    margin-bottom:8px;
+.match-area {
+  display: none;
 }
 
-.baby-emoji{
-    font-size:75px;
+.match-area.show {
+  display: block;
 }
 
-.baby-name{
-    font-weight:bold;
-    margin-top:8px;
+.match-babies,
+.match-mamas {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 20px 0;
 }
 
-.match-arrow{
-    font-size:45px;
+.match-choice {
+  border: 3px solid #d8dfbf;
+  background: white;
+  border-radius: 20px;
+  padding: 18px;
+  min-width: 110px;
+  font-size: 42px;
 }
 
-.mama-choice-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
+.match-choice span {
+  display: block;
+  font-size: 14px;
+  margin-top: 5px;
 }
 
-.mama-choice{
-    border:3px solid #eadfc9;
-    background:white;
-    border-radius:22px;
-    padding:15px;
-    min-height:135px;
-    transition:.2s;
+.match-choice:hover {
+  transform: scale(1.05);
 }
 
-.mama-choice:hover{
-    transform:translateY(-3px);
-}
+/* GAME 3 - ORION SAFARI ADVENTURE */
 
-.mama-choice.selected{
-    border-color:#d38b70;
-    background:#fff0e9;
+.adventure-start-icon {
+  font-size: 72px;
+  animation: safariBounce 1.5s infinite;
 }
 
-.mama-choice.correct{
-    border-color:#7e9b45;
-    background:#eef6dc;
+@keyframes safariBounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
 }
 
-.mama-choice.wrong{
-    animation:shake .35s;
+.adventure-title {
+  color: #536b35;
+  font-size: 32px;
+  margin: 10px 0;
 }
 
-.mama-emoji{
-    display:block;
-    font-size:55px;
+.adventure-description {
+  max-width: 700px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
-.mama-name{
-    font-weight:bold;
+.adventure-area {
+  display: none;
 }
 
-.match-message{
-    min-height:30px;
-    margin:18px;
-    font-weight:bold;
+.adventure-area.show {
+  display: block;
 }
 
-.match-finish{
-    display:none;
+.adventure-score {
+  display: inline-block;
+  background: #f6d96d;
+  color: #58451d;
+  padding: 10px 18px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-.match-finish.show{
-    display:block;
+.adventure-progress {
+  width: min(500px, 90%);
+  height: 13px;
+  background: #dce5c6;
+  border-radius: 20px;
+  margin: 10px auto 20px;
+  overflow: hidden;
 }
 
-.match-finish h3{
-    font-size:30px;
-    color:#765126;
+.adventure-progress-fill {
+  height: 100%;
+  width: 0;
+  background: #789548;
+  border-radius: 20px;
+  transition: width .5s;
 }
 
-.match-finish-animals{
-    font-size:45px;
-    margin:20px;
+.ride-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  max-width: 850px;
+  margin: 25px auto;
 }
 
-/* ================= GAME 3 ================= */
-
-.adventure-start-icon{
-    font-size:75px;
-    margin:10px 0 20px;
+.ride-choice {
+  border: 3px solid #d8dfbf;
+  background: white;
+  border-radius: 24px;
+  padding: 15px 10px;
+  min-height: 190px;
+  transition: .25s;
+  position: relative;
+  overflow: hidden;
 }
 
-.adventure-title{
-    font-size:30px;
-    color:#765126;
-    margin:10px 0;
+.ride-choice:hover {
+  transform: translateY(-7px) rotate(-1deg);
+  border-color: #9aac68;
+  box-shadow: 0 10px 20px rgba(60,80,35,.15);
 }
 
-.adventure-description{
-    font-size:17px;
-    line-height:1.6;
+.ride-animal {
+  font-size: 55px;
+  display: block;
+  position: relative;
+  z-index: 1;
 }
 
-.adventure-area{
-    display:none;
+.ride-photo {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+  position: relative;
+  z-index: 2;
+  margin-top: -15px;
 }
 
-.adventure-area.show{
-    display:block;
+.ride-name {
+  display: block;
+  font-weight: bold;
+  color: #536b35;
+  margin-top: 5px;
 }
 
-.adventure-score{
-    font-size:20px;
-    font-weight:bold;
-    margin:15px 0;
+.ride-action {
+  display: block;
+  font-size: 13px;
+  margin-top: 5px;
+  color: #777;
 }
 
-.adventure-progress{
-    width:100%;
-    height:14px;
-    background:#eadfc9;
-    border-radius:999px;
-    overflow:hidden;
-    margin-bottom:22px;
+.adventure-question {
+  font-size: 27px;
+  font-weight: bold;
+  color: #536b35;
+  margin: 12px;
 }
 
-.adventure-progress-fill{
-    height:100%;
-    width:0%;
-    background:#7e9b45;
-    transition:.4s;
+.adventure-sub {
+  font-size: 17px;
+  margin-bottom: 18px;
 }
 
-.ride-choice-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-top:25px;
-}
+/* SAFARI STAGE */
 
-.ride-choice{
-    border:3px solid #eadfc9;
-    background:#fff;
-    border-radius:25px;
-    padding:14px 10px;
-    min-height:220px;
-    transition:.25s;
+.adventure-stage {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 520px;
+  margin: 20px auto;
+  border-radius: 30px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(20,70,35,.08), rgba(20,70,35,.08)),
+    url("forest.jpg.jpg") center/cover no-repeat;
+  border: 6px solid #8ca45b;
+  box-shadow: inset 0 0 50px rgba(0,0,0,.18),
+              0 12px 30px rgba(45,65,30,.2);
 }
 
-.ride-choice:hover{
-    transform:translateY(-5px) scale(1.02);
-    border-color:#9aad61;
-}
+/* leaves */
 
-.ride-animal{
-    font-size:60px;
-    display:block;
+.forest-leaf {
+  position: absolute;
+  font-size: 30px;
+  animation: leafFloat 4s ease-in-out infinite;
+  z-index: 2;
 }
 
-.ride-photo{
-    width:75px;
-    height:75px;
-    object-fit:cover;
-    border-radius:50%;
-    border:4px solid white;
-    box-shadow:0 5px 12px rgba(0,0,0,.2);
-    margin:8px auto;
-    display:block;
+.leaf-one {
+  left: 8%;
+  top: 14%;
 }
 
-.ride-name{
-    display:block;
-    font-weight:bold;
-    font-size:17px;
-    color:#5c4934;
+.leaf-two {
+  left: 80%;
+  top: 17%;
+  animation-delay: .8s;
 }
 
-.ride-action{
-    display:block;
-    font-size:14px;
-    margin-top:5px;
-    color:#7e9b45;
-    font-weight:bold;
+.leaf-three {
+  left: 18%;
+  bottom: 18%;
+  animation-delay: 1.5s;
 }
 
-.adventure-question{
-    font-size:27px;
-    font-weight:bold;
-    color:#765126;
-    margin:15px 0 5px;
+.leaf-four {
+  right: 9%;
+  bottom: 20%;
+  animation-delay: 2s;
 }
 
-.adventure-sub{
-    font-size:16px;
-    margin-bottom:15px;
+@keyframes leafFloat {
+  0%,100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(12deg);
+  }
 }
 
-.adventure-stage{
-    position:relative;
-    min-height:520px;
-    margin-top:20px;
-    border-radius:30px;
-    overflow:hidden;
-    background-image:
-        linear-gradient(
-            rgba(32,65,35,.15),
-            rgba(32,65,35,.15)
-        ),
-        url("forest.jpg.jpg");
-    background-size:cover;
-    background-position:center;
-    border:5px solid rgba(255,255,255,.9);
-    box-shadow:inset 0 0 30px rgba(0,0,0,.12);
-}
+/* pond */
 
-.forest-leaf{
-    position:absolute;
-    font-size:30px;
-    animation:leafFloat 4s ease-in-out infinite;
-    pointer-events:none;
+.safari-pond {
+  position: absolute;
+  width: 190px;
+  height: 95px;
+  border-radius: 50%;
+  background: rgba(83,175,205,.86);
+  border: 5px solid rgba(255,255,255,.7);
+  right: 7%;
+  bottom: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 20px rgba(255,255,255,.4);
 }
 
-.leaf-one{
-    top:10%;
-    left:8%;
+.pond-label {
+  background: rgba(255,255,255,.75);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-weight: bold;
+  color: #31586b;
 }
 
-.leaf-two{
-    top:20%;
-    right:10%;
-    animation-delay:1s;
+.safari-pond::after {
+  content: "";
+  position: absolute;
+  width: 55px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,.65);
+  border-radius: 50%;
+  animation: ripple 1.8s infinite;
 }
 
-.leaf-three{
-    bottom:30%;
-    left:15%;
-    animation-delay:2s;
+@keyframes ripple {
+  from {
+    transform: scale(.6);
+    opacity: .9;
+  }
+  to {
+    transform: scale(1.7);
+    opacity: 0;
+  }
 }
 
-.leaf-four{
-    bottom:12%;
-    right:18%;
-    animation-delay:1.5s;
-}
+/* RIDER */
 
-@keyframes leafFloat{
-    0%,100%{
-        transform:translateY(0) rotate(0deg);
-    }
-    50%{
-        transform:translateY(-12px) rotate(8deg);
-    }
+.adventure-rider {
+  position: absolute;
+  left: 10%;
+  top: 48%;
+  width: 145px;
+  height: 145px;
+  z-index: 8;
+  transition:
+    left 1.6s cubic-bezier(.25,.8,.25,1),
+    top 1.6s cubic-bezier(.25,.8,.25,1),
+    transform .3s;
 }
-
-/* ================= POND ================= */
 
-.safari-pond{
-    position:absolute;
-    width:180px;
-    height:105px;
-    border-radius:50%;
-    background:
-        radial-gradient(
-            ellipse at center,
-            #b9eff4 0%,
-            #68cbd7 45%,
-            #3199aa 100%
-        );
-    border:6px solid rgba(255,255,255,.75);
-    box-shadow:
-        inset 0 0 20px rgba(0,80,100,.25),
-        0 8px 18px rgba(0,0,0,.2);
-    right:7%;
-    bottom:10%;
-    z-index:2;
+.adventure-animal {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: 95px;
+  line-height: 1;
+  z-index: 1;
+  filter: drop-shadow(0 6px 4px rgba(0,0,0,.25));
 }
 
-.safari-pond::before{
-    content:"";
-    position:absolute;
-    width:60px;
-    height:20px;
-    border-top:4px solid rgba(255,255,255,.75);
-    border-radius:50%;
-    top:28px;
-    left:50px;
-    animation:waterRipple 2s infinite;
+.adventure-orion {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid white;
+  box-shadow: 0 5px 12px rgba(0,0,0,.3);
+  left: 45px;
+  top: 5px;
+  z-index: 3;
 }
 
-.safari-pond::after{
-    content:"💦";
-    position:absolute;
-    font-size:24px;
-    top:5px;
-    right:25px;
+/*
+   This little label helps visually show that Orion is
+   the rider while keeping his actual photo authentic.
+*/
+.adventure-rider-label {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+  white-space: nowrap;
+  background: rgba(255,255,255,.9);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #536b35;
+  z-index: 5;
 }
 
-@keyframes waterRipple{
-    0%,100%{
-        transform:scaleX(.8);
-        opacity:.5;
-    }
-    50%{
-        transform:scaleX(1.15);
-        opacity:1;
-    }
+.adventure-rider.bird-flight {
+  animation: birdFlight 1.4s ease-in-out infinite;
 }
 
-.pond-label{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    font-weight:bold;
-    color:white;
-    text-shadow:0 2px 4px rgba(0,0,0,.45);
-    font-size:17px;
+@keyframes birdFlight {
+  0%,100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
 }
 
-/* ================= GAME 3 TARGETS ================= */
+/* TARGETS */
 
-.food-target{
-    position:absolute;
-    z-index:5;
-    min-width:105px;
-    border:4px solid white;
-    border-radius:25px;
-    padding:10px 8px;
-    background:rgba(255,250,235,.95);
-    box-shadow:0 7px 15px rgba(0,0,0,.2);
-    font-family:inherit;
-    transition:.2s;
+.food-target {
+  position: absolute;
+  min-width: 78px;
+  min-height: 70px;
+  border: 4px solid rgba(255,255,255,.9);
+  border-radius: 25px;
+  background: rgba(255,250,225,.94);
+  box-shadow: 0 8px 16px rgba(0,0,0,.2);
+  font-size: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: .2s;
+  z-index: 7;
 }
 
-.food-target:hover{
-    transform:scale(1.08);
+.food-target small {
+  font-size: 12px;
+  font-weight: bold;
+  color: #59452c;
+  margin-top: -2px;
 }
 
-.food-target-emoji{
-    display:block;
-    font-size:43px;
+.food-target:hover {
+  transform: scale(1.08);
 }
 
-.food-target-label{
-    display:block;
-    font-size:14px;
-    font-weight:bold;
-    color:#5c4934;
+.food-target.wrong {
+  animation: shake .4s;
 }
 
-.food-target.wrong{
-    animation:shake .35s;
-    border-color:#c77b6b;
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  75% { transform: translateX(10px); }
 }
 
-.food-target.correct{
-    border-color:#7e9b45;
-    background:#eef6dc;
+.food-target.correct {
+  animation: targetGlow .7s infinite alternate;
 }
 
-/* ================= MOVING ORION ================= */
-
-.adventure-rider{
-    position:absolute;
-    z-index:10;
-    left:8%;
-    top:48%;
-    width:150px;
-    min-height:150px;
-    transition:
-        left 1.6s ease-in-out,
-        top 1.6s ease-in-out,
-        transform 1.6s ease-in-out;
-    text-align:center;
-}
-
-.adventure-animal{
-    font-size:78px;
-    display:block;
-    filter:drop-shadow(0 5px 4px rgba(0,0,0,.25));
+@keyframes targetGlow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.12);
+  }
 }
 
-.adventure-orion{
-    width:68px;
-    height:68px;
-    object-fit:cover;
-    border-radius:50%;
-    border:5px solid white;
-    box-shadow:0 5px 12px rgba(0,0,0,.25);
-    display:block;
-    margin:-15px auto 0;
+.adventure-message {
+  min-height: 60px;
+  font-size: 21px;
+  font-weight: bold;
+  color: #536b35;
+  padding: 10px;
 }
 
-.adventure-rider-label{
-    display:inline-block;
-    margin-top:5px;
-    padding:5px 10px;
-    border-radius:999px;
-    background:rgba(255,255,255,.9);
-    color:#5c4934;
-    font-size:13px;
-    font-weight:bold;
-}
+/* special reactions */
 
-.adventure-rider.flying .adventure-animal{
-    animation:birdFly .6s ease-in-out infinite alternate;
+.reaction-burst {
+  position: absolute;
+  pointer-events: none;
+  z-index: 30;
+  font-size: 42px;
+  animation: burst .9s forwards;
 }
 
-@keyframes birdFly{
-    from{
-        transform:translateY(0) rotate(-4deg);
-    }
-    to{
-        transform:translateY(-10px) rotate(4deg);
-    }
+@keyframes burst {
+  from {
+    transform: scale(.3);
+    opacity: 0;
+  }
+  30% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.7) translateY(-30px);
+    opacity: 0;
+  }
 }
 
-.adventure-message{
-    min-height:32px;
-    margin:15px;
-    font-weight:bold;
-    font-size:18px;
-    color:#718c3c;
+.reaction-text {
+  position: absolute;
+  z-index: 30;
+  background: white;
+  border-radius: 20px;
+  padding: 10px 15px;
+  font-weight: bold;
+  box-shadow: 0 6px 15px rgba(0,0,0,.2);
+  animation: reactionPop 1.2s forwards;
 }
 
-.adventure-finish{
-    display:none;
+@keyframes reactionPop {
+  0% {
+    transform: scale(.5);
+    opacity: 0;
+  }
+  25% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-35px);
+    opacity: 0;
+  }
 }
 
-.adventure-finish.show{
-    display:block;
+.adventure-finish {
+  display: none;
+  padding: 20px;
 }
 
-.adventure-finish-animals{
-    font-size:48px;
-    margin:20px;
+.adventure-finish.show {
+  display: block;
 }
 
-/* ================= VIDEOS ================= */
-
-.video-wrap{
-    margin:20px auto;
-    text-align:center;
+.adventure-finish-animals {
+  font-size: 55px;
+  margin: 20px 0;
+  animation: animalsBounce 1.4s infinite;
 }
 
-.video-wrap video{
-    width:100%;
-    max-width:650px;
-    border-radius:20px;
+@keyframes animalsBounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-/* ================= PHOTO VIEWER ================= */
+/* FOOTER */
 
-.photo-viewer img{
-    display:block;
-    max-width:100%;
-    max-height:75vh;
-    margin:auto;
-    border-radius:20px;
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  background: #536b35;
+  color: white;
 }
-
-/* ================= FOOTER ================= */
 
-footer{
-    text-align:center;
-    padding:35px 15px;
-    font-size:15px;
-    color:#765126;
+footer p {
+  margin: 7px;
 }
 
-/* ================= MOBILE ================= */
+/* MOBILE */
 
-@media(max-width:800px){
+@media(max-width: 800px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .ride-choice-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .ride-choice-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
-
-@media(max-width:700px){
-
-    .cards{
-        grid-template-columns:1fr;
-    }
-
-    .gallery-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .animal-choice-grid,
-    .mama-choice-grid{
-        grid-template-columns:1fr;
-    }
-
-    .animal-choice{
-        min-height:120px;
-    }
-
-    .cover-box{
-        padding:28px 18px 35px;
-    }
-
-    .cover-photo{
-        width:155px;
-        height:155px;
-    }
 
-    .letter,
-    .popup,
-    .game-card{
-        padding:22px 17px;
-    }
+@media(max-width: 600px) {
+  .cover h1 {
+    font-size: 42px;
+  }
 
-    .baby-stage{
-        flex-direction:column;
-    }
+  .cover-photo {
+    width: 145px;
+    height: 145px;
+  }
 
-    .match-arrow{
-        transform:rotate(90deg);
-    }
+  .cards {
+    grid-template-columns: 1fr;
+  }
 
-    .adventure-stage{
-        min-height:560px;
-    }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
-    .ride-choice-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
+  .game-card {
+    padding: 20px 12px;
+  }
 
-    .ride-choice{
-        min-height:200px;
-    }
+  .ride-choice-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
 
-    .safari-pond{
-        width:145px;
-        height:90px;
-        right:4%;
-        bottom:7%;
-    }
+  .ride-choice {
+    min-height: 170px;
+  }
 
-    .adventure-rider{
-        width:125px;
-    }
+  .adventure-stage {
+    height: 430px;
+  }
 
-    .adventure-animal{
-        font-size:65px;
-    }
+  .adventure-rider {
+    transform: scale(.82);
+    transform-origin: left top;
+  }
 
-    .adventure-orion{
-        width:60px;
-        height:60px;
-    }
+  .safari-pond {
+    width: 135px;
+    height: 70px;
+    right: 4%;
+  }
 
-    .food-target{
-        min-width:90px;
-        padding:7px;
-    }
+  .food-target {
+    min-width: 62px;
+    min-height: 58px;
+    font-size: 30px;
+  }
 
-    .food-target-emoji{
-        font-size:35px;
-    }
+  .food-target small {
+    font-size: 9px;
+  }
 
+  .letter {
+    padding: 22px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ================= COVER ================= -->
+<!-- COVER -->
 
 <section class="cover">
+  <div class="cover-content">
 
-    <div class="cover-box">
+    <img
+      src="701312354_1512336296938135_1169129443103858509_n.jpg"
+      class="cover-photo"
+      alt="Orion"
+    >
 
-        <img
-            src="701312354_1512336296938135_1169129443103858509_n.jpg"
-            class="cover-photo"
-            alt="Orion">
+    <h1>Orion's Little Safari 🦁</h1>
 
-        <h1>Orion's Little Safari 🦁</h1>
+    <p>🌿 A little book of memories at age two 🐾</p>
 
-        <p>🌿 A little book of memories at age two 🐾</p>
+    <p>For my little explorer, Orion. 💛</p>
 
-        <p>For my little explorer, Orion. 💛</p>
+    <button class="enter-btn" onclick="document.getElementById('memories').scrollIntoView()">
+      🌿 Enter Orion's World 🐾
+    </button>
 
-        <button
-            type="button"
-            class="enter-btn"
-            onclick="document.getElementById('chapter').scrollIntoView({behavior:'smooth'})">
+  </div>
+</section>
 
-            🌿 Enter Orion's World 🐾
 
+<!-- MEMORY BOOK -->
+
+<section class="chapter" id="memories">
+  <div class="chapter-inner">
+
+    <h2 class="section-title">🌿 Welcome to Orion's World 🐾</h2>
+
+    <p class="section-subtitle">
+      A tiny collection of the things Orion loves, the things he knows,
+      the funny little moments that make Mama smile, and the memories
+      we never want to forget. 💛
+    </p>
+
+
+    <div class="cards">
+
+      <div class="memory-card">
+        <div class="icon">📸</div>
+        <h3>My Little Gallery</h3>
+        <p>Little moments from Orion's second year.</p>
+        <button class="card-btn" onclick="openPopup('galleryPopup')">
+          Open Gallery
         </button>
+      </div>
+
+
+      <div class="memory-card">
+        <div class="icon">🍌</div>
+        <h3>My Favorite Things</h3>
+        <p>The foods, colors, toys, and little things Orion loves.</p>
+        <button class="card-btn" onclick="openPopup('favoritePopup')">
+          Open
+        </button>
+      </div>
+
+
+      <div class="memory-card">
+        <div class="icon">💬</div>
+        <h3>My Little Words</h3>
+        <p>Orion's special little words and sounds.</p>
+        <button class="card-btn" onclick="openPopup('wordsPopup')">
+          Open
+        </button>
+      </div>
+
+
+      <div class="memory-card">
+        <div class="icon">🐾</div>
+        <h3>Animal Sounds</h3>
+        <p>Orion's safari animal sounds are coming soon!</p>
+        <button class="card-btn" onclick="openPopup('animalPopup')">
+          Open
+        </button>
+      </div>
+
+
+      <div class="memory-card">
+        <div class="icon">😂</div>
+        <h3>Funny Little Orion</h3>
+        <p>The habits and little moments that make Mama laugh.</p>
+        <button class="card-btn" onclick="openPopup('funnyPopup')">
+          Open
+        </button>
+      </div>
+
+
+      <div class="memory-card">
+        <div class="icon">🌟</div>
+        <h3>What I Know at Two</h3>
+        <p>Little things Orion already knows and loves learning.</p>
+        <button class="card-btn" onclick="openPopup('knowPopup')">
+          Open
+        </button>
+      </div>
 
     </div>
+
+
+    <!-- MAMA LETTER -->
+
+    <div class="letter">
+
+      <img src="mama and orion.jpg" alt="Mama and Orion">
+
+      <h2>💌 Mama's Letter to Orion</h2>
+
+      <p>
+        My dearest Orion,
+      </p>
+
+      <p>
+        You are two years old now, my little explorer. Sometimes Mama
+        looks at you and wonders how the little baby I once held in my
+        arms became this curious, funny, clever little boy.
+      </p>
+
+      <p>
+        I love watching you learn. I love the way you look at books,
+        animals, colors, pictures, and everything around you with such
+        curiosity. I love your little words, your funny sounds, your
+        hugs, your smiles, and even your silly little habits.
+      </p>
+
+      <p>
+        You may not remember these little moments when you grow up,
+        so Mama wanted to keep them here for you.
+      </p>
+
+      <p>
+        I hope one day, when you are older, you will open this little
+        safari and see just how loved you were at two years old.
+      </p>
+
+      <p>
+        Keep exploring, my little boy. Keep learning. Keep being curious.
+        And always remember that Mama loves you more than words can say.
+      </p>
+
+      <p>
+        Love always,<br>
+        <strong>Mama 💛</strong>
+      </p>
+
+    </div>
+
+  </div>
+</section>
+
+
+<!-- GAMES -->
+
+<section class="game-section">
+
+  <div class="chapter-inner">
+
+    <h2 class="section-title">🎮 Orion's Safari Games 🦁</h2>
+
+    <p class="section-subtitle">
+      Ready to play, little explorer? 🌿
+    </p>
+
+
+    <!-- GAME 1 -->
+
+    <div class="game-card">
+
+      <div id="game1Start">
+
+        <div style="font-size:70px;">🦁🐘🦒</div>
+
+        <h3>🌿 Game 1: Find the Animal!</h3>
+
+        <p>
+          Can Orion find the animal Mama is thinking of?
+        </p>
+
+        <button class="start-game-btn" onclick="startGame1()">
+          🐾 Start Game
+        </button>
+
+      </div>
+
+
+      <div class="game1-area" id="game1Area">
+
+        <div class="animal-question" id="animalQuestion">
+          Which animal is this?
+        </div>
+
+        <div class="animal-options" id="animalOptions"></div>
+
+        <div class="game-message" id="game1Message"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- GAME 2 -->
+
+    <div class="game-card">
+
+      <div id="game2Start">
+
+        <div style="font-size:70px;">🐣🐔🐵</div>
+
+        <h3>💛 Game 2: Match Baby to Mama!</h3>
+
+        <p>
+          Which mama belongs to this baby?
+        </p>
+
+        <button class="start-game-btn" onclick="startGame2()">
+          🌿 Start Matching
+        </button>
+
+      </div>
+
+
+      <div class="match-area" id="matchArea">
+
+        <div class="animal-question" id="matchQuestion">
+          Who is this baby's mama?
+        </div>
+
+        <div class="match-babies" id="matchBaby"></div>
+
+        <div class="match-mamas" id="matchMamas"></div>
+
+        <div class="game-message" id="game2Message"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         GAME 3 — ORION'S SAFARI ADVENTURE
+         ===================================================== -->
+
+    <div class="game-card">
+
+      <div id="adventureStart">
+
+        <div class="adventure-start-icon">
+          👦🏻🦁🌿
+        </div>
+
+        <h3 class="adventure-title">
+          🌟 Orion's Safari Adventure 🌟
+        </h3>
+
+        <p class="adventure-description">
+          Hop on, little explorer! 👦🏻💛
+          Orion will ride with a safari friend and help them complete
+          special missions around the forest!
+        </p>
+
+        <p>
+          🦁 🐘 🦒 🐴 🐒 🐦 🐻
+        </p>
+
+        <button
+          class="start-game-btn"
+          onclick="startAdventureGame()"
+        >
+          🐾 START SAFARI ADVENTURE!
+        </button>
+
+      </div>
+
+
+      <!-- CHOOSE ANIMAL -->
+
+      <div class="adventure-area" id="adventureChoices">
+
+        <div class="adventure-question">
+          🐾 Choose Orion's safari friend!
+        </div>
+
+        <div class="adventure-sub">
+          Who does Orion want to explore with?
+        </div>
+
+        <div class="ride-choice-grid" id="rideChoices"></div>
+
+      </div>
+
+
+      <!-- ACTUAL ADVENTURE -->
+
+      <div class="adventure-area" id="adventureGame">
+
+        <div class="adventure-score" id="adventureScore">
+          ⭐ 0 / 3
+        </div>
+
+        <div class="adventure-progress">
+          <div
+            class="adventure-progress-fill"
+            id="adventureProgress"
+          ></div>
+        </div>
+
+        <div
+          class="adventure-question"
+          id="adventureQuestion"
+        >
+          Safari Mission!
+        </div>
+
+        <div
+          class="adventure-sub"
+          id="adventureSub"
+        >
+          Help Orion's animal friend!
+        </div>
+
+
+        <div
+          class="adventure-stage"
+          id="adventureStage"
+        >
+
+          <span class="forest-leaf leaf-one">🍃</span>
+          <span class="forest-leaf leaf-two">🌿</span>
+          <span class="forest-leaf leaf-three">🍃</span>
+          <span class="forest-leaf leaf-four">🌿</span>
+
+
+          <!-- POND -->
+
+          <div
+            class="safari-pond"
+            id="safariPond"
+          >
+            <div class="pond-label">
+              💧 Water
+            </div>
+          </div>
+
+
+          <!-- ORION + ANIMAL -->
+
+          <div
+            class="adventure-rider"
+            id="adventureRider"
+          >
+
+            <span
+              class="adventure-animal"
+              id="adventureAnimal"
+            >
+              🦁
+            </span>
+
+            <img
+              src="riding.png.png"
+              class="adventure-orion"
+              alt="Orion"
+            >
+
+            <span
+              class="adventure-rider-label"
+              id="adventureRiderLabel"
+            >
+              Orion's Safari Ride
+            </span>
+
+          </div>
+
+
+          <!-- TARGETS -->
+
+          <div id="adventureTargets"></div>
+
+        </div>
+
+
+        <div
+          class="adventure-message"
+          id="adventureMessage"
+        ></div>
+
+      </div>
+
+
+      <!-- FINISH -->
+
+      <div
+        class="adventure-finish"
+        id="adventureFinish"
+      >
+
+        <div style="font-size:75px;">
+          🎉
+        </div>
+
+        <h3 class="adventure-title">
+          🌟 Safari Adventure Complete! 🌟
+        </h3>
+
+        <p id="adventureFinishMessage">
+          Orion helped his safari friends! 🥹💛
+        </p>
+
+        <div class="adventure-finish-animals">
+          🦁 🐘 🦒 🐴 🐒 🐦 🐻
+        </div>
+
+        <p>
+          ⭐ ⭐ ⭐
+        </p>
+
+        <button
+          class="play-again"
+          onclick="chooseAnotherAdventureAnimal()"
+        >
+          🐾 Choose Another Animal
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
 
 </section>
 
 
-<!-- ================= MAIN ================= -->
+<!-- GALLERY POPUP -->
 
-<main class="chapter" id="chapter">
+<div class="popup" id="galleryPopup">
 
-    <h2 class="chapter-title">
-        🌿 Chapter 1 — Orion at Age 2 🐾
-    </h2>
+  <div class="popup-box">
 
+    <button class="close-btn" onclick="closePopup('galleryPopup')">
+      ×
+    </button>
 
-    <!-- ================= SIX MEMORY CARDS ================= -->
+    <h2>📸 Orion's Little Gallery</h2>
 
-    <div class="cards">
+    <p style="text-align:center;">
+      Little moments from Orion's beautiful second year. 💛
+    </p>
 
-        <button class="memory-card" onclick="openGallery()">
+    <div class="gallery-grid">
 
-            <div class="memory-icon">🦁</div>
-
-            <h3>My Little Gallery</h3>
-
-            <p>
-                Little moments, little smiles,
-                and memories Mama never wants to forget. 📸
-            </p>
-
-        </button>
-
-
-        <button class="memory-card" onclick="openFavoriteThings()">
-
-            <div class="memory-icon">🐘</div>
-
-            <h3>My Favorite Things</h3>
-
-            <p>
-                The foods, toys, colors, animals,
-                and little things Orion loves. 💛
-            </p>
-
-        </button>
-
-
-        <button class="memory-card" onclick="openLittleWords()">
-
-            <div class="memory-icon">🦒</div>
-
-            <h3>My Little Words</h3>
-
-            <p>
-                The adorable words and sounds
-                that made Mama smile. 🥹
-            </p>
-
-        </button>
-
-
-        <button class="memory-card" onclick="showAnimalSounds()">
-
-            <div class="memory-icon">🦓</div>
-
-            <h3>Animal Sounds</h3>
-
-            <p>
-                Orion's little animal sounds —
-                coming soon to his safari. 🐾
-            </p>
-
-        </button>
-
-
-        <button class="memory-card" onclick="showFunnyOrion()">
-
-            <div class="memory-icon">🐒</div>
-
-            <h3>Funny Little Orion</h3>
-
-            <p>
-                Funny habits, cute moments,
-                and things only Orion does. 😂
-            </p>
-
-        </button>
-
-
-        <button class="memory-card" onclick="openWhatIKnow()">
-
-            <div class="memory-icon">🐯</div>
-
-            <h3>What I Know at Two</h3>
-
-            <p>
-                All the wonderful things Orion
-                already knows at age two. ⭐
-            </p>
-
-        </button>
+      <img src="Orion1.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion2.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion3.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion4.jpg" onclick="viewPhoto(this.src)">
+      <img src="orion5.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion6.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion7.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion8.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion9.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion10.jpg" onclick="viewPhoto(this.src)">
+      <img src="Orion11.jpg" onclick="viewPhoto(this.src)">
+      <img src="orion12.jpg" onclick="viewPhoto(this.src)">
 
     </div>
 
-
-    <!-- ================= GAMES ================= -->
-
-    <section class="game-section">
-
-
-        <!-- ================= GAME 1 ================= -->
-
-        <div class="game-card">
-
-            <div id="gameStart">
-
-                <div style="font-size:75px;margin:10px 0 20px;">
-                    🦁 🐘 🦒
-                </div>
-
-                <h3 class="game-card-title">
-                    🦁 Game 1 — Find the Animal!
-                </h3>
-
-                <p class="game-card-description">
-                    Ten little challenges!
-                    Look at the BIG animal pictures
-                    and find the animal Mama asks for. ⭐
-                </p>
-
-                <button
-                    type="button"
-                    class="game-start"
-                    onclick="startSafariGame()">
-
-                    🌿 Start Game 1 🐾
-
-                </button>
-
-            </div>
-
-
-            <div class="game-area" id="gameArea">
-
-                <div class="game-score" id="gameScore">
-                    ⭐ 0 / 10
-                </div>
-
-                <div class="progress-wrap">
-
-                    <div
-                        class="progress-bar"
-                        id="gameProgress">
-                    </div>
-
-                </div>
-
-                <div class="question" id="gameQuestion">
-                    Find the animal!
-                </div>
-
-                <div class="question-sub">
-                    Tap the animal!
-                </div>
-
-                <div
-                    class="game-message"
-                    id="gameMessage">
-                </div>
-
-                <div
-                    class="animal-choice-grid"
-                    id="animalChoices">
-                </div>
-
-            </div>
-
-
-            <div class="game-finish" id="gameFinish">
-
-                <div style="font-size:70px;">
-                    🎉
-                </div>
-
-                <h3 class="game-card-title">
-                    🎉 Safari Complete! 🎉
-                </h3>
-
-                <p>
-                    Great job, Orion! ⭐⭐⭐⭐⭐
-                </p>
-
-                <p>
-                    You found all the animals!
-                    What a clever little explorer. 🥹💛
-                </p>
-
-                <div style="font-size:45px;">
-                    🌟 🐾 🌟
-                </div>
-
-                <button
-                    type="button"
-                    class="play-again"
-                    onclick="startSafariGame()">
-
-                    🔄 Play Again
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= GAME 2 ================= -->
-
-        <div class="game-card">
-
-            <div id="matchStart">
-
-                <div style="font-size:75px;margin:10px 0 20px;">
-                    🐣 🐄 🐑
-                </div>
-
-                <h3 class="game-two-title">
-                    🐣 Game 2 — Match Baby to Mama!
-                </h3>
-
-                <p class="game-two-subtitle">
-
-                    Drag the big animal to its baby!
-
-                    <br>
-
-                    On a phone or tablet, tap Mama first,
-                    then tap Baby. 💕
-
-                </p>
-
-                <button
-                    type="button"
-                    class="match-start"
-                    onclick="startMatchGame()">
-
-                    💕 Start Baby Animal Game
-
-                </button>
-
-            </div>
-
-
-            <div class="match-area" id="matchArea">
-
-                <div class="match-progress" id="matchScore">
-                    💕 0 / 8
-                </div>
-
-                <div class="match-progress-bar">
-
-                    <div
-                        class="match-progress-fill"
-                        id="matchProgress">
-                    </div>
-
-                </div>
-
-
-                <div class="baby-prompt" id="babyPrompt">
-                    Find the mama!
-                </div>
-
-                <div class="baby-instruction">
-                    Tap the mama that belongs to the baby.
-                </div>
-
-
-                <div class="baby-stage">
-
-
-                    <div class="baby-box">
-
-                        <div class="baby-label">
-                            BABY
-                        </div>
-
-                        <div
-                            class="baby-emoji"
-                            id="babyEmoji">
-
-                            🐣
-
-                        </div>
-
-                        <div
-                            class="baby-name"
-                            id="babyName">
-
-                            Baby
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="match-arrow">
-                        ➡️
-                    </div>
-
-
-                    <div class="baby-box">
-
-                        <div class="baby-label">
-                            MAMA
-                        </div>
-
-                        <div
-                            class="baby-emoji"
-                            id="selectedMamaEmoji">
-
-                            ❓
-
-                        </div>
-
-                        <div
-                            class="baby-name"
-                            id="selectedMamaName">
-
-                            Choose Mama
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="match-message"
-                    id="matchMessage">
-                </div>
-
-
-                <div
-                    class="mama-choice-grid"
-                    id="mamaChoices">
-                </div>
-
-            </div>
-
-
-            <div class="match-finish" id="matchFinish">
-
-                <div style="font-size:70px;">
-                    🎉
-                </div>
-
-                <h3>
-                    🎉 Amazing, Orion! 🎉
-                </h3>
-
-                <p>
-
-                    You matched all the little babies
-                    with their mamas! 🥹💛
-
-                    What a clever little animal explorer!
-
-                </p>
-
-                <div class="match-finish-animals">
-                    🎊 🐾 🌟 🐾 🎊
-                </div>
-
-                <button
-                    type="button"
-                    class="play-again"
-                    onclick="startMatchGame()">
-
-                    🔄 Play Again
-
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- ================= GAME 3 ================= -->
-
-        <div class="game-card">
-
-            <div id="adventureStart">
-
-                <div class="adventure-start-icon">
-                    🦁 🐘 🦒
-                </div>
-
-                <h3 class="adventure-title">
-                    🎮 Game 3 — Orion's Safari Adventure
-                </h3>
-
-                <p class="adventure-description">
-
-                    Choose an animal and go on a little
-                    safari adventure with Orion! 🌳🐾
-
-                    <br><br>
-
-                    Help each animal find the food or water
-                    it needs. Tap the right place and
-                    watch Orion's safari ride go there! ⭐
-
-                </p>
-
-                <button
-                    type="button"
-                    class="game-start"
-                    onclick="startAdventureGame()">
-
-                    🌿 Start Safari Adventure 🐾
-
-                </button>
-
-            </div>
-
-
-            <!-- ANIMAL CHOICE -->
-
-            <div
-                class="adventure-area"
-                id="adventureChoices">
-
-                <div class="adventure-question">
-                    🐾 Choose your safari friend!
-                </div>
-
-                <div class="adventure-sub">
-                    Who does Orion want to explore with?
-                </div>
-
-                <div
-                    class="ride-choice-grid"
-                    id="rideChoices">
-                </div>
-
-            </div>
-
-
-            <!-- ADVENTURE GAME -->
-
-            <div
-                class="adventure-area"
-                id="adventureGame">
-
-                <div
-                    class="adventure-score"
-                    id="adventureScore">
-
-                    ⭐ 0 / 3
-
-                </div>
-
-                <div class="adventure-progress">
-
-                    <div
-                        class="adventure-progress-fill"
-                        id="adventureProgress">
-                    </div>
-
-                </div>
-
-                <div
-                    class="adventure-question"
-                    id="adventureQuestion">
-
-                    What does this animal need?
-
-                </div>
-
-                <div
-                    class="adventure-sub"
-                    id="adventureSub">
-
-                    Tap the right food or drink!
-
-                </div>
-
-
-                <div
-                    class="adventure-stage"
-                    id="adventureStage">
-
-                    <span class="forest-leaf leaf-one">
-                        🍃
-                    </span>
-
-                    <span class="forest-leaf leaf-two">
-                        🌿
-                    </span>
-
-                    <span class="forest-leaf leaf-three">
-                        🍃
-                    </span>
-
-                    <span class="forest-leaf leaf-four">
-                        🌿
-                    </span>
-
-
-                    <!-- POND -->
-
-                    <div
-                        class="safari-pond"
-                        id="safariPond">
-
-                        <div class="pond-label">
-                            💧 Water
-                        </div>
-
-                    </div>
-
-
-                    <!-- ORION + ANIMAL -->
-
-                    <div
-                        class="adventure-rider"
-                        id="adventureRider">
-
-                        <span
-                            class="adventure-animal"
-                            id="adventureAnimal">
-
-                            🦁
-
-                        </span>
-
-                        <img
-                            src="riding.png.png"
-                            class="adventure-orion"
-                            alt="Orion">
-
-                        <span
-                            class="adventure-rider-label"
-                            id="adventureRiderLabel">
-
-                            Orion's Safari Ride
-
-                        </span>
-
-                    </div>
-
-
-                    <!-- FOOD TARGETS -->
-
-                    <div id="adventureTargets"></div>
-
-                </div>
-
-
-                <div
-                    class="adventure-message"
-                    id="adventureMessage">
-                </div>
-
-            </div>
-
-
-            <!-- GAME 3 FINISH -->
-
-            <div
-                class="adventure-finish"
-                id="adventureFinish">
-
-                <div style="font-size:70px;">
-                    🎉
-                </div>
-
-                <h3 class="adventure-title">
-                    🌟 Safari Adventure Complete! 🌟
-                </h3>
-
-                <p id="adventureFinishMessage">
-
-                    Orion helped his safari friend
-                    find what it needed! 🥹💛
-
-                </p>
-
-                <div class="adventure-finish-animals">
-                    🦁 🐘 🦒 🐴 🐒 🐦 🐻
-                </div>
-
-                <button
-                    type="button"
-                    class="play-again"
-                    onclick="chooseAnotherAdventureAnimal()">
-
-                    🐾 Choose Another Animal
-
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= MAMA'S LETTER ================= -->
-
-    <section class="letter">
-
-        <img
-            src="mama and orion.jpg"
-            class="letter-photo"
-            alt="Mama and Orion">
-
-        <h2>💌 A Letter From Mama</h2>
-
-        <p>
-            My dearest Orion,
-        </p>
-
-        <p>
-            You are two years old now, and sometimes Mama still
-            cannot believe how quickly you are growing.
-        </p>
-
-        <p>
-            Every little word, every funny sound, every smile,
-            every new thing you learn becomes a memory that Mama
-            wants to keep forever.
-        </p>
-
-        <p>
-            You are curious, clever, playful, loving, and full of
-            little surprises. Watching you learn about the world
-            is one of the greatest joys of Mama's life.
-        </p>
-
-        <p>
-            I hope that when you are old enough to read this,
-            you will know how deeply you were loved when you were two.
-        </p>
-
-        <p>
-            No matter how big you become, you will always be
-            Mama's little explorer. 🦁💛
-        </p>
-
-        <p>
-            Love always,
-            <br>
-            <strong>Mama</strong> ❤️
-        </p>
-
-    </section>
-
-</main>
-
-
-<!-- ================= GALLERY POPUP ================= -->
-
-<div class="overlay" id="galleryPopup">
-
-    <div class="popup">
-
-        <button
-            class="close"
-            onclick="closePopup('galleryPopup')">
-
-            ×
-
-        </button>
-
-        <h2>
-            🦁 My Little Gallery 📸
-        </h2>
-
-        <div class="gallery-grid">
-
-            <img src="Orion1.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion2.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion3.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion4.jpg" onclick="viewPhoto(this.src)">
-            <img src="orion5.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion6.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion7.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion8.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion9.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion10.jpg" onclick="viewPhoto(this.src)">
-            <img src="Orion11.jpg" onclick="viewPhoto(this.src)">
-            <img src="orion12.jpg" onclick="viewPhoto(this.src)">
-
-        </div>
-
-    </div>
+  </div>
 
 </div>
 
 
-<!-- ================= FAVORITE THINGS ================= -->
+<!-- PHOTO VIEWER -->
 
-<div class="overlay" id="favoritePopup">
+<div class="popup" id="photoPopup" onclick="closePopup('photoPopup')">
 
-    <div class="popup">
-
-        <button
-            class="close"
-            onclick="closePopup('favoritePopup')">
-
-            ×
-
-        </button>
-
-        <h2>
-            🐘 My Favorite Things
-        </h2>
-
-
-        <div class="info-box">
-
-            <h3>
-                🍎 Favorite Foods
-            </h3>
-
-            <ul>
-
-                <li>Bananas</li>
-                <li>Apples</li>
-                <li>Oranges</li>
-                <li>Grapes</li>
-                <li>Watermelon</li>
-                <li>Mangoes</li>
-                <li>Pineapple</li>
-                <li>Carrots</li>
-                <li>Corn</li>
-                <li>Broccoli</li>
-
-            </ul>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>
-                🎨 Colors I Know
-            </h3>
-
-            <p>
-
-                Yellow 💛 · Blue 💙 · Green 💚 · Pink 💗
-                · Black 🖤 · White 🤍 · Purple 💜
-                · Orange 🧡 · Red ❤️
-
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>
-                🧸 Things I Love
-            </h3>
-
-            <p>
-
-                Cars 🚗 · Buses 🚌 · Trains 🚂 · Balloons 🎈
-                · Animals 🐾 · Books 📚 · My little study time ✏️
-
-            </p>
-
-        </div>
-
-    </div>
+  <img
+    id="largePhoto"
+    class="photo-viewer"
+    src=""
+    alt="Orion"
+  >
 
 </div>
 
 
-<!-- ================= LITTLE WORDS ================= -->
+<!-- FAVORITE THINGS -->
 
-<div class="overlay" id="wordsPopup">
+<div class="popup" id="favoritePopup">
 
-    <div class="popup">
+  <div class="popup-box">
 
-        <button
-            class="close"
-            onclick="closePopup('wordsPopup')">
+    <button class="close-btn" onclick="closePopup('favoritePopup')">
+      ×
+    </button>
 
-            ×
+    <h2>🍌 My Favorite Things</h2>
 
-        </button>
+    <div class="list-box">
 
-        <h2>
-            🦒 My Little Words
-        </h2>
+      <h3>🍉 Favorite Foods</h3>
 
-
-        <div class="info-box">
-
-            <h3>
-                💬 Words Orion Says
-            </h3>
-
-            <ul>
-
-                <li>Mama</li>
-                <li>Papa</li>
-                <li>Dada</li>
-                <li>Tete — milk</li>
-                <li>Tata — Tita</li>
-                <li>Tate — ate</li>
-                <li>Lala — Lola</li>
-                <li>Ba-na-na / Na-na</li>
-                <li>Ba-ba / Buh-buh — ball</li>
-                <li>Broom / Boom boom — motorcycle</li>
-                <li>Baba — sheep</li>
-
-            </ul>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>
-                📣 How I Call People
-            </h3>
-
-            <p>
-                Laaaa · Teeee · Taaa · Maaa · Loooo
-            </p>
-
-        </div>
+      <ul>
+        <li>Banana 🍌</li>
+        <li>Milk 🥛</li>
+        <li>Fruits 🍉</li>
+        <li>Spaghetti 🍝</li>
+        <li>Little snacks and treats 💛</li>
+      </ul>
 
     </div>
+
+    <div class="list-box">
+
+      <h3>🎨 Colors I Know</h3>
+
+      <p>
+        Yellow 💛 · Blue 💙 · Green 💚 · Pink 💗 ·
+        Black 🖤 · White 🤍 · Purple 💜 · Orange 🧡 · Red ❤️
+      </p>
+
+    </div>
+
+    <div class="list-box">
+
+      <h3>🚗 Things I Love</h3>
+
+      <p>
+        Cars 🚗 · Buses 🚌 · Trains 🚂 · Balloons 🎈 ·
+        Animals 🦁 · Books 📚 · My LCD tablet ·
+        Wheels on the Bus 🚌
+      </p>
+
+    </div>
+
+  </div>
 
 </div>
 
 
-<!-- ================= ANIMAL SOUNDS ================= -->
+<!-- LITTLE WORDS -->
 
-<div class="overlay" id="animalPopup">
+<div class="popup" id="wordsPopup">
 
-    <div class="popup">
+  <div class="popup-box">
 
-        <button
-            class="close"
-            onclick="closePopup('animalPopup')">
+    <button class="close-btn" onclick="closePopup('wordsPopup')">
+      ×
+    </button>
 
-            ×
+    <h2>💬 My Little Words</h2>
 
-        </button>
+    <div class="list-box">
 
-        <h2>
-            🦓 Animal Sounds
-        </h2>
-
-
-        <div class="info-box">
-
-            <p>
-                Orion's animal-sound recordings will live here. 🐾
-            </p>
-
-            <p>
-                Mama is preparing his little animal videos so
-                each animal can have Orion's real voice. 🥹💛
-            </p>
-
-            <p>
-                Coming soon:
-                🦁 🐑 🐶 🐱 🐔 🦆 and more!
-            </p>
-
-        </div>
+      <p><strong>Mama</strong> — Mama 💛</p>
+      <p><strong>Papa</strong> — Papa</p>
+      <p><strong>Dada</strong> — Dada</p>
+      <p><strong>Tete</strong> — Milk 🍼</p>
+      <p><strong>Tata</strong> — Tita</p>
+      <p><strong>Tate</strong> — Ate</p>
+      <p><strong>Lala</strong> — Lola</p>
+      <p><strong>Ba-na-na / Na-na</strong> — Banana 🍌</p>
+      <p><strong>Ba-ba / Buh-buh</strong> — Ball ⚽</p>
+      <p><strong>Broom / Boom boom</strong> — Motorcycle 🏍️</p>
+      <p><strong>Baba</strong> — Sheep 🐑</p>
 
     </div>
+
+    <div class="list-box">
+
+      <h3>📣 Orion's Special Calls</h3>
+
+      <p>
+        Laaaa · Teeee · Taaa · Maaa · Loooo
+      </p>
+
+    </div>
+
+  </div>
 
 </div>
 
 
-<!-- ================= FUNNY ORION ================= -->
+<!-- ANIMAL SOUNDS -->
 
-<div class="overlay" id="funnyPopup">
+<div class="popup" id="animalPopup">
 
-    <div class="popup">
+  <div class="popup-box">
 
-        <button
-            class="close"
-            onclick="closePopup('funnyPopup')">
+    <button class="close-btn" onclick="closePopup('animalPopup')">
+      ×
+    </button>
 
-            ×
+    <h2>🐾 Animal Sounds</h2>
 
-        </button>
+    <div class="list-box">
 
-        <h2>
-            🐒 Funny Little Orion
-        </h2>
+      <p>
+        Orion loves animals and animal sounds! 🥹🦁
+      </p>
 
+      <p>
+        His special animal-sound recordings will be added here soon.
+      </p>
 
-        <div class="info-box">
+      <p style="font-size:40px;text-align:center;">
+        🦁 🐘 🦒 🐴 🐒 🐦 🐻
+      </p>
 
-            <h3>
-                😂 Little Things You Do
-            </h3>
-
-            <ul>
-
-                <li>
-                    You love your little study time. 📚
-                </li>
-
-                <li>
-                    You get excited when Mama praises you. 👏
-                </li>
-
-                <li>
-                    You love animals and their sounds. 🐾
-                </li>
-
-                <li>
-                    You imitate things you see Mama doing.
-                </li>
-
-                <li>
-                    You like helping clean up your toys.
-                </li>
-
-                <li>
-                    You remember where Mama keeps things.
-                </li>
-
-                <li>
-                    You bring your bottle when you want milk. 🍼
-                </li>
-
-            </ul>
-
-        </div>
+      <p style="text-align:center;">
+        <strong>Coming soon, little explorer! 🌿</strong>
+      </p>
 
     </div>
+
+  </div>
 
 </div>
 
 
-<!-- ================= WHAT I KNOW ================= -->
+<!-- FUNNY ORION -->
 
-<div class="overlay" id="knowPopup">
+<div class="popup" id="funnyPopup">
 
-    <div class="popup">
+  <div class="popup-box">
 
-        <button
-            class="close"
-            onclick="closePopup('knowPopup')">
+    <button class="close-btn" onclick="closePopup('funnyPopup')">
+      ×
+    </button>
 
-            ×
+    <h2>😂 Funny Little Orion</h2>
 
-        </button>
+    <div class="list-box">
 
-        <h2>
-            🐯 What I Know at Two
-        </h2>
+      <p>
+        📚 Orion loves his nightly "study" time.
+        He gets upset when Mama interrupts it! 😂
+      </p>
 
+      <p>
+        👏 He loves praise, hugs, claps, and encouragement.
+      </p>
 
-        <div class="info-box">
+      <p>
+        🐾 He loves animals and tries to imitate their sounds.
+      </p>
 
-            <h3>
-                🌈 Colors
-            </h3>
+      <p>
+        🧹 He likes helping with little things — cleaning toys,
+        sweeping, and putting things where they belong.
+      </p>
 
-            <p>
-                Yellow, blue, green, pink, black, white,
-                purple, orange, and red.
-            </p>
+      <p>
+        🍼 When he wants milk, he can bring his bottle to Mama.
+      </p>
 
-        </div>
+      <p>
+        🧠 He remembers where Mama keeps familiar things.
+      </p>
 
-
-        <div class="info-box">
-
-            <h3>
-                🐾 Animals
-            </h3>
-
-            <p>
-                Orion enjoys learning animal names,
-                pictures, and sounds.
-            </p>
-
-        </div>
-
-
-        <div class="info-box">
-
-            <h3>
-                📚 Learning
-            </h3>
-
-            <p>
-                He loves picture books, animal cards,
-                colors, fruits, shapes, and his little
-                study time with Mama.
-            </p>
-
-        </div>
-
-
-        <div class="video-wrap">
-
-            <video controls playsinline>
-
-                <source src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4">
-
-            </video>
-
-        </div>
-
-
-        <div class="video-wrap">
-
-            <video controls playsinline>
-
-                <source src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4">
-
-            </video>
-
-        </div>
+      <p>
+        🧴 He remembers routines like his shirt, sanitizer,
+        comb, and other familiar items.
+      </p>
 
     </div>
+
+  </div>
 
 </div>
 
 
-<!-- ================= PHOTO VIEWER ================= -->
+<!-- WHAT I KNOW -->
 
-<div class="overlay" id="photoPopup">
+<div class="popup" id="knowPopup">
 
-    <div class="popup photo-viewer">
+  <div class="popup-box">
 
-        <button
-            class="close"
-            onclick="closePopup('photoPopup')">
+    <button class="close-btn" onclick="closePopup('knowPopup')">
+      ×
+    </button>
 
-            ×
+    <h2>🌟 What I Know at Two</h2>
 
-        </button>
+    <div class="list-box">
 
-        <img
-            id="bigPhoto"
-            src=""
-            alt="Orion photo">
+      <h3>🎨 Colors</h3>
+
+      <p>
+        Yellow 💛 · Blue 💙 · Green 💚 · Pink 💗 ·
+        Black 🖤 · White 🤍 · Purple 💜 · Orange 🧡 · Red ❤️
+      </p>
 
     </div>
 
+    <div class="list-box">
+
+      <h3>🐾 Animals</h3>
+
+      <p>
+        Orion loves learning animal names, pictures,
+        and animal sounds.
+      </p>
+
+    </div>
+
+    <div class="list-box">
+
+      <h3>📚 Learning</h3>
+
+      <p>
+        Orion enjoys books, animal cards, colors, fruits,
+        shapes, and picture charts.
+      </p>
+
+      <p>
+        He remembers familiar people in photos and videos
+        and loves pointing things out to Mama.
+      </p>
+
+    </div>
+
+
+    <div class="video-box">
+
+      <h3>🎥 Little Videos of Orion</h3>
+
+      <video controls playsinline>
+        <source
+          src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4"
+          type="video/mp4"
+        >
+      </video>
+
+      <video controls playsinline>
+        <source
+          src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4"
+          type="video/mp4"
+        >
+      </video>
+
+    </div>
+
+  </div>
+
 </div>
 
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
+  <p>
     Made with all the love in Mama's heart for Orion. 🦁💛
+  </p>
 
-    <br>
-
+  <p>
     Orion's Little Safari — Age 2
+  </p>
 
 </footer>
 
 
 <script>
 
-/* ================= POPUPS ================= */
+/* =====================================================
+   POPUPS
+   ===================================================== */
 
-function closePopup(id){
-
-    document
-        .getElementById(id)
-        .classList
-        .remove("show");
-
+function openPopup(id) {
+  document.getElementById(id).classList.add("show");
 }
 
-
-function openGallery(){
-
-    document
-        .getElementById("galleryPopup")
-        .classList
-        .add("show");
-
+function closePopup(id) {
+  document.getElementById(id).classList.remove("show");
 }
 
-
-function openFavoriteThings(){
-
-    document
-        .getElementById("favoritePopup")
-        .classList
-        .add("show");
-
+function viewPhoto(src) {
+  document.getElementById("largePhoto").src = src;
+  openPopup("photoPopup");
 }
 
+document.addEventListener("keydown", function(e) {
 
-function openLittleWords(){
+  if (e.key === "Escape") {
 
-    document
-        .getElementById("wordsPopup")
-        .classList
-        .add("show");
-
-}
-
-
-function showAnimalSounds(){
-
-    document
-        .getElementById("animalPopup")
-        .classList
-        .add("show");
-
-}
-
-
-function showFunnyOrion(){
-
-    document
-        .getElementById("funnyPopup")
-        .classList
-        .add("show");
-
-}
-
-
-function openWhatIKnow(){
-
-    document
-        .getElementById("knowPopup")
-        .classList
-        .add("show");
-
-}
-
-
-function viewPhoto(src){
-
-    document
-        .getElementById("bigPhoto")
-        .src = src;
-
-    document
-        .getElementById("photoPopup")
-        .classList
-        .add("show");
-
-}
-
-
-document
-    .querySelectorAll(".overlay")
-    .forEach(function(overlay){
-
-        overlay.addEventListener("click",function(e){
-
-            if(e.target === overlay){
-
-                overlay.classList.remove("show");
-
-            }
-
-        });
-
+    document.querySelectorAll(".popup.show").forEach(function(popup) {
+      popup.classList.remove("show");
     });
 
+  }
 
-/* ================= SHUFFLE ================= */
-
-function shuffle(array){
-
-    const copy = [...array];
-
-    for(
-        let i = copy.length - 1;
-        i > 0;
-        i--
-    ){
-
-        const j =
-            Math.floor(Math.random() * (i + 1));
-
-        [
-            copy[i],
-            copy[j]
-        ] = [
-            copy[j],
-            copy[i]
-        ];
-
-    }
-
-    return copy;
-
-}
+});
 
 
-/* ================= GAME 1 ================= */
+/* =====================================================
+   GAME 1 — FIND THE ANIMAL
+   ===================================================== */
 
-const safariAnimals = [
-
-    {name:"Lion",emoji:"🦁"},
-    {name:"Elephant",emoji:"🐘"},
-    {name:"Giraffe",emoji:"🦒"},
-    {name:"Zebra",emoji:"🦓"},
-    {name:"Monkey",emoji:"🐒"},
-    {name:"Tiger",emoji:"🐯"},
-    {name:"Penguin",emoji:"🐧"},
-    {name:"Polar Bear",emoji:"🐻‍❄️"},
-    {name:"Bee",emoji:"🐝"},
-    {name:"Hippopotamus",emoji:"🦛"},
-    {name:"Pig",emoji:"🐷"},
-    {name:"Horse",emoji:"🐴"},
-    {name:"Sheep",emoji:"🐑"},
-    {name:"Dog",emoji:"🐶"},
-    {name:"Cat",emoji:"🐱"},
-    {name:"Panda",emoji:"🐼"},
-    {name:"Crocodile",emoji:"🐊"},
-    {name:"Flamingo",emoji:"🦩"},
-    {name:"Koala",emoji:"🐨"},
-    {name:"Kangaroo",emoji:"🦘"},
-    {name:"Rooster",emoji:"🐓"},
-    {name:"Bird",emoji:"🐦"},
-    {name:"Leopard",emoji:"🐆"},
-    {name:"Snake",emoji:"🐍"},
-    {name:"Camel",emoji:"🐫"},
-    {name:"Turtle",emoji:"🐢"},
-    {name:"Fish",emoji:"🐟"},
-    {name:"Octopus",emoji:"🐙"}
-
+const game1Animals = [
+  { emoji: "🦁", name: "Lion" },
+  { emoji: "🐘", name: "Elephant" },
+  { emoji: "🦒", name: "Giraffe" },
+  { emoji: "🐴", name: "Horse" },
+  { emoji: "🐒", name: "Monkey" },
+  { emoji: "🐦", name: "Bird" },
+  { emoji: "🐻", name: "Bear" },
+  { emoji: "🐶", name: "Dog" },
+  { emoji: "🐱", name: "Cat" },
+  { emoji: "🐰", name: "Rabbit" }
 ];
 
+let game1Round = 0;
+let game1Correct = null;
 
-let safariQuestions = [];
-let safariIndex = 0;
-let safariScore = 0;
-let safariLocked = false;
+function startGame1() {
 
+  document.getElementById("game1Start").style.display = "none";
+  document.getElementById("game1Area").classList.add("show");
 
-function startSafariGame(){
-
-    safariQuestions =
-        shuffle(safariAnimals).slice(0,10);
-
-    safariIndex = 0;
-    safariScore = 0;
-    safariLocked = false;
-
-    document
-        .getElementById("gameStart")
-        .style.display = "none";
-
-    document
-        .getElementById("gameFinish")
-        .classList
-        .remove("show");
-
-    document
-        .getElementById("gameArea")
-        .classList
-        .add("show");
-
-    showSafariQuestion();
+  game1Round = 0;
+  nextGame1Round();
 
 }
 
+function nextGame1Round() {
 
-function showSafariQuestion(){
+  if (game1Round >= 10) {
 
-    safariLocked = false;
+    document.getElementById("animalQuestion").innerHTML =
+      "🎉 Amazing job, Orion! You finished!";
 
-    const correct =
-        safariQuestions[safariIndex];
+    document.getElementById("animalOptions").innerHTML = "";
 
+    document.getElementById("game1Message").innerHTML =
+      "🌟 You found all the animals! 🦁🐘🦒";
 
-    document
-        .getElementById("gameScore")
-        .textContent =
-        "⭐ " + safariScore + " / 10";
+    return;
+  }
 
+  game1Correct =
+    game1Animals[Math.floor(Math.random() * game1Animals.length)];
 
-    document
-        .getElementById("gameProgress")
-        .style.width =
-        ((safariIndex / 10) * 100) + "%";
+  document.getElementById("animalQuestion").innerHTML =
+    "🐾 Find the " + game1Correct.name + "!";
 
+  let options = [game1Correct];
 
-    document
-        .getElementById("gameQuestion")
-        .textContent =
-        "Find the " + correct.name + "!";
+  while (options.length < 3) {
 
+    let random =
+      game1Animals[Math.floor(Math.random() * game1Animals.length)];
 
-    document
-        .getElementById("gameMessage")
-        .textContent = "";
-
-
-    let choices = [correct];
-
-
-    const wrongAnimals =
-        shuffle(
-            safariAnimals.filter(
-                a => a.name !== correct.name
-            )
-        ).slice(0,2);
-
-
-    choices =
-        shuffle(
-            choices.concat(wrongAnimals)
-        );
-
-
-    const container =
-        document.getElementById("animalChoices");
-
-
-    container.innerHTML = "";
-
-
-    choices.forEach(function(animal){
-
-        const button =
-            document.createElement("button");
-
-        button.type = "button";
-
-        button.className =
-            "animal-choice";
-
-
-        button.innerHTML =
-            animal.emoji +
-            "<span>" +
-            animal.name +
-            "</span>";
-
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                chooseSafariAnimal(
-                    button,
-                    animal,
-                    correct
-                );
-
-            }
-        );
-
-
-        container.appendChild(button);
-
-    });
-
-}
-
-
-function chooseSafariAnimal(
-    button,
-    animal,
-    correct
-){
-
-    if(safariLocked){
-
-        return;
-
+    if (!options.includes(random)) {
+      options.push(random);
     }
 
+  }
 
-    if(animal.name === correct.name){
+  options.sort(() => Math.random() - .5);
 
-        safariLocked = true;
+  const container =
+    document.getElementById("animalOptions");
 
-        button.classList.add("correct");
+  container.innerHTML = "";
 
-        safariScore++;
+  options.forEach(function(animal) {
 
+    const button =
+      document.createElement("button");
 
-        document
-            .getElementById("gameScore")
-            .textContent =
-            "⭐ " + safariScore + " / 10";
+    button.className = "animal-option";
 
+    button.innerHTML =
+      animal.emoji +
+      "<span>" +
+      animal.name +
+      "</span>";
 
-        document
-            .getElementById("gameProgress")
-            .style.width =
-            ((safariScore / 10) * 100) + "%";
+    button.onclick = function() {
 
+      if (animal === game1Correct) {
 
-        document
-            .getElementById("gameMessage")
-            .textContent =
-            "🌟 Correct! Great job, Orion!";
+        document.getElementById("game1Message").innerHTML =
+          "🎉 YES! That's the " +
+          animal.name +
+          "! Great job, Orion! 💛";
 
+        game1Round++;
 
-        setTimeout(function(){
+        setTimeout(nextGame1Round, 900);
 
-            safariIndex++;
+      } else {
 
+        document.getElementById("game1Message").innerHTML =
+          "💛 Try again, little explorer!";
 
-            if(safariIndex >= 10){
+      }
 
-                finishSafariGame();
+    };
 
-            }else{
+    container.appendChild(button);
 
-                showSafariQuestion();
-
-            }
-
-        },800);
-
-
-    }else{
-
-        button.classList.add("wrong");
-
-
-        document
-            .getElementById("gameMessage")
-            .textContent =
-            "💛 Try again!";
-
-
-        setTimeout(function(){
-
-            button.classList.remove("wrong");
-
-        },400);
-
-    }
+  });
 
 }
 
 
-function finishSafariGame(){
+/* =====================================================
+   GAME 2 — MATCH BABY TO MAMA
+   ===================================================== */
 
-    document
-        .getElementById("gameArea")
-        .classList
-        .remove("show");
-
-
-    document
-        .getElementById("gameFinish")
-        .classList
-        .add("show");
-
-}
-
-
-/* ================= GAME 2 ================= */
-
-const babyAnimals = [
-
-    {
-        baby:"🐥",
-        babyName:"Chick",
-        mama:"🐔",
-        mamaName:"Chicken"
-    },
-
-    {
-        baby:"🐶",
-        babyName:"Puppy",
-        mama:"🐕",
-        mamaName:"Dog"
-    },
-
-    {
-        baby:"🐱",
-        babyName:"Kitten",
-        mama:"🐈",
-        mamaName:"Cat"
-    },
-
-    {
-        baby:"🐑",
-        babyName:"Lamb",
-        mama:"🐑",
-        mamaName:"Sheep"
-    },
-
-    {
-        baby:"🐷",
-        babyName:"Piglet",
-        mama:"🐖",
-        mamaName:"Pig"
-    },
-
-    {
-        baby:"🐴",
-        babyName:"Foal",
-        mama:"🐎",
-        mamaName:"Horse"
-    },
-
-    {
-        baby:"🐘",
-        babyName:"Baby Elephant",
-        mama:"🐘",
-        mamaName:"Elephant"
-    },
-
-    {
-        baby:"🦁",
-        babyName:"Lion Cub",
-        mama:"🦁",
-        mamaName:"Lion"
-    }
-
+const matchAnimals = [
+  { baby: "🐣", babyName: "Chick", mama: "🐔", mamaName: "Chicken" },
+  { baby: "🦁", babyName: "Lion Cub", mama: "🦁", mamaName: "Lion" },
+  { baby: "🐘", babyName: "Elephant Calf", mama: "🐘", mamaName: "Elephant" },
+  { baby: "🐒", babyName: "Monkey", mama: "🐒", mamaName: "Monkey" },
+  { baby: "🐻", babyName: "Bear Cub", mama: "🐻", mamaName: "Bear" },
+  { baby: "🐴", babyName: "Foal", mama: "🐴", mamaName: "Horse" },
+  { baby: "🦒", babyName: "Giraffe Calf", mama: "🦒", mamaName: "Giraffe" },
+  { baby: "🐰", babyName: "Bunny", mama: "🐰", mamaName: "Rabbit" }
 ];
 
+let matchRound = 0;
+let matchCorrect = null;
 
-let matchQuestions = [];
-let matchIndex = 0;
-let matchScore = 0;
-let selectedMama = null;
-let matchLocked = false;
+function startGame2() {
 
+  document.getElementById("game2Start").style.display = "none";
+  document.getElementById("matchArea").classList.add("show");
 
-function startMatchGame(){
-
-    matchQuestions =
-        shuffle(babyAnimals);
-
-    matchIndex = 0;
-    matchScore = 0;
-    selectedMama = null;
-    matchLocked = false;
-
-
-    document
-        .getElementById("matchStart")
-        .style.display = "none";
-
-
-    document
-        .getElementById("matchFinish")
-        .classList
-        .remove("show");
-
-
-    document
-        .getElementById("matchArea")
-        .classList
-        .add("show");
-
-
-    showMatchQuestion();
+  matchRound = 0;
+  nextMatchRound();
 
 }
 
+function nextMatchRound() {
 
-function showMatchQuestion(){
+  if (matchRound >= 8) {
 
-    matchLocked = false;
-    selectedMama = null;
+    document.getElementById("matchQuestion").innerHTML =
+      "🎉 You matched everyone!";
 
+    document.getElementById("matchBaby").innerHTML = "";
+    document.getElementById("matchMamas").innerHTML = "";
 
-    const current =
-        matchQuestions[matchIndex];
+    document.getElementById("game2Message").innerHTML =
+      "🌟 Amazing matching, Orion! 🐣🐘🦁";
 
+    return;
+  }
 
-    document
-        .getElementById("matchScore")
-        .textContent =
-        "💕 " + matchScore + " / 8";
+  matchCorrect = matchAnimals[matchRound];
 
+  document.getElementById("matchQuestion").innerHTML =
+    "Who is " +
+    matchCorrect.babyName +
+    "'s mama?";
 
-    document
-        .getElementById("matchProgress")
-        .style.width =
-        ((matchScore / 8) * 100) + "%";
+  const babyContainer =
+    document.getElementById("matchBaby");
 
+  babyContainer.innerHTML =
+    "<div style='font-size:80px;'>" +
+    matchCorrect.baby +
+    "</div>";
 
-    document
-        .getElementById("babyEmoji")
-        .textContent =
-        current.baby;
+  let mamas = [matchCorrect];
 
+  while (mamas.length < 3) {
 
-    document
-        .getElementById("babyName")
-        .textContent =
-        current.babyName;
+    let random =
+      matchAnimals[Math.floor(Math.random() * matchAnimals.length)];
 
-
-    document
-        .getElementById("selectedMamaEmoji")
-        .textContent =
-        "❓";
-
-
-    document
-        .getElementById("selectedMamaName")
-        .textContent =
-        "Choose Mama";
-
-
-    document
-        .getElementById("matchMessage")
-        .textContent = "";
-
-
-    const choices =
-        shuffle([
-
-            current,
-
-            ...shuffle(
-                babyAnimals.filter(
-                    a =>
-                    a.mamaName !== current.mamaName
-                )
-            ).slice(0,2)
-
-        ]);
-
-
-    const container =
-        document.getElementById("mamaChoices");
-
-
-    container.innerHTML = "";
-
-
-    choices.forEach(function(animal){
-
-        const button =
-            document.createElement("button");
-
-
-        button.type = "button";
-
-        button.className =
-            "mama-choice";
-
-
-        button.innerHTML =
-            '<span class="mama-emoji">' +
-            animal.mama +
-            '</span>' +
-            '<span class="mama-name">' +
-            animal.mamaName +
-            '</span>';
-
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                chooseMama(
-                    button,
-                    animal,
-                    current
-                );
-
-            }
-        );
-
-
-        container.appendChild(button);
-
-    });
-
-}
-
-
-function chooseMama(
-    button,
-    animal,
-    current
-){
-
-    if(matchLocked){
-
-        return;
-
+    if (!mamas.includes(random)) {
+      mamas.push(random);
     }
 
+  }
 
-    if(
-        animal.mamaName ===
-        current.mamaName
-    ){
+  mamas.sort(() => Math.random() - .5);
 
-        matchLocked = true;
+  const mamaContainer =
+    document.getElementById("matchMamas");
 
-        button.classList.add("correct");
+  mamaContainer.innerHTML = "";
 
-        matchScore++;
+  mamas.forEach(function(mama) {
 
+    const button =
+      document.createElement("button");
 
-        document
-            .getElementById("selectedMamaEmoji")
-            .textContent =
-            animal.mama;
+    button.className = "match-choice";
 
+    button.innerHTML =
+      mama.mama +
+      "<span>" +
+      mama.mamaName +
+      "</span>";
 
-        document
-            .getElementById("selectedMamaName")
-            .textContent =
-            animal.mamaName;
+    button.onclick = function() {
 
+      if (mama === matchCorrect) {
 
-        document
-            .getElementById("matchScore")
-            .textContent =
-            "💕 " + matchScore + " / 8";
+        document.getElementById("game2Message").innerHTML =
+          "💛 Correct! " +
+          mama.mamaName +
+          " is the mama!";
 
+        matchRound++;
 
-        document
-            .getElementById("matchProgress")
-            .style.width =
-            ((matchScore / 8) * 100) + "%";
+        setTimeout(nextMatchRound, 900);
 
+      } else {
 
-        document
-            .getElementById("matchMessage")
-            .textContent =
-            "💖 Correct! Baby found Mama!";
+        document.getElementById("game2Message").innerHTML =
+          "🌿 Hmm, try again!";
 
+      }
 
-        setTimeout(function(){
+    };
 
-            matchIndex++;
+    mamaContainer.appendChild(button);
 
-
-            if(matchIndex >= 8){
-
-                finishMatchGame();
-
-            }else{
-
-                showMatchQuestion();
-
-            }
-
-        },900);
-
-
-    }else{
-
-        button.classList.add("wrong");
-
-
-        document
-            .getElementById("matchMessage")
-            .textContent =
-            "💛 Try again!";
-
-
-        setTimeout(function(){
-
-            button.classList.remove("wrong");
-
-        },400);
-
-    }
+  });
 
 }
 
 
-function finishMatchGame(){
+/* =====================================================
+   GAME 3 — ORION'S SAFARI ADVENTURE
+   ===================================================== */
 
-    document
-        .getElementById("matchArea")
-        .classList
-        .remove("show");
+const adventureAnimals = {
 
+  lion: {
+    name: "Lion",
+    emoji: "🦁",
+    action: "Ride with the lion",
+    target: "meat",
+    targetEmoji: "🍖",
+    targetName: "Meat",
+    mission: "Help the lion find some yummy meat!",
+    success: "YUMMY! The lion is happy!",
+    reaction: "🦁 ROOOOAAARRR!",
+    burst: "💥🦁⭐"
+  },
 
-    document
-        .getElementById("matchFinish")
-        .classList
-        .add("show");
+  elephant: {
+    name: "Elephant",
+    emoji: "🐘",
+    action: "Ride the elephant",
+    target: "water",
+    targetEmoji: "💧",
+    targetName: "Water",
+    mission: "Help the elephant find the pond!",
+    success: "The elephant found water!",
+    reaction: "🐘 SPLAAAAASH!",
+    burst: "💦🐘💦"
+  },
 
-}
+  giraffe: {
+    name: "Giraffe",
+    emoji: "🦒",
+    action: "Ride the giraffe",
+    target: "leaves",
+    targetEmoji: "🌿",
+    targetName: "Leaves",
+    mission: "Help the giraffe find some tasty leaves!",
+    success: "MUNCH MUNCH! Delicious leaves!",
+    reaction: "🦒 Nom nom nom! 🌿",
+    burst: "🌿🦒🌿"
+  },
 
+  horse: {
+    name: "Horse",
+    emoji: "🐴",
+    action: "Ride the horse",
+    target: "grass",
+    targetEmoji: "🌱",
+    targetName: "Grass",
+    mission: "Help the horse find fresh grass!",
+    success: "The horse found yummy grass!",
+    reaction: "🐴 NEIGH! Let's gallop!",
+    burst: "💨🐴⭐"
+  },
 
-/* ================= GAME 3 — ORION'S SAFARI ADVENTURE ================= */
+  monkey: {
+    name: "Monkey",
+    emoji: "🐒",
+    action: "Ride with the monkey",
+    target: "banana",
+    targetEmoji: "🍌",
+    targetName: "Banana",
+    mission: "Help the monkey find a banana!",
+    success: "Banana time! 🍌",
+    reaction: "🐒 OOH OOH AAH AAH!",
+    burst: "🍌🐒🌴"
+  },
 
-const adventureAnimals = [
+  bird: {
+    name: "Bird",
+    emoji: "🐦",
+    action: "Fly with the bird",
+    target: "worm",
+    targetEmoji: "🪱",
+    targetName: "Worm",
+    mission: "Help the bird find a little worm!",
+    success: "The bird caught its snack!",
+    reaction: "🐦 FLY HIGH, ORION!",
+    burst: "🐦✨☁️"
+  },
 
-    {
-        name:"Lion",
-        emoji:"🦁",
-        action:"ride",
-        need:"meat",
-        correctEmoji:"🥩",
-        correctName:"Meat",
-        message:"🦁 Yum! The lion found its meat!",
-        finish:"Orion helped the lion find its meat! 🦁🥩"
-    },
+  bear: {
+    name: "Bear",
+    emoji: "🐻",
+    action: "Ride the bear",
+    target: "honey",
+    targetEmoji: "🍯",
+    targetName: "Honey",
+    mission: "Help the bear find some honey!",
+    success: "Sweet honey! 🍯",
+    reaction: "🐻 Oh no... sticky nose! 😂",
+    burst: "🍯🐻😂"
+  }
 
-    {
-        name:"Elephant",
-        emoji:"🐘",
-        action:"ride",
-        need:"water",
-        correctEmoji:"💧",
-        correctName:"Water",
-        message:"🐘 Splash! The elephant found the pond!",
-        finish:"Orion helped the elephant find the pond! 🐘💦"
-    },
-
-    {
-        name:"Giraffe",
-        emoji:"🦒",
-        action:"ride",
-        need:"leaves",
-        correctEmoji:"🌿",
-        correctName:"Leaves",
-        message:"🦒 Crunch! The giraffe found some leaves!",
-        finish:"Orion helped the giraffe find fresh leaves! 🦒🌿"
-    },
-
-    {
-        name:"Horse",
-        emoji:"🐴",
-        action:"ride",
-        need:"grass",
-        correctEmoji:"🌱",
-        correctName:"Grass",
-        message:"🐴 Munch munch! The horse found grass!",
-        finish:"Orion helped the horse find some grass! 🐴🌱"
-    },
-
-    {
-        name:"Monkey",
-        emoji:"🐒",
-        action:"ride",
-        need:"banana",
-        correctEmoji:"🍌",
-        correctName:"Banana",
-        message:"🐒 Yummy! The monkey found a banana!",
-        finish:"Orion helped the monkey find a banana! 🐒🍌"
-    },
-
-    {
-        name:"Bird",
-        emoji:"🐦",
-        action:"fly",
-        need:"worms",
-        correctEmoji:"🪱",
-        correctName:"Worms",
-        message:"🐦 Tweet tweet! The bird found some worms!",
-        finish:"Orion flew with the bird to find its food! 🐦🪱"
-    },
-
-    {
-        name:"Bear",
-        emoji:"🐻",
-        action:"ride",
-        need:"honey",
-        correctEmoji:"🍯",
-        correctName:"Honey",
-        message:"🐻 Sweet! The bear found some honey!",
-        finish:"Orion helped the bear find some honey! 🐻🍯"
-    }
-
-];
-
+};
 
 let selectedAdventureAnimal = null;
 let adventureRound = 0;
@@ -2933,572 +2080,578 @@ let adventureScore = 0;
 let adventureLocked = false;
 
 
-function startAdventureGame(){
+/* START */
 
-    selectedAdventureAnimal = null;
-    adventureRound = 0;
-    adventureScore = 0;
-    adventureLocked = false;
+function startAdventureGame() {
 
-    document
-        .getElementById("adventureStart")
-        .style.display = "none";
+  document.getElementById("adventureStart").style.display = "none";
+  document.getElementById("adventureFinish").classList.remove("show");
 
-    document
-        .getElementById("adventureFinish")
-        .classList
-        .remove("show");
+  adventureRound = 0;
+  adventureScore = 0;
 
-    showAdventureChoices();
+  showAdventureChoices();
 
 }
 
 
-function showAdventureChoices(){
+/* CHOOSE ANIMAL */
 
-    document
-        .getElementById("adventureChoices")
-        .classList
-        .add("show");
+function showAdventureChoices() {
 
-    document
-        .getElementById("adventureGame")
-        .classList
-        .remove("show");
+  document.getElementById("adventureChoices").classList.add("show");
+  document.getElementById("adventureGame").classList.remove("show");
 
+  const container =
+    document.getElementById("rideChoices");
 
-    const container =
-        document.getElementById("rideChoices");
+  container.innerHTML = "";
 
-    container.innerHTML = "";
+  Object.keys(adventureAnimals).forEach(function(key) {
 
+    const animal = adventureAnimals[key];
 
-    adventureAnimals.forEach(function(animal){
+    const button =
+      document.createElement("button");
 
-        const button =
-            document.createElement("button");
+    button.className = "ride-choice";
 
-        button.type = "button";
-        button.className = "ride-choice";
+    button.innerHTML = `
+      <span class="ride-animal">${animal.emoji}</span>
 
-        const actionText =
-            animal.action === "fly"
-            ? "🪽 Fly with Orion"
-            : "🐾 Ride with Orion";
+      <img
+        src="riding.png.png"
+        class="ride-photo"
+        alt="Orion"
+      >
 
+      <span class="ride-name">
+        ${animal.name}
+      </span>
 
-        button.innerHTML =
+      <span class="ride-action">
+        ${animal.action}
+      </span>
+    `;
 
-            '<span class="ride-animal">' +
-            animal.emoji +
-            '</span>' +
+    button.onclick = function() {
+      selectAdventureAnimal(key);
+    };
 
-            '<img src="riding.png.png" ' +
-            'class="ride-photo" ' +
-            'alt="Orion">' +
+    container.appendChild(button);
 
-            '<span class="ride-name">' +
-            animal.name +
-            '</span>' +
-
-            '<span class="ride-action">' +
-            actionText +
-            '</span>';
-
-
-        button.addEventListener(
-            "click",
-            function(){
-
-                selectAdventureAnimal(animal);
-
-            }
-        );
-
-
-        container.appendChild(button);
-
-    });
+  });
 
 }
 
 
-function selectAdventureAnimal(animal){
+/* SELECT ANIMAL */
 
-    selectedAdventureAnimal = animal;
-    adventureRound = 0;
-    adventureScore = 0;
-    adventureLocked = false;
+function selectAdventureAnimal(key) {
 
+  selectedAdventureAnimal =
+    adventureAnimals[key];
 
-    document
-        .getElementById("adventureChoices")
-        .classList
-        .remove("show");
+  adventureRound = 0;
+  adventureScore = 0;
 
+  document.getElementById("adventureChoices").classList.remove("show");
+  document.getElementById("adventureGame").classList.add("show");
+  document.getElementById("adventureFinish").classList.remove("show");
 
-    document
-        .getElementById("adventureGame")
-        .classList
-        .add("show");
+  const rider =
+    document.getElementById("adventureRider");
 
+  rider.classList.remove("bird-flight");
 
-    document
-        .getElementById("adventureAnimal")
-        .textContent =
-        animal.emoji;
+  if (key === "bird") {
+    rider.classList.add("bird-flight");
+  }
 
+  document.getElementById("adventureAnimal").textContent =
+    selectedAdventureAnimal.emoji;
 
-    document
-        .getElementById("adventureRiderLabel")
-        .textContent =
-        animal.action === "fly"
-        ? "Orion's Flying Adventure"
-        : "Orion's Safari Ride";
+  document.getElementById("adventureRiderLabel").textContent =
+    "Orion + " +
+    selectedAdventureAnimal.name;
 
-
-    const rider =
-        document.getElementById("adventureRider");
-
-
-    rider.classList.toggle(
-        "flying",
-        animal.action === "fly"
-    );
-
-
-    document
-        .getElementById("adventureFinish")
-        .classList
-        .remove("show");
-
-
-    showAdventureRound();
+  showAdventureRound();
 
 }
 
 
-function showAdventureRound(){
+/* SHOW ROUND */
 
-    adventureLocked = false;
+function showAdventureRound() {
 
+  adventureLocked = false;
 
-    const animal =
-        selectedAdventureAnimal;
+  if (adventureRound >= 3) {
+    finishAdventureGame();
+    return;
+  }
 
+  const animal =
+    selectedAdventureAnimal;
 
-    document
-        .getElementById("adventureScore")
-        .textContent =
-        "⭐ " + adventureScore + " / 3";
+  document.getElementById("adventureScore").textContent =
+    "⭐ " + adventureScore + " / 3";
 
+  document.getElementById("adventureProgress").style.width =
+    ((adventureRound) / 3 * 100) + "%";
 
-    document
-        .getElementById("adventureProgress")
-        .style.width =
-        ((adventureScore / 3) * 100) + "%";
+  document.getElementById("adventureQuestion").textContent =
+    "🎯 Safari Mission " + (adventureRound + 1);
 
+  document.getElementById("adventureSub").textContent =
+    animal.mission;
 
-    document
-        .getElementById("adventureQuestion")
-        .textContent =
-        "What does the " +
-        animal.name.toLowerCase() +
-        " need?";
+  document.getElementById("adventureMessage").textContent =
+    "👦🏻 Help Orion find the right thing!";
 
+  const rider =
+    document.getElementById("adventureRider");
 
-    document
-        .getElementById("adventureSub")
-        .textContent =
-        animal.action === "fly"
-        ? "Help Orion fly to the bird's food! 🪽"
-        : "Help Orion take the animal to the right place! 🐾";
+  rider.style.left = "10%";
+  rider.style.top =
+    selectedAdventureAnimal.name === "Bird"
+      ? "28%"
+      : "48%";
 
+  createAdventureTargets();
 
-    document
-        .getElementById("adventureMessage")
-        .textContent = "";
-
-
-    const targetContainer =
-        document.getElementById("adventureTargets");
+}
 
 
-    targetContainer.innerHTML = "";
+/* CREATE TARGETS */
+
+function createAdventureTargets() {
+
+  const container =
+    document.getElementById("adventureTargets");
+
+  container.innerHTML = "";
+
+  const correct =
+    selectedAdventureAnimal;
+
+  const wrongOptions = [
+    {
+      emoji: "🍎",
+      name: "Apple"
+    },
+    {
+      emoji: "🥕",
+      name: "Carrot"
+    },
+    {
+      emoji: "🍉",
+      name: "Watermelon"
+    },
+    {
+      emoji: "🍇",
+      name: "Grapes"
+    },
+    {
+      emoji: "🥛",
+      name: "Milk"
+    },
+    {
+      emoji: "🌸",
+      name: "Flower"
+    }
+  ];
+
+  let wrongs = [];
+
+  while (wrongs.length < 2) {
+
+    let item =
+      wrongOptions[
+        Math.floor(Math.random() * wrongOptions.length)
+      ];
+
+    if (!wrongs.some(w => w.name === item.name)) {
+      wrongs.push(item);
+    }
+
+  }
+
+  let targets = [
+    {
+      emoji: correct.targetEmoji,
+      name: correct.targetName,
+      correct: true
+    },
+    {
+      emoji: wrongs[0].emoji,
+      name: wrongs[0].name,
+      correct: false
+    },
+    {
+      emoji: wrongs[1].emoji,
+      name: wrongs[1].name,
+      correct: false
+    }
+  ];
+
+  targets.sort(() => Math.random() - .5);
+
+  const positions = [
+    { left: "63%", top: "19%" },
+    { left: "39%", top: "28%" },
+    { left: "72%", top: "50%" }
+  ];
+
+  targets.forEach(function(target, index) {
+
+    const button =
+      document.createElement("button");
+
+    button.className = "food-target";
+
+    button.style.left =
+      positions[index].left;
+
+    button.style.top =
+      positions[index].top;
+
+    button.innerHTML =
+      target.emoji +
+      "<small>" +
+      target.name +
+      "</small>";
+
+    button.onclick = function() {
+
+      handleAdventureTarget(button, target);
+
+    };
+
+    container.appendChild(button);
+
+  });
+
+}
 
 
-    let wrongTargets;
+/* HANDLE TARGET */
+
+function handleAdventureTarget(button, target) {
+
+  if (adventureLocked) {
+    return;
+  }
+
+  if (!target.correct) {
+
+    button.classList.add("wrong");
+
+    document.getElementById("adventureMessage").textContent =
+      "💛 Not that one! Try again, Orion!";
+
+    setTimeout(function() {
+      button.classList.remove("wrong");
+    }, 450);
+
+    return;
+  }
+
+  adventureLocked = true;
+
+  button.classList.add("correct");
+
+  document.getElementById("adventureMessage").textContent =
+    "🎉 YES! Orion found it!";
+
+  const rider =
+    document.getElementById("adventureRider");
+
+  let targetLeft =
+    parseFloat(button.style.left);
+
+  let targetTop =
+    parseFloat(button.style.top);
+
+  /*
+     Elephant goes specifically toward the pond.
+  */
+
+  if (selectedAdventureAnimal.name === "Elephant") {
+
+    targetLeft = 68;
+    targetTop = 58;
+
+  }
+
+  /*
+     Bird flies upward toward its target.
+  */
+
+  if (selectedAdventureAnimal.name === "Bird") {
+
+    targetTop = Math.max(8, targetTop - 8);
+
+  }
+
+  rider.style.left =
+    targetLeft + "%";
+
+  rider.style.top =
+    targetTop + "%";
+
+  setTimeout(function() {
+
+    playAdventureReaction();
+
+  }, 1600);
+
+}
 
 
-    if(animal.need === "water"){
+/* REACTION */
 
-        wrongTargets = [
+function playAdventureReaction() {
 
-            {emoji:"🍌",name:"Banana",type:"wrong"},
-            {emoji:"🥩",name:"Meat",type:"wrong"}
+  const stage =
+    document.getElementById("adventureStage");
 
-        ];
+  const animal =
+    selectedAdventureAnimal;
 
-    }else if(animal.need === "meat"){
+  adventureScore++;
 
-        wrongTargets = [
+  document.getElementById("adventureScore").textContent =
+    "⭐ " + adventureScore + " / 3";
 
-            {emoji:"🌿",name:"Leaves",type:"wrong"},
-            {emoji:"🍌",name:"Banana",type:"wrong"}
+  document.getElementById("adventureProgress").style.width =
+    ((adventureRound + 1) / 3 * 100) + "%";
 
-        ];
+  document.getElementById("adventureMessage").textContent =
+    animal.success;
 
-    }else if(animal.need === "leaves"){
+  /*
+     Food/drink is consumed.
+  */
 
-        wrongTargets = [
+  const targets =
+    document.querySelectorAll(".food-target");
 
-            {emoji:"🥩",name:"Meat",type:"wrong"},
-            {emoji:"🍯",name:"Honey",type:"wrong"}
+  targets.forEach(function(target) {
 
-        ];
+    if (target.classList.contains("correct")) {
 
-    }else if(animal.need === "grass"){
+      target.innerHTML =
+        "✨😋✨";
 
-        wrongTargets = [
+      target.style.transform =
+        "scale(.6)";
 
-            {emoji:"🍌",name:"Banana",type:"wrong"},
-            {emoji:"🥩",name:"Meat",type:"wrong"}
-
-        ];
-
-    }else if(animal.need === "banana"){
-
-        wrongTargets = [
-
-            {emoji:"🌱",name:"Grass",type:"wrong"},
-            {emoji:"🥩",name:"Meat",type:"wrong"}
-
-        ];
-
-    }else if(animal.need === "worms"){
-
-        wrongTargets = [
-
-            {emoji:"🍌",name:"Banana",type:"wrong"},
-            {emoji:"🌿",name:"Leaves",type:"wrong"}
-
-        ];
-
-    }else{
-
-        wrongTargets = [
-
-            {emoji:"🍌",name:"Banana",type:"wrong"},
-            {emoji:"🌱",name:"Grass",type:"wrong"}
-
-        ];
+      target.style.opacity =
+        "0";
 
     }
 
-
-    const targets = shuffle([
-
-        {
-            emoji:animal.correctEmoji,
-            name:animal.correctName,
-            type:"correct"
-        },
-
-        ...wrongTargets
-
-    ]);
+  });
 
 
-    const positions = shuffle([
+  /*
+     BIG REACTION
+  */
 
-        {left:"8%",top:"14%"},
-        {left:"42%",top:"17%"},
-        {left:"67%",top:"18%"}
+  const burst =
+    document.createElement("div");
 
-    ]);
+  burst.className =
+    "reaction-burst";
 
+  burst.textContent =
+    animal.burst;
 
-    targets.forEach(function(target,index){
+  burst.style.left =
+    "50%";
 
-        const button =
-            document.createElement("button");
+  burst.style.top =
+    "35%";
 
-
-        button.type = "button";
-
-        button.className =
-            "food-target";
-
-
-        button.style.left =
-            positions[index].left;
-
-        button.style.top =
-            positions[index].top;
+  stage.appendChild(burst);
 
 
-        if(
-            animal.need === "water" &&
-            target.type === "correct"
-        ){
+  /*
+     REACTION TEXT
+  */
 
-            button.innerHTML =
+  const reaction =
+    document.createElement("div");
 
-                '<span class="food-target-emoji">💧</span>' +
+  reaction.className =
+    "reaction-text";
 
-                '<span class="food-target-label">' +
-                'Go to the Pond!' +
-                '</span>';
+  reaction.textContent =
+    animal.reaction;
 
-        }else{
+  reaction.style.left =
+    "50%";
 
-            button.innerHTML =
+  reaction.style.top =
+    "48%";
 
-                '<span class="food-target-emoji">' +
-                target.emoji +
-                '</span>' +
-
-                '<span class="food-target-label">' +
-                target.name +
-                '</span>';
-
-        }
+  stage.appendChild(reaction);
 
 
-        button.addEventListener(
-            "click",
-            function(){
+  /*
+     SPECIAL EFFECTS
+  */
 
-                chooseAdventureTarget(
-                    button,
-                    target
-                );
+  if (animal.name === "Lion") {
 
-            }
-        );
+    createBurst("🦁", "30%", "30%");
+    createBurst("💥", "65%", "35%");
+    createBurst("⭐", "50%", "25%");
+
+  }
+
+  if (animal.name === "Elephant") {
+
+    createBurst("💦", "70%", "60%");
+    createBurst("💦", "62%", "50%");
+    createBurst("🐘", "50%", "35%");
+
+  }
+
+  if (animal.name === "Giraffe") {
+
+    createBurst("🌿", "70%", "25%");
+    createBurst("🌿", "55%", "30%");
+    createBurst("💚", "50%", "20%");
+
+  }
+
+  if (animal.name === "Horse") {
+
+    createBurst("💨", "60%", "40%");
+    createBurst("💨", "70%", "45%");
+    createBurst("⭐", "50%", "25%");
+
+  }
+
+  if (animal.name === "Monkey") {
+
+    createBurst("🍌", "65%", "25%");
+    createBurst("🌴", "75%", "35%");
+    createBurst("🐒", "50%", "25%");
+
+  }
+
+  if (animal.name === "Bird") {
+
+    createBurst("🐦", "60%", "20%");
+    createBurst("✨", "70%", "15%");
+    createBurst("☁️", "45%", "12%");
+
+  }
+
+  if (animal.name === "Bear") {
+
+    createBurst("🍯", "65%", "30%");
+    createBurst("😂", "55%", "35%");
+    createBurst("🐻", "45%", "25%");
+
+  }
 
 
-        targetContainer.appendChild(button);
+  /*
+     Continue after reaction.
+  */
 
-    });
+  setTimeout(function() {
 
+    adventureRound++;
 
-    const rider =
-        document.getElementById("adventureRider");
+    if (adventureRound >= 3) {
 
+      finishAdventureGame();
 
-    rider.style.left = "6%";
+    } else {
 
-    rider.style.top =
-        animal.action === "fly"
-        ? "45%"
-        : "55%";
+      showAdventureRound();
+
+    }
+
+  }, 2800);
 
 }
 
 
-/* ================= GAME 3 MOVEMENT ================= */
+/* EFFECT */
 
-function chooseAdventureTarget(
-    button,
-    target
-){
+function createBurst(symbol, left, top) {
 
-    if(adventureLocked){
+  const stage =
+    document.getElementById("adventureStage");
 
-        return;
+  const el =
+    document.createElement("div");
 
-    }
+  el.className =
+    "reaction-burst";
 
+  el.textContent =
+    symbol;
 
-    const animal =
-        selectedAdventureAnimal;
+  el.style.left =
+    left;
 
+  el.style.top =
+    top;
 
-    if(target.type !== "correct"){
+  stage.appendChild(el);
 
-        button.classList.add("wrong");
-
-
-        document
-            .getElementById("adventureMessage")
-            .textContent =
-            "💛 Not that one! Try again, Orion!";
-
-
-        setTimeout(function(){
-
-            button.classList.remove("wrong");
-
-        },400);
-
-
-        return;
-
-    }
-
-
-    adventureLocked = true;
-
-    button.classList.add("correct");
-
-
-    const rider =
-        document.getElementById("adventureRider");
-
-
-    let targetLeft =
-        parseFloat(button.style.left);
-
-    let targetTop =
-        parseFloat(button.style.top);
-
-
-    /*
-       Elephant travels specifically toward the pond.
-    */
-
-    if(animal.need === "water"){
-
-        targetLeft = 68;
-        targetTop = 61;
-
-    }else{
-
-        targetLeft =
-            Math.min(targetLeft,72);
-
-        targetTop =
-            Math.min(targetTop + 8,70);
-
-    }
-
-
-    /*
-       Bird flies higher through the forest.
-    */
-
-    if(animal.action === "fly"){
-
-        targetTop =
-            Math.max(targetTop - 12,12);
-
-    }
-
-
-    rider.style.left =
-        targetLeft + "%";
-
-    rider.style.top =
-        targetTop + "%";
-
-
-    document
-        .getElementById("adventureMessage")
-        .textContent =
-        "🌟 Great choice! Orion is going!";
-
-
-    setTimeout(function(){
-
-        adventureScore++;
-
-
-        document
-            .getElementById("adventureScore")
-            .textContent =
-            "⭐ " + adventureScore + " / 3";
-
-
-        document
-            .getElementById("adventureProgress")
-            .style.width =
-            ((adventureScore / 3) * 100) + "%";
-
-
-        document
-            .getElementById("adventureMessage")
-            .textContent =
-            animal.message;
-
-
-        setTimeout(function(){
-
-            adventureRound++;
-
-
-            if(adventureRound >= 3){
-
-                finishAdventureGame();
-
-            }else{
-
-                showAdventureRound();
-
-            }
-
-        },900);
-
-    },1600);
+  setTimeout(function() {
+    el.remove();
+  }, 1000);
 
 }
 
 
-function finishAdventureGame(){
+/* FINISH */
 
-    document
-        .getElementById("adventureGame")
-        .classList
-        .remove("show");
+function finishAdventureGame() {
 
+  document.getElementById("adventureGame")
+    .classList.remove("show");
 
-    document
-        .getElementById("adventureFinishMessage")
-        .textContent =
-        selectedAdventureAnimal.finish;
+  document.getElementById("adventureFinish")
+    .classList.add("show");
 
-
-    document
-        .getElementById("adventureFinish")
-        .classList
-        .add("show");
+  document.getElementById("adventureFinishMessage")
+    .textContent =
+      "🎉 Orion completed 3 safari missions with the " +
+      selectedAdventureAnimal.name +
+      "! He is an amazing little explorer! 👦🏻💛🌿";
 
 }
 
 
-function chooseAnotherAdventureAnimal(){
+/* CHOOSE ANOTHER */
 
-    document
-        .getElementById("adventureFinish")
-        .classList
-        .remove("show");
+function chooseAnotherAdventureAnimal() {
 
+  document.getElementById("adventureFinish")
+    .classList.remove("show");
 
-    showAdventureChoices();
+  document.getElementById("adventureGame")
+    .classList.remove("show");
+
+  document.getElementById("adventureChoices")
+    .classList.add("show");
+
+  document.getElementById("adventureMessage")
+    .textContent = "";
+
+  showAdventureChoices();
 
 }
-
-
-/* ================= ESCAPE KEY ================= */
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        if(e.key === "Escape"){
-
-            document
-                .querySelectorAll(".overlay")
-                .forEach(function(popup){
-
-                    popup.classList.remove("show");
-
-                });
-
-        }
-
-    }
-);
 
 </script>
 
