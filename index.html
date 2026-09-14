@@ -2617,575 +2617,302 @@ footer{
 
 </footer>
 
-
 <script>
 
 /* =========================================================
-   POPUPS
+POPUPS
 ========================================================= */
 
 function closePopup(id){
-
-    document
-        .getElementById(id)
-        .classList
-        .remove("show");
-
+document.getElementById(id).classList.remove("show");
 }
 
 function openGallery(){
-
-    document
-        .getElementById("galleryPopup")
-        .classList
-        .add("show");
-
+document.getElementById("galleryPopup").classList.add("show");
 }
 
 function openFavoriteThings(){
-
-    document
-        .getElementById("favoritePopup")
-        .classList
-        .add("show");
-
+document.getElementById("favoritePopup").classList.add("show");
 }
 
 function openLittleWords(){
-
-    document
-        .getElementById("wordsPopup")
-        .classList
-        .add("show");
-
+document.getElementById("wordsPopup").classList.add("show");
 }
 
 function showAnimalSounds(){
-
-    document
-        .getElementById("animalPopup")
-        .classList
-        .add("show");
-
+document.getElementById("animalPopup").classList.add("show");
 }
 
 function showFunnyOrion(){
-
-    document
-        .getElementById("funnyPopup")
-        .classList
-        .add("show");
-
+document.getElementById("funnyPopup").classList.add("show");
 }
 
 function openWhatIKnow(){
-
-    document
-        .getElementById("knowPopup")
-        .classList
-        .add("show");
-
+document.getElementById("knowPopup").classList.add("show");
 }
 
 function viewPhoto(src){
-
-    document
-        .getElementById("bigPhoto")
-        .src = src;
-
-    document
-        .getElementById("photoPopup")
-        .classList
-        .add("show");
-
+document.getElementById("bigPhoto").src = src;
+document.getElementById("photoPopup").classList.add("show");
 }
 
-document
-    .querySelectorAll(".overlay")
-    .forEach(function(overlay){
-
-        overlay.addEventListener("click",function(e){
-
-            if(e.target === overlay){
-
-                overlay.classList.remove("show");
-
-            }
-
-        });
-
-    });
+document.querySelectorAll(".overlay").forEach(function(overlay){
+overlay.addEventListener("click",function(e){
+if(e.target === overlay){
+overlay.classList.remove("show");
+}
+});
+});
 
 
 /* =========================================================
-   SVG ANIMAL MAKER
+SVG ANIMAL MAKER
 ========================================================= */
 
 function makeCuteAnimal(type, extraClass=""){
 
-    const cls = extraClass + " cartoon";
-
-    const animals = {
-
-        lion: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <g class="breathe">
-                <circle cx="100" cy="82" r="65" fill="#c57f32"/>
-                <circle cx="100" cy="80" r="48" fill="#f0c66d"/>
-
-                <circle cx="64" cy="48" r="18" fill="#c57f32"/>
-                <circle cx="136" cy="48" r="18" fill="#c57f32"/>
-
-                <circle cx="80" cy="73" r="6" fill="#443126"/>
-                <circle cx="120" cy="73" r="6" fill="#443126"/>
-
-                <ellipse cx="100" cy="91" rx="18" ry="13" fill="#fff0c9"/>
-                <circle cx="100" cy="87" r="6" fill="#443126"/>
-
-                <path d="M91 97 Q100 108 109 97"
-                      fill="none"
-                      stroke="#443126"
-                      stroke-width="4"
-                      stroke-linecap="round"/>
-
-                <path d="M52 112 Q40 137 55 151"
-                      fill="none"
-                      stroke="#f0c66d"
-                      stroke-width="13"
-                      stroke-linecap="round"/>
-
-                <path d="M148 112 Q160 137 145 151"
-                      fill="none"
-                      stroke="#f0c66d"
-                      stroke-width="13"
-                      stroke-linecap="round"/>
-            </g>
-        </svg>`,
-
-        elephant: `
-        <svg viewBox="0 0 220 170" class="${cls}">
-            <g class="wiggle">
-                <ellipse cx="110" cy="105" rx="65" ry="43" fill="#9ba9a5"/>
-
-                <circle cx="108" cy="70" r="48" fill="#aebbb7"/>
-
-                <ellipse cx="55" cy="73" rx="30" ry="43"
-                         fill="#899b96"/>
-
-                <ellipse cx="162" cy="73" rx="30" ry="43"
-                         fill="#899b96"/>
-
-                <circle cx="92" cy="66" r="6" fill="#3c3935"/>
-                <circle cx="124" cy="66" r="6" fill="#3c3935"/>
-
-                <path d="M108 75
-                         C95 92 96 111 110 119
-                         C125 125 137 110 126 98
-                         L115 85"
-                      fill="#aebbb7"
-                      stroke="#899b96"
-                      stroke-width="5"/>
-
-                <path d="M91 105 Q100 117 109 108"
-                      fill="none"
-                      stroke="#536560"
-                      stroke-width="3"/>
-
-                <path d="M76 125 L76 153"
-                      stroke="#899b96"
-                      stroke-width="15"
-                      stroke-linecap="round"/>
-
-                <path d="M144 125 L144 153"
-                      stroke="#899b96"
-                      stroke-width="15"
-                      stroke-linecap="round"/>
-
-                <path d="M95 92 Q78 89 72 100"
-                      fill="none"
-                      stroke="white"
-                      stroke-width="5"/>
-
-                <path d="M125 92 Q142 89 148 100"
-                      fill="none"
-                      stroke="white"
-                      stroke-width="5"/>
-            </g>
-        </svg>`,
-
-        giraffe: `
-        <svg viewBox="0 0 200 190" class="${cls}">
-            <g class="wiggle">
-                <ellipse cx="100" cy="138" rx="50" ry="31"
-                         fill="#e5b84d"/>
-
-                <path d="M75 128
-                         Q70 80 82 48
-                         L118 48
-                         Q130 82 125 128 Z"
-                      fill="#e5b84d"/>
-
-                <circle cx="100" cy="45" r="35" fill="#efc967"/>
-
-                <circle cx="76" cy="20" r="10" fill="#8f6532"/>
-                <circle cx="124" cy="20" r="10" fill="#8f6532"/>
-
-                <path d="M78 25 L72 5"
-                      stroke="#8f6532"
-                      stroke-width="7"
-                      stroke-linecap="round"/>
-
-                <path d="M122 25 L128 5"
-                      stroke="#8f6532"
-                      stroke-width="7"
-                      stroke-linecap="round"/>
-
-                <circle cx="87" cy="43" r="5" fill="#493528"/>
-                <circle cx="113" cy="43" r="5" fill="#493528"/>
-
-                <ellipse cx="100" cy="57" rx="14" ry="9"
-                         fill="#d79e3d"/>
-
-                <circle cx="100" cy="55" r="4" fill="#493528"/>
-
-                <circle cx="84" cy="82" r="10" fill="#9f7536"/>
-                <circle cx="115" cy="103" r="9" fill="#9f7536"/>
-                <circle cx="91" cy="118" r="8" fill="#9f7536"/>
-                <circle cx="116" cy="70" r="8" fill="#9f7536"/>
-
-                <path d="M75 153 L70 178"
-                      stroke="#e5b84d"
-                      stroke-width="12"
-                      stroke-linecap="round"/>
-
-                <path d="M125 153 L130 178"
-                      stroke="#e5b84d"
-                      stroke-width="12"
-                      stroke-linecap="round"/>
-            </g>
-        </svg>`,
-
-        horse: `
-        <svg viewBox="0 0 210 170" class="${cls}">
-            <g class="wiggle">
-                <ellipse cx="105" cy="105" rx="60" ry="38"
-                         fill="#a96d46"/>
-
-                <path d="M70 110
-                         Q50 70 67 42
-                         Q78 24 105 35
-                         L120 68
-                         L105 100 Z"
-                      fill="#a96d46"/>
-
-                <path d="M71 42 Q55 24 68 10"
-                      fill="none"
-                      stroke="#513729"
-                      stroke-width="13"
-                      stroke-linecap="round"/>
-
-                <path d="M91 40 Q110 18 121 30"
-                      fill="none"
-                      stroke="#513729"
-                      stroke-width="13"
-                      stroke-linecap="round"/>
-
-                <circle cx="75" cy="57" r="5" fill="#352820"/>
-
-                <ellipse cx="59" cy="74" rx="18" ry="12"
-                         fill="#d29161"/>
-
-                <circle cx="54" cy="73" r="4" fill="#352820"/>
-
-                <path d="M88 103 L82 150"
-                      stroke="#a96d46"
-                      stroke-width="13"
-                      stroke-linecap="round"/>
-
-                <path d="M130 103 L137 150"
-                      stroke="#a96d46"
-                      stroke-width="13"
-                      stroke-linecap="round"/>
-
-                <path d="M158 101
-                         Q185 90 181 64"
-                      fill="none"
-                      stroke="#513729"
-                      stroke-width="11"
-                      stroke-linecap="round"/>
-            </g>
-        </svg>`,
-
-        monkey: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <g class="bounce">
-                <ellipse cx="100" cy="108" rx="48" ry="33"
-                         fill="#965a36"/>
-
-                <circle cx="100" cy="65" r="42"
-                        fill="#a9663d"/>
-
-                <circle cx="62" cy="68" r="17"
-                         fill="#c98957"/>
-
-                <circle cx="138" cy="68" r="17"
-                         fill="#c98957"/>
-
-                <ellipse cx="100" cy="78" rx="27" ry="21"
-                         fill="#e4b47d"/>
-
-                <circle cx="84" cy="61" r="5" fill="#362820"/>
-                <circle cx="116" cy="61" r="5" fill="#362820"/>
-
-                <ellipse cx="100" cy="78" rx="6" ry="5"
-                         fill="#362820"/>
-
-                <path d="M91 88 Q100 96 109 88"
-                      fill="none"
-                      stroke="#362820"
-                      stroke-width="3"/>
-
-                <path d="M145 105
-                         C190 95 183 40 150 38"
-                      fill="none"
-                      stroke="#965a36"
-                      stroke-width="11"
-                      stroke-linecap="round"/>
-
-                <circle cx="74" cy="121" r="10" fill="#c98957"/>
-                <circle cx="126" cy="121" r="10" fill="#c98957"/>
-            </g>
-        </svg>`,
-
-        bird: `
-        <svg viewBox="0 0 210 170" class="${cls}">
-            <g class="flap">
-                <ellipse cx="108" cy="91" rx="45" ry="36"
-                         fill="#55a3d5"/>
-
-                <circle cx="83" cy="65" r="35"
-                        fill="#65b3df"/>
-
-                <path d="M72 75
-                         Q35 55 27 84
-                         Q45 104 78 92"
-                      fill="#3f91c2"/>
-
-                <path d="M115 74
-                         Q160 51 171 80
-                         Q153 105 116 92"
-                      fill="#3f91c2"/>
-
-                <circle cx="74" cy="58" r="8" fill="white"/>
-                <circle cx="74" cy="58" r="4" fill="#352820"/>
-
-                <path d="M55 69
-                         L30 77
-                         L55 84 Z"
-                      fill="#e5ae43"/>
-
-                <path d="M87 116 L80 140"
-                      stroke="#e5ae43"
-                      stroke-width="6"
-                      stroke-linecap="round"/>
-
-                <path d="M110 116 L117 140"
-                      stroke="#e5ae43"
-                      stroke-width="6"
-                      stroke-linecap="round"/>
-            </g>
-        </svg>`,
-
-        bear: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <g class="breathe">
-                <ellipse cx="100" cy="112" rx="55" ry="38"
-                         fill="#966343"/>
-
-                <circle cx="100" cy="70" r="48"
-                        fill="#a8734f"/>
-
-                <circle cx="64" cy="40" r="18"
-                        fill="#a8734f"/>
-
-                <circle cx="136" cy="40" r="18"
-                        fill="#a8734f"/>
-
-                <circle cx="64" cy="40" r="9"
-                        fill="#dfad88"/>
-
-                <circle cx="136" cy="40" r="9"
-                        fill="#dfad88"/>
-
-                <circle cx="82" cy="66" r="6" fill="#352820"/>
-                <circle cx="118" cy="66" r="6" fill="#352820"/>
-
-                <ellipse cx="100" cy="82" rx="20" ry="16"
-                         fill="#dca982"/>
-
-                <circle cx="100" cy="78" r="6" fill="#352820"/>
-
-                <path d="M90 90 Q100 100 110 90"
-                      fill="none"
-                      stroke="#352820"
-                      stroke-width="3"/>
-
-                <circle cx="60" cy="116" r="14"
-                        fill="#dca982"/>
-
-                <circle cx="140" cy="116" r="14"
-                        fill="#dca982"/>
-            </g>
-        </svg>`,
-
-        zebra: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <ellipse cx="105" cy="105" rx="58" ry="38" fill="#f4f1e8"/>
-            <path d="M65 100 Q52 65 70 40 Q85 25 108 42 L125 90 Z"
-                  fill="#f4f1e8"/>
-            <path d="M68 44 Q50 25 58 10"
-                  stroke="#302d29"
-                  stroke-width="10"
-                  fill="none"
-                  stroke-linecap="round"/>
-            <path d="M91 40 Q105 18 118 25"
-                  stroke="#302d29"
-                  stroke-width="10"
-                  fill="none"
-                  stroke-linecap="round"/>
-            <circle cx="73" cy="56" r="5" fill="#2e2926"/>
-            <ellipse cx="58" cy="73" rx="18" ry="12" fill="#d9d4c8"/>
-            <circle cx="53" cy="73" r="4" fill="#2e2926"/>
-            <path d="M84 105 L78 150"
-                  stroke="#302d29"
-                  stroke-width="12"
-                  stroke-linecap="round"/>
-            <path d="M126 105 L134 150"
-                  stroke="#302d29"
-                  stroke-width="12"
-                  stroke-linecap="round"/>
-            <path d="M66 55 L105 87 M60 69 L113 92 M68 42 L114 69 M78 38 L121 57"
-                  stroke="#302d29"
-                  stroke-width="6"/>
-        </svg>`,
-
-        tiger: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <circle cx="100" cy="78" r="52" fill="#ee9a3b"/>
-            <circle cx="65" cy="45" r="17" fill="#ee9a3b"/>
-            <circle cx="135" cy="45" r="17" fill="#ee9a3b"/>
-            <circle cx="80" cy="70" r="6" fill="#30251f"/>
-            <circle cx="120" cy="70" r="6" fill="#30251f"/>
-            <ellipse cx="100" cy="88" rx="19" ry="14" fill="#f5d59d"/>
-            <circle cx="100" cy="84" r="6" fill="#30251f"/>
-            <path d="M90 96 Q100 106 110 96"
-                  fill="none" stroke="#30251f" stroke-width="4"/>
-            <path d="M55 54 L75 70 M145 54 L125 70 M50 82 L72 86 M150 82 L128 86"
-                  stroke="#493126" stroke-width="7"/>
-            <ellipse cx="100" cy="125" rx="42" ry="25" fill="#ee9a3b"/>
-        </svg>`,
-
-        penguin: `
-        <svg viewBox="0 0 180 170" class="${cls}">
-            <ellipse cx="90" cy="95" rx="55" ry="65" fill="#303943"/>
-            <ellipse cx="90" cy="105" rx="38" ry="48" fill="#fff8e8"/>
-            <circle cx="90" cy="55" r="42" fill="#303943"/>
-            <circle cx="75" cy="55" r="6" fill="white"/>
-            <circle cx="105" cy="55" r="6" fill="white"/>
-            <circle cx="75" cy="55" r="3" fill="#27231f"/>
-            <circle cx="105" cy="55" r="3" fill="#27231f"/>
-            <path d="M90 65 L72 75 L90 83 L108 75 Z" fill="#e3a83c"/>
-            <ellipse cx="40" cy="102" rx="13" ry="35" fill="#303943"/>
-            <ellipse cx="140" cy="102" rx="13" ry="35" fill="#303943"/>
-            <ellipse cx="72" cy="156" rx="20" ry="8" fill="#e3a83c"/>
-            <ellipse cx="108" cy="156" rx="20" ry="8" fill="#e3a83c"/>
-        </svg>`,
-
-        dog: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <ellipse cx="100" cy="108" rx="52" ry="34" fill="#c58a58"/>
-            <circle cx="100" cy="70" r="43" fill="#d39a67"/>
-            <path d="M64 50 Q32 38 43 88 Q53 103 72 79 Z" fill="#8b5c3c"/>
-            <path d="M136 50 Q168 38 157 88 Q147 103 128 79 Z" fill="#8b5c3c"/>
-            <circle cx="84" cy="66" r="6" fill="#302820"/>
-            <circle cx="116" cy="66" r="6" fill="#302820"/>
-            <ellipse cx="100" cy="82" rx="18" ry="14" fill="#f0c59d"/>
-            <circle cx="100" cy="79" r="6" fill="#302820"/>
-            <path d="M90 91 Q100 100 110 91"
-                  fill="none" stroke="#302820" stroke-width="4"/>
-            <path d="M75 130 L72 156 M125 130 L128 156"
-                  stroke="#c58a58" stroke-width="13" stroke-linecap="round"/>
-        </svg>`,
-
-        cat: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <ellipse cx="100" cy="110" rx="50" ry="32" fill="#d79d76"/>
-            <circle cx="100" cy="70" r="42" fill="#e1aa82"/>
-            <path d="M67 42 L61 12 L84 33 Z" fill="#e1aa82"/>
-            <path d="M133 42 L139 12 L116 33 Z" fill="#e1aa82"/>
-            <path d="M67 38 L64 22 L78 35 Z" fill="#e8b4bb"/>
-            <path d="M133 38 L136 22 L122 35 Z" fill="#e8b4bb"/>
-            <circle cx="84" cy="68" r="6" fill="#302820"/>
-            <circle cx="116" cy="68" r="6" fill="#302820"/>
-            <ellipse cx="100" cy="82" rx="12" ry="9" fill="#fff0e0"/>
-            <circle cx="100" cy="79" r="5" fill="#302820"/>
-            <path d="M93 88 Q100 95 107 88"
-                  fill="none" stroke="#302820" stroke-width="3"/>
-            <path d="M55 80 L27 73 M55 88 L25 90 M145 80 L173 73 M145 88 L175 90"
-                  stroke="#6f513e" stroke-width="3"/>
-        </svg>`,
-
-        pig: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <ellipse cx="100" cy="108" rx="53" ry="34" fill="#efa8a4"/>
-            <circle cx="100" cy="70" r="43" fill="#f3b5b0"/>
-            <path d="M70 38 L62 15 L84 29 Z" fill="#efa8a4"/>
-            <path d="M130 38 L138 15 L116 29 Z" fill="#efa8a4"/>
-            <circle cx="84" cy="64" r="5" fill="#4c3732"/>
-            <circle cx="116" cy="64" r="5" fill="#4c3732"/>
-            <ellipse cx="100" cy="82" rx="22" ry="15" fill="#e38e91"/>
-            <ellipse cx="92" cy="81" rx="4" ry="6" fill="#693f43"/>
-            <ellipse cx="108" cy="81" rx="4" ry="6" fill="#693f43"/>
-            <path d="M75 128 L72 153 M125 128 L128 153"
-                  stroke="#efa8a4" stroke-width="13" stroke-linecap="round"/>
-        </svg>`,
-
-        sheep: `
-        <svg viewBox="0 0 200 170" class="${cls}">
-            <ellipse cx="105" cy="103" rx="60" ry="38" fill="#fffdf4"/>
-            <circle cx="62" cy="68" r="28" fill="#f4f1e8"/>
-            <circle cx="88" cy="55" r="30" fill="#fffdf4"/>
-            <circle cx="116" cy="55" r="30" fill="#fffdf4"/>
-            <circle cx="143" cy="68" r="28" fill="#f4f1e8"/>
-            <ellipse cx="151" cy="75" rx="24" ry="28" fill="#443a35"/>
-            <circle cx="157" cy="69" r="4" fill="white"/>
-            <circle cx="157" cy="69" r="2" fill="#222"/>
-            <path d="M73 130 L70 156 M137 130 L140 156"
-                  stroke="#443a35" stroke-width="10" stroke-linecap="round"/>
-        </svg>`
-    };
-
-    return animals[type] || animals.lion;
+const cls = extraClass + " cartoon";
+
+const animals = {
+
+lion: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<g class="breathe">
+<circle cx="100" cy="82" r="65" fill="#c57f32"/>
+<circle cx="100" cy="80" r="48" fill="#f0c66d"/>
+<circle cx="64" cy="48" r="18" fill="#c57f32"/>
+<circle cx="136" cy="48" r="18" fill="#c57f32"/>
+<circle cx="80" cy="73" r="6" fill="#443126"/>
+<circle cx="120" cy="73" r="6" fill="#443126"/>
+<ellipse cx="100" cy="91" rx="18" ry="13" fill="#fff0c9"/>
+<circle cx="100" cy="87" r="6" fill="#443126"/>
+<path d="M91 97 Q100 108 109 97" fill="none" stroke="#443126" stroke-width="4" stroke-linecap="round"/>
+<path d="M52 112 Q40 137 55 151" fill="none" stroke="#f0c66d" stroke-width="13" stroke-linecap="round"/>
+<path d="M148 112 Q160 137 145 151" fill="none" stroke="#f0c66d" stroke-width="13" stroke-linecap="round"/>
+</g>
+</svg>`,
+
+elephant: `
+<svg viewBox="0 0 220 170" class="${cls}">
+<g class="wiggle">
+<ellipse cx="110" cy="105" rx="65" ry="43" fill="#9ba9a5"/>
+<circle cx="108" cy="70" r="48" fill="#aebbb7"/>
+<ellipse cx="55" cy="73" rx="30" ry="43" fill="#899b96"/>
+<ellipse cx="162" cy="73" rx="30" ry="43" fill="#899b96"/>
+<circle cx="92" cy="66" r="6" fill="#3c3935"/>
+<circle cx="124" cy="66" r="6" fill="#3c3935"/>
+<path d="M108 75 C95 92 96 111 110 119 C125 125 137 110 126 98 L115 85" fill="#aebbb7" stroke="#899b96" stroke-width="5"/>
+<path d="M91 105 Q100 117 109 108" fill="none" stroke="#536560" stroke-width="3"/>
+<path d="M76 125 L76 153" stroke="#899b96" stroke-width="15" stroke-linecap="round"/>
+<path d="M144 125 L144 153" stroke="#899b96" stroke-width="15" stroke-linecap="round"/>
+</g>
+</svg>`,
+
+giraffe: `
+<svg viewBox="0 0 200 190" class="${cls}">
+<g class="wiggle">
+<ellipse cx="100" cy="138" rx="50" ry="31" fill="#e5b84d"/>
+<path d="M75 128 Q70 80 82 48 L118 48 Q130 82 125 128 Z" fill="#e5b84d"/>
+<circle cx="100" cy="45" r="35" fill="#efc967"/>
+<circle cx="76" cy="20" r="10" fill="#8f6532"/>
+<circle cx="124" cy="20" r="10" fill="#8f6532"/>
+<path d="M78 25 L72 5" stroke="#8f6532" stroke-width="7" stroke-linecap="round"/>
+<path d="M122 25 L128 5" stroke="#8f6532" stroke-width="7" stroke-linecap="round"/>
+<circle cx="87" cy="43" r="5" fill="#493528"/>
+<circle cx="113" cy="43" r="5" fill="#493528"/>
+<ellipse cx="100" cy="57" rx="14" ry="9" fill="#d79e3d"/>
+<circle cx="100" cy="55" r="4" fill="#493528"/>
+<circle cx="84" cy="82" r="10" fill="#9f7536"/>
+<circle cx="115" cy="103" r="9" fill="#9f7536"/>
+<circle cx="91" cy="118" r="8" fill="#9f7536"/>
+<circle cx="116" cy="70" r="8" fill="#9f7536"/>
+<path d="M75 153 L70 178" stroke="#e5b84d" stroke-width="12" stroke-linecap="round"/>
+<path d="M125 153 L130 178" stroke="#e5b84d" stroke-width="12" stroke-linecap="round"/>
+</g>
+</svg>`,
+
+horse: `
+<svg viewBox="0 0 210 170" class="${cls}">
+<g class="wiggle">
+<ellipse cx="105" cy="105" rx="60" ry="38" fill="#a96d46"/>
+<path d="M70 110 Q50 70 67 42 Q78 24 105 35 L120 68 L105 100 Z" fill="#a96d46"/>
+<path d="M71 42 Q55 24 68 10" fill="none" stroke="#513729" stroke-width="13" stroke-linecap="round"/>
+<path d="M91 40 Q110 18 121 30" fill="none" stroke="#513729" stroke-width="13" stroke-linecap="round"/>
+<circle cx="75" cy="57" r="5" fill="#352820"/>
+<ellipse cx="59" cy="74" rx="18" ry="12" fill="#d29161"/>
+<circle cx="54" cy="73" r="4" fill="#352820"/>
+<path d="M88 103 L82 150" stroke="#a96d46" stroke-width="13" stroke-linecap="round"/>
+<path d="M130 103 L137 150" stroke="#a96d46" stroke-width="13" stroke-linecap="round"/>
+<path d="M158 101 Q185 90 181 64" fill="none" stroke="#513729" stroke-width="11" stroke-linecap="round"/>
+</g>
+</svg>`,
+
+monkey: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<g class="bounce">
+<ellipse cx="100" cy="108" rx="48" ry="33" fill="#965a36"/>
+<circle cx="100" cy="65" r="42" fill="#a9663d"/>
+<circle cx="62" cy="68" r="17" fill="#c98957"/>
+<circle cx="138" cy="68" r="17" fill="#c98957"/>
+<ellipse cx="100" cy="78" rx="27" ry="21" fill="#e4b47d"/>
+<circle cx="84" cy="61" r="5" fill="#362820"/>
+<circle cx="116" cy="61" r="5" fill="#362820"/>
+<ellipse cx="100" cy="78" rx="6" ry="5" fill="#362820"/>
+<path d="M91 88 Q100 96 109 88" fill="none" stroke="#362820" stroke-width="3"/>
+<path d="M145 105 C190 95 183 40 150 38" fill="none" stroke="#965a36" stroke-width="11" stroke-linecap="round"/>
+</g>
+</svg>`,
+
+bird: `
+<svg viewBox="0 0 210 170" class="${cls}">
+<g class="flap">
+<ellipse cx="108" cy="91" rx="45" ry="36" fill="#55a3d5"/>
+<circle cx="83" cy="65" r="35" fill="#65b3df"/>
+<path d="M72 75 Q35 55 27 84 Q45 104 78 92" fill="#3f91c2"/>
+<path d="M115 74 Q160 51 171 80 Q153 105 116 92" fill="#3f91c2"/>
+<circle cx="74" cy="58" r="8" fill="white"/>
+<circle cx="74" cy="58" r="4" fill="#352820"/>
+<path d="M55 69 L30 77 L55 84 Z" fill="#e5ae43"/>
+</g>
+</svg>`,
+
+bear: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<g class="breathe">
+<ellipse cx="100" cy="112" rx="55" ry="38" fill="#966343"/>
+<circle cx="100" cy="70" r="48" fill="#a8734f"/>
+<circle cx="64" cy="40" r="18" fill="#a8734f"/>
+<circle cx="136" cy="40" r="18" fill="#a8734f"/>
+<circle cx="64" cy="40" r="9" fill="#dfad88"/>
+<circle cx="136" cy="40" r="9" fill="#dfad88"/>
+<circle cx="82" cy="66" r="6" fill="#352820"/>
+<circle cx="118" cy="66" r="6" fill="#352820"/>
+<ellipse cx="100" cy="82" rx="20" ry="16" fill="#dca982"/>
+<circle cx="100" cy="78" r="6" fill="#352820"/>
+<path d="M90 90 Q100 100 110 90" fill="none" stroke="#352820" stroke-width="3"/>
+</g>
+</svg>`,
+
+zebra: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<ellipse cx="105" cy="105" rx="58" ry="38" fill="#f4f1e8"/>
+<path d="M65 100 Q52 65 70 40 Q85 25 108 42 L125 90 Z" fill="#f4f1e8"/>
+<path d="M68 44 Q50 25 58 10" stroke="#302d29" stroke-width="10" fill="none" stroke-linecap="round"/>
+<path d="M91 40 Q105 18 118 25" stroke="#302d29" stroke-width="10" fill="none" stroke-linecap="round"/>
+<circle cx="73" cy="56" r="5" fill="#2e2926"/>
+<ellipse cx="58" cy="73" rx="18" ry="12" fill="#d9d4c8"/>
+<circle cx="53" cy="73" r="4" fill="#2e2926"/>
+<path d="M84 105 L78 150" stroke="#302d29" stroke-width="12" stroke-linecap="round"/>
+<path d="M126 105 L134 150" stroke="#302d29" stroke-width="12" stroke-linecap="round"/>
+<path d="M66 55 L105 87 M60 69 L113 92 M68 42 L114 69 M78 38 L121 57" stroke="#302d29" stroke-width="6"/>
+</svg>`,
+
+tiger: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<circle cx="100" cy="78" r="52" fill="#ee9a3b"/>
+<circle cx="65" cy="45" r="17" fill="#ee9a3b"/>
+<circle cx="135" cy="45" r="17" fill="#ee9a3b"/>
+<circle cx="80" cy="70" r="6" fill="#30251f"/>
+<circle cx="120" cy="70" r="6" fill="#30251f"/>
+<ellipse cx="100" cy="88" rx="19" ry="14" fill="#f5d59d"/>
+<circle cx="100" cy="84" r="6" fill="#30251f"/>
+<path d="M90 96 Q100 106 110 96" fill="none" stroke="#30251f" stroke-width="4"/>
+<path d="M55 54 L75 70 M145 54 L125 70 M50 82 L72 86 M150 82 L128 86" stroke="#493126" stroke-width="7"/>
+<ellipse cx="100" cy="125" rx="42" ry="25" fill="#ee9a3b"/>
+</svg>`,
+
+penguin: `
+<svg viewBox="0 0 180 170" class="${cls}">
+<ellipse cx="90" cy="95" rx="55" ry="65" fill="#303943"/>
+<ellipse cx="90" cy="105" rx="38" ry="48" fill="#fff8e8"/>
+<circle cx="90" cy="55" r="42" fill="#303943"/>
+<circle cx="75" cy="55" r="6" fill="white"/>
+<circle cx="105" cy="55" r="6" fill="white"/>
+<circle cx="75" cy="55" r="3" fill="#27231f"/>
+<circle cx="105" cy="55" r="3" fill="#27231f"/>
+<path d="M90 65 L72 75 L90 83 L108 75 Z" fill="#e3a83c"/>
+<ellipse cx="40" cy="102" rx="13" ry="35" fill="#303943"/>
+<ellipse cx="140" cy="102" rx="13" ry="35" fill="#303943"/>
+<ellipse cx="72" cy="156" rx="20" ry="8" fill="#e3a83c"/>
+<ellipse cx="108" cy="156" rx="20" ry="8" fill="#e3a83c"/>
+</svg>`,
+
+dog: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<ellipse cx="100" cy="108" rx="52" ry="34" fill="#c58a58"/>
+<circle cx="100" cy="70" r="43" fill="#d39a67"/>
+<path d="M64 50 Q32 38 43 88 Q53 103 72 79 Z" fill="#8b5c3c"/>
+<path d="M136 50 Q168 38 157 88 Q147 103 128 79 Z" fill="#8b5c3c"/>
+<circle cx="84" cy="66" r="6" fill="#302820"/>
+<circle cx="116" cy="66" r="6" fill="#302820"/>
+<ellipse cx="100" cy="82" rx="18" ry="14" fill="#f0c59d"/>
+<circle cx="100" cy="79" r="6" fill="#302820"/>
+<path d="M90 91 Q100 100 110 91" fill="none" stroke="#302820" stroke-width="4"/>
+</svg>`,
+
+cat: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<ellipse cx="100" cy="110" rx="50" ry="32" fill="#d79d76"/>
+<circle cx="100" cy="70" r="42" fill="#e1aa82"/>
+<path d="M67 42 L61 12 L84 33 Z" fill="#e1aa82"/>
+<path d="M133 42 L139 12 L116 33 Z" fill="#e1aa82"/>
+<path d="M67 38 L64 22 L78 35 Z" fill="#e8b4bb"/>
+<path d="M133 38 L136 22 L122 35 Z" fill="#e8b4bb"/>
+<circle cx="84" cy="68" r="6" fill="#302820"/>
+<circle cx="116" cy="68" r="6" fill="#302820"/>
+<ellipse cx="100" cy="82" rx="12" ry="9" fill="#fff0e0"/>
+<circle cx="100" cy="79" r="5" fill="#302820"/>
+<path d="M93 88 Q100 95 107 88" fill="none" stroke="#302820" stroke-width="3"/>
+</svg>`,
+
+pig: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<ellipse cx="100" cy="108" rx="53" ry="34" fill="#efa8a4"/>
+<circle cx="100" cy="70" r="43" fill="#f3b5b0"/>
+<path d="M70 38 L62 15 L84 29 Z" fill="#efa8a4"/>
+<path d="M130 38 L138 15 L116 29 Z" fill="#efa8a4"/>
+<circle cx="84" cy="64" r="5" fill="#4c3732"/>
+<circle cx="116" cy="64" r="5" fill="#4c3732"/>
+<ellipse cx="100" cy="82" rx="22" ry="15" fill="#e38e91"/>
+<ellipse cx="92" cy="81" rx="4" ry="6" fill="#693f43"/>
+<ellipse cx="108" cy="81" rx="4" ry="6" fill="#693f43"/>
+</svg>`,
+
+sheep: `
+<svg viewBox="0 0 200 170" class="${cls}">
+<ellipse cx="105" cy="103" rx="60" ry="38" fill="#fffdf4"/>
+<circle cx="62" cy="68" r="28" fill="#f4f1e8"/>
+<circle cx="88" cy="55" r="30" fill="#fffdf4"/>
+<circle cx="116" cy="55" r="30" fill="#fffdf4"/>
+<circle cx="143" cy="68" r="28" fill="#f4f1e8"/>
+<ellipse cx="151" cy="75" rx="24" ry="28" fill="#443a35"/>
+<circle cx="157" cy="69" r="4" fill="white"/>
+<circle cx="157" cy="69" r="2" fill="#222"/>
+<path d="M73 130 L70 156 M137 130 L140 156" stroke="#443a35" stroke-width="10" stroke-linecap="round"/>
+</svg>`
+};
+
+return animals[type] || animals.lion;
 }
 
 
 /* =========================================================
-   GAME 1
+GAME 1 — FIND THE ANIMAL
 ========================================================= */
 
 const safariAnimals = [
-    {name:"Lion",type:"lion"},
-    {name:"Elephant",type:"elephant"},
-    {name:"Giraffe",type:"giraffe"},
-    {name:"Zebra",type:"zebra"},
-    {name:"Monkey",type:"monkey"},
-    {name:"Tiger",type:"tiger"},
-    {name:"Penguin",type:"penguin"},
-    {name:"Dog",type:"dog"},
-    {name:"Cat",type:"cat"},
-    {name:"Pig",type:"pig"},
-    {name:"Horse",type:"horse"},
-    {name:"Sheep",type:"sheep"}
+{name:"Lion",type:"lion",emoji:"🦁"},
+{name:"Elephant",type:"elephant",emoji:"🐘"},
+{name:"Giraffe",type:"giraffe",emoji:"🦒"},
+{name:"Zebra",type:"zebra",emoji:"🦓"},
+{name:"Monkey",type:"monkey",emoji:"🐒"},
+{name:"Tiger",type:"tiger",emoji:"🐯"},
+{name:"Penguin",type:"penguin",emoji:"🐧"},
+{name:"Dog",type:"dog",emoji:"🐶"},
+{name:"Cat",type:"cat",emoji:"🐱"},
+{name:"Pig",type:"pig",emoji:"🐷"},
+{name:"Horse",type:"horse",emoji:"🐴"},
+{name:"Sheep",type:"sheep",emoji:"🐑"}
 ];
 
 let safariQuestions=[];
@@ -3195,216 +2922,197 @@ let safariLocked=false;
 
 function shuffle(array){
 
-    const copy=[...array];
+const copy=[...array];
 
-    for(let i=copy.length-1;i>0;i--){
+for(let i=copy.length-1;i>0;i--){
 
-        const j=Math.floor(Math.random()*(i+1));
+const j=Math.floor(Math.random()*(i+1));
 
-        [copy[i],copy[j]]=[copy[j],copy[i]];
+[copy[i],copy[j]]=[copy[j],copy[i]];
+}
 
-    }
-
-    return copy;
+return copy;
 }
 
 function startSafariGame(){
 
-    safariQuestions=shuffle(safariAnimals).slice(0,10);
-    safariIndex=0;
-    safariScore=0;
-    safariLocked=false;
+safariQuestions=shuffle(safariAnimals).slice(0,10);
+safariIndex=0;
+safariScore=0;
+safariLocked=false;
 
-    document.getElementById("gameStart").style.display="none";
+document.getElementById("gameStart").style.display="none";
+document.getElementById("gameFinish").classList.remove("show");
+document.getElementById("gameArea").classList.add("show");
 
-    document.getElementById("gameFinish")
-        .classList.remove("show");
-
-    document.getElementById("gameArea")
-        .classList.add("show");
-
-    showSafariQuestion();
-
+showSafariQuestion();
 }
 
 function showSafariQuestion(){
 
-    safariLocked=false;
+safariLocked=false;
 
-    const correct=safariQuestions[safariIndex];
+const correct=safariQuestions[safariIndex];
 
-    document.getElementById("gameScore").textContent=
-        "⭐ "+safariScore+" / 10";
+document.getElementById("gameScore").textContent=
+"⭐ "+safariScore+" / 10";
 
-    document.getElementById("gameProgress").style.width=
-        ((safariIndex/10)*100)+"%";
+document.getElementById("gameProgress").style.width=
+((safariIndex/10)*100)+"%";
 
-    document.getElementById("gameQuestion").textContent=
-        "Find the "+correct.name+"!";
+document.getElementById("gameQuestion").textContent=
+"Find the "+correct.name+"!";
 
-    document.getElementById("gameMessage").textContent="";
+document.getElementById("gameMessage").textContent="";
 
-    let choices=[correct];
+let choices=[correct];
 
-    const wrongAnimals=shuffle(
-        safariAnimals.filter(a=>a.name!==correct.name)
-    ).slice(0,2);
+const wrongAnimals=shuffle(
+safariAnimals.filter(a=>a.name!==correct.name)
+).slice(0,2);
 
-    choices=shuffle(choices.concat(wrongAnimals));
+choices=shuffle(choices.concat(wrongAnimals));
 
-    const container=document.getElementById("animalChoices");
+const container=document.getElementById("animalChoices");
 
-    container.innerHTML="";
+container.innerHTML="";
 
-    choices.forEach(function(animal){
+choices.forEach(function(animal){
 
-        const button=document.createElement("button");
+const button=document.createElement("button");
 
-        button.type="button";
-        button.className="animal-choice";
+button.type="button";
+button.className="animal-choice";
 
-        button.innerHTML=
-            '<div class="animal-choice-art">'+
-            makeCuteAnimal(animal.type,"game-animal")+
-            '</div>'+
-            '<span>'+animal.name+'</span>';
+button.innerHTML=
+'<div class="animal-choice-art emoji-game-animal">'+
+'<span style="font-size:85px">'+animal.emoji+'</span>'+
+'</div>'+
+'<span>'+animal.name+'</span>';
 
-        button.addEventListener("click",function(){
+button.addEventListener("click",function(){
+chooseSafariAnimal(button,animal,correct);
+});
 
-            chooseSafariAnimal(button,animal,correct);
-
-        });
-
-        container.appendChild(button);
-
-    });
-
+container.appendChild(button);
+});
 }
 
 function chooseSafariAnimal(button,animal,correct){
 
-    if(safariLocked){
-        return;
-    }
+if(safariLocked){
+return;
+}
 
-    if(animal.name===correct.name){
+if(animal.name===correct.name){
 
-        safariLocked=true;
+safariLocked=true;
+button.classList.add("correct");
 
-        button.classList.add("correct");
+safariScore++;
 
-        safariScore++;
+document.getElementById("gameScore").textContent=
+"⭐ "+safariScore+" / 10";
 
-        document.getElementById("gameScore").textContent=
-            "⭐ "+safariScore+" / 10";
+document.getElementById("gameProgress").style.width=
+((safariScore/10)*100)+"%";
 
-        document.getElementById("gameProgress").style.width=
-            ((safariScore/10)*100)+"%";
+document.getElementById("gameMessage").textContent=
+"🌟 Correct! Great job, Orion!";
 
-        document.getElementById("gameMessage").textContent=
-            "🌟 Correct! Great job, Orion!";
+setTimeout(function(){
 
-        setTimeout(function(){
+safariIndex++;
 
-            safariIndex++;
+if(safariIndex>=10){
+finishSafariGame();
+}else{
+showSafariQuestion();
+}
 
-            if(safariIndex>=10){
-                finishSafariGame();
-            }else{
-                showSafariQuestion();
-            }
+},800);
 
-        },800);
+}else{
 
-    }else{
+button.classList.add("wrong");
 
-        button.classList.add("wrong");
+document.getElementById("gameMessage").textContent=
+"💛 Try again!";
 
-        document.getElementById("gameMessage").textContent=
-            "💛 Try again!";
-
-        setTimeout(function(){
-
-            button.classList.remove("wrong");
-
-        },400);
-
-    }
-
+setTimeout(function(){
+button.classList.remove("wrong");
+},400);
+}
 }
 
 function finishSafariGame(){
 
-    document.getElementById("gameArea")
-        .classList.remove("show");
-
-    document.getElementById("gameFinish")
-        .classList.add("show");
-
+document.getElementById("gameArea").classList.remove("show");
+document.getElementById("gameFinish").classList.add("show");
 }
 
 
 /* =========================================================
-   GAME 2
+GAME 2 — BABY & MAMA
 ========================================================= */
 
 const babyAnimals=[
 
-    {
-        babyType:"bird",
-        babyName:"Chick",
-        mamaType:"bird",
-        mamaName:"Chicken"
-    },
+{
+babyEmoji:"🐥",
+babyName:"Chick",
+mamaEmoji:"🐔",
+mamaName:"Chicken"
+},
 
-    {
-        babyType:"dog",
-        babyName:"Puppy",
-        mamaType:"dog",
-        mamaName:"Dog"
-    },
+{
+babyEmoji:"🐶",
+babyName:"Puppy",
+mamaEmoji:"🐕",
+mamaName:"Dog"
+},
 
-    {
-        babyType:"cat",
-        babyName:"Kitten",
-        mamaType:"cat",
-        mamaName:"Cat"
-    },
+{
+babyEmoji:"🐱",
+babyName:"Kitten",
+mamaEmoji:"🐈",
+mamaName:"Cat"
+},
 
-    {
-        babyType:"sheep",
-        babyName:"Lamb",
-        mamaType:"sheep",
-        mamaName:"Sheep"
-    },
+{
+babyEmoji:"🐑",
+babyName:"Lamb",
+mamaEmoji:"🐑",
+mamaName:"Sheep"
+},
 
-    {
-        babyType:"pig",
-        babyName:"Piglet",
-        mamaType:"pig",
-        mamaName:"Pig"
-    },
+{
+babyEmoji:"🐷",
+babyName:"Piglet",
+mamaEmoji:"🐷",
+mamaName:"Pig"
+},
 
-    {
-        babyType:"horse",
-        babyName:"Foal",
-        mamaType:"horse",
-        mamaName:"Horse"
-    },
+{
+babyEmoji:"🐴",
+babyName:"Foal",
+mamaEmoji:"🐴",
+mamaName:"Horse"
+},
 
-    {
-        babyType:"elephant",
-        babyName:"Baby Elephant",
-        mamaType:"elephant",
-        mamaName:"Elephant"
-    },
+{
+babyEmoji:"🐘",
+babyName:"Baby Elephant",
+mamaEmoji:"🐘",
+mamaName:"Elephant"
+},
 
-    {
-        babyType:"lion",
-        babyName:"Lion Cub",
-        mamaType:"lion",
-        mamaName:"Lion"
-    }
+{
+babyEmoji:"🦁",
+babyName:"Lion Cub",
+mamaEmoji:"🦁",
+mamaName:"Lion"
+}
 
 ];
 
@@ -3415,258 +3123,237 @@ let matchLocked=false;
 
 function startMatchGame(){
 
-    matchQuestions=shuffle(babyAnimals);
+matchQuestions=shuffle(babyAnimals);
 
-    matchIndex=0;
-    matchScore=0;
-    matchLocked=false;
+matchIndex=0;
+matchScore=0;
+matchLocked=false;
 
-    document.getElementById("matchStart").style.display="none";
+document.getElementById("matchStart").style.display="none";
+document.getElementById("matchFinish").classList.remove("show");
+document.getElementById("matchArea").classList.add("show");
 
-    document.getElementById("matchFinish")
-        .classList.remove("show");
-
-    document.getElementById("matchArea")
-        .classList.add("show");
-
-    showMatchQuestion();
-
+showMatchQuestion();
 }
 
 function showMatchQuestion(){
 
-    matchLocked=false;
+matchLocked=false;
 
-    const current=matchQuestions[matchIndex];
+const current=matchQuestions[matchIndex];
 
-    document.getElementById("matchScore").textContent=
-        "💕 "+matchScore+" / 8";
+document.getElementById("matchScore").textContent=
+"💕 "+matchScore+" / 8";
 
-    document.getElementById("matchProgress").style.width=
-        ((matchScore/8)*100)+"%";
+document.getElementById("matchProgress").style.width=
+((matchScore/8)*100)+"%";
 
-    document.getElementById("babyCharacter").innerHTML=
-        makeCuteAnimal(current.babyType,"baby-animal");
+document.getElementById("babyCharacter").innerHTML=
+'<span style="font-size:110px">'+current.babyEmoji+'</span>';
 
-    document.getElementById("babyName").textContent=
-        current.babyName;
+document.getElementById("babyName").textContent=
+current.babyName;
 
-    document.getElementById("selectedMamaCharacter").innerHTML="";
+document.getElementById("selectedMamaCharacter").innerHTML="";
 
-    document.getElementById("selectedMamaName").textContent=
-        "Choose Mama";
+document.getElementById("selectedMamaName").textContent=
+"Choose Mama";
 
-    document.getElementById("matchMessage").textContent="";
+document.getElementById("matchMessage").textContent="";
 
-    const choices=shuffle([
-        current,
-        ...shuffle(
-            babyAnimals.filter(
-                a=>a.mamaName!==current.mamaName
-            )
-        ).slice(0,2)
-    ]);
+const choices=shuffle([
+current,
+...shuffle(
+babyAnimals.filter(
+a=>a.mamaName!==current.mamaName
+)
+).slice(0,2)
+]);
 
-    const container=document.getElementById("mamaChoices");
+const container=document.getElementById("mamaChoices");
 
-    container.innerHTML="";
+container.innerHTML="";
 
-    choices.forEach(function(animal){
+choices.forEach(function(animal){
 
-        const button=document.createElement("button");
+const button=document.createElement("button");
 
-        button.type="button";
-        button.className="mama-choice";
+button.type="button";
+button.className="mama-choice";
 
-        button.innerHTML=
-            '<div class="mama-choice-art">'+
-            makeCuteAnimal(animal.mamaType,"mama-animal")+
-            '</div>'+
-            '<span class="mama-name">'+
-            animal.mamaName+
-            '</span>';
+button.innerHTML=
+'<div class="mama-choice-art">'+
+'<span style="font-size:75px">'+animal.mamaEmoji+'</span>'+
+'</div>'+
+'<span class="mama-name">'+
+animal.mamaName+
+'</span>';
 
-        button.addEventListener("click",function(){
+button.addEventListener("click",function(){
+chooseMama(button,animal,current);
+});
 
-            chooseMama(button,animal,current);
-
-        });
-
-        container.appendChild(button);
-
-    });
-
+container.appendChild(button);
+});
 }
 
 function chooseMama(button,animal,current){
 
-    if(matchLocked){
-        return;
-    }
+if(matchLocked){
+return;
+}
 
-    if(animal.mamaName===current.mamaName){
+if(animal.mamaName===current.mamaName){
 
-        matchLocked=true;
+matchLocked=true;
 
-        button.classList.add("correct");
+button.classList.add("correct");
 
-        matchScore++;
+matchScore++;
 
-        document.getElementById("selectedMamaCharacter").innerHTML=
-            makeCuteAnimal(animal.mamaType,"selected-mama");
+document.getElementById("selectedMamaCharacter").innerHTML=
+'<span style="font-size:100px">'+animal.mamaEmoji+'</span>';
 
-        document.getElementById("selectedMamaName").textContent=
-            animal.mamaName;
+document.getElementById("selectedMamaName").textContent=
+animal.mamaName;
 
-        document.getElementById("matchScore").textContent=
-            "💕 "+matchScore+" / 8";
+document.getElementById("matchScore").textContent=
+"💕 "+matchScore+" / 8";
 
-        document.getElementById("matchProgress").style.width=
-            ((matchScore/8)*100)+"%";
+document.getElementById("matchProgress").style.width=
+((matchScore/8)*100)+"%";
 
-        document.getElementById("matchMessage").textContent=
-            "💖 Correct! Baby found Mama!";
+document.getElementById("matchMessage").textContent=
+"💖 Correct! Baby found Mama!";
 
-        setTimeout(function(){
+setTimeout(function(){
 
-            matchIndex++;
+matchIndex++;
 
-            if(matchIndex>=8){
+if(matchIndex>=8){
+finishMatchGame();
+}else{
+showMatchQuestion();
+}
 
-                finishMatchGame();
+},900);
 
-            }else{
+}else{
 
-                showMatchQuestion();
+button.classList.add("wrong");
 
-            }
+document.getElementById("matchMessage").textContent=
+"💛 Try again!";
 
-        },900);
-
-    }else{
-
-        button.classList.add("wrong");
-
-        document.getElementById("matchMessage").textContent=
-            "💛 Try again!";
-
-        setTimeout(function(){
-
-            button.classList.remove("wrong");
-
-        },400);
-
-    }
-
+setTimeout(function(){
+button.classList.remove("wrong");
+},400);
+}
 }
 
 function finishMatchGame(){
 
-    document.getElementById("matchArea")
-        .classList.remove("show");
-
-    document.getElementById("matchFinish")
-        .classList.add("show");
-
+document.getElementById("matchArea").classList.remove("show");
+document.getElementById("matchFinish").classList.add("show");
 }
 
 
 /* =========================================================
-   GAME 3 — ORION'S SAFARI ADVENTURE
+GAME 3 — ORION'S SAFARI ADVENTURE
 ========================================================= */
 
 const adventureAnimals={
 
-    lion:{
-        name:"Lion",
-        type:"lion",
-        action:"Ride with the lion",
-        target:"meat",
-        targetEmoji:"🍖",
-        targetName:"Meat",
-        mission:"Help the lion find some yummy meat!",
-        success:"YUMMY! The lion is happy!",
-        reaction:"ROOOOAAARRR!",
-        burst:"💥⭐"
-    },
+lion:{
+name:"Lion",
+type:"lion",
+action:"Ride with the lion",
+target:"meat",
+targetEmoji:"🍖",
+targetName:"Meat",
+mission:"Help the lion find yummy meat!",
+success:"YUMMY! The lion is happy!",
+reaction:"ROOOOAAARRR!",
+burst:"⭐"
+},
 
-    elephant:{
-        name:"Elephant",
-        type:"elephant",
-        action:"Ride the elephant",
-        target:"water",
-        targetEmoji:"💧",
-        targetName:"Water",
-        mission:"Help the elephant find the pond!",
-        success:"The elephant found water!",
-        reaction:"SPLAAAAASH!",
-        burst:"💦💦"
-    },
+elephant:{
+name:"Elephant",
+type:"elephant",
+action:"Ride the elephant",
+target:"water",
+targetEmoji:"💧",
+targetName:"Water",
+mission:"Help the elephant find water!",
+success:"The elephant found water!",
+reaction:"SPLAAAAASH!",
+burst:"💦"
+},
 
-    giraffe:{
-        name:"Giraffe",
-        type:"giraffe",
-        action:"Ride the giraffe",
-        target:"leaves",
-        targetEmoji:"🌿",
-        targetName:"Leaves",
-        mission:"Help the giraffe find tasty leaves!",
-        success:"MUNCH MUNCH! Delicious leaves!",
-        reaction:"Nom nom nom!",
-        burst:"🌿⭐"
-    },
+giraffe:{
+name:"Giraffe",
+type:"giraffe",
+action:"Ride the giraffe",
+target:"leaves",
+targetEmoji:"🌿",
+targetName:"Leaves",
+mission:"Help the giraffe find tasty leaves!",
+success:"MUNCH MUNCH! Delicious leaves!",
+reaction:"Nom nom nom!",
+burst:"🌿"
+},
 
-    horse:{
-        name:"Horse",
-        type:"horse",
-        action:"Ride the horse",
-        target:"grass",
-        targetEmoji:"🌱",
-        targetName:"Grass",
-        mission:"Help the horse find fresh grass!",
-        success:"The horse found yummy grass!",
-        reaction:"NEIGH! Let's gallop!",
-        burst:"💨⭐"
-    },
+horse:{
+name:"Horse",
+type:"horse",
+action:"Ride the horse",
+target:"grass",
+targetEmoji:"🌱",
+targetName:"Grass",
+mission:"Help the horse find fresh grass!",
+success:"The horse found yummy grass!",
+reaction:"NEIGH! Let's gallop!",
+burst:"⭐"
+},
 
-    monkey:{
-        name:"Monkey",
-        type:"monkey",
-        action:"Ride with the monkey",
-        target:"banana",
-        targetEmoji:"🍌",
-        targetName:"Banana",
-        mission:"Help the monkey find a banana!",
-        success:"Banana time!",
-        reaction:"OOH OOH AAH AAH!",
-        burst:"🍌⭐"
-    },
+monkey:{
+name:"Monkey",
+type:"monkey",
+action:"Ride with the monkey",
+target:"banana",
+targetEmoji:"🍌",
+targetName:"Banana",
+mission:"Help the monkey find a banana!",
+success:"Banana time!",
+reaction:"OOH OOH AAH AAH!",
+burst:"🍌"
+},
 
-    bird:{
-        name:"Bird",
-        type:"bird",
-        action:"Fly with the bird",
-        target:"worm",
-        targetEmoji:"🪱",
-        targetName:"Worm",
-        mission:"Help the bird find a little worm!",
-        success:"The bird caught its snack!",
-        reaction:"FLY HIGH, ORION!",
-        burst:"✨☁️"
-    },
+bird:{
+name:"Bird",
+type:"bird",
+action:"Fly with the bird",
+target:"worm",
+targetEmoji:"🪱",
+targetName:"Worm",
+mission:"Help the bird find a little worm!",
+success:"The bird caught its snack!",
+reaction:"FLY HIGH, ORION!",
+burst:"⭐"
+},
 
-    bear:{
-        name:"Bear",
-        type:"bear",
-        action:"Ride the bear",
-        target:"honey",
-        targetEmoji:"🍯",
-        targetName:"Honey",
-        mission:"Help the bear find some honey!",
-        success:"Sweet honey!",
-        reaction:"Sticky nose!",
-        burst:"🍯⭐"
-    }
+bear:{
+name:"Bear",
+type:"bear",
+action:"Ride the bear",
+target:"honey",
+targetEmoji:"🍯",
+targetName:"Honey",
+mission:"Help the bear find some honey!",
+success:"Sweet honey!",
+reaction:"Sticky nose!",
+burst:"🍯"
+}
 
 };
 
@@ -3678,403 +3365,452 @@ let adventureLocked=false;
 
 function startAdventureGame(){
 
-    adventureKeys=shuffle(
-        Object.keys(adventureAnimals)
-    );
+adventureKeys=shuffle(
+Object.keys(adventureAnimals)
+);
 
-    adventureRound=0;
-    adventureScore=0;
-    selectedAdventureAnimal=null;
-    adventureLocked=false;
+adventureRound=0;
+adventureScore=0;
+selectedAdventureAnimal=null;
+adventureLocked=false;
 
-    document.getElementById("adventureStart")
-        .style.display="none";
+document.getElementById("adventureStart")
+.style.display="none";
 
-    document.getElementById("adventureFinish")
-        .classList.remove("show");
+document.getElementById("adventureFinish")
+.classList.remove("show");
 
-    showAdventureChoices();
-
+showAdventureChoices();
 }
 
 function showAdventureChoices(){
 
-    document.getElementById("adventureChoices")
-        .classList.add("show");
+document.getElementById("adventureChoices")
+.classList.add("show");
 
-    document.getElementById("adventureGame")
-        .classList.remove("show");
+document.getElementById("adventureGame")
+.classList.remove("show");
 
-    const container=document.getElementById("rideChoices");
+const container=document.getElementById("rideChoices");
 
-    container.innerHTML="";
+container.innerHTML="";
 
-    adventureKeys.forEach(function(key){
+adventureKeys.forEach(function(key){
 
-        const animal=adventureAnimals[key];
+const animal=adventureAnimals[key];
 
-        const button=document.createElement("button");
+const button=document.createElement("button");
 
-        button.type="button";
-        button.className="ride-choice";
+button.type="button";
+button.className="ride-choice";
 
-        button.innerHTML=
-            '<div class="card-animal">'+
-            makeCuteAnimal(key,"choice-animal")+
-            '</div>'+
-            '<span class="ride-name">'+
-            animal.name+
-            '</span>'+
-            '<span class="ride-action">'+
-            animal.action+
-            '</span>';
+button.innerHTML=
+'<div class="card-animal">'+
+makeCuteAnimal(key,"choice-animal")+
+'</div>'+
+'<span class="ride-name">'+
+animal.name+
+'</span>'+
+'<span class="ride-action">'+
+animal.action+
+'</span>';
 
-        button.addEventListener("click",function(){
+button.addEventListener("click",function(){
+selectAdventureAnimal(key);
+});
 
-            selectAdventureAnimal(key);
-
-        });
-
-        container.appendChild(button);
-
-    });
-
+container.appendChild(button);
+});
 }
 
 function selectAdventureAnimal(key){
 
-    selectedAdventureAnimal=adventureAnimals[key];
+selectedAdventureAnimal=adventureAnimals[key];
 
-    document.getElementById("adventureChoices")
-        .classList.remove("show");
+document.getElementById("adventureChoices")
+.classList.remove("show");
 
-    document.getElementById("adventureGame")
-        .classList.add("show");
+document.getElementById("adventureGame")
+.classList.add("show");
 
-    document.getElementById("adventureAnimal").innerHTML=
-        makeCuteAnimal(key,"stage-animal");
+document.getElementById("adventureAnimal").innerHTML=
+makeCuteAnimal(key,"stage-animal");
 
-    document.getElementById("adventureRider")
-        .classList.remove("bird-flight");
+document.getElementById("adventureRider")
+.classList.remove("bird-flight");
 
-    if(key==="bird"){
+if(key==="bird"){
+document.getElementById("adventureRider")
+.classList.add("bird-flight");
+}
 
-        document.getElementById("adventureRider")
-            .classList.add("bird-flight");
-
-    }
-
-    showAdventureRound();
-
+showAdventureRound();
 }
 
 function showAdventureRound(){
 
-    adventureLocked=false;
+adventureLocked=false;
 
-    const animal=selectedAdventureAnimal;
+const animal=selectedAdventureAnimal;
 
-    document.getElementById("adventureScore").textContent=
-        "⭐ "+adventureScore+" / 3";
+document.getElementById("adventureScore").textContent=
+"⭐ "+adventureScore+" / 3";
 
-    document.getElementById("adventureProgress").style.width=
-        ((adventureScore/3)*100)+"%";
+document.getElementById("adventureProgress").style.width=
+((adventureScore/3)*100)+"%";
 
-    document.getElementById("adventureQuestion").textContent=
-        animal.mission;
+document.getElementById("adventureQuestion").textContent=
+animal.mission;
 
-    document.getElementById("adventureSub").textContent=
-        "Help "+animal.name+" find the right thing!";
+document.getElementById("adventureSub").textContent=
+"Find the "+animal.targetName+"!";
 
-    document.getElementById("adventureMessage").textContent="";
+document.getElementById("adventureMessage").textContent="";
 
-    createAdventureTargets();
-
-}
-
-function createAdventureTargets(){
-
-    const container=document.getElementById("adventureTargets");
-
-    container.innerHTML="";
-
-    const animal=selectedAdventureAnimal;
-
-    const targets=[
-
-        {
-            id:animal.target,
-            emoji:animal.targetEmoji,
-            name:animal.targetName,
-            correct:true,
-            left:"67%",
-            top:"18%"
-        },
-
-        {
-            id:"wrong1",
-            emoji:"🍎",
-            name:"Apple",
-            correct:false,
-            left:"20%",
-            top:"15%"
-        },
-
-        {
-            id:"wrong2",
-            emoji:"🌸",
-            name:"Flower",
-            correct:false,
-            left:"48%",
-            top:"70%"
-        }
-
-    ];
-
-    if(animal.target==="water"){
-
-        document.getElementById("safariPond")
-            .style.display="flex";
-
-    }else{
-
-        document.getElementById("safariPond")
-            .style.display="flex";
-
-    }
-
-    shuffle(targets).forEach(function(target){
-
-        const button=document.createElement("button");
-
-        button.type="button";
-        button.className="food-target";
-
-        button.style.left=target.left;
-        button.style.top=target.top;
-
-        button.innerHTML=
-            target.emoji+
-            "<small>"+target.name+"</small>";
-
-        button.addEventListener("click",function(){
-
-            handleAdventureTarget(
-                button,
-                target
-            );
-
-        });
-
-        container.appendChild(button);
-
-    });
-
-}
-
-function handleAdventureTarget(button,target){
-
-    if(adventureLocked){
-        return;
-    }
-
-    if(target.correct){
-
-        adventureLocked=true;
-
-        button.classList.add("correct");
-
-        adventureScore++;
-
-        document.getElementById("adventureScore").textContent=
-            "⭐ "+adventureScore+" / 3";
-
-        document.getElementById("adventureProgress").style.width=
-            ((adventureScore/3)*100)+"%";
-
-        document.getElementById("adventureMessage").textContent=
-            selectedAdventureAnimal.success;
-
-        moveRiderToTarget(button);
-
-        setTimeout(function(){
-
-            playAdventureReaction();
-
-        },900);
-
-        setTimeout(function(){
-
-            if(adventureScore>=3){
-
-                finishAdventureGame();
-
-            }else{
-
-                adventureRound++;
-
-                showAdventureRound();
-
-            }
-
-        },1800);
-
-    }else{
-
-        button.classList.add("wrong");
-
-        document.getElementById("adventureMessage").textContent=
-            "💛 Not that one! Try another!";
-
-        setTimeout(function(){
-
-            button.classList.remove("wrong");
-
-        },400);
-
-    }
-
-}
-
-function moveRiderToTarget(button){
-
-    const stage=document.getElementById("adventureStage");
-
-    const rider=document.getElementById("adventureRider");
-
-    const stageRect=stage.getBoundingClientRect();
-    const targetRect=button.getBoundingClientRect();
-
-    let left=
-        targetRect.left-
-        stageRect.left-
-        45;
-
-    let top=
-        targetRect.top-
-        stageRect.top-
-        70;
-
-    left=Math.max(10,Math.min(left,stage.clientWidth-205));
-    top=Math.max(40,Math.min(top,stage.clientHeight-200));
-
-    rider.style.left=left+"px";
-    rider.style.top=top+"px";
-
-}
-
-function playAdventureReaction(){
-
-    const stage=document.getElementById("adventureStage");
-
-    const animal=selectedAdventureAnimal;
-
-    const text=document.createElement("div");
-
-    text.className="reaction-text";
-
-    text.textContent=animal.reaction;
-
-    text.style.left="42%";
-    text.style.top="28%";
-
-    stage.appendChild(text);
-
-    createBurst(
-        animal.burst,
-        "47%",
-        "35%"
-    );
-
-    setTimeout(function(){
-
-        text.remove();
-
-    },1200);
-
-}
-
-function createBurst(symbol,left,top){
-
-    const stage=document.getElementById("adventureStage");
-
-    const burst=document.createElement("div");
-
-    burst.className="reaction-burst";
-
-    burst.textContent=symbol;
-
-    burst.style.left=left;
-    burst.style.top=top;
-
-    stage.appendChild(burst);
-
-    setTimeout(function(){
-
-        burst.remove();
-
-    },900);
-
-}
-
-function finishAdventureGame(){
-
-    document.getElementById("adventureGame")
-        .classList.remove("show");
-
-    document.getElementById("adventureFinish")
-        .classList.add("show");
-
-    document.getElementById("adventureFinishMessage")
-        .textContent=
-        "Orion completed three safari missions! 🥹💛";
-
-    document.getElementById("finishAdventureLion").innerHTML=
-        makeCuteAnimal("lion","finish-animal");
-
-    document.getElementById("finishAdventureElephant").innerHTML=
-        makeCuteAnimal("elephant","finish-animal");
-
-    document.getElementById("finishAdventureGiraffe").innerHTML=
-        makeCuteAnimal("giraffe","finish-animal");
-
-    document.getElementById("finishAdventureMonkey").innerHTML=
-        makeCuteAnimal("monkey","finish-animal");
-
-}
-
-function chooseAnotherAdventureAnimal(){
-
-    document.getElementById("adventureFinish")
-        .classList.remove("show");
-
-    document.getElementById("adventureStart")
-        .style.display="block";
-
+createAdventureTargets();
 }
 
 
 /* =========================================================
-   ESCAPE KEY
+GAME 3 — RANDOM FOOD POSITIONS
+========================================================= */
+
+function createAdventureTargets(){
+
+const container=document.getElementById("adventureTargets");
+
+container.innerHTML="";
+
+const animal=selectedAdventureAnimal;
+
+/*
+These are safe areas inside the safari stage.
+Every round gets NEW random positions.
+*/
+
+const positions=[
+{left:"8%",top:"12%"},
+{left:"35%",top:"15%"},
+{left:"65%",top:"12%"},
+{left:"12%",top:"45%"},
+{left:"38%",top:"50%"},
+{left:"68%",top:"45%"},
+{left:"20%",top:"72%"},
+{left:"50%",top:"72%"},
+{left:"76%",top:"68%"}
+];
+
+const shuffledPositions=shuffle(positions);
+
+const wrongFoods=[
+{emoji:"🍎",name:"Apple"},
+{emoji:"🍌",name:"Banana"},
+{emoji:"🥕",name:"Carrot"},
+{emoji:"🍉",name:"Watermelon"},
+{emoji:"🌸",name:"Flower"}
+];
+
+const wrong1=shuffle(
+wrongFoods.filter(
+food=>food.name!==animal.targetName
+)
+)[0];
+
+const wrong2=shuffle(
+wrongFoods.filter(
+food=>food.name!==animal.targetName &&
+food.name!==wrong1.name
+)
+)[0];
+
+const targets=[
+
+{
+id:animal.target,
+emoji:animal.targetEmoji,
+name:animal.targetName,
+correct:true,
+position:shuffledPositions[0]
+},
+
+{
+id:"wrong1",
+emoji:wrong1.emoji,
+name:wrong1.name,
+correct:false,
+position:shuffledPositions[1]
+},
+
+{
+id:"wrong2",
+emoji:wrong2.emoji,
+name:wrong2.name,
+correct:false,
+position:shuffledPositions[2]
+}
+
+];
+
+document.getElementById("safariPond")
+.style.display="flex";
+
+shuffle(targets).forEach(function(target){
+
+const button=document.createElement("button");
+
+button.type="button";
+button.className="food-target";
+
+button.style.left=target.position.left;
+button.style.top=target.position.top;
+
+button.innerHTML=
+'<span>'+target.emoji+'</span>'+
+'<small>'+target.name+'</small>';
+
+button.addEventListener("click",function(){
+
+handleAdventureTarget(
+button,
+target
+);
+
+});
+
+container.appendChild(button);
+});
+}
+
+
+function handleAdventureTarget(button,target){
+
+if(adventureLocked){
+return;
+}
+
+if(target.correct){
+
+adventureLocked=true;
+
+button.classList.add("correct");
+
+adventureScore++;
+
+document.getElementById("adventureScore").textContent=
+"⭐ "+adventureScore+" / 3";
+
+document.getElementById("adventureProgress").style.width=
+((adventureScore/3)*100)+"%";
+
+document.getElementById("adventureMessage").textContent=
+selectedAdventureAnimal.success;
+
+moveRiderToTarget(button);
+
+/*
+The correct food disappears first.
+*/
+
+setTimeout(function(){
+
+button.remove();
+
+playAdventureReaction();
+
+},700);
+
+/*
+Then the next food appears in a completely
+different random place.
+*/
+
+setTimeout(function(){
+
+if(adventureScore>=3){
+
+finishAdventureGame();
+
+}else{
+
+adventureRound++;
+
+showAdventureRound();
+
+}
+
+},1600);
+
+}else{
+
+button.classList.add("wrong");
+
+document.getElementById("adventureMessage").textContent=
+"💛 Not that one! Try another!";
+
+setTimeout(function(){
+
+button.classList.remove("wrong");
+
+},400);
+}
+}
+
+
+/* =========================================================
+MOVE ORION + ANIMAL
+========================================================= */
+
+function moveRiderToTarget(button){
+
+const stage=document.getElementById("adventureStage");
+
+const rider=document.getElementById("adventureRider");
+
+const stageRect=stage.getBoundingClientRect();
+
+const targetRect=button.getBoundingClientRect();
+
+let left=
+targetRect.left-
+stageRect.left-
+45;
+
+let top=
+targetRect.top-
+stageRect.top-
+70;
+
+left=Math.max(
+10,
+Math.min(
+left,
+stage.clientWidth-205
+)
+);
+
+top=Math.max(
+40,
+Math.min(
+top,
+stage.clientHeight-200
+)
+);
+
+rider.style.left=left+"px";
+rider.style.top=top+"px";
+}
+
+
+/* =========================================================
+REACTIONS
+========================================================= */
+
+function playAdventureReaction(){
+
+const stage=document.getElementById("adventureStage");
+
+const animal=selectedAdventureAnimal;
+
+const text=document.createElement("div");
+
+text.className="reaction-text";
+
+text.textContent=animal.reaction;
+
+text.style.left="42%";
+text.style.top="28%";
+
+stage.appendChild(text);
+
+createBurst(
+animal.burst,
+"47%",
+"35%"
+);
+
+setTimeout(function(){
+text.remove();
+},1200);
+}
+
+function createBurst(symbol,left,top){
+
+const stage=document.getElementById("adventureStage");
+
+const burst=document.createElement("div");
+
+burst.className="reaction-burst";
+
+burst.textContent=symbol;
+
+burst.style.left=left;
+burst.style.top=top;
+
+stage.appendChild(burst);
+
+setTimeout(function(){
+burst.remove();
+},900);
+}
+
+
+/* =========================================================
+GAME 3 FINISH
+========================================================= */
+
+function finishAdventureGame(){
+
+document.getElementById("adventureGame")
+.classList.remove("show");
+
+document.getElementById("adventureFinish")
+.classList.add("show");
+
+document.getElementById("adventureFinishMessage")
+.textContent=
+"Orion completed three safari missions! 🥹💛";
+
+document.getElementById("finishAdventureLion").innerHTML=
+makeCuteAnimal("lion","finish-animal");
+
+document.getElementById("finishAdventureElephant").innerHTML=
+makeCuteAnimal("elephant","finish-animal");
+
+document.getElementById("finishAdventureGiraffe").innerHTML=
+makeCuteAnimal("giraffe","finish-animal");
+
+document.getElementById("finishAdventureMonkey").innerHTML=
+makeCuteAnimal("monkey","finish-animal");
+}
+
+function chooseAnotherAdventureAnimal(){
+
+document.getElementById("adventureFinish")
+.classList.remove("show");
+
+document.getElementById("adventureStart")
+.style.display="block";
+}
+
+
+/* =========================================================
+ESCAPE KEY
 ========================================================= */
 
 document.addEventListener("keydown",function(e){
 
-    if(e.key==="Escape"){
+if(e.key==="Escape"){
 
-        document
-            .querySelectorAll(".overlay")
-            .forEach(function(popup){
+document
+.querySelectorAll(".overlay")
+.forEach(function(popup){
 
-                popup.classList.remove("show");
+popup.classList.remove("show");
 
-            });
-
-    }
-
+});
+}
 });
 
 </script>
-
 </body>
 </html>
