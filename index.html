@@ -18,8 +18,6 @@ body{
     margin:0;
     font-family:"Trebuchet MS",Arial,sans-serif;
     color:#4d3b28;
-
-    /* CLEAR SAFARI BACKGROUND */
     background-image:url("safari-cover.jpg.jpg");
     background-position:center center;
     background-size:cover;
@@ -47,10 +45,7 @@ button{
     width:min(900px,100%);
     padding:35px 25px 45px;
     border-radius:40px;
-
-    /* NO BLUR */
     background:rgba(255,255,255,.72);
-
     box-shadow:0 20px 55px rgba(70,55,35,.22);
 }
 
@@ -541,6 +536,359 @@ button{
     margin:20px;
 }
 
+/* ================= GAME 3 ================= */
+
+.adventure-start-icon{
+    font-size:75px;
+    margin:10px 0 20px;
+}
+
+.adventure-title{
+    font-size:30px;
+    color:#765126;
+    margin:10px 0;
+}
+
+.adventure-description{
+    font-size:17px;
+    line-height:1.6;
+}
+
+.adventure-area{
+    display:none;
+}
+
+.adventure-area.show{
+    display:block;
+}
+
+.adventure-score{
+    font-size:20px;
+    font-weight:bold;
+    margin:15px 0;
+}
+
+.adventure-progress{
+    width:100%;
+    height:14px;
+    background:#eadfc9;
+    border-radius:999px;
+    overflow:hidden;
+    margin-bottom:22px;
+}
+
+.adventure-progress-fill{
+    height:100%;
+    width:0%;
+    background:#7e9b45;
+    transition:.4s;
+}
+
+.ride-choice-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.ride-choice{
+    border:3px solid #eadfc9;
+    background:#fff;
+    border-radius:25px;
+    padding:14px 10px;
+    min-height:220px;
+    transition:.25s;
+}
+
+.ride-choice:hover{
+    transform:translateY(-5px) scale(1.02);
+    border-color:#9aad61;
+}
+
+.ride-animal{
+    font-size:60px;
+    display:block;
+}
+
+.ride-photo{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border-radius:50%;
+    border:4px solid white;
+    box-shadow:0 5px 12px rgba(0,0,0,.2);
+    margin:8px auto;
+    display:block;
+}
+
+.ride-name{
+    display:block;
+    font-weight:bold;
+    font-size:17px;
+    color:#5c4934;
+}
+
+.ride-action{
+    display:block;
+    font-size:14px;
+    margin-top:5px;
+    color:#7e9b45;
+    font-weight:bold;
+}
+
+.adventure-question{
+    font-size:27px;
+    font-weight:bold;
+    color:#765126;
+    margin:15px 0 5px;
+}
+
+.adventure-sub{
+    font-size:16px;
+    margin-bottom:15px;
+}
+
+.adventure-stage{
+    position:relative;
+    min-height:520px;
+    margin-top:20px;
+    border-radius:30px;
+    overflow:hidden;
+    background-image:
+        linear-gradient(
+            rgba(32,65,35,.15),
+            rgba(32,65,35,.15)
+        ),
+        url("forest.jpg.jpg");
+    background-size:cover;
+    background-position:center;
+    border:5px solid rgba(255,255,255,.9);
+    box-shadow:inset 0 0 30px rgba(0,0,0,.12);
+}
+
+.forest-leaf{
+    position:absolute;
+    font-size:30px;
+    animation:leafFloat 4s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.leaf-one{
+    top:10%;
+    left:8%;
+}
+
+.leaf-two{
+    top:20%;
+    right:10%;
+    animation-delay:1s;
+}
+
+.leaf-three{
+    bottom:30%;
+    left:15%;
+    animation-delay:2s;
+}
+
+.leaf-four{
+    bottom:12%;
+    right:18%;
+    animation-delay:1.5s;
+}
+
+@keyframes leafFloat{
+    0%,100%{
+        transform:translateY(0) rotate(0deg);
+    }
+    50%{
+        transform:translateY(-12px) rotate(8deg);
+    }
+}
+
+/* ================= POND ================= */
+
+.safari-pond{
+    position:absolute;
+    width:180px;
+    height:105px;
+    border-radius:50%;
+    background:
+        radial-gradient(
+            ellipse at center,
+            #b9eff4 0%,
+            #68cbd7 45%,
+            #3199aa 100%
+        );
+    border:6px solid rgba(255,255,255,.75);
+    box-shadow:
+        inset 0 0 20px rgba(0,80,100,.25),
+        0 8px 18px rgba(0,0,0,.2);
+    right:7%;
+    bottom:10%;
+    z-index:2;
+}
+
+.safari-pond::before{
+    content:"";
+    position:absolute;
+    width:60px;
+    height:20px;
+    border-top:4px solid rgba(255,255,255,.75);
+    border-radius:50%;
+    top:28px;
+    left:50px;
+    animation:waterRipple 2s infinite;
+}
+
+.safari-pond::after{
+    content:"💦";
+    position:absolute;
+    font-size:24px;
+    top:5px;
+    right:25px;
+}
+
+@keyframes waterRipple{
+    0%,100%{
+        transform:scaleX(.8);
+        opacity:.5;
+    }
+    50%{
+        transform:scaleX(1.15);
+        opacity:1;
+    }
+}
+
+.pond-label{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    font-weight:bold;
+    color:white;
+    text-shadow:0 2px 4px rgba(0,0,0,.45);
+    font-size:17px;
+}
+
+/* ================= GAME 3 TARGETS ================= */
+
+.food-target{
+    position:absolute;
+    z-index:5;
+    min-width:105px;
+    border:4px solid white;
+    border-radius:25px;
+    padding:10px 8px;
+    background:rgba(255,250,235,.95);
+    box-shadow:0 7px 15px rgba(0,0,0,.2);
+    font-family:inherit;
+    transition:.2s;
+}
+
+.food-target:hover{
+    transform:scale(1.08);
+}
+
+.food-target-emoji{
+    display:block;
+    font-size:43px;
+}
+
+.food-target-label{
+    display:block;
+    font-size:14px;
+    font-weight:bold;
+    color:#5c4934;
+}
+
+.food-target.wrong{
+    animation:shake .35s;
+    border-color:#c77b6b;
+}
+
+.food-target.correct{
+    border-color:#7e9b45;
+    background:#eef6dc;
+}
+
+/* ================= MOVING ORION ================= */
+
+.adventure-rider{
+    position:absolute;
+    z-index:10;
+    left:8%;
+    top:48%;
+    width:150px;
+    min-height:150px;
+    transition:
+        left 1.6s ease-in-out,
+        top 1.6s ease-in-out,
+        transform 1.6s ease-in-out;
+    text-align:center;
+}
+
+.adventure-animal{
+    font-size:78px;
+    display:block;
+    filter:drop-shadow(0 5px 4px rgba(0,0,0,.25));
+}
+
+.adventure-orion{
+    width:68px;
+    height:68px;
+    object-fit:cover;
+    border-radius:50%;
+    border:5px solid white;
+    box-shadow:0 5px 12px rgba(0,0,0,.25);
+    display:block;
+    margin:-15px auto 0;
+}
+
+.adventure-rider-label{
+    display:inline-block;
+    margin-top:5px;
+    padding:5px 10px;
+    border-radius:999px;
+    background:rgba(255,255,255,.9);
+    color:#5c4934;
+    font-size:13px;
+    font-weight:bold;
+}
+
+.adventure-rider.flying .adventure-animal{
+    animation:birdFly .6s ease-in-out infinite alternate;
+}
+
+@keyframes birdFly{
+    from{
+        transform:translateY(0) rotate(-4deg);
+    }
+    to{
+        transform:translateY(-10px) rotate(4deg);
+    }
+}
+
+.adventure-message{
+    min-height:32px;
+    margin:15px;
+    font-weight:bold;
+    font-size:18px;
+    color:#718c3c;
+}
+
+.adventure-finish{
+    display:none;
+}
+
+.adventure-finish.show{
+    display:block;
+}
+
+.adventure-finish-animals{
+    font-size:48px;
+    margin:20px;
+}
+
 /* ================= VIDEOS ================= */
 
 .video-wrap{
@@ -574,6 +922,14 @@ footer{
 }
 
 /* ================= MOBILE ================= */
+
+@media(max-width:800px){
+
+    .ride-choice-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
 
 @media(max-width:700px){
 
@@ -616,6 +972,48 @@ footer{
     .match-arrow{
         transform:rotate(90deg);
     }
+
+    .adventure-stage{
+        min-height:560px;
+    }
+
+    .ride-choice-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .ride-choice{
+        min-height:200px;
+    }
+
+    .safari-pond{
+        width:145px;
+        height:90px;
+        right:4%;
+        bottom:7%;
+    }
+
+    .adventure-rider{
+        width:125px;
+    }
+
+    .adventure-animal{
+        font-size:65px;
+    }
+
+    .adventure-orion{
+        width:60px;
+        height:60px;
+    }
+
+    .food-target{
+        min-width:90px;
+        padding:7px;
+    }
+
+    .food-target-emoji{
+        font-size:35px;
+    }
+
 }
 </style>
 </head>
@@ -1027,6 +1425,225 @@ footer{
                     onclick="startMatchGame()">
 
                     🔄 Play Again
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= GAME 3 ================= -->
+
+        <div class="game-card">
+
+            <div id="adventureStart">
+
+                <div class="adventure-start-icon">
+                    🦁 🐘 🦒
+                </div>
+
+                <h3 class="adventure-title">
+                    🎮 Game 3 — Orion's Safari Adventure
+                </h3>
+
+                <p class="adventure-description">
+
+                    Choose an animal and go on a little
+                    safari adventure with Orion! 🌳🐾
+
+                    <br><br>
+
+                    Help each animal find the food or water
+                    it needs. Tap the right place and
+                    watch Orion's safari ride go there! ⭐
+
+                </p>
+
+                <button
+                    type="button"
+                    class="game-start"
+                    onclick="startAdventureGame()">
+
+                    🌿 Start Safari Adventure 🐾
+
+                </button>
+
+            </div>
+
+
+            <!-- ANIMAL CHOICE -->
+
+            <div
+                class="adventure-area"
+                id="adventureChoices">
+
+                <div class="adventure-question">
+                    🐾 Choose your safari friend!
+                </div>
+
+                <div class="adventure-sub">
+                    Who does Orion want to explore with?
+                </div>
+
+                <div
+                    class="ride-choice-grid"
+                    id="rideChoices">
+                </div>
+
+            </div>
+
+
+            <!-- ADVENTURE GAME -->
+
+            <div
+                class="adventure-area"
+                id="adventureGame">
+
+                <div
+                    class="adventure-score"
+                    id="adventureScore">
+
+                    ⭐ 0 / 3
+
+                </div>
+
+                <div class="adventure-progress">
+
+                    <div
+                        class="adventure-progress-fill"
+                        id="adventureProgress">
+                    </div>
+
+                </div>
+
+                <div
+                    class="adventure-question"
+                    id="adventureQuestion">
+
+                    What does this animal need?
+
+                </div>
+
+                <div
+                    class="adventure-sub"
+                    id="adventureSub">
+
+                    Tap the right food or drink!
+
+                </div>
+
+
+                <div
+                    class="adventure-stage"
+                    id="adventureStage">
+
+                    <span class="forest-leaf leaf-one">
+                        🍃
+                    </span>
+
+                    <span class="forest-leaf leaf-two">
+                        🌿
+                    </span>
+
+                    <span class="forest-leaf leaf-three">
+                        🍃
+                    </span>
+
+                    <span class="forest-leaf leaf-four">
+                        🌿
+                    </span>
+
+
+                    <!-- POND -->
+
+                    <div
+                        class="safari-pond"
+                        id="safariPond">
+
+                        <div class="pond-label">
+                            💧 Water
+                        </div>
+
+                    </div>
+
+
+                    <!-- ORION + ANIMAL -->
+
+                    <div
+                        class="adventure-rider"
+                        id="adventureRider">
+
+                        <span
+                            class="adventure-animal"
+                            id="adventureAnimal">
+
+                            🦁
+
+                        </span>
+
+                        <img
+                            src="riding.png.png"
+                            class="adventure-orion"
+                            alt="Orion">
+
+                        <span
+                            class="adventure-rider-label"
+                            id="adventureRiderLabel">
+
+                            Orion's Safari Ride
+
+                        </span>
+
+                    </div>
+
+
+                    <!-- FOOD TARGETS -->
+
+                    <div id="adventureTargets"></div>
+
+                </div>
+
+
+                <div
+                    class="adventure-message"
+                    id="adventureMessage">
+                </div>
+
+            </div>
+
+
+            <!-- GAME 3 FINISH -->
+
+            <div
+                class="adventure-finish"
+                id="adventureFinish">
+
+                <div style="font-size:70px;">
+                    🎉
+                </div>
+
+                <h3 class="adventure-title">
+                    🌟 Safari Adventure Complete! 🌟
+                </h3>
+
+                <p id="adventureFinishMessage">
+
+                    Orion helped his safari friend
+                    find what it needed! 🥹💛
+
+                </p>
+
+                <div class="adventure-finish-animals">
+                    🦁 🐘 🦒 🐴 🐒 🐦 🐻
+                </div>
+
+                <button
+                    type="button"
+                    class="play-again"
+                    onclick="chooseAnotherAdventureAnimal()">
+
+                    🐾 Choose Another Animal
 
                 </button>
 
@@ -2222,6 +2839,642 @@ function finishMatchGame(){
         .getElementById("matchFinish")
         .classList
         .add("show");
+
+}
+
+
+/* ================= GAME 3 — ORION'S SAFARI ADVENTURE ================= */
+
+const adventureAnimals = [
+
+    {
+        name:"Lion",
+        emoji:"🦁",
+        action:"ride",
+        need:"meat",
+        correctEmoji:"🥩",
+        correctName:"Meat",
+        message:"🦁 Yum! The lion found its meat!",
+        finish:"Orion helped the lion find its meat! 🦁🥩"
+    },
+
+    {
+        name:"Elephant",
+        emoji:"🐘",
+        action:"ride",
+        need:"water",
+        correctEmoji:"💧",
+        correctName:"Water",
+        message:"🐘 Splash! The elephant found the pond!",
+        finish:"Orion helped the elephant find the pond! 🐘💦"
+    },
+
+    {
+        name:"Giraffe",
+        emoji:"🦒",
+        action:"ride",
+        need:"leaves",
+        correctEmoji:"🌿",
+        correctName:"Leaves",
+        message:"🦒 Crunch! The giraffe found some leaves!",
+        finish:"Orion helped the giraffe find fresh leaves! 🦒🌿"
+    },
+
+    {
+        name:"Horse",
+        emoji:"🐴",
+        action:"ride",
+        need:"grass",
+        correctEmoji:"🌱",
+        correctName:"Grass",
+        message:"🐴 Munch munch! The horse found grass!",
+        finish:"Orion helped the horse find some grass! 🐴🌱"
+    },
+
+    {
+        name:"Monkey",
+        emoji:"🐒",
+        action:"ride",
+        need:"banana",
+        correctEmoji:"🍌",
+        correctName:"Banana",
+        message:"🐒 Yummy! The monkey found a banana!",
+        finish:"Orion helped the monkey find a banana! 🐒🍌"
+    },
+
+    {
+        name:"Bird",
+        emoji:"🐦",
+        action:"fly",
+        need:"worms",
+        correctEmoji:"🪱",
+        correctName:"Worms",
+        message:"🐦 Tweet tweet! The bird found some worms!",
+        finish:"Orion flew with the bird to find its food! 🐦🪱"
+    },
+
+    {
+        name:"Bear",
+        emoji:"🐻",
+        action:"ride",
+        need:"honey",
+        correctEmoji:"🍯",
+        correctName:"Honey",
+        message:"🐻 Sweet! The bear found some honey!",
+        finish:"Orion helped the bear find some honey! 🐻🍯"
+    }
+
+];
+
+
+let selectedAdventureAnimal = null;
+let adventureRound = 0;
+let adventureScore = 0;
+let adventureLocked = false;
+
+
+function startAdventureGame(){
+
+    selectedAdventureAnimal = null;
+    adventureRound = 0;
+    adventureScore = 0;
+    adventureLocked = false;
+
+    document
+        .getElementById("adventureStart")
+        .style.display = "none";
+
+    document
+        .getElementById("adventureFinish")
+        .classList
+        .remove("show");
+
+    showAdventureChoices();
+
+}
+
+
+function showAdventureChoices(){
+
+    document
+        .getElementById("adventureChoices")
+        .classList
+        .add("show");
+
+    document
+        .getElementById("adventureGame")
+        .classList
+        .remove("show");
+
+
+    const container =
+        document.getElementById("rideChoices");
+
+    container.innerHTML = "";
+
+
+    adventureAnimals.forEach(function(animal){
+
+        const button =
+            document.createElement("button");
+
+        button.type = "button";
+        button.className = "ride-choice";
+
+        const actionText =
+            animal.action === "fly"
+            ? "🪽 Fly with Orion"
+            : "🐾 Ride with Orion";
+
+
+        button.innerHTML =
+
+            '<span class="ride-animal">' +
+            animal.emoji +
+            '</span>' +
+
+            '<img src="riding.png.png" ' +
+            'class="ride-photo" ' +
+            'alt="Orion">' +
+
+            '<span class="ride-name">' +
+            animal.name +
+            '</span>' +
+
+            '<span class="ride-action">' +
+            actionText +
+            '</span>';
+
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                selectAdventureAnimal(animal);
+
+            }
+        );
+
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+function selectAdventureAnimal(animal){
+
+    selectedAdventureAnimal = animal;
+    adventureRound = 0;
+    adventureScore = 0;
+    adventureLocked = false;
+
+
+    document
+        .getElementById("adventureChoices")
+        .classList
+        .remove("show");
+
+
+    document
+        .getElementById("adventureGame")
+        .classList
+        .add("show");
+
+
+    document
+        .getElementById("adventureAnimal")
+        .textContent =
+        animal.emoji;
+
+
+    document
+        .getElementById("adventureRiderLabel")
+        .textContent =
+        animal.action === "fly"
+        ? "Orion's Flying Adventure"
+        : "Orion's Safari Ride";
+
+
+    const rider =
+        document.getElementById("adventureRider");
+
+
+    rider.classList.toggle(
+        "flying",
+        animal.action === "fly"
+    );
+
+
+    document
+        .getElementById("adventureFinish")
+        .classList
+        .remove("show");
+
+
+    showAdventureRound();
+
+}
+
+
+function showAdventureRound(){
+
+    adventureLocked = false;
+
+
+    const animal =
+        selectedAdventureAnimal;
+
+
+    document
+        .getElementById("adventureScore")
+        .textContent =
+        "⭐ " + adventureScore + " / 3";
+
+
+    document
+        .getElementById("adventureProgress")
+        .style.width =
+        ((adventureScore / 3) * 100) + "%";
+
+
+    document
+        .getElementById("adventureQuestion")
+        .textContent =
+        "What does the " +
+        animal.name.toLowerCase() +
+        " need?";
+
+
+    document
+        .getElementById("adventureSub")
+        .textContent =
+        animal.action === "fly"
+        ? "Help Orion fly to the bird's food! 🪽"
+        : "Help Orion take the animal to the right place! 🐾";
+
+
+    document
+        .getElementById("adventureMessage")
+        .textContent = "";
+
+
+    const targetContainer =
+        document.getElementById("adventureTargets");
+
+
+    targetContainer.innerHTML = "";
+
+
+    let wrongTargets;
+
+
+    if(animal.need === "water"){
+
+        wrongTargets = [
+
+            {emoji:"🍌",name:"Banana",type:"wrong"},
+            {emoji:"🥩",name:"Meat",type:"wrong"}
+
+        ];
+
+    }else if(animal.need === "meat"){
+
+        wrongTargets = [
+
+            {emoji:"🌿",name:"Leaves",type:"wrong"},
+            {emoji:"🍌",name:"Banana",type:"wrong"}
+
+        ];
+
+    }else if(animal.need === "leaves"){
+
+        wrongTargets = [
+
+            {emoji:"🥩",name:"Meat",type:"wrong"},
+            {emoji:"🍯",name:"Honey",type:"wrong"}
+
+        ];
+
+    }else if(animal.need === "grass"){
+
+        wrongTargets = [
+
+            {emoji:"🍌",name:"Banana",type:"wrong"},
+            {emoji:"🥩",name:"Meat",type:"wrong"}
+
+        ];
+
+    }else if(animal.need === "banana"){
+
+        wrongTargets = [
+
+            {emoji:"🌱",name:"Grass",type:"wrong"},
+            {emoji:"🥩",name:"Meat",type:"wrong"}
+
+        ];
+
+    }else if(animal.need === "worms"){
+
+        wrongTargets = [
+
+            {emoji:"🍌",name:"Banana",type:"wrong"},
+            {emoji:"🌿",name:"Leaves",type:"wrong"}
+
+        ];
+
+    }else{
+
+        wrongTargets = [
+
+            {emoji:"🍌",name:"Banana",type:"wrong"},
+            {emoji:"🌱",name:"Grass",type:"wrong"}
+
+        ];
+
+    }
+
+
+    const targets = shuffle([
+
+        {
+            emoji:animal.correctEmoji,
+            name:animal.correctName,
+            type:"correct"
+        },
+
+        ...wrongTargets
+
+    ]);
+
+
+    const positions = shuffle([
+
+        {left:"8%",top:"14%"},
+        {left:"42%",top:"17%"},
+        {left:"67%",top:"18%"}
+
+    ]);
+
+
+    targets.forEach(function(target,index){
+
+        const button =
+            document.createElement("button");
+
+
+        button.type = "button";
+
+        button.className =
+            "food-target";
+
+
+        button.style.left =
+            positions[index].left;
+
+        button.style.top =
+            positions[index].top;
+
+
+        if(
+            animal.need === "water" &&
+            target.type === "correct"
+        ){
+
+            button.innerHTML =
+
+                '<span class="food-target-emoji">💧</span>' +
+
+                '<span class="food-target-label">' +
+                'Go to the Pond!' +
+                '</span>';
+
+        }else{
+
+            button.innerHTML =
+
+                '<span class="food-target-emoji">' +
+                target.emoji +
+                '</span>' +
+
+                '<span class="food-target-label">' +
+                target.name +
+                '</span>';
+
+        }
+
+
+        button.addEventListener(
+            "click",
+            function(){
+
+                chooseAdventureTarget(
+                    button,
+                    target
+                );
+
+            }
+        );
+
+
+        targetContainer.appendChild(button);
+
+    });
+
+
+    const rider =
+        document.getElementById("adventureRider");
+
+
+    rider.style.left = "6%";
+
+    rider.style.top =
+        animal.action === "fly"
+        ? "45%"
+        : "55%";
+
+}
+
+
+/* ================= GAME 3 MOVEMENT ================= */
+
+function chooseAdventureTarget(
+    button,
+    target
+){
+
+    if(adventureLocked){
+
+        return;
+
+    }
+
+
+    const animal =
+        selectedAdventureAnimal;
+
+
+    if(target.type !== "correct"){
+
+        button.classList.add("wrong");
+
+
+        document
+            .getElementById("adventureMessage")
+            .textContent =
+            "💛 Not that one! Try again, Orion!";
+
+
+        setTimeout(function(){
+
+            button.classList.remove("wrong");
+
+        },400);
+
+
+        return;
+
+    }
+
+
+    adventureLocked = true;
+
+    button.classList.add("correct");
+
+
+    const rider =
+        document.getElementById("adventureRider");
+
+
+    let targetLeft =
+        parseFloat(button.style.left);
+
+    let targetTop =
+        parseFloat(button.style.top);
+
+
+    /*
+       Elephant travels specifically toward the pond.
+    */
+
+    if(animal.need === "water"){
+
+        targetLeft = 68;
+        targetTop = 61;
+
+    }else{
+
+        targetLeft =
+            Math.min(targetLeft,72);
+
+        targetTop =
+            Math.min(targetTop + 8,70);
+
+    }
+
+
+    /*
+       Bird flies higher through the forest.
+    */
+
+    if(animal.action === "fly"){
+
+        targetTop =
+            Math.max(targetTop - 12,12);
+
+    }
+
+
+    rider.style.left =
+        targetLeft + "%";
+
+    rider.style.top =
+        targetTop + "%";
+
+
+    document
+        .getElementById("adventureMessage")
+        .textContent =
+        "🌟 Great choice! Orion is going!";
+
+
+    setTimeout(function(){
+
+        adventureScore++;
+
+
+        document
+            .getElementById("adventureScore")
+            .textContent =
+            "⭐ " + adventureScore + " / 3";
+
+
+        document
+            .getElementById("adventureProgress")
+            .style.width =
+            ((adventureScore / 3) * 100) + "%";
+
+
+        document
+            .getElementById("adventureMessage")
+            .textContent =
+            animal.message;
+
+
+        setTimeout(function(){
+
+            adventureRound++;
+
+
+            if(adventureRound >= 3){
+
+                finishAdventureGame();
+
+            }else{
+
+                showAdventureRound();
+
+            }
+
+        },900);
+
+    },1600);
+
+}
+
+
+function finishAdventureGame(){
+
+    document
+        .getElementById("adventureGame")
+        .classList
+        .remove("show");
+
+
+    document
+        .getElementById("adventureFinishMessage")
+        .textContent =
+        selectedAdventureAnimal.finish;
+
+
+    document
+        .getElementById("adventureFinish")
+        .classList
+        .add("show");
+
+}
+
+
+function chooseAnotherAdventureAnimal(){
+
+    document
+        .getElementById("adventureFinish")
+        .classList
+        .remove("show");
+
+
+    showAdventureChoices();
 
 }
 
