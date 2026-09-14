@@ -30,7 +30,6 @@ body{
     color:#5b4636;
     overflow-x:hidden;
 
-    /* NEW SAFARI BACKGROUND */
     background:
         radial-gradient(circle at 10% 10%, rgba(255,255,255,.65), transparent 25%),
         radial-gradient(circle at 90% 25%, rgba(255,255,255,.5), transparent 25%),
@@ -43,7 +42,6 @@ body{
         );
 }
 
-/* Soft safari texture */
 body::before{
     content:"";
     position:fixed;
@@ -56,6 +54,7 @@ body::before{
     background-size:28px 28px;
     opacity:.35;
 }
+
 
 /* =========================================================
    SAFARI LEAVES / DECORATIONS
@@ -92,6 +91,7 @@ body::before{
     right:-15px;
     transform:rotate(-20deg);
 }
+
 
 /* =========================================================
    COVER
@@ -245,6 +245,7 @@ body::before{
     background:#5d783e;
 }
 
+
 /* =========================================================
    MAIN CONTENT
 ========================================================= */
@@ -277,8 +278,6 @@ body::before{
 
     overflow:hidden;
 }
-
-/* decorative leaves inside sections */
 
 .section::before{
     content:"🌿";
@@ -337,9 +336,9 @@ body::before{
     opacity:.65;
 }
 
+
 /* =========================================================
    MEMORY CARDS
-   THESE DESIGNS ARE KEPT
 ========================================================= */
 
 .memory-grid{
@@ -405,8 +404,9 @@ body::before{
     line-height:1.5;
 }
 
+
 /* =========================================================
-   ANIMAL FACES
+   EXISTING ANIMAL FACES
 ========================================================= */
 
 .animal-face{
@@ -477,6 +477,7 @@ body::before{
     transform:translateX(-50%);
 }
 
+
 /* lion */
 
 .lion{
@@ -507,6 +508,7 @@ body::before{
 .lion::after{
     right:5px;
 }
+
 
 /* elephant */
 
@@ -553,6 +555,7 @@ body::before{
     top:60px;
 }
 
+
 /* giraffe */
 
 .giraffe{
@@ -588,6 +591,7 @@ body::before{
     background:#34251c;
 }
 
+
 /* zebra */
 
 .zebra{
@@ -602,6 +606,7 @@ body::before{
 
     border-color:#37332e;
 }
+
 
 /* monkey */
 
@@ -647,6 +652,7 @@ body::before{
     top:80px;
 }
 
+
 /* tiger */
 
 .tiger{
@@ -662,6 +668,7 @@ body::before{
     border-color:#7b481f;
 }
 
+
 /* paw */
 
 .memory-card::after{
@@ -673,6 +680,1521 @@ body::before{
 
     opacity:.65;
 }
+
+
+/* =========================================================
+   CHAPTER LABEL
+========================================================= */
+
+.chapter-label{
+    text-align:center;
+
+    display:inline-block;
+
+    margin:0 auto 25px;
+
+    padding:9px 22px;
+
+    border-radius:30px;
+
+    background:rgba(154,168,106,.18);
+
+    border:2px solid rgba(154,168,106,.3);
+
+    color:#71834d;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+    letter-spacing:.5px;
+}
+
+.chapter-wrap{
+    text-align:center;
+}
+
+
+/* =========================================================
+   ORION'S SAFARI GAMES
+========================================================= */
+
+.games-section{
+    background:
+        linear-gradient(
+            rgba(250,248,226,.94),
+            rgba(237,230,201,.95)
+        );
+}
+
+.game-intro{
+    max-width:700px;
+
+    margin:0 auto 30px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    line-height:1.7;
+}
+
+.game-card{
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:30px;
+
+    border-radius:35px;
+
+    background:
+        rgba(255,255,255,.72);
+
+    border:3px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 15px 35px rgba(70,55,35,.14);
+
+    text-align:center;
+
+    position:relative;
+}
+
+.game-start{
+    padding:17px 34px;
+
+    border:0;
+
+    border-radius:50px;
+
+    background:#718b4f;
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 8px 18px rgba(65,80,45,.25);
+
+    transition:.3s;
+}
+
+.game-start:hover{
+    transform:translateY(-3px) scale(1.03);
+
+    background:#5d783e;
+}
+
+.game-area{
+    display:none;
+}
+
+.game-area.active{
+    display:block;
+}
+
+.game-top{
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+    flex-wrap:wrap;
+}
+
+.game-progress{
+    flex:1;
+
+    min-width:220px;
+
+    height:14px;
+
+    background:#e2dcc6;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    border:2px solid rgba(113,139,79,.15);
+}
+
+.game-progress-bar{
+    width:0%;
+
+    height:100%;
+
+    background:#8da25f;
+
+    border-radius:20px;
+
+    transition:width .4s ease;
+}
+
+.star-count{
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#806032;
+
+    white-space:nowrap;
+}
+
+.game-question{
+    font-size:clamp(24px,4vw,34px);
+
+    color:#684b32;
+
+    margin:15px 0 8px;
+
+    font-weight:bold;
+}
+
+.game-subtext{
+    font-size:16px;
+
+    margin-bottom:25px;
+
+    color:#7a6853;
+}
+
+.animal-choice-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:20px;
+
+    max-width:850px;
+
+    margin:0 auto;
+}
+
+.game-choice{
+    min-height:245px;
+
+    padding:20px 12px;
+
+    border-radius:30px;
+
+    border:4px solid rgba(255,255,255,.9);
+
+    background:
+        rgba(250,247,231,.95);
+
+    box-shadow:
+        0 10px 22px rgba(65,50,30,.15);
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:
+        transform .25s,
+        box-shadow .25s,
+        background .25s;
+
+    font-family:Georgia,serif;
+}
+
+.game-choice:hover{
+    transform:
+        translateY(-7px)
+        scale(1.02);
+
+    box-shadow:
+        0 16px 28px rgba(65,50,30,.22);
+}
+
+.game-choice:active{
+    transform:scale(.96);
+}
+
+.game-choice.wrong{
+    animation:shake .45s ease;
+    background:#f5ddd5;
+}
+
+.game-choice.correct{
+    background:#dfecc9;
+
+    border-color:#9caf73;
+
+    animation:correctPop .45s ease;
+}
+
+.choice-name{
+    margin-top:15px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#65492f;
+}
+
+.game-message{
+    min-height:32px;
+
+    margin-top:20px;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#718b4f;
+}
+
+.game-message.try{
+    color:#a96748;
+}
+
+.game-finish{
+    display:none;
+
+    padding:25px 10px;
+}
+
+.game-finish.show{
+    display:block;
+}
+
+.game-finish-animals{
+    font-size:45px;
+
+    letter-spacing:5px;
+
+    margin:15px 0;
+}
+
+.game-finish h3{
+    font-size:34px;
+
+    color:#6e5136;
+
+    margin:10px 0;
+}
+
+.game-finish p{
+    font-size:18px;
+
+    line-height:1.7;
+
+    max-width:600px;
+
+    margin:10px auto 25px;
+}
+
+.play-again{
+    padding:14px 28px;
+
+    border:0;
+
+    border-radius:50px;
+
+    background:#718b4f;
+
+    color:white;
+
+    font-family:Georgia,serif;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.play-again:hover{
+    background:#5d783e;
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================================================
+   BIG GAME ANIMAL FACES
+========================================================= */
+
+.game-animal{
+    width:155px;
+
+    height:135px;
+
+    position:relative;
+
+    border-radius:46%;
+
+    border:5px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 9px 20px rgba(55,45,30,.2);
+
+    flex-shrink:0;
+}
+
+.game-animal .g-eye{
+    position:absolute;
+
+    width:18px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:#30251e;
+
+    top:42px;
+}
+
+.game-animal .g-eye.left{
+    left:38px;
+}
+
+.game-animal .g-eye.right{
+    right:38px;
+}
+
+.game-animal .g-nose{
+    position:absolute;
+
+    width:27px;
+    height:20px;
+
+    border-radius:50%;
+
+    background:#3b2c23;
+
+    top:69px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.game-animal .g-mouth{
+    position:absolute;
+
+    width:38px;
+    height:19px;
+
+    border-bottom:4px solid #3b2c23;
+
+    border-radius:50%;
+
+    top:82px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+
+/* LION */
+
+.ga-lion{
+    background:#e3a63d;
+
+    border-color:#a66c25;
+}
+
+.ga-lion::before,
+.ga-lion::after{
+    content:"";
+
+    position:absolute;
+
+    width:40px;
+    height:40px;
+
+    border-radius:50%;
+
+    background:#b97825;
+
+    top:-13px;
+}
+
+.ga-lion::before{
+    left:5px;
+}
+
+.ga-lion::after{
+    right:5px;
+}
+
+
+/* ELEPHANT */
+
+.ga-elephant{
+    background:#aaa9a0;
+
+    border-color:#77766f;
+}
+
+.ga-elephant::before,
+.ga-elephant::after{
+    content:"";
+
+    position:absolute;
+
+    width:65px;
+    height:78px;
+
+    background:#aaa9a0;
+
+    border:4px solid #77766f;
+
+    border-radius:50%;
+
+    top:24px;
+
+    z-index:-1;
+}
+
+.ga-elephant::before{
+    left:-47px;
+}
+
+.ga-elephant::after{
+    right:-47px;
+}
+
+.ga-elephant .g-nose{
+    width:25px;
+    height:52px;
+
+    border-radius:
+        0 0 20px 20px;
+
+    top:61px;
+}
+
+
+/* GIRAFFE */
+
+.ga-giraffe{
+    background:#e8c45a;
+
+    border-color:#a5792b;
+}
+
+.ga-giraffe::before,
+.ga-giraffe::after{
+    content:"";
+
+    position:absolute;
+
+    width:15px;
+    height:32px;
+
+    background:#a5792b;
+
+    top:-29px;
+
+    border-radius:10px;
+}
+
+.ga-giraffe::before{
+    left:38px;
+}
+
+.ga-giraffe::after{
+    right:38px;
+}
+
+
+/* ZEBRA */
+
+.ga-zebra{
+    background:
+        repeating-linear-gradient(
+            45deg,
+            #fff 0,
+            #fff 17px,
+            #302e2a 17px,
+            #302e2a 27px
+        );
+
+    border-color:#37332e;
+}
+
+
+/* MONKEY */
+
+.ga-monkey{
+    background:#9a633e;
+
+    border-color:#67422c;
+}
+
+.ga-monkey::before,
+.ga-monkey::after{
+    content:"";
+
+    position:absolute;
+
+    width:48px;
+    height:55px;
+
+    background:#9a633e;
+
+    border:4px solid #67422c;
+
+    border-radius:50%;
+
+    top:38px;
+
+    z-index:-1;
+}
+
+.ga-monkey::before{
+    left:-32px;
+}
+
+.ga-monkey::after{
+    right:-32px;
+}
+
+.ga-monkey .g-mouth{
+    border-bottom:0;
+
+    border-top:4px solid #3e2d22;
+
+    top:84px;
+}
+
+
+/* TIGER */
+
+.ga-tiger{
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #e88a34 0,
+            #e88a34 20px,
+            #29221b 20px,
+            #29221b 27px
+        );
+
+    border-color:#7b481f;
+}
+
+
+/* PENGUIN */
+
+.ga-penguin{
+    background:#343a3d;
+
+    border-color:#22282b;
+}
+
+.ga-penguin::before{
+    content:"";
+
+    position:absolute;
+
+    width:110px;
+    height:95px;
+
+    background:#f8f4e7;
+
+    border-radius:50%;
+
+    left:18px;
+    top:25px;
+}
+
+.ga-penguin::after{
+    content:"";
+
+    position:absolute;
+
+    width:28px;
+    height:18px;
+
+    background:#e8a83e;
+
+    border-radius:50%;
+
+    top:73px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.ga-penguin .g-eye{
+    z-index:2;
+
+    width:15px;
+    height:18px;
+
+    top:47px;
+}
+
+.ga-penguin .g-eye.left{
+    left:48px;
+}
+
+.ga-penguin .g-eye.right{
+    right:48px;
+}
+
+
+/* POLAR BEAR */
+
+.ga-polar{
+    background:#f5f3e9;
+
+    border-color:#c7c2b3;
+}
+
+.ga-polar::before,
+.ga-polar::after{
+    content:"";
+
+    position:absolute;
+
+    width:38px;
+    height:38px;
+
+    border-radius:50%;
+
+    background:#f5f3e9;
+
+    border:4px solid #c7c2b3;
+
+    top:-17px;
+}
+
+.ga-polar::before{
+    left:18px;
+}
+
+.ga-polar::after{
+    right:18px;
+}
+
+
+/* BEE */
+
+.ga-bee{
+    background:
+        repeating-linear-gradient(
+            0deg,
+            #f5c63d 0,
+            #f5c63d 25px,
+            #302a20 25px,
+            #302a20 38px
+        );
+
+    border-color:#6d5420;
+}
+
+.ga-bee::before,
+.ga-bee::after{
+    content:"";
+
+    position:absolute;
+
+    width:55px;
+    height:40px;
+
+    background:rgba(235,248,255,.8);
+
+    border:3px solid #8da0a8;
+
+    border-radius:50%;
+
+    top:25px;
+
+    z-index:-1;
+}
+
+.ga-bee::before{
+    left:-38px;
+    transform:rotate(-25deg);
+}
+
+.ga-bee::after{
+    right:-38px;
+    transform:rotate(25deg);
+}
+
+
+/* HIPPO */
+
+.ga-hippo{
+    background:#8d8990;
+
+    border-color:#68656b;
+}
+
+.ga-hippo .g-nose{
+    width:42px;
+    height:24px;
+
+    background:#5d5960;
+
+    top:65px;
+}
+
+.ga-hippo .g-mouth{
+    top:83px;
+}
+
+
+/* PIG */
+
+.ga-pig{
+    background:#e8a3a9;
+
+    border-color:#b9767d;
+}
+
+.ga-pig::before,
+.ga-pig::after{
+    content:"";
+
+    position:absolute;
+
+    width:38px;
+    height:34px;
+
+    background:#e8a3a9;
+
+    border:4px solid #b9767d;
+
+    border-radius:50%;
+
+    top:-14px;
+}
+
+.ga-pig::before{
+    left:17px;
+}
+
+.ga-pig::after{
+    right:17px;
+}
+
+.ga-pig .g-nose{
+    background:#c67880;
+
+    width:37px;
+    height:25px;
+
+    top:66px;
+}
+
+
+/* HORSE */
+
+.ga-horse{
+    background:#9b6946;
+
+    border-color:#69442f;
+}
+
+.ga-horse::before,
+.ga-horse::after{
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+    height:50px;
+
+    background:#69442f;
+
+    top:-29px;
+
+    border-radius:50%;
+}
+
+.ga-horse::before{
+    left:25px;
+
+    transform:rotate(-15deg);
+}
+
+.ga-horse::after{
+    right:25px;
+
+    transform:rotate(15deg);
+}
+
+
+/* SHEEP */
+
+.ga-sheep{
+    background:#f0eee3;
+
+    border-color:#aaa69a;
+}
+
+.ga-sheep::before,
+.ga-sheep::after{
+    content:"";
+
+    position:absolute;
+
+    width:55px;
+    height:55px;
+
+    border-radius:50%;
+
+    background:#f0eee3;
+
+    border:4px solid #aaa69a;
+
+    top:-10px;
+}
+
+.ga-sheep::before{
+    left:12px;
+}
+
+.ga-sheep::after{
+    right:12px;
+}
+
+
+/* DOG */
+
+.ga-dog{
+    background:#c99560;
+
+    border-color:#805b38;
+}
+
+.ga-dog::before,
+.ga-dog::after{
+    content:"";
+
+    position:absolute;
+
+    width:48px;
+    height:75px;
+
+    background:#805b38;
+
+    border:4px solid #684a30;
+
+    border-radius:50%;
+
+    top:25px;
+
+    z-index:-1;
+}
+
+.ga-dog::before{
+    left:-30px;
+
+    transform:rotate(20deg);
+}
+
+.ga-dog::after{
+    right:-30px;
+
+    transform:rotate(-20deg);
+}
+
+
+/* CAT */
+
+.ga-cat{
+    background:#d0a982;
+
+    border-color:#886a4e;
+}
+
+.ga-cat::before,
+.ga-cat::after{
+    content:"";
+
+    position:absolute;
+
+    width:42px;
+    height:42px;
+
+    background:#d0a982;
+
+    border:4px solid #886a4e;
+
+    top:-22px;
+
+    transform:rotate(45deg);
+
+    z-index:-1;
+}
+
+.ga-cat::before{
+    left:17px;
+}
+
+.ga-cat::after{
+    right:17px;
+}
+
+
+/* PANDA */
+
+.ga-panda{
+    background:#252525;
+
+    border-color:#151515;
+}
+
+.ga-panda::before{
+    content:"";
+
+    position:absolute;
+
+    width:105px;
+    height:92px;
+
+    background:#f7f4e9;
+
+    border-radius:50%;
+
+    left:20px;
+    top:25px;
+}
+
+.ga-panda .g-eye{
+    background:#171717;
+
+    width:27px;
+    height:17px;
+
+    transform:rotate(-25deg);
+
+    z-index:2;
+}
+
+.ga-panda .g-eye.left{
+    left:39px;
+}
+
+.ga-panda .g-eye.right{
+    right:39px;
+}
+
+
+/* CROCODILE */
+
+.ga-crocodile{
+    background:#6f9b55;
+
+    border-color:#456738;
+}
+
+.ga-crocodile::before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:45px;
+
+    background:#87aa65;
+
+    border:4px solid #456738;
+
+    border-radius:50%;
+
+    left:27px;
+    top:55px;
+}
+
+.ga-crocodile .g-eye{
+    z-index:2;
+}
+
+
+/* FLAMINGO */
+
+.ga-flamingo{
+    background:#ef91a9;
+
+    border-color:#ba6078;
+}
+
+.ga-flamingo::before{
+    content:"";
+
+    position:absolute;
+
+    width:38px;
+    height:55px;
+
+    border:9px solid #ba6078;
+
+    border-bottom:0;
+
+    border-radius:50%;
+
+    left:20px;
+    top:-23px;
+
+    transform:rotate(-25deg);
+}
+
+.ga-flamingo .g-nose{
+    width:45px;
+    height:12px;
+
+    border-radius:50% 0 50% 50%;
+
+    background:#302c27;
+
+    top:65px;
+
+    left:69%;
+}
+
+.ga-flamingo .g-mouth{
+    display:none;
+}
+
+
+/* KOALA */
+
+.ga-koala{
+    background:#aaa9a5;
+
+    border-color:#777570;
+}
+
+.ga-koala::before,
+.ga-koala::after{
+    content:"";
+
+    position:absolute;
+
+    width:52px;
+    height:52px;
+
+    border-radius:50%;
+
+    background:#aaa9a5;
+
+    border:4px solid #777570;
+
+    top:-15px;
+}
+
+.ga-koala::before{
+    left:4px;
+}
+
+.ga-koala::after{
+    right:4px;
+}
+
+
+/* KANGAROO */
+
+.ga-kangaroo{
+    background:#a8754e;
+
+    border-color:#765036;
+}
+
+.ga-kangaroo::before,
+.ga-kangaroo::after{
+    content:"";
+
+    position:absolute;
+
+    width:24px;
+    height:65px;
+
+    background:#765036;
+
+    border-radius:50%;
+
+    top:-30px;
+}
+
+.ga-kangaroo::before{
+    left:28px;
+
+    transform:rotate(-18deg);
+}
+
+.ga-kangaroo::after{
+    right:28px;
+
+    transform:rotate(18deg);
+}
+
+
+/* ROOSTER */
+
+.ga-rooster{
+    background:#f2f0e6;
+
+    border-color:#8b877d;
+}
+
+.ga-rooster::before{
+    content:"";
+
+    position:absolute;
+
+    width:32px;
+    height:28px;
+
+    background:#c94b45;
+
+    border-radius:50% 50% 30% 30%;
+
+    top:-25px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.ga-rooster .g-nose{
+    background:#e2a33a;
+
+    width:32px;
+    height:17px;
+
+    top:67px;
+}
+
+
+/* BIRD */
+
+.ga-bird{
+    background:#77a9d1;
+
+    border-color:#4e789a;
+}
+
+.ga-bird::before{
+    content:"";
+
+    position:absolute;
+
+    width:75px;
+    height:45px;
+
+    background:#5b8fb9;
+
+    border-radius:50%;
+
+    left:12px;
+    top:58px;
+
+    transform:rotate(-20deg);
+}
+
+.ga-bird .g-nose{
+    width:0;
+    height:0;
+
+    border-top:12px solid transparent;
+    border-bottom:12px solid transparent;
+    border-left:30px solid #e2a33a;
+
+    background:transparent;
+
+    border-radius:0;
+
+    top:65px;
+
+    left:75%;
+}
+
+
+/* LEOPARD */
+
+.ga-leopard{
+    background:#d2a642;
+
+    border-color:#916e26;
+}
+
+.ga-leopard::before{
+    content:"";
+
+    position:absolute;
+
+    inset:20px;
+
+    border-radius:45%;
+
+    background:
+        radial-gradient(circle at 20% 25%, #4e3824 0 5px, transparent 6px),
+        radial-gradient(circle at 70% 30%, #4e3824 0 5px, transparent 6px),
+        radial-gradient(circle at 35% 65%, #4e3824 0 5px, transparent 6px),
+        radial-gradient(circle at 75% 70%, #4e3824 0 5px, transparent 6px);
+
+    opacity:.7;
+}
+
+
+/* SNAKE */
+
+.ga-snake{
+    background:#78a35c;
+
+    border-color:#4f713e;
+}
+
+.ga-snake::before{
+    content:"";
+
+    position:absolute;
+
+    width:100px;
+    height:50px;
+
+    border:9px solid #4f713e;
+
+    border-top:0;
+
+    border-radius:0 0 60px 60px;
+
+    left:25px;
+    top:35px;
+}
+
+.ga-snake .g-nose{
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    background:#6f9653;
+
+    top:55px;
+}
+
+
+/* CAMEL */
+
+.ga-camel{
+    background:#c89557;
+
+    border-color:#896235;
+}
+
+.ga-camel::before,
+.ga-camel::after{
+    content:"";
+
+    position:absolute;
+
+    width:35px;
+    height:45px;
+
+    background:#a97640;
+
+    border-radius:50%;
+
+    top:-22px;
+}
+
+.ga-camel::before{
+    left:28px;
+}
+
+.ga-camel::after{
+    right:28px;
+}
+
+
+/* TURTLE */
+
+.ga-turtle{
+    background:#6e9b57;
+
+    border-color:#476a38;
+}
+
+.ga-turtle::before{
+    content:"";
+
+    position:absolute;
+
+    width:112px;
+    height:82px;
+
+    background:#789d58;
+
+    border:5px solid #476a38;
+
+    border-radius:50%;
+
+    left:16px;
+    top:25px;
+}
+
+.ga-turtle .g-eye{
+    z-index:2;
+}
+
+
+/* FISH */
+
+.ga-fish{
+    background:#68a9c4;
+
+    border-color:#407b91;
+
+    border-radius:55% 45% 50% 50%;
+}
+
+.ga-fish::before{
+    content:"";
+
+    position:absolute;
+
+    right:-34px;
+
+    top:43px;
+
+    width:0;
+    height:0;
+
+    border-top:25px solid transparent;
+    border-bottom:25px solid transparent;
+    border-right:45px solid #407b91;
+}
+
+.ga-fish .g-nose{
+    width:0;
+    height:0;
+
+    background:transparent;
+
+    border-top:9px solid transparent;
+    border-bottom:9px solid transparent;
+    border-right:18px solid #e6d5a6;
+
+    top:69px;
+
+    left:50%;
+}
+
+
+/* OCTOPUS */
+
+.ga-octopus{
+    background:#d28b9d;
+
+    border-color:#9e5f71;
+
+    border-radius:50% 50% 45% 45%;
+}
+
+.ga-octopus::before{
+    content:"";
+
+    position:absolute;
+
+    width:125px;
+    height:35px;
+
+    left:10px;
+    bottom:-20px;
+
+    border-radius:50%;
+
+    border-bottom:12px solid #9e5f71;
+
+    box-shadow:
+        -20px 8px 0 -3px #9e5f71,
+        20px 8px 0 -3px #9e5f71;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes shake{
+
+    0%,100%{
+        transform:translateX(0);
+    }
+
+    25%{
+        transform:translateX(-10px);
+    }
+
+    50%{
+        transform:translateX(10px);
+    }
+
+    75%{
+        transform:translateX(-7px);
+    }
+}
+
+@keyframes correctPop{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08) rotate(-2deg);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+@keyframes starPop{
+
+    0%{
+        transform:scale(.5);
+        opacity:0;
+    }
+
+    60%{
+        transform:scale(1.25);
+        opacity:1;
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.star-pop{
+    display:inline-block;
+
+    animation:starPop .5s ease;
+}
+
 
 /* =========================================================
    MAMA'S LETTER
@@ -741,6 +2263,7 @@ body::before{
 
     margin:16px 0;
 }
+
 
 /* =========================================================
    POPUPS
@@ -834,6 +2357,7 @@ body::before{
     background:#5d783e;
 }
 
+
 /* =========================================================
    FAVORITE / WORDS CONTENT
 ========================================================= */
@@ -871,6 +2395,7 @@ body::before{
 
     line-height:1.8;
 }
+
 
 /* =========================================================
    GALLERY
@@ -910,6 +2435,7 @@ body::before{
         scale(1.04)
         rotate(1deg);
 }
+
 
 /* =========================================================
    PHOTO VIEWER
@@ -951,6 +2477,7 @@ body::before{
         0 20px 70px rgba(0,0,0,.5);
 }
 
+
 /* =========================================================
    VIDEO
 ========================================================= */
@@ -986,6 +2513,7 @@ body::before{
     display:block;
 }
 
+
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -1011,6 +2539,7 @@ footer .big{
 footer p{
     line-height:1.7;
 }
+
 
 /* =========================================================
    MOBILE
@@ -1137,6 +2666,57 @@ footer p{
     .safari-decoration{
         font-size:45px;
     }
+
+    /* GAME MOBILE */
+
+    .game-card{
+        padding:18px 10px;
+    }
+
+    .game-top{
+        display:block;
+    }
+
+    .star-count{
+        margin-top:10px;
+    }
+
+    .animal-choice-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .game-choice{
+        min-height:205px;
+    }
+
+    .game-animal{
+        width:145px;
+        height:125px;
+    }
+
+    .choice-name{
+        font-size:19px;
+    }
+
+    .game-question{
+        font-size:25px;
+    }
+
+    .game-subtext{
+        font-size:14px;
+    }
+
+    .game-finish-animals{
+        font-size:34px;
+        letter-spacing:2px;
+    }
+
+    .game-finish h3{
+        font-size:29px;
+    }
+
 }
 
 </style>
@@ -1145,6 +2725,7 @@ footer p{
 
 
 <body>
+
 
 <!-- =====================================================
      FLOATING SAFARI DECORATIONS
@@ -1207,6 +2788,14 @@ footer p{
 <section
     class="section"
     id="memoryBook">
+
+    <div class="chapter-wrap">
+
+        <div class="chapter-label">
+            🌿 Chapter 1 — Orion at Age 2 🐾
+        </div>
+
+    </div>
 
     <h2 class="section-title">
         🌿 Orion's Little Memory Book 🦁
@@ -1372,6 +2961,186 @@ footer p{
                 Look how much
                 I already know! 🌟
             </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     ORION'S SAFARI GAMES
+===================================================== -->
+
+<section class="section games-section">
+
+    <h2 class="section-title">
+        🎮 Orion's Safari Games 🦁
+    </h2>
+
+    <div class="game-intro">
+
+        <p>
+            Welcome to Orion's little animal adventure! 🌿🐾
+        </p>
+
+        <p>
+            Can you find the animal Mama asks for?
+            Tap the big animal you think is correct!
+        </p>
+
+    </div>
+
+
+    <div class="game-card">
+
+
+        <!-- START SCREEN -->
+
+        <div id="gameStart">
+
+            <div
+                style="
+                font-size:70px;
+                margin:10px 0 20px;
+                "
+            >
+                🦁 🐘 🦒
+            </div>
+
+            <h3
+                style="
+                color:#6d5035;
+                font-size:28px;
+                margin:10px 0;
+                "
+            >
+                Find the Animal!
+            </h3>
+
+            <p
+                style="
+                font-size:17px;
+                line-height:1.7;
+                max-width:600px;
+                margin:10px auto 25px;
+                "
+            >
+                Ten little challenges,
+                lots of animals,
+                and lots of fun! ⭐
+            </p>
+
+            <button
+                class="game-start"
+                onclick="startSafariGame()">
+
+                🌿 Start Safari Game 🐾
+
+            </button>
+
+        </div>
+
+
+        <!-- GAME -->
+
+        <div
+            class="game-area"
+            id="gameArea">
+
+            <div class="game-top">
+
+                <div class="game-progress">
+
+                    <div
+                        class="game-progress-bar"
+                        id="gameProgressBar">
+                    </div>
+
+                </div>
+
+                <div
+                    class="star-count"
+                    id="starCount">
+
+                    ⭐ 0 / 10
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="game-question"
+                id="gameQuestion">
+
+                Find the animal!
+
+            </div>
+
+
+            <div
+                class="game-subtext"
+                id="gameSubtext">
+
+                Tap the animal!
+
+            </div>
+
+
+            <div
+                class="animal-choice-grid"
+                id="animalChoices">
+            </div>
+
+
+            <div
+                class="game-message"
+                id="gameMessage">
+            </div>
+
+        </div>
+
+
+        <!-- FINISH -->
+
+        <div
+            class="game-finish"
+            id="gameFinish">
+
+            <div class="game-finish-animals">
+                🦁 🐘 🦒 🦓 🐒 🐯
+            </div>
+
+            <h3>
+                🎉 Safari Complete! 🎉
+            </h3>
+
+            <p>
+                Great job, Orion! ⭐⭐⭐⭐⭐
+                <br>
+                You found all the animals!
+                What a clever little explorer. 🥹💛
+            </p>
+
+            <div
+                style="
+                font-size:55px;
+                margin:15px 0 25px;
+                "
+            >
+                🌟 🐾 🌟
+            </div>
+
+            <button
+                class="play-again"
+                onclick="startSafariGame()">
+
+                🔄 Play Again
+
+            </button>
 
         </div>
 
@@ -1551,7 +3320,6 @@ footer p{
 
         <div class="info-grid">
 
-
             <div class="info-box">
 
                 <h3>🧸 Things I Love</h3>
@@ -1611,7 +3379,6 @@ footer p{
 
             </div>
 
-
         </div>
 
     </div>
@@ -1639,7 +3406,6 @@ footer p{
         <h2>🗣️ My Little Words</h2>
 
         <div class="info-grid">
-
 
             <div class="info-box">
 
@@ -1689,7 +3455,6 @@ footer p{
 
             </div>
 
-
         </div>
 
     </div>
@@ -1718,7 +3483,6 @@ footer p{
 
 
         <div class="video-grid">
-
 
             <div class="video-box">
 
@@ -1749,12 +3513,10 @@ footer p{
 
             </div>
 
-
         </div>
 
 
         <div class="info-grid">
-
 
             <div class="info-box">
 
@@ -1858,7 +3620,6 @@ footer p{
 
             </div>
 
-
         </div>
 
     </div>
@@ -1886,7 +3647,6 @@ footer p{
         <h2>📸 Orion's Little Gallery</h2>
 
         <div class="gallery-grid">
-
 
             <img
                 src="Orion1.jpg"
@@ -2002,6 +3762,7 @@ footer p{
 ===================================================== -->
 
 <script>
+
 
 /* =========================================================
    OPEN / CLOSE POPUPS
@@ -2132,6 +3893,539 @@ function closePhotoViewer(){
     document
         .getElementById("photoViewer")
         .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   ORION'S SAFARI GAME
+========================================================= */
+
+
+/* ALL 28 ANIMALS */
+
+const safariAnimals = [
+
+    {
+        name:"Lion",
+        emoji:"🦁",
+        css:"ga-lion"
+    },
+
+    {
+        name:"Elephant",
+        emoji:"🐘",
+        css:"ga-elephant"
+    },
+
+    {
+        name:"Giraffe",
+        emoji:"🦒",
+        css:"ga-giraffe"
+    },
+
+    {
+        name:"Zebra",
+        emoji:"🦓",
+        css:"ga-zebra"
+    },
+
+    {
+        name:"Monkey",
+        emoji:"🐒",
+        css:"ga-monkey"
+    },
+
+    {
+        name:"Tiger",
+        emoji:"🐯",
+        css:"ga-tiger"
+    },
+
+    {
+        name:"Penguin",
+        emoji:"🐧",
+        css:"ga-penguin"
+    },
+
+    {
+        name:"Polar Bear",
+        emoji:"🐻‍❄️",
+        css:"ga-polar"
+    },
+
+    {
+        name:"Bee",
+        emoji:"🐝",
+        css:"ga-bee"
+    },
+
+    {
+        name:"Hippopotamus",
+        emoji:"🦛",
+        css:"ga-hippo"
+    },
+
+    {
+        name:"Pig",
+        emoji:"🐷",
+        css:"ga-pig"
+    },
+
+    {
+        name:"Horse",
+        emoji:"🐴",
+        css:"ga-horse"
+    },
+
+    {
+        name:"Sheep",
+        emoji:"🐑",
+        css:"ga-sheep"
+    },
+
+    {
+        name:"Dog",
+        emoji:"🐶",
+        css:"ga-dog"
+    },
+
+    {
+        name:"Cat",
+        emoji:"🐱",
+        css:"ga-cat"
+    },
+
+    {
+        name:"Panda",
+        emoji:"🐼",
+        css:"ga-panda"
+    },
+
+    {
+        name:"Crocodile",
+        emoji:"🐊",
+        css:"ga-crocodile"
+    },
+
+    {
+        name:"Flamingo",
+        emoji:"🦩",
+        css:"ga-flamingo"
+    },
+
+    {
+        name:"Koala",
+        emoji:"🐨",
+        css:"ga-koala"
+    },
+
+    {
+        name:"Kangaroo",
+        emoji:"🦘",
+        css:"ga-kangaroo"
+    },
+
+    {
+        name:"Rooster",
+        emoji:"🐓",
+        css:"ga-rooster"
+    },
+
+    {
+        name:"Bird",
+        emoji:"🐦",
+        css:"ga-bird"
+    },
+
+    {
+        name:"Leopard",
+        emoji:"🐆",
+        css:"ga-leopard"
+    },
+
+    {
+        name:"Snake",
+        emoji:"🐍",
+        css:"ga-snake"
+    },
+
+    {
+        name:"Camel",
+        emoji:"🐪",
+        css:"ga-camel"
+    },
+
+    {
+        name:"Turtle",
+        emoji:"🐢",
+        css:"ga-turtle"
+    },
+
+    {
+        name:"Fish",
+        emoji:"🐟",
+        css:"ga-fish"
+    },
+
+    {
+        name:"Octopus",
+        emoji:"🐙",
+        css:"ga-octopus"
+    }
+
+];
+
+
+let gameQuestions = [];
+
+let currentQuestion = 0;
+
+let gameStars = 0;
+
+let currentCorrectAnimal = null;
+
+let gameLocked = false;
+
+
+/* =========================================================
+   SHUFFLE
+========================================================= */
+
+function shuffleArray(array){
+
+    let newArray = [...array];
+
+    for(
+        let i = newArray.length - 1;
+        i > 0;
+        i--
+    ){
+
+        const j =
+            Math.floor(Math.random() * (i + 1));
+
+        [
+            newArray[i],
+            newArray[j]
+        ] =
+        [
+            newArray[j],
+            newArray[i]
+        ];
+
+    }
+
+    return newArray;
+
+}
+
+
+/* =========================================================
+   START GAME
+========================================================= */
+
+function startSafariGame(){
+
+    gameQuestions =
+        shuffleArray(safariAnimals).slice(0,10);
+
+    currentQuestion = 0;
+
+    gameStars = 0;
+
+    currentCorrectAnimal = null;
+
+    gameLocked = false;
+
+
+    document
+        .getElementById("gameStart")
+        .style.display = "none";
+
+
+    document
+        .getElementById("gameFinish")
+        .classList.remove("show");
+
+
+    document
+        .getElementById("gameArea")
+        .classList.add("active");
+
+
+    updateGame();
+
+}
+
+
+/* =========================================================
+   UPDATE GAME
+========================================================= */
+
+function updateGame(){
+
+    if(currentQuestion >= gameQuestions.length){
+
+        finishSafariGame();
+
+        return;
+
+    }
+
+
+    gameLocked = false;
+
+
+    currentCorrectAnimal =
+        gameQuestions[currentQuestion];
+
+
+    const progress =
+        (currentQuestion / gameQuestions.length) * 100;
+
+
+    document
+        .getElementById("gameProgressBar")
+        .style.width = progress + "%";
+
+
+    document
+        .getElementById("starCount")
+        .innerHTML =
+        "⭐ " +
+        gameStars +
+        " / 10";
+
+
+    document
+        .getElementById("gameQuestion")
+        .innerHTML =
+        "🐾 Find the " +
+        currentCorrectAnimal.name +
+        "!";
+
+
+    document
+        .getElementById("gameSubtext")
+        .innerHTML =
+        "Tap the big " +
+        currentCorrectAnimal.emoji +
+        " animal!";
+
+
+    document
+        .getElementById("gameMessage")
+        .innerHTML = "";
+
+    document
+        .getElementById("gameMessage")
+        .classList.remove("try");
+
+
+    createChoices();
+
+}
+
+
+/* =========================================================
+   CREATE 3 CHOICES
+========================================================= */
+
+function createChoices(){
+
+    let wrongAnimals =
+        safariAnimals.filter(
+            animal =>
+                animal.name !==
+                currentCorrectAnimal.name
+        );
+
+
+    wrongAnimals =
+        shuffleArray(wrongAnimals)
+        .slice(0,2);
+
+
+    let choices =
+        shuffleArray([
+            currentCorrectAnimal,
+            ...wrongAnimals
+        ]);
+
+
+    const container =
+        document.getElementById("animalChoices");
+
+
+    container.innerHTML = "";
+
+
+    choices.forEach(function(animal){
+
+        const button =
+            document.createElement("button");
+
+
+        button.className =
+            "game-choice";
+
+
+        button.type = "button";
+
+
+        button.innerHTML = `
+
+            <div
+                class="game-animal ${animal.css}"
+                aria-hidden="true">
+
+                <span class="g-eye left"></span>
+                <span class="g-eye right"></span>
+
+                <span class="g-nose"></span>
+                <span class="g-mouth"></span>
+
+            </div>
+
+            <div class="choice-name">
+                ${animal.name}
+            </div>
+
+        `;
+
+
+        button.onclick =
+            function(){
+
+                chooseAnimal(
+                    animal,
+                    button
+                );
+
+            };
+
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   CHOOSE ANIMAL
+========================================================= */
+
+function chooseAnimal(animal,button){
+
+    if(gameLocked){
+
+        return;
+
+    }
+
+
+    if(
+        animal.name ===
+        currentCorrectAnimal.name
+    ){
+
+        gameLocked = true;
+
+
+        button.classList.add("correct");
+
+
+        gameStars++;
+
+
+        document
+            .getElementById("starCount")
+            .innerHTML =
+            '<span class="star-pop">⭐ ' +
+            gameStars +
+            ' / 10</span>';
+
+
+        document
+            .getElementById("gameMessage")
+            .classList.remove("try");
+
+
+        document
+            .getElementById("gameMessage")
+            .innerHTML =
+            "🎉 Yes! That's the " +
+            animal.name +
+            "! Great job, Orion! 💛";
+
+
+        document
+            .getElementById("gameProgressBar")
+            .style.width =
+            ((gameStars / 10) * 100) + "%";
+
+
+        setTimeout(function(){
+
+            currentQuestion++;
+
+            updateGame();
+
+        },900);
+
+    }
+
+    else{
+
+        button.classList.add("wrong");
+
+
+        document
+            .getElementById("gameMessage")
+            .classList.add("try");
+
+
+        document
+            .getElementById("gameMessage")
+            .innerHTML =
+            "🌿 Try again, little explorer! 🐾";
+
+
+        setTimeout(function(){
+
+            button.classList.remove("wrong");
+
+        },500);
+
+    }
+
+}
+
+
+/* =========================================================
+   FINISH GAME
+========================================================= */
+
+function finishSafariGame(){
+
+    gameLocked = true;
+
+
+    document
+        .getElementById("gameArea")
+        .classList.remove("active");
+
+
+    document
+        .getElementById("gameFinish")
+        .classList.add("show");
+
+
+    document
+        .getElementById("gameProgressBar")
+        .style.width = "100%";
 
 }
 
