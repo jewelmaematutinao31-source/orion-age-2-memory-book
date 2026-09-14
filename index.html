@@ -1,21 +1,11 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Orion's Little Safari</title>
+<title>Orion's Little Safari 🦁</title>
 
 <style>
-
-/* =========================================================
-   GENERAL
-========================================================= */
-
 *{
     box-sizing:border-box;
 }
@@ -26,1053 +16,499 @@ html{
 
 body{
     margin:0;
-    font-family:Georgia,serif;
-    color:#5b4636;
-    overflow-x:hidden;
-
+    font-family:"Trebuchet MS",Arial,sans-serif;
+    color:#4d3b28;
     background:
-        radial-gradient(circle at 10% 10%, rgba(255,255,255,.65), transparent 25%),
-        radial-gradient(circle at 90% 25%, rgba(255,255,255,.5), transparent 25%),
-        linear-gradient(
-            180deg,
-            #dfe8c9 0%,
-            #f4edda 25%,
-            #efe2c5 55%,
-            #dce5c9 100%
-        );
+        linear-gradient(rgba(255,248,225,.82),rgba(255,248,225,.88)),
+        url("safari-cover.jpg.jpg") center/cover fixed;
 }
 
-body::before{
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:-1;
-
-    background-image:
-        radial-gradient(rgba(91,70,54,.08) 1px, transparent 1px);
-    background-size:28px 28px;
-    opacity:.35;
+button{
+    font-family:inherit;
+    cursor:pointer;
 }
-
-
-/* =========================================================
-   SAFARI DECORATIONS
-========================================================= */
-
-.safari-decoration{
-    position:fixed;
-    z-index:-1;
-    pointer-events:none;
-    font-size:70px;
-    opacity:.18;
-}
-
-.leaf-one{
-    top:80px;
-    left:-15px;
-    transform:rotate(-20deg);
-}
-
-.leaf-two{
-    top:300px;
-    right:-20px;
-    transform:rotate(20deg);
-}
-
-.leaf-three{
-    bottom:130px;
-    left:-15px;
-    transform:rotate(25deg);
-}
-
-.leaf-four{
-    bottom:30px;
-    right:-15px;
-    transform:rotate(-20deg);
-}
-
-
-/* =========================================================
-   COVER
-========================================================= */
 
 .cover{
     min-height:100vh;
     display:flex;
     align-items:center;
     justify-content:center;
+    padding:30px 18px;
     text-align:center;
-    padding:30px 20px;
-
-    position:relative;
-
-    background:
-        linear-gradient(
-            rgba(53,70,35,.28),
-            rgba(81,63,35,.25)
-        ),
-        url("safari-cover.jpg.jpg");
-
-    background-size:cover;
-    background-position:center;
-
-    overflow:hidden;
 }
 
-.cover::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(255,244,200,.28),
-            transparent 55%
-        );
-}
-
-.cover-content{
-    position:relative;
-    z-index:2;
-
-    max-width:850px;
-
-    padding:35px 25px;
-
-    background:rgba(255,250,232,.78);
-
-    border:3px solid rgba(255,255,255,.8);
-
-    border-radius:35px;
-
-    box-shadow:
-        0 20px 50px rgba(65,48,28,.35),
-        inset 0 0 30px rgba(255,255,255,.35);
-
+.cover-box{
+    width:min(900px,100%);
+    padding:35px 25px 45px;
+    border-radius:40px;
+    background:rgba(255,255,255,.78);
+    box-shadow:0 20px 55px rgba(70,55,35,.22);
     backdrop-filter:blur(5px);
 }
 
-.cover-content::before{
-    content:"🌿";
-    position:absolute;
-    top:-30px;
-    left:-25px;
-    font-size:65px;
-    transform:rotate(-20deg);
-}
-
-.cover-content::after{
-    content:"🌿";
-    position:absolute;
-    bottom:-30px;
-    right:-20px;
-    font-size:65px;
-    transform:rotate(20deg);
-}
-
 .cover-photo{
-    width:180px;
-    height:180px;
-
+    width:190px;
+    height:190px;
     object-fit:cover;
-
     border-radius:50%;
-
-    border:8px solid #fff8e8;
-
-    box-shadow:
-        0 8px 25px rgba(55,42,25,.35);
-
-    margin-bottom:20px;
+    border:8px solid white;
+    box-shadow:0 10px 25px rgba(0,0,0,.2);
 }
 
 .cover h1{
-    margin:5px 0 10px;
-
-    font-size:clamp(42px,7vw,76px);
-
-    color:#65492f;
-
-    text-shadow:
-        2px 3px 0 rgba(255,255,255,.65);
-}
-
-.cover h2{
-    margin:10px 0;
-
-    font-size:clamp(20px,4vw,32px);
-
-    color:#9b6638;
+    margin:22px 0 8px;
+    font-size:clamp(36px,7vw,65px);
+    color:#765126;
 }
 
 .cover p{
-    max-width:650px;
-    margin:15px auto;
+    font-size:20px;
+    margin:10px 0;
+}
 
+.enter-btn,
+.game-start,
+.match-start,
+.play-again,
+.back-btn{
+    border:0;
+    border-radius:999px;
+    padding:15px 25px;
     font-size:18px;
-    line-height:1.7;
-}
-
-.enter-button{
-    display:inline-block;
-
-    margin-top:20px;
-
-    padding:15px 30px;
-
-    border:none;
-    border-radius:50px;
-
-    background:#718b4f;
-    color:white;
-
-    font-family:Georgia,serif;
-    font-size:17px;
     font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 7px 15px rgba(55,70,38,.25);
-
-    transition:.3s;
+    margin-top:18px;
+    background:#7e9b45;
+    color:white;
+    box-shadow:0 6px 15px rgba(0,0,0,.16);
+    transition:.2s;
 }
 
-.enter-button:hover{
-    transform:translateY(-4px) scale(1.03);
-    background:#5d783e;
+.enter-btn:hover,
+.game-start:hover,
+.match-start:hover,
+.play-again:hover,
+.back-btn:hover{
+    transform:translateY(-2px);
 }
 
-
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
-
-.main{
-    max-width:1200px;
+.chapter{
+    max-width:1100px;
     margin:auto;
-    padding:80px 20px;
+    padding:45px 18px 80px;
 }
 
-.section{
-    position:relative;
-
-    margin-bottom:70px;
-
-    padding:45px 25px;
-
-    border-radius:40px;
-
-    background:
-        linear-gradient(
-            rgba(255,250,233,.84),
-            rgba(247,239,216,.88)
-        );
-
-    border:2px solid rgba(255,255,255,.75);
-
-    box-shadow:
-        0 15px 40px rgba(75,59,39,.13);
-
-    overflow:hidden;
-}
-
-.section::before{
-    content:"🌿";
-    position:absolute;
-    top:-18px;
-    left:-5px;
-    font-size:75px;
-    opacity:.16;
-    transform:rotate(-20deg);
-}
-
-.section::after{
-    content:"🍃";
-    position:absolute;
-    bottom:-20px;
-    right:5px;
-    font-size:70px;
-    opacity:.15;
-    transform:rotate(20deg);
-}
-
-.section-title{
+.chapter-title{
     text-align:center;
-
-    margin:0 0 35px;
-
-    font-size:clamp(30px,5vw,48px);
-
-    color:#725438;
-
-    position:relative;
+    font-size:clamp(27px,5vw,45px);
+    color:#725127;
+    margin-bottom:40px;
 }
 
-.section-title::after{
-    content:"";
-    display:block;
-
-    width:90px;
-    height:4px;
-
-    margin:13px auto 0;
-
-    border-radius:10px;
-
-    background:#9aa86a;
-}
-
-.paw-divider{
-    text-align:center;
-    margin:20px 0 35px;
-
-    font-size:25px;
-
-    letter-spacing:8px;
-
-    opacity:.65;
-}
-
-
-/* =========================================================
-   MEMORY CARDS
-========================================================= */
-
-.memory-grid{
+.cards{
     display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(250px,1fr));
-
-    gap:30px;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
 }
 
 .memory-card{
-    min-height:300px;
-
-    padding:25px 18px;
-
-    border-radius:32px;
-
-    background:
-        rgba(255,255,255,.78);
-
-    border:3px solid rgba(255,255,255,.85);
-
-    box-shadow:
-        0 12px 25px rgba(70,55,35,.16);
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:
-        transform .3s,
-        box-shadow .3s;
+    border:0;
+    min-height:220px;
+    padding:30px 20px;
+    border-radius:35px;
+    background:rgba(255,255,255,.78);
+    box-shadow:0 12px 30px rgba(70,55,35,.15);
+    color:#4d3b28;
+    transition:.25s;
 }
 
 .memory-card:hover{
-    transform:
-        translateY(-10px)
-        rotate(-1deg);
+    transform:translateY(-5px);
+    box-shadow:0 18px 38px rgba(70,55,35,.22);
+}
 
-    box-shadow:
-        0 20px 35px rgba(70,55,35,.22);
+.memory-icon{
+    font-size:65px;
 }
 
 .memory-card h3{
-    margin:18px 0 8px;
-
-    font-size:23px;
-
-    color:#674a32;
+    font-size:25px;
+    margin:12px 0 8px;
 }
 
 .memory-card p{
-    margin:0;
-
-    font-size:15px;
-
+    font-size:16px;
     line-height:1.5;
 }
 
-
-/* =========================================================
-   ORIGINAL MEMORY CARD ANIMAL FACES
-========================================================= */
-
-.animal-face{
-    width:145px;
-    height:125px;
-
-    border-radius:45%;
-
-    position:relative;
-
-    border:5px solid rgba(255,255,255,.85);
-
-    box-shadow:
-        0 8px 18px rgba(50,40,25,.18);
+.letter{
+    margin-top:55px;
+    background:rgba(255,255,255,.82);
+    border-radius:35px;
+    padding:30px;
+    box-shadow:0 12px 30px rgba(70,55,35,.15);
 }
 
-.eye{
-    position:absolute;
-
-    width:17px;
-    height:21px;
-
-    background:#35291f;
-
-    border-radius:50%;
-
-    top:40px;
-}
-
-.eye.left{
-    left:35px;
-}
-
-.eye.right{
-    right:35px;
-}
-
-.nose{
-    position:absolute;
-
-    width:25px;
-    height:19px;
-
-    border-radius:50%;
-
-    background:#3e2d22;
-
-    top:66px;
-    left:50%;
-
-    transform:translateX(-50%);
-}
-
-.mouth{
-    position:absolute;
-
-    width:35px;
-    height:18px;
-
-    border-bottom:
-        4px solid #3e2d22;
-
-    border-radius:50%;
-
-    top:78px;
-    left:50%;
-
-    transform:translateX(-50%);
-}
-
-.lion{
-    background:#e3a63d;
-    border-color:#a66c25;
-}
-
-.lion::before,
-.lion::after{
-    content:"";
-
-    position:absolute;
-
-    width:34px;
-    height:34px;
-
-    border-radius:50%;
-
-    background:#b97825;
-
-    top:-12px;
-}
-
-.lion::before{
-    left:5px;
-}
-
-.lion::after{
-    right:5px;
-}
-
-.elephant{
-    background:#aaa9a0;
-    border-color:#77766f;
-}
-
-.elephant::before,
-.elephant::after{
-    content:"";
-
-    position:absolute;
-
-    width:58px;
-    height:72px;
-
-    background:#aaa9a0;
-
-    border:4px solid #77766f;
-
-    border-radius:50%;
-
-    top:20px;
-
-    z-index:-1;
-}
-
-.elephant::before{
-    left:-42px;
-}
-
-.elephant::after{
-    right:-42px;
-}
-
-.elephant .nose{
-    width:22px;
-    height:45px;
-
-    border-radius:
-        0 0 18px 18px;
-
-    top:60px;
-}
-
-.giraffe{
-    background:#e8c45a;
-    border-color:#a5792b;
-}
-
-.giraffe::before,
-.giraffe::after{
-    content:"";
-
-    position:absolute;
-
-    width:13px;
-    height:27px;
-
-    background:#a5792b;
-
-    top:-25px;
-
-    border-radius:10px;
-}
-
-.giraffe::before{
-    left:35px;
-}
-
-.giraffe::after{
-    right:35px;
-}
-
-.zebra{
-    background:
-        repeating-linear-gradient(
-            45deg,
-            #fff 0px,
-            #fff 15px,
-            #2f2d29 15px,
-            #2f2d29 23px
-        );
-
-    border-color:#37332e;
-}
-
-.monkey{
-    background:#9a633e;
-    border-color:#67422c;
-}
-
-.monkey::before,
-.monkey::after{
-    content:"";
-
-    position:absolute;
-
-    width:42px;
-    height:48px;
-
-    background:#9a633e;
-
-    border:4px solid #67422c;
-
-    border-radius:50%;
-
-    top:35px;
-
-    z-index:-1;
-}
-
-.monkey::before{
-    left:-28px;
-}
-
-.monkey::after{
-    right:-28px;
-}
-
-.monkey .mouth{
-    border-bottom:0;
-
-    border-top:
-        4px solid #3e2d22;
-
-    top:80px;
-}
-
-.tiger{
-    background:
-        repeating-linear-gradient(
-            90deg,
-            #e88a34 0px,
-            #e88a34 18px,
-            #29221b 18px,
-            #29221b 24px
-        );
-
-    border-color:#7b481f;
-}
-
-.memory-card::after{
-    content:"🐾";
-
-    font-size:25px;
-
-    margin-top:15px;
-
-    opacity:.65;
-}
-
-
-/* =========================================================
-   CHAPTER
-========================================================= */
-
-.chapter-label{
-    text-align:center;
-
-    display:inline-block;
-
+.letter-photo{
+    display:block;
+    width:min(280px,90%);
+    max-height:350px;
+    object-fit:cover;
     margin:0 auto 25px;
+    border-radius:25px;
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
+}
 
-    padding:9px 22px;
+.letter h2{
+    text-align:center;
+    color:#765126;
+}
 
-    border-radius:30px;
-
-    background:rgba(154,168,106,.18);
-
-    border:2px solid rgba(154,168,106,.3);
-
-    color:#71834d;
-
+.letter p{
     font-size:17px;
-
-    font-weight:bold;
-
-    letter-spacing:.5px;
+    line-height:1.8;
 }
 
-.chapter-wrap{
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.gallery-grid img{
+    width:100%;
+    aspect-ratio:1;
+    object-fit:cover;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.gallery-grid img:hover{
+    transform:scale(1.03);
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    z-index:1000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    background:rgba(35,27,18,.72);
+}
+
+.overlay.show{
+    display:flex;
+}
+
+.popup{
+    width:min(850px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#fffaf0;
+    border-radius:30px;
+    padding:28px;
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    right:15px;
+    top:12px;
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:#765126;
+    color:white;
+    font-size:22px;
+}
+
+.popup h2{
     text-align:center;
+    color:#765126;
+    margin-top:5px;
 }
 
-
-/* =========================================================
-   SAFARI GAMES
-========================================================= */
-
-.games-section{
-    background:
-        linear-gradient(
-            rgba(250,248,226,.94),
-            rgba(237,230,201,.95)
-        );
+.info-box{
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    margin:15px 0;
 }
 
-.game-intro{
-    max-width:700px;
-
-    margin:0 auto 30px;
-
-    text-align:center;
-
-    font-size:18px;
-
-    line-height:1.7;
+.info-box h3{
+    color:#718c3c;
 }
 
+.info-box li{
+    margin:7px 0;
+}
 
-/* =========================================================
-   GAME 1
-========================================================= */
+/* ================= GAME 1 ================= */
+
+.game-section{
+    margin-top:55px;
+}
 
 .game-card{
     max-width:1000px;
-
     margin:0 auto 55px;
-
     padding:30px;
-
     border-radius:35px;
-
-    background:
-        rgba(255,255,255,.72);
-
+    background:rgba(255,255,255,.78);
     border:3px solid rgba(255,255,255,.9);
-
-    box-shadow:
-        0 15px 35px rgba(70,55,35,.14);
-
+    box-shadow:0 15px 35px rgba(70,55,35,.14);
     text-align:center;
-
-    position:relative;
-
-    cursor:pointer;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
 }
 
-.game-card:hover{
-    transform:translateY(-3px);
-
-    box-shadow:
-        0 18px 40px rgba(70,55,35,.20);
-}
-
-/* =========================================================
-   GAME 2 — BABY ANIMAL MATCH
-========================================================= */
-
-.game-two-card{
-    background:
-        linear-gradient(
-            rgba(255,249,235,.94),
-            rgba(244,235,208,.97)
-        );
-}
-
-.game-two-title{
+.game-card-title{
     font-size:30px;
-
-    color:#765336;
-
-    margin:5px 0 10px;
+    color:#765126;
+    margin:10px 0;
 }
 
-.game-two-subtitle{
+.game-card-description{
     font-size:17px;
-
-    line-height:1.7;
-
-    max-width:700px;
-
-    margin:0 auto 25px;
+    line-height:1.6;
 }
 
-.match-start{
-    padding:17px 32px;
+.game-area{
+    display:none;
+}
 
-    border:0;
+.game-area.show{
+    display:block;
+}
 
-    border-radius:50px;
-
-    background:#c68157;
-
-    color:white;
-
-    font-family:Georgia,serif;
-
-    font-size:20px;
-
+.game-score{
+    font-size:21px;
     font-weight:bold;
+    margin:15px;
+}
 
-    cursor:pointer;
+.progress-wrap{
+    width:100%;
+    height:15px;
+    background:#eadfc9;
+    border-radius:999px;
+    overflow:hidden;
+    margin:15px 0 25px;
+}
 
-    box-shadow:
-        0 8px 18px rgba(120,75,45,.22);
-
+.progress-bar{
+    height:100%;
+    width:0%;
+    background:#7e9b45;
     transition:.3s;
 }
 
-.match-start:hover{
-    transform:translateY(-3px) scale(1.03);
-
-    background:#ad6941;
+.question{
+    font-size:30px;
+    font-weight:bold;
+    color:#765126;
 }
+
+.question-sub{
+    font-size:18px;
+}
+
+.animal-choice-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:25px;
+}
+
+.animal-choice{
+    border:3px solid #eadfc9;
+    background:white;
+    border-radius:25px;
+    padding:20px 10px;
+    min-height:150px;
+    font-size:65px;
+    transition:.2s;
+}
+
+.animal-choice:hover{
+    transform:scale(1.03);
+}
+
+.animal-choice span{
+    display:block;
+    font-size:17px;
+    margin-top:8px;
+    color:#5c4934;
+}
+
+.animal-choice.correct{
+    border-color:#7e9b45;
+    background:#eef6dc;
+}
+
+.animal-choice.wrong{
+    animation:shake .35s;
+    border-color:#c77b6b;
+}
+
+@keyframes shake{
+    0%,100%{transform:translateX(0)}
+    25%{transform:translateX(-7px)}
+    75%{transform:translateX(7px)}
+}
+
+.game-message{
+    min-height:30px;
+    font-weight:bold;
+    margin:15px;
+}
+
+.game-finish{
+    display:none;
+}
+
+.game-finish.show{
+    display:block;
+}
+
+/* ================= GAME 2 ================= */
 
 .match-area{
     display:none;
 }
 
-.match-area.active{
+.match-area.show{
     display:block;
 }
 
+.game-two-title{
+    font-size:30px;
+    color:#765126;
+}
+
+.game-two-subtitle{
+    font-size:17px;
+    line-height:1.6;
+}
+
 .match-progress{
-    width:100%;
-
-    height:14px;
-
-    background:#e2dcc6;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    margin:15px 0 18px;
+    font-size:20px;
+    font-weight:bold;
+    margin:20px 0;
 }
 
 .match-progress-bar{
-    width:0%;
-
-    height:100%;
-
-    background:#d49768;
-
-    border-radius:20px;
-
-    transition:width .4s ease;
+    height:15px;
+    background:#eadfc9;
+    border-radius:999px;
+    overflow:hidden;
 }
 
-.match-score{
-    font-size:19px;
-
-    font-weight:bold;
-
-    color:#806032;
-
-    margin-bottom:10px;
+.match-progress-fill{
+    height:100%;
+    width:0%;
+    background:#d38b70;
+    transition:.3s;
 }
 
 .baby-prompt{
-    font-size:clamp(25px,4vw,35px);
-
-    color:#684b32;
-
+    margin:25px 0 10px;
+    font-size:25px;
     font-weight:bold;
-
-    margin:15px 0 8px;
+    color:#765126;
 }
 
 .baby-instruction{
-    font-size:17px;
-
-    color:#7a6853;
-
-    margin-bottom:20px;
+    font-size:16px;
 }
 
 .baby-stage{
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    gap:35px;
-
+    gap:20px;
     flex-wrap:wrap;
-
-    margin:20px auto 30px;
+    margin:25px 0;
 }
 
 .baby-box{
-    min-width:230px;
-
+    width:180px;
+    min-height:180px;
+    border:4px dashed #d8bd8c;
+    border-radius:25px;
+    background:#fff;
     padding:20px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.78);
-
-    border:4px dashed #d5bd8c;
-
-    box-shadow:
-        0 10px 22px rgba(65,50,30,.12);
-
-    transition:.3s;
-}
-
-.baby-box.highlight{
-    transform:scale(1.05);
-
-    border-color:#9caf73;
-
-    background:#edf5dd;
 }
 
 .baby-label{
-    font-size:18px;
-
     font-weight:bold;
-
-    color:#765336;
-
     margin-bottom:8px;
 }
 
 .baby-emoji{
-    font-size:clamp(80px,10vw,125px);
-
-    line-height:1;
-
-    filter:drop-shadow(0 7px 5px rgba(50,40,25,.15));
+    font-size:75px;
 }
 
 .baby-name{
-    font-size:22px;
-
     font-weight:bold;
-
     margin-top:8px;
-
-    color:#65492f;
 }
 
 .match-arrow{
     font-size:45px;
-
-    color:#9a865c;
 }
 
 .mama-choice-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    gap:18px;
-
-    max-width:850px;
-
-    margin:0 auto;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
 .mama-choice{
-    min-height:230px;
-
-    padding:18px 10px;
-
-    border-radius:30px;
-
-    border:4px solid rgba(255,255,255,.9);
-
-    background:
-        rgba(250,247,231,.95);
-
-    box-shadow:
-        0 10px 22px rgba(65,50,30,.15);
-
-    cursor:grab;
-
-    touch-action:none;
-
-    user-select:none;
-
-    display:flex;
-
-    flex-direction:column;
-
-    align-items:center;
-
-    justify-content:center;
-
-    transition:
-        transform .25s,
-        box-shadow .25s,
-        background .25s;
-}
-
-.mama-choice:active{
-    cursor:grabbing;
+    border:3px solid #eadfc9;
+    background:white;
+    border-radius:22px;
+    padding:15px;
+    min-height:135px;
+    transition:.2s;
 }
 
 .mama-choice:hover{
-    transform:translateY(-6px) scale(1.02);
-
-    box-shadow:
-        0 16px 28px rgba(65,50,30,.22);
+    transform:translateY(-3px);
 }
 
 .mama-choice.selected{
-    transform:scale(1.06);
-
-    border-color:#d08a58;
-
-    background:#fff0df;
-
-    box-shadow:
-        0 0 0 5px rgba(208,138,88,.16),
-        0 16px 30px rgba(90,55,30,.22);
-}
-
-.mama-choice.wrong{
-    animation:shake .45s ease;
-
-    background:#f5ddd5;
+    border-color:#d38b70;
+    background:#fff0e9;
 }
 
 .mama-choice.correct{
-    background:#dfecc9;
+    border-color:#7e9b45;
+    background:#eef6dc;
+}
 
-    border-color:#9caf73;
-
-    animation:correctPop .55s ease;
+.mama-choice.wrong{
+    animation:shake .35s;
 }
 
 .mama-emoji{
-    font-size:clamp(85px,10vw,125px);
-
-    line-height:1;
-
-    filter:drop-shadow(0 7px 5px rgba(50,40,25,.15));
+    display:block;
+    font-size:55px;
 }
 
 .mama-name{
-    margin-top:12px;
-
-    font-size:20px;
-
     font-weight:bold;
-
-    color:#65492f;
 }
 
 .match-message{
-    min-height:35px;
-
-    margin-top:20px;
-
-    font-size:20px;
-
+    min-height:30px;
+    margin:18px;
     font-weight:bold;
-
-    color:#718b4f;
-}
-
-.match-message.try{
-    color:#a96748;
 }
 
 .match-finish{
     display:none;
-
-    padding:20px 10px;
 }
 
 .match-finish.show{
@@ -1080,754 +516,118 @@ body::before{
 }
 
 .match-finish h3{
-    font-size:34px;
-
-    color:#6e5136;
-
-    margin:10px 0;
-}
-
-.match-finish p{
-    font-size:18px;
-
-    line-height:1.7;
-
-    max-width:650px;
-
-    margin:10px auto 25px;
+    font-size:30px;
+    color:#765126;
 }
 
 .match-finish-animals{
-    font-size:50px;
-
-    letter-spacing:5px;
-
-    margin:15px 0;
+    font-size:45px;
+    margin:20px;
 }
 
+/* ================= VIDEOS ================= */
 
-/* =========================================================
-   CONFETTI
-========================================================= */
-
-.confetti-container{
-    position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
-    z-index:5000;
-
-    overflow:hidden;
-}
-
-.confetti-piece{
-    position:absolute;
-
-    top:-30px;
-
-    width:12px;
-    height:18px;
-
-    opacity:1;
-
-    animation:
-        confettiFall 1.8s ease-out forwards;
-}
-
-@keyframes confettiFall{
-
-    0%{
-        transform:
-            translate3d(0,0,0)
-            rotate(0deg);
-        opacity:1;
-    }
-
-    100%{
-        transform:
-            translate3d(var(--x),100vh,0)
-            rotate(var(--r));
-        opacity:0;
-    }
-}
-
-
-/* =========================================================
-   ANIMATIONS
-========================================================= */
-
-@keyframes shake{
-
-    0%,100%{
-        transform:translateX(0);
-    }
-
-    25%{
-        transform:translateX(-10px);
-    }
-
-    50%{
-        transform:translateX(10px);
-    }
-
-    75%{
-        transform:translateX(-7px);
-    }
-}
-
-@keyframes correctPop{
-
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08) rotate(-2deg);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-}
-
-@keyframes starPop{
-
-    0%{
-        transform:scale(.5);
-        opacity:0;
-    }
-
-    60%{
-        transform:scale(1.25);
-        opacity:1;
-    }
-
-    100%{
-        transform:scale(1);
-    }
-}
-
-.star-pop{
-    display:inline-block;
-
-    animation:starPop .5s ease;
-}
-
-
-/* =========================================================
-   MAMA'S LETTER
-========================================================= */
-
-.letter-section{
-    background:
-        linear-gradient(
-            rgba(255,248,226,.88),
-            rgba(244,232,204,.93)
-        );
-
-    border:3px solid rgba(157,132,86,.2);
-}
-
-.letter{
-    max-width:900px;
-
-    margin:auto;
-
-    padding:35px;
-
-    background:
-        rgba(255,252,239,.78);
-
-    border-radius:30px;
-
-    border:2px solid rgba(180,150,100,.2);
-
-    box-shadow:
-        inset 0 0 30px rgba(150,120,75,.08);
-}
-
-.letter-photo{
-    width:180px;
-    height:180px;
-
-    object-fit:cover;
-
-    border-radius:50%;
-
-    display:block;
-
-    margin:0 auto 25px;
-
-    border:7px solid white;
-
-    box-shadow:
-        0 8px 20px rgba(70,50,30,.2);
-}
-
-.letter h3{
+.video-wrap{
+    margin:20px auto;
     text-align:center;
-
-    font-size:30px;
-
-    color:#765336;
-
-    margin-bottom:25px;
 }
 
-.letter p{
-    font-size:18px;
-
-    line-height:1.9;
-
-    margin:16px 0;
-}
-
-
-/* =========================================================
-   POPUPS
-========================================================= */
-
-.popup{
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(45,55,35,.65);
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    z-index:1000;
-
-    backdrop-filter:blur(5px);
-}
-
-.popup.show{
-    display:flex;
-}
-
-.popup-box{
-    width:min(950px,100%);
-
-    max-height:90vh;
-
-    overflow-y:auto;
-
-    padding:35px;
-
-    border-radius:35px;
-
-    background:
-        linear-gradient(
-            rgba(255,250,233,.97),
-            rgba(244,235,211,.98)
-        );
-
-    border:4px solid rgba(255,255,255,.9);
-
-    box-shadow:
-        0 25px 70px rgba(20,25,15,.4);
-
-    position:relative;
-}
-
-.popup-box h2{
-    text-align:center;
-
-    color:#6d5035;
-
-    font-size:32px;
-
-    margin-top:5px;
-}
-
-.close{
-    position:absolute;
-
-    top:12px;
-    right:18px;
-
-    width:42px;
-    height:42px;
-
-    border:0;
-
-    border-radius:50%;
-
-    background:#718b4f;
-
-    color:white;
-
-    font-size:25px;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.close:hover{
-    transform:scale(1.1);
-    background:#5d783e;
-}
-
-
-/* =========================================================
-   INFO
-========================================================= */
-
-.info-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(210px,1fr));
-
-    gap:18px;
-
-    margin-top:25px;
-}
-
-.info-box{
-    padding:20px;
-
-    border-radius:22px;
-
-    background:
-        rgba(255,255,255,.7);
-
-    border:2px solid rgba(125,142,87,.18);
-}
-
-.info-box h3{
-    margin-top:0;
-
-    color:#70824b;
-}
-
-.info-box ul{
-    padding-left:20px;
-
-    line-height:1.8;
-}
-
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(180px,1fr));
-
-    gap:16px;
-
-    margin-top:25px;
-}
-
-.gallery-grid img{
+.video-wrap video{
     width:100%;
-    height:190px;
-
-    object-fit:cover;
-
-    border-radius:22px;
-
-    border:5px solid white;
-
-    box-shadow:
-        0 8px 18px rgba(65,50,30,.18);
-
-    cursor:pointer;
-
-    transition:.3s;
+    max-width:650px;
+    border-radius:20px;
 }
 
-.gallery-grid img:hover{
-    transform:
-        scale(1.04)
-        rotate(1deg);
-}
-
-
-/* =========================================================
-   PHOTO VIEWER
-========================================================= */
-
-.photo-viewer{
-    position:fixed;
-
-    inset:0;
-
-    background:
-        rgba(20,25,15,.9);
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    z-index:2000;
-
-    padding:20px;
-}
-
-.photo-viewer.show{
-    display:flex;
-}
+/* ================= PHOTO VIEWER ================= */
 
 .photo-viewer img{
-    max-width:95%;
-    max-height:90vh;
-
-    object-fit:contain;
-
-    border-radius:15px;
-
-    border:6px solid white;
-
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.5);
-}
-
-
-/* =========================================================
-   VIDEO
-========================================================= */
-
-.video-grid{
-    display:grid;
-
-    grid-template-columns:
-        repeat(auto-fit,minmax(300px,1fr));
-
-    gap:25px;
-
-    margin-top:25px;
-}
-
-.video-box{
-    padding:15px;
-
-    background:
-        rgba(255,255,255,.7);
-
-    border-radius:25px;
-
-    box-shadow:
-        0 8px 20px rgba(60,50,30,.13);
-}
-
-.video-box video{
-    width:100%;
-
-    border-radius:18px;
-
     display:block;
+    max-width:100%;
+    max-height:75vh;
+    margin:auto;
+    border-radius:20px;
 }
 
-
-/* =========================================================
-   FOOTER
-========================================================= */
+/* ================= FOOTER ================= */
 
 footer{
     text-align:center;
-
-    padding:55px 20px 70px;
-
-    color:#6b5944;
-
-    font-size:17px;
-
-    position:relative;
+    padding:35px 15px;
+    font-size:15px;
+    color:#765126;
 }
 
-footer .big{
-    font-size:30px;
+/* ================= MOBILE ================= */
 
-    margin-bottom:10px;
-}
+@media(max-width:700px){
 
-footer p{
-    line-height:1.7;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:600px){
-
-    .cover{
-        padding:20px 12px;
-    }
-
-    .cover-content{
-        padding:30px 18px;
-    }
-
-    .cover-photo{
-        width:145px;
-        height:145px;
-    }
-
-    .cover p{
-        font-size:16px;
-    }
-
-    .main{
-        padding:45px 12px;
-    }
-
-    .section{
-        padding:35px 15px;
-        border-radius:30px;
-        margin-bottom:45px;
-    }
-
-    .memory-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:14px;
-    }
-
-    .memory-card{
-        min-height:250px;
-
-        padding:18px 8px;
-
-        border-radius:25px;
-    }
-
-    .memory-card h3{
-        font-size:17px;
-    }
-
-    .memory-card p{
-        font-size:12px;
-    }
-
-    .animal-face{
-        width:105px;
-        height:90px;
-    }
-
-    .eye{
-        width:13px;
-        height:16px;
-
-        top:29px;
-    }
-
-    .eye.left{
-        left:25px;
-    }
-
-    .eye.right{
-        right:25px;
-    }
-
-    .nose{
-        width:19px;
-        height:14px;
-
-        top:47px;
-    }
-
-    .mouth{
-        width:27px;
-
-        top:58px;
-    }
-
-    .letter{
-        padding:22px 17px;
-    }
-
-    .letter-photo{
-        width:145px;
-        height:145px;
-    }
-
-    .letter p{
-        font-size:16px;
-        line-height:1.8;
-    }
-
-    .popup-box{
-        padding:28px 17px;
+    .cards{
+        grid-template-columns:1fr;
     }
 
     .gallery-grid{
-        grid-template-columns:
-            repeat(2,1fr);
-
-        gap:10px;
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .gallery-grid img{
-        height:150px;
-        border-width:3px;
-    }
-
-    .video-grid{
+    .animal-choice-grid,
+    .mama-choice-grid{
         grid-template-columns:1fr;
     }
 
-    .safari-decoration{
-        font-size:45px;
+    .animal-choice{
+        min-height:120px;
     }
 
-    /* GAME 1 MOBILE */
+    .cover-box{
+        padding:28px 18px 35px;
+    }
 
+    .cover-photo{
+        width:155px;
+        height:155px;
+    }
+
+    .letter,
+    .popup,
     .game-card{
-        padding:20px 10px;
+        padding:22px 17px;
     }
-
-    .game-top{
-        display:block;
-    }
-
-    .star-count{
-        margin-top:10px;
-    }
-
-    .animal-choice-grid{
-        grid-template-columns:1fr;
-
-        gap:15px;
-    }
-
-    .game-choice{
-        min-height:210px;
-    }
-
-    .choice-emoji{
-        font-size:105px;
-
-        min-height:110px;
-    }
-
-    .choice-name{
-        font-size:19px;
-    }
-
-    .game-question{
-        font-size:25px;
-    }
-
-    .game-subtext{
-        font-size:14px;
-    }
-
-    .game-finish-animals{
-        font-size:34px;
-        letter-spacing:2px;
-    }
-
-    .game-finish h3{
-        font-size:29px;
-    }
-
-    /* GAME 2 MOBILE */
 
     .baby-stage{
-        gap:15px;
-    }
-
-    .baby-box{
-        min-width:180px;
-
-        padding:16px;
-    }
-
-    .baby-emoji{
-        font-size:85px;
+        flex-direction:column;
     }
 
     .match-arrow{
-        font-size:35px;
         transform:rotate(90deg);
     }
-
-    .mama-choice-grid{
-        grid-template-columns:1fr;
-
-        gap:15px;
-    }
-
-    .mama-choice{
-        min-height:205px;
-    }
-
-    .mama-emoji{
-        font-size:100px;
-    }
-
-    .game-two-title{
-        font-size:26px;
-    }
-
 }
-
 </style>
-
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     FLOATING SAFARI DECORATIONS
-===================================================== -->
-
-<div class="safari-decoration leaf-one">🌿</div>
-<div class="safari-decoration leaf-two">🍃</div>
-<div class="safari-decoration leaf-three">🌿</div>
-<div class="safari-decoration leaf-four">🍃</div>
-
-
-<!-- =====================================================
-     COVER
-===================================================== -->
+<!-- ================= COVER ================= -->
 
 <section class="cover">
 
-    <div class="cover-content">
+    <div class="cover-box">
 
         <img
-            class="cover-photo"
             src="701312354_1512336296938135_1169129443103858509_n.jpg"
+            class="cover-photo"
             alt="Orion">
 
-        <h1>Orion's Little Safari</h1>
+        <h1>Orion's Little Safari 🦁</h1>
 
-        <h2>🎂 ORION TURNS TWO! 🎂</h2>
+        <p>🌿 A little book of memories at age two 🐾</p>
 
-        <p>
-            A little collection of memories,
-            funny moments, favorite things,
-            little words, and all the wonderful
-            things that make Orion... Orion. 🦁🌿
-        </p>
+        <p>For my little explorer, Orion. 💛</p>
 
         <button
-            class="enter-button"
-            onclick="document.getElementById('memoryBook').scrollIntoView({behavior:'smooth'})">
-
-            🌿 Enter Orion's Safari 🐾
-
+            type="button"
+            class="enter-btn"
+            onclick="document.getElementById('chapter').scrollIntoView({behavior:'smooth'})">
+            🌿 Enter Orion's World 🐾
         </button>
 
     </div>
@@ -1835,615 +635,369 @@ footer p{
 </section>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
+<!-- ================= CHAPTER ================= -->
 
-<main class="main">
+<main class="chapter" id="chapter">
 
-
-<!-- =====================================================
-     MEMORY BOOK
-===================================================== -->
-
-<section
-    class="section"
-    id="memoryBook">
-
-    <div class="chapter-wrap">
-
-        <div class="chapter-label">
-            🌿 Chapter 1 — Orion at Age 2 🐾
-        </div>
-
-    </div>
-
-    <h2 class="section-title">
-        🌿 Orion's Little Memory Book 🦁
+    <h2 class="chapter-title">
+        🌿 Chapter 1 — Orion at Age 2 🐾
     </h2>
 
-    <div class="paw-divider">
-        🐾 🐾 🐾
-    </div>
 
+    <!-- ================= SIX ORIGINAL CARDS ================= -->
 
-    <div class="memory-grid">
+    <div class="cards">
 
-
-        <div
-            class="memory-card"
-            onclick="openGallery()">
-
-            <div class="animal-face lion">
-
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-
-                <span class="nose"></span>
-                <span class="mouth"></span>
-
-            </div>
-
+        <button class="memory-card" onclick="openGallery()">
+            <div class="memory-icon">🦁</div>
             <h3>My Little Gallery</h3>
-
             <p>
-                Little moments,
-                big memories. 📸
+                Little moments, little smiles,
+                and memories Mama never wants to forget. 📸
             </p>
+        </button>
 
-        </div>
 
-
-        <div
-            class="memory-card"
-            onclick="openFavoriteThings()">
-
-            <div class="animal-face elephant">
-
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-
-                <span class="nose"></span>
-                <span class="mouth"></span>
-
-            </div>
-
+        <button class="memory-card" onclick="openFavoriteThings()">
+            <div class="memory-icon">🐘</div>
             <h3>My Favorite Things</h3>
-
             <p>
-                Things I love
-                at two. 💛
+                The foods, toys, colors, animals,
+                and little things Orion loves. 💛
             </p>
+        </button>
 
-        </div>
 
-
-        <div
-            class="memory-card"
-            onclick="openLittleWords()">
-
-            <div class="animal-face giraffe">
-
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-
-                <span class="nose"></span>
-                <span class="mouth"></span>
-
-            </div>
-
+        <button class="memory-card" onclick="openLittleWords()">
+            <div class="memory-icon">🦒</div>
             <h3>My Little Words</h3>
-
             <p>
-                The little words
-                I say. 🗣️
+                The adorable words and sounds
+                that made Mama smile. 🥹
             </p>
+        </button>
 
-        </div>
 
-
-        <div
-            class="memory-card"
-            onclick="showAnimalSounds()">
-
-            <div class="animal-face zebra">
-
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-
-                <span class="nose"></span>
-                <span class="mouth"></span>
-
-            </div>
-
+        <button class="memory-card" onclick="showAnimalSounds()">
+            <div class="memory-icon">🦓</div>
             <h3>Animal Sounds</h3>
-
             <p>
-                Can you hear
-                my little zoo? 🐾
+                Orion's little animal sounds —
+                coming soon to his safari. 🐾
             </p>
+        </button>
 
-        </div>
 
-
-        <div
-            class="memory-card"
-            onclick="showFunnyOrion()">
-
-            <div class="animal-face monkey">
-
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-
-                <span class="nose"></span>
-                <span class="mouth"></span>
-
-            </div>
-
+        <button class="memory-card" onclick="showFunnyOrion()">
+            <div class="memory-icon">🐒</div>
             <h3>Funny Little Orion</h3>
-
             <p>
-                The funny little
-                things I do. 😂
+                Funny habits, cute moments,
+                and things only Orion does. 😂
             </p>
+        </button>
 
-        </div>
 
-
-        <div
-            class="memory-card"
-            onclick="openWhatIKnow()">
-
-            <div class="animal-face tiger">
-
-                <span class="eye left"></span>
-                <span class="eye right"></span>
-
-                <span class="nose"></span>
-                <span class="mouth"></span>
-
-            </div>
-
+        <button class="memory-card" onclick="openWhatIKnow()">
+            <div class="memory-icon">🐯</div>
             <h3>What I Know at Two</h3>
-
             <p>
-                Look how much
-                I already know! 🌟
+                All the wonderful things Orion
+                already knows at age two. ⭐
             </p>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ORION'S SAFARI GAMES
-===================================================== -->
-
-<section class="section games-section">
-
-    <h2 class="section-title">
-        🎮 Orion's Safari Games 🦁
-    </h2>
-
-    <div class="game-intro">
-
-        <p>
-            Welcome to Orion's little animal adventure! 🌿🐾
-        </p>
-
-        <p>
-            Two little games for our clever explorer!
-            Find the animals, then match the babies
-            with their mamas. 🥹💛
-        </p>
+        </button>
 
     </div>
 
 
-    <!-- =================================================
-         GAME 1
-    ================================================= -->
+    <!-- ================= GAME 1 ================= -->
 
-    <div class="game-card" onclick="if(!event.target.closest('button,.game-area,.game-finish')) startSafariGame()">
+    <section class="game-section">
 
-        <div id="gameStart">
+        <div class="game-card">
 
-            <div
-                style="
-                font-size:75px;
-                margin:10px 0 20px;
-                "
-            >
-                🦁 🐘 🦒
-            </div>
+            <div id="gameStart">
 
-            <h3 class="game-card-title">
-                🦁 Game 1 — Find the Animal!
-            </h3>
-
-            <p class="game-card-description">
-                Ten little challenges!
-                Look at the BIG animal pictures
-                and find the animal Mama asks for. ⭐
-            </p>
-
-            <button
-                class="game-start"
-                onclick="startSafariGame()">
-
-                🌿 Start Game 1 🐾
-
-            </button>
-
-        </div>
-
-
-        <div
-            class="game-area"
-            id="gameArea">
-
-            <div class="game-top">
-
-                <div class="game-progress">
-
-                    <div
-                        class="game-progress-bar"
-                        id="gameProgressBar">
-                    </div>
-
+                <div style="font-size:75px;margin:10px 0 20px;">
+                    🦁 🐘 🦒
                 </div>
 
-                <div
-                    class="star-count"
-                    id="starCount">
+                <h3 class="game-card-title">
+                    🦁 Game 1 — Find the Animal!
+                </h3>
 
+                <p class="game-card-description">
+                    Ten little challenges!
+                    Look at the BIG animal pictures
+                    and find the animal Mama asks for. ⭐
+                </p>
+
+                <button
+                    type="button"
+                    class="game-start"
+                    onclick="startSafariGame()">
+                    🌿 Start Game 1 🐾
+                </button>
+
+            </div>
+
+
+            <div class="game-area" id="gameArea">
+
+                <div class="game-score" id="gameScore">
                     ⭐ 0 / 10
-
                 </div>
 
-            </div>
+                <div class="progress-wrap">
+                    <div
+                        class="progress-bar"
+                        id="gameProgress">
+                    </div>
+                </div>
 
+                <div class="question" id="gameQuestion">
+                    Find the animal!
+                </div>
 
-            <div
-                class="game-question"
-                id="gameQuestion">
-
-                Find the animal!
-
-            </div>
-
-
-            <div
-                class="game-subtext"
-                id="gameSubtext">
-
-                Tap the animal!
-
-            </div>
-
-
-            <div
-                class="animal-choice-grid"
-                id="animalChoices">
-            </div>
-
-
-            <div
-                class="game-message"
-                id="gameMessage">
-            </div>
-
-        </div>
-
-
-        <div
-            class="game-finish"
-            id="gameFinish">
-
-            <div class="game-finish-animals">
-                🦁 🐘 🦒 🦓 🐒 🐯
-            </div>
-
-            <h3>
-                🎉 Safari Complete! 🎉
-            </h3>
-
-            <p>
-                Great job, Orion! ⭐⭐⭐⭐⭐
-                <br>
-                You found all the animals!
-                What a clever little explorer. 🥹💛
-            </p>
-
-            <div
-                style="
-                font-size:55px;
-                margin:15px 0 25px;
-                "
-            >
-                🌟 🐾 🌟
-            </div>
-
-          <button type="button" class="play-again" onclick="event.stopPropagation(); startSafariGame();">
-
-        </div>
-
-    </div>
-
-
-    <!-- =================================================
-         GAME 2
-    ================================================= -->
-
-    <div class="game-card game-two-card" onclick="if(!event.target.closest('button,.match-area,.match-finish')) startMatchGame()">
-
-        <div id="matchStart">
-
-            <div
-                style="
-                font-size:75px;
-                margin:10px 0 20px;
-                "
-            >
-                🐮 🐄 🐰
-            </div>
-
-            <h3 class="game-two-title">
-                🐣 Game 2 — Match Baby to Mama!
-            </h3>
-
-            <p class="game-two-subtitle">
-                Can Orion find the big mama animal
-                for each little baby? 💕
-                <br>
-                <strong>
-                    Drag the mama to the baby!
-                </strong>
-                <br>
-                On a phone or tablet, he can also
-                tap a mama and then tap the baby.
-            </p>
-
-<button type="button" class="play-again" onclick="event.stopPropagation(); startMatchGame();">
-
-        </div>
-
-
-        <div
-            class="match-area"
-            id="matchArea">
-
-            <div class="match-score"
-                 id="matchScore">
-                ⭐ 0 / 10
-            </div>
-
-            <div class="match-progress">
+                <div class="question-sub">
+                    Tap the animal!
+                </div>
 
                 <div
-                    class="match-progress-bar"
-                    id="matchProgressBar">
+                    class="game-message"
+                    id="gameMessage">
+                </div>
+
+                <div
+                    class="animal-choice-grid"
+                    id="animalChoices">
                 </div>
 
             </div>
 
 
-            <div
-                class="baby-prompt"
-                id="babyPrompt">
+            <div class="game-finish" id="gameFinish">
 
-                Find this baby's mama!
-
-            </div>
-
-
-            <div
-                class="baby-instruction"
-                id="babyInstruction">
-
-                Drag the big animal to the baby.
-            </div>
-
-
-            <div class="baby-stage">
-
-
-                <div class="baby-box"
-                     id="babyBox">
-
-                    <div class="baby-label">
-                        🐣 LITTLE BABY
-                    </div>
-
-                    <div
-                        class="baby-emoji"
-                        id="babyEmoji">
-                        🐮
-                    </div>
-
-                    <div
-                        class="baby-name"
-                        id="babyName">
-                        Calf
-                    </div>
-
+                <div style="font-size:70px;">
+                    🎉
                 </div>
 
+                <h3 class="game-card-title">
+                    🎉 Safari Complete! 🎉
+                </h3>
 
-                <div class="match-arrow">
-                    ➡️
+                <p>
+                    Great job, Orion! ⭐⭐⭐⭐⭐
+                </p>
+
+                <p>
+                    You found all the animals!
+                    What a clever little explorer. 🥹💛
+                </p>
+
+                <div style="font-size:45px;">
+                    🌟 🐾 🌟
                 </div>
 
+                <button
+                    type="button"
+                    class="play-again"
+                    onclick="startSafariGame()">
+                    🔄 Play Again
+                </button>
 
-                <div class="baby-box"
-                     id="mamaDropBox">
-
-                    <div class="baby-label">
-                        💕 MAMA
-                    </div>
-
-                    <div
-                        id="dropHint"
-                        style="
-                        font-size:18px;
-                        color:#9a8768;
-                        padding:20px 5px;
-                        "
-                    >
-                        Put Mama here!
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="mama-choice-grid"
-                id="mamaChoices">
-            </div>
-
-
-            <div
-                class="match-message"
-                id="matchMessage">
             </div>
 
         </div>
 
 
-        <div
-            class="match-finish"
-            id="matchFinish">
+        <!-- ================= GAME 2 ================= -->
 
-            <div class="match-finish-animals">
-                🐮 🐐 🐰 🐻 🦌 🦊
+        <div class="game-card">
+
+            <div id="matchStart">
+
+                <div style="font-size:75px;margin:10px 0 20px;">
+                    🐣 🐄 🐑
+                </div>
+
+                <h3 class="game-two-title">
+                    🐣 Game 2 — Match Baby to Mama!
+                </h3>
+
+                <p class="game-two-subtitle">
+                    Drag the big animal to its baby!
+                    <br>
+                    On a phone or tablet, tap Mama first,
+                    then tap Baby. 💕
+                </p>
+
+                <button
+                    type="button"
+                    class="match-start"
+                    onclick="startMatchGame()">
+                    💕 Start Baby Animal Game
+                </button>
+
             </div>
 
-            <h3>
-                🎉 Amazing, Orion! 🎉
-            </h3>
 
-            <p>
-                You matched all the little babies
-                with their mamas! 🥹💛
-                <br>
-                What a clever little animal explorer!
-            </p>
+            <div class="match-area" id="matchArea">
 
-            <div
-                style="
-                font-size:55px;
-                margin:15px 0 25px;
-                "
-            >
-                🎊 🐾 🌟 🐾 🎊
+                <div class="match-progress" id="matchScore">
+                    💕 0 / 8
+                </div>
+
+                <div class="match-progress-bar">
+                    <div
+                        class="match-progress-fill"
+                        id="matchProgress">
+                    </div>
+                </div>
+
+                <div class="baby-prompt" id="babyPrompt">
+                    Find the mama!
+                </div>
+
+                <div class="baby-instruction">
+                    Tap the mama that belongs to the baby.
+                </div>
+
+                <div class="baby-stage">
+
+                    <div class="baby-box">
+
+                        <div class="baby-label">
+                            BABY
+                        </div>
+
+                        <div
+                            class="baby-emoji"
+                            id="babyEmoji">
+                            🐣
+                        </div>
+
+                        <div
+                            class="baby-name"
+                            id="babyName">
+                            Baby
+                        </div>
+
+                    </div>
+
+                    <div class="match-arrow">
+                        ➡️
+                    </div>
+
+                    <div class="baby-box">
+
+                        <div class="baby-label">
+                            MAMA
+                        </div>
+
+                        <div
+                            class="baby-emoji"
+                            id="selectedMamaEmoji">
+                            ❓
+                        </div>
+
+                        <div
+                            class="baby-name"
+                            id="selectedMamaName">
+                            Choose Mama
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="match-message"
+                    id="matchMessage">
+                </div>
+
+                <div
+                    class="mama-choice-grid"
+                    id="mamaChoices">
+                </div>
+
             </div>
 
-            <button
-                class="play-again"
-                onclick="startMatchGame()">
 
-                🔄 Play Again
+            <div class="match-finish" id="matchFinish">
 
-            </button>
+                <div style="font-size:70px;">
+                    🎉
+                </div>
+
+                <h3>
+                    🎉 Amazing, Orion! 🎉
+                </h3>
+
+                <p>
+                    You matched all the little babies
+                    with their mamas! 🥹💛
+                    What a clever little animal explorer!
+                </p>
+
+                <div class="match-finish-animals">
+                    🎊 🐾 🌟 🐾 🎊
+                </div>
+
+                <button
+                    type="button"
+                    class="play-again"
+                    onclick="startMatchGame()">
+                    🔄 Play Again
+                </button>
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
+    </section>
 
 
-<!-- =====================================================
-     MAMA'S LETTER
-===================================================== -->
+    <!-- ================= MAMA'S LETTER ================= -->
 
-<section class="section letter-section">
-
-    <h2 class="section-title">
-        💛 A Letter From Mama
-    </h2>
-
-    <div class="letter">
+    <section class="letter">
 
         <img
-            class="letter-photo"
             src="mama and orion.jpg"
+            class="letter-photo"
             alt="Mama and Orion">
 
-        <h3>My Dearest Orion,</h3>
+        <h2>💌 A Letter From Mama</h2>
 
         <p>
             My dearest Orion,
         </p>
 
         <p>
-            You are almost two, my little boy,
-            and sometimes Mama still cannot believe
-            how quickly you are growing.
+            You are two years old now, and sometimes Mama still
+            cannot believe how quickly you are growing.
         </p>
 
         <p>
-            You are curious, clever, funny,
-            and full of little surprises.
-            You love animals, books, cars, buses,
-            trains, colors, songs, and learning new things.
+            Every little word, every funny sound, every smile,
+            every new thing you learn becomes a memory that Mama
+            wants to keep forever.
         </p>
 
         <p>
-            I love watching you discover the world
-            one little thing at a time.
-            I love your little words,
-            your funny sounds,
-            your animal noises,
-            your smiles,
-            and even the little things you do
-            that make Mama laugh.
+            You are curious, clever, playful, loving, and full of
+            little surprises. Watching you learn about the world
+            is one of the greatest joys of Mama's life.
         </p>
 
         <p>
-            Mama works because I love you.
-            I work because I want to give you
-            a good life and a future full of
-            opportunities.
+            I hope that when you are old enough to read this,
+            you will know how deeply you were loved when you were two.
         </p>
 
         <p>
-            If there are days when Mama is busy,
-            please remember this:
-            <strong>
-                working never means loving you less.
-            </strong>
-        </p>
-
-        <p>
-            You are loved more than you will ever know.
-            Every little memory we make together
-            is something Mama wants to keep forever.
-        </p>
-
-        <p>
-            One day, when you are older,
-            I hope you open this little book
-            and see how wonderful you were
-            at two years old.
-        </p>
-
-        <p>
-            I hope you see how curious you were,
-            how much you loved learning,
-            how much you loved animals,
-            and how much joy you brought into Mama's life.
-        </p>
-
-        <p>
-            Happy 2nd birthday,
-            my little safari boy. 🦁🌿💛
+            No matter how big you become, you will always be
+            Mama's little explorer. 🦁💛
         </p>
 
         <p>
@@ -2451,133 +1005,809 @@ footer p{
             <strong>Mama</strong> ❤️
         </p>
 
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ENDING
-===================================================== -->
-
-<section class="section">
-
-    <h2 class="section-title">
-        🌿 And The Safari Continues... 🦁
-    </h2>
-
-    <div
-        style="
-        text-align:center;
-        max-width:700px;
-        margin:auto;
-        font-size:18px;
-        line-height:1.8;
-        "
-    >
-
-        <p>
-            Two years of little hands,
-            little steps, little words,
-            big smiles, and unforgettable memories.
-        </p>
-
-        <div
-            style="
-            font-size:40px;
-            margin:25px 0;
-            "
-        >
-            🦁 🐘 🦒 🦓 🐒 🐯
-        </div>
-
-        <p>
-            This is only the beginning
-            of Orion's little adventure.
-        </p>
-
-        <p>
-            🌿🐾💛
-        </p>
-
-    </div>
-
-</section>
-
+    </section>
 
 </main>
 
 
-<!-- =====================================================
-     FAVORITE THINGS POPUP
-===================================================== -->
+<!-- ================= GALLERY POPUP ================= -->
 
-<div
-    class="popup"
-    id="favoritePopup"
-    onclick="closePopupOutside(event,'favoritePopup')">
+<div class="overlay" id="galleryPopup">
 
-    <div class="popup-box">
+    <div class="popup">
 
-        <button
-            class="close"
-            onclick="closePopup('favoritePopup')">
+        <button class="close" onclick="closePopup('galleryPopup')">
             ×
         </button>
 
-        <h2>💛 My Favorite Things</h2>
+        <h2>🦁 My Little Gallery 📸</h2>
 
-        <div class="info-grid">
+        <div class="gallery-grid">
 
-            <div class="info-box">
+            <img src="Orion1.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion2.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion3.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion4.jpg" onclick="viewPhoto(this.src)">
+            <img src="orion5.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion6.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion7.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion8.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion9.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion10.jpg" onclick="viewPhoto(this.src)">
+            <img src="Orion11.jpg" onclick="viewPhoto(this.src)">
+            <img src="orion12.jpg" onclick="viewPhoto(this.src)">
 
-                <h3>🧸 Things I Love</h3>
+        </div>
 
-                <ul>
-                    <li>Animals</li>
-                    <li>Books</li>
-                    <li>Cars</li>
-                    <li>Buses</li>
-                    <li>Trains</li>
-                    <li>Balloons</li>
-                    <li>LCD writing tablet</li>
-                    <li>Animal cards</li>
-                    <li>Wheels on the Bus</li>
-                </ul>
+    </div>
 
-            </div>
+</div>
 
-            <div class="info-box">
 
-                <h3>🎨 Colors</h3>
+<!-- ================= FAVORITE THINGS ================= -->
 
-                <ul>
-                    <li>Yellow</li>
-                    <li>Blue</li>
-                    <li>Green</li>
-                    <li>Pink</li>
-                    <li>Black</li>
-                    <li>White</li>
-                    <li>Purple</li>
-                    <li>Orange</li>
-                    <li>Red</li>
-                </ul>
+<div class="overlay" id="favoritePopup">
 
-            </div>
+    <div class="popup">
 
-            <div class="info-box">
+        <button class="close" onclick="closePopup('favoritePopup')">
+            ×
+        </button>
 
-                <h3>🍎 Favorite Foods</h3>
+        <h2>🐘 My Favorite Things</h2>
 
-                <ul>
-                    <li>Bananas</li>
-                    <li>Apples</li>
-                    <li>Oranges</li>
-                    <li>Grapes</li>
-                    <li>Watermelon</li>
-                    <li>Mangoes</li>
-                    <li>Pineapple</li>
-                    <li>Carrots</li>
-                    <li>Corn</li>
-                    <li>Broccoli
-```
+        <div class="info-box">
+
+            <h3>🍎 Favorite Foods</h3>
+
+            <ul>
+                <li>Bananas</li>
+                <li>Apples</li>
+                <li>Oranges</li>
+                <li>Grapes</li>
+                <li>Watermelon</li>
+                <li>Mangoes</li>
+                <li>Pineapple</li>
+                <li>Carrots</li>
+                <li>Corn</li>
+                <li>Broccoli</li>
+            </ul>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>🎨 Colors I Know</h3>
+
+            <p>
+                Yellow 💛 · Blue 💙 · Green 💚 · Pink 💗
+                · Black 🖤 · White 🤍 · Purple 💜
+                · Orange 🧡 · Red ❤️
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>🧸 Things I Love</h3>
+
+            <p>
+                Cars 🚗 · Buses 🚌 · Trains 🚂 · Balloons 🎈
+                · Animals 🐾 · Books 📚 · My little study time ✏️
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= LITTLE WORDS ================= -->
+
+<div class="overlay" id="wordsPopup">
+
+    <div class="popup">
+
+        <button class="close" onclick="closePopup('wordsPopup')">
+            ×
+        </button>
+
+        <h2>🦒 My Little Words</h2>
+
+        <div class="info-box">
+
+            <h3>💬 Words Orion Says</h3>
+
+            <ul>
+                <li>Mama</li>
+                <li>Papa</li>
+                <li>Dada</li>
+                <li>Tete — milk</li>
+                <li>Tata — Tita</li>
+                <li>Tate — ate</li>
+                <li>Lala — Lola</li>
+                <li>Ba-na-na / Na-na</li>
+                <li>Ba-ba / Buh-buh — ball</li>
+                <li>Broom / Boom boom — motorcycle</li>
+                <li>Baba — sheep</li>
+            </ul>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>📣 How I Call People</h3>
+
+            <p>
+                Laaaa · Teeee · Taaa · Maaa · Loooo
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ANIMAL SOUNDS ================= -->
+
+<div class="overlay" id="animalPopup">
+
+    <div class="popup">
+
+        <button class="close" onclick="closePopup('animalPopup')">
+            ×
+        </button>
+
+        <h2>🦓 Animal Sounds</h2>
+
+        <div class="info-box">
+
+            <p>
+                Orion's animal-sound recordings will live here. 🐾
+            </p>
+
+            <p>
+                Mama is preparing his little animal videos so
+                each animal can have Orion's real voice. 🥹💛
+            </p>
+
+            <p>
+                Coming soon:
+                🦁 🐑 🐶 🐱 🐔 🦆 and more!
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= FUNNY ORION ================= -->
+
+<div class="overlay" id="funnyPopup">
+
+    <div class="popup">
+
+        <button class="close" onclick="closePopup('funnyPopup')">
+            ×
+        </button>
+
+        <h2>🐒 Funny Little Orion</h2>
+
+        <div class="info-box">
+
+            <h3>😂 Little Things You Do</h3>
+
+            <ul>
+                <li>You love your little study time. 📚</li>
+                <li>You get excited when Mama praises you. 👏</li>
+                <li>You love animals and their sounds. 🐾</li>
+                <li>You imitate things you see Mama doing.</li>
+                <li>You like helping clean up your toys.</li>
+                <li>You remember where Mama keeps things.</li>
+                <li>You bring your bottle when you want milk. 🍼</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= WHAT I KNOW ================= -->
+
+<div class="overlay" id="knowPopup">
+
+    <div class="popup">
+
+        <button class="close" onclick="closePopup('knowPopup')">
+            ×
+        </button>
+
+        <h2>🐯 What I Know at Two</h2>
+
+        <div class="info-box">
+
+            <h3>🌈 Colors</h3>
+
+            <p>
+                Yellow, blue, green, pink, black, white,
+                purple, orange, and red.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>🐾 Animals</h3>
+
+            <p>
+                Orion enjoys learning animal names,
+                pictures, and sounds.
+            </p>
+
+        </div>
+
+        <div class="info-box">
+
+            <h3>📚 Learning</h3>
+
+            <p>
+                He loves picture books, animal cards,
+                colors, fruits, shapes, and his little
+                study time with Mama.
+            </p>
+
+        </div>
+
+        <div class="video-wrap">
+
+            <video controls playsinline>
+                <source src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4">
+            </video>
+
+        </div>
+
+        <div class="video-wrap">
+
+            <video controls playsinline>
+                <source src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4">
+            </video>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= PHOTO VIEWER ================= -->
+
+<div class="overlay" id="photoPopup">
+
+    <div class="popup photo-viewer">
+
+        <button class="close" onclick="closePopup('photoPopup')">
+            ×
+        </button>
+
+        <img id="bigPhoto" src="" alt="Orion photo">
+
+    </div>
+
+</div>
+
+
+<footer>
+    Made with all the love in Mama's heart for Orion. 🦁💛
+    <br>
+    Orion's Little Safari — Age 2
+</footer>
+
+
+<script>
+
+/* =========================================================
+   BASIC POPUPS
+========================================================= */
+
+function closePopup(id){
+    document.getElementById(id).classList.remove("show");
+}
+
+function openGallery(){
+    document.getElementById("galleryPopup").classList.add("show");
+}
+
+function openFavoriteThings(){
+    document.getElementById("favoritePopup").classList.add("show");
+}
+
+function openLittleWords(){
+    document.getElementById("wordsPopup").classList.add("show");
+}
+
+function showAnimalSounds(){
+    document.getElementById("animalPopup").classList.add("show");
+}
+
+function showFunnyOrion(){
+    document.getElementById("funnyPopup").classList.add("show");
+}
+
+function openWhatIKnow(){
+    document.getElementById("knowPopup").classList.add("show");
+}
+
+function viewPhoto(src){
+    document.getElementById("bigPhoto").src = src;
+    document.getElementById("photoPopup").classList.add("show");
+}
+
+
+/* Close popup when clicking outside */
+
+document.querySelectorAll(".overlay").forEach(function(overlay){
+
+    overlay.addEventListener("click",function(e){
+
+        if(e.target === overlay){
+            overlay.classList.remove("show");
+        }
+
+    });
+
+});
+
+
+/* =========================================================
+   GAME 1 — FIND THE ANIMAL
+========================================================= */
+
+const safariAnimals = [
+
+    {name:"Lion", emoji:"🦁"},
+    {name:"Elephant", emoji:"🐘"},
+    {name:"Giraffe", emoji:"🦒"},
+    {name:"Zebra", emoji:"🦓"},
+    {name:"Monkey", emoji:"🐒"},
+    {name:"Tiger", emoji:"🐯"},
+    {name:"Penguin", emoji:"🐧"},
+    {name:"Polar Bear", emoji:"🐻‍❄️"},
+    {name:"Bee", emoji:"🐝"},
+    {name:"Hippopotamus", emoji:"🦛"},
+    {name:"Pig", emoji:"🐷"},
+    {name:"Horse", emoji:"🐴"},
+    {name:"Sheep", emoji:"🐑"},
+    {name:"Dog", emoji:"🐶"},
+    {name:"Cat", emoji:"🐱"},
+    {name:"Panda", emoji:"🐼"},
+    {name:"Crocodile", emoji:"🐊"},
+    {name:"Flamingo", emoji:"🦩"},
+    {name:"Koala", emoji:"🐨"},
+    {name:"Kangaroo", emoji:"🦘"},
+    {name:"Rooster", emoji:"🐓"},
+    {name:"Bird", emoji:"🐦"},
+    {name:"Leopard", emoji:"🐆"},
+    {name:"Snake", emoji:"🐍"},
+    {name:"Camel", emoji:"🐫"},
+    {name:"Turtle", emoji:"🐢"},
+    {name:"Fish", emoji:"🐟"},
+    {name:"Octopus", emoji:"🐙"}
+
+];
+
+let safariQuestions = [];
+let safariIndex = 0;
+let safariScore = 0;
+let safariLocked = false;
+
+
+function shuffle(array){
+
+    const copy = [...array];
+
+    for(let i = copy.length - 1; i > 0; i--){
+
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [copy[i],copy[j]] = [copy[j],copy[i]];
+
+    }
+
+    return copy;
+}
+
+
+function startSafariGame(){
+
+    safariQuestions = shuffle(safariAnimals).slice(0,10);
+
+    safariIndex = 0;
+    safariScore = 0;
+    safariLocked = false;
+
+    document.getElementById("gameStart").style.display = "none";
+    document.getElementById("gameFinish").classList.remove("show");
+    document.getElementById("gameArea").classList.add("show");
+
+    showSafariQuestion();
+}
+
+
+function showSafariQuestion(){
+
+    safariLocked = false;
+
+    const correct = safariQuestions[safariIndex];
+
+    document.getElementById("gameScore").textContent =
+        "⭐ " + safariScore + " / 10";
+
+    document.getElementById("gameProgress").style.width =
+        ((safariIndex / 10) * 100) + "%";
+
+    document.getElementById("gameQuestion").textContent =
+        "Find the " + correct.name + "!";
+
+    document.getElementById("gameMessage").textContent = "";
+
+    let choices = [correct];
+
+    const wrongAnimals = shuffle(
+        safariAnimals.filter(a => a.name !== correct.name)
+    ).slice(0,2);
+
+    choices = shuffle(choices.concat(wrongAnimals));
+
+    const container =
+        document.getElementById("animalChoices");
+
+    container.innerHTML = "";
+
+    choices.forEach(function(animal){
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "animal-choice";
+
+        button.innerHTML =
+            animal.emoji +
+            "<span>" +
+            animal.name +
+            "</span>";
+
+        button.addEventListener("click",function(){
+
+            chooseSafariAnimal(button,animal,correct);
+
+        });
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+function chooseSafariAnimal(button,animal,correct){
+
+    if(safariLocked){
+        return;
+    }
+
+    if(animal.name === correct.name){
+
+        safariLocked = true;
+
+        button.classList.add("correct");
+
+        safariScore++;
+
+        document.getElementById("gameScore").textContent =
+            "⭐ " + safariScore + " / 10";
+
+        document.getElementById("gameProgress").style.width =
+            ((safariScore / 10) * 100) + "%";
+
+        document.getElementById("gameMessage").textContent =
+            "🌟 Correct! Great job, Orion!";
+
+        setTimeout(function(){
+
+            safariIndex++;
+
+            if(safariIndex >= 10){
+
+                finishSafariGame();
+
+            }else{
+
+                showSafariQuestion();
+
+            }
+
+        },800);
+
+    }else{
+
+        button.classList.add("wrong");
+
+        document.getElementById("gameMessage").textContent =
+            "💛 Try again!";
+
+        setTimeout(function(){
+            button.classList.remove("wrong");
+        },400);
+
+    }
+
+}
+
+
+function finishSafariGame(){
+
+    document.getElementById("gameArea").classList.remove("show");
+
+    document.getElementById("gameFinish").classList.add("show");
+
+}
+
+
+/* =========================================================
+   GAME 2 — MATCH BABY TO MAMA
+========================================================= */
+
+const babyAnimals = [
+
+    {
+        baby:"🐥",
+        babyName:"Chick",
+        mama:"🐔",
+        mamaName:"Chicken"
+    },
+
+    {
+        baby:"🐶",
+        babyName:"Puppy",
+        mama:"🐕",
+        mamaName:"Dog"
+    },
+
+    {
+        baby:"🐱",
+        babyName:"Kitten",
+        mama:"🐈",
+        mamaName:"Cat"
+    },
+
+    {
+        baby:"🐑",
+        babyName:"Lamb",
+        mama:"🐑",
+        mamaName:"Sheep"
+    },
+
+    {
+        baby:"🐷",
+        babyName:"Piglet",
+        mama:"🐖",
+        mamaName:"Pig"
+    },
+
+    {
+        baby:"🐴",
+        babyName:"Foal",
+        mama:"🐎",
+        mamaName:"Horse"
+    },
+
+    {
+        baby:"🐘",
+        babyName:"Baby Elephant",
+        mama:"🐘",
+        mamaName:"Elephant"
+    },
+
+    {
+        baby:"🦁",
+        babyName:"Lion Cub",
+        mama:"🦁",
+        mamaName:"Lion"
+    }
+
+];
+
+let matchQuestions = [];
+let matchIndex = 0;
+let matchScore = 0;
+let selectedMama = null;
+let matchLocked = false;
+
+
+function startMatchGame(){
+
+    matchQuestions = shuffle(babyAnimals);
+
+    matchIndex = 0;
+    matchScore = 0;
+    selectedMama = null;
+    matchLocked = false;
+
+    document.getElementById("matchStart").style.display = "none";
+    document.getElementById("matchFinish").classList.remove("show");
+    document.getElementById("matchArea").classList.add("show");
+
+    showMatchQuestion();
+
+}
+
+
+function showMatchQuestion(){
+
+    matchLocked = false;
+    selectedMama = null;
+
+    const current = matchQuestions[matchIndex];
+
+    document.getElementById("matchScore").textContent =
+        "💕 " + matchScore + " / 8";
+
+    document.getElementById("matchProgress").style.width =
+        ((matchScore / 8) * 100) + "%";
+
+    document.getElementById("babyEmoji").textContent =
+        current.baby;
+
+    document.getElementById("babyName").textContent =
+        current.babyName;
+
+    document.getElementById("selectedMamaEmoji").textContent =
+        "❓";
+
+    document.getElementById("selectedMamaName").textContent =
+        "Choose Mama";
+
+    document.getElementById("matchMessage").textContent = "";
+
+    const choices = shuffle([
+        current,
+        ...shuffle(
+            babyAnimals.filter(
+                a => a.mamaName !== current.mamaName
+            )
+        ).slice(0,2)
+    ]);
+
+    const container =
+        document.getElementById("mamaChoices");
+
+    container.innerHTML = "";
+
+    choices.forEach(function(animal){
+
+        const button = document.createElement("button");
+
+        button.type = "button";
+        button.className = "mama-choice";
+
+        button.innerHTML =
+            '<span class="mama-emoji">' +
+            animal.mama +
+            '</span>' +
+            '<span class="mama-name">' +
+            animal.mamaName +
+            '</span>';
+
+        button.addEventListener("click",function(){
+
+            chooseMama(button,animal,current);
+
+        });
+
+        container.appendChild(button);
+
+    });
+
+}
+
+
+function chooseMama(button,animal,current){
+
+    if(matchLocked){
+        return;
+    }
+
+    if(animal.mamaName === current.mamaName){
+
+        matchLocked = true;
+
+        button.classList.add("correct");
+
+        matchScore++;
+
+        document.getElementById("selectedMamaEmoji").textContent =
+            animal.mama;
+
+        document.getElementById("selectedMamaName").textContent =
+            animal.mamaName;
+
+        document.getElementById("matchScore").textContent =
+            "💕 " + matchScore + " / 8";
+
+        document.getElementById("matchProgress").style.width =
+            ((matchScore / 8) * 100) + "%";
+
+        document.getElementById("matchMessage").textContent =
+            "💖 Correct! Baby found Mama!";
+
+        setTimeout(function(){
+
+            matchIndex++;
+
+            if(matchIndex >= 8){
+
+                finishMatchGame();
+
+            }else{
+
+                showMatchQuestion();
+
+            }
+
+        },900);
+
+    }else{
+
+        button.classList.add("wrong");
+
+        document.getElementById("matchMessage").textContent =
+            "💛 Try again!";
+
+        setTimeout(function(){
+
+            button.classList.remove("wrong");
+
+        },400);
+
+    }
+
+}
+
+
+function finishMatchGame(){
+
+    document.getElementById("matchArea").classList.remove("show");
+
+    document.getElementById("matchFinish").classList.add("show");
+
+}
+
+
+/* =========================================================
+   ESC KEY CLOSES POPUPS
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        document.querySelectorAll(".overlay").forEach(function(popup){
+
+            popup.classList.remove("show");
+
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
