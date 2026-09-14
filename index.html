@@ -18,15 +18,21 @@ body{
     margin:0;
     font-family:"Trebuchet MS",Arial,sans-serif;
     color:#4d3b28;
-    background:
-        linear-gradient(rgba(255,248,225,.82),rgba(255,248,225,.88)),
-        url("safari-cover.jpg.jpg") center/cover fixed;
+
+    /* CLEAR SAFARI BACKGROUND */
+    background-image:url("safari-cover.jpg.jpg");
+    background-position:center center;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
 }
 
 button{
     font-family:inherit;
     cursor:pointer;
 }
+
+/* ================= COVER ================= */
 
 .cover{
     min-height:100vh;
@@ -41,9 +47,11 @@ button{
     width:min(900px,100%);
     padding:35px 25px 45px;
     border-radius:40px;
-    background:rgba(255,255,255,.78);
+
+    /* NO BLUR */
+    background:rgba(255,255,255,.72);
+
     box-shadow:0 20px 55px rgba(70,55,35,.22);
-    backdrop-filter:blur(5px);
 }
 
 .cover-photo{
@@ -90,6 +98,8 @@ button{
 .back-btn:hover{
     transform:translateY(-2px);
 }
+
+/* ================= CHAPTER ================= */
 
 .chapter{
     max-width:1100px;
@@ -140,6 +150,8 @@ button{
     line-height:1.5;
 }
 
+/* ================= LETTER ================= */
+
 .letter{
     margin-top:55px;
     background:rgba(255,255,255,.82);
@@ -168,6 +180,8 @@ button{
     line-height:1.8;
 }
 
+/* ================= GALLERY ================= */
+
 .gallery-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -186,6 +200,8 @@ button{
 .gallery-grid img:hover{
     transform:scale(1.03);
 }
+
+/* ================= POPUPS ================= */
 
 .overlay{
     position:fixed;
@@ -627,7 +643,9 @@ footer{
             type="button"
             class="enter-btn"
             onclick="document.getElementById('chapter').scrollIntoView({behavior:'smooth'})">
+
             🌿 Enter Orion's World 🐾
+
         </button>
 
     </div>
@@ -635,7 +653,7 @@ footer{
 </section>
 
 
-<!-- ================= CHAPTER ================= -->
+<!-- ================= MAIN ================= -->
 
 <main class="chapter" id="chapter">
 
@@ -644,75 +662,102 @@ footer{
     </h2>
 
 
-    <!-- ================= SIX ORIGINAL CARDS ================= -->
+    <!-- ================= SIX MEMORY CARDS ================= -->
 
     <div class="cards">
 
         <button class="memory-card" onclick="openGallery()">
+
             <div class="memory-icon">🦁</div>
+
             <h3>My Little Gallery</h3>
+
             <p>
                 Little moments, little smiles,
                 and memories Mama never wants to forget. 📸
             </p>
+
         </button>
 
 
         <button class="memory-card" onclick="openFavoriteThings()">
+
             <div class="memory-icon">🐘</div>
+
             <h3>My Favorite Things</h3>
+
             <p>
                 The foods, toys, colors, animals,
                 and little things Orion loves. 💛
             </p>
+
         </button>
 
 
         <button class="memory-card" onclick="openLittleWords()">
+
             <div class="memory-icon">🦒</div>
+
             <h3>My Little Words</h3>
+
             <p>
                 The adorable words and sounds
                 that made Mama smile. 🥹
             </p>
+
         </button>
 
 
         <button class="memory-card" onclick="showAnimalSounds()">
+
             <div class="memory-icon">🦓</div>
+
             <h3>Animal Sounds</h3>
+
             <p>
                 Orion's little animal sounds —
                 coming soon to his safari. 🐾
             </p>
+
         </button>
 
 
         <button class="memory-card" onclick="showFunnyOrion()">
+
             <div class="memory-icon">🐒</div>
+
             <h3>Funny Little Orion</h3>
+
             <p>
                 Funny habits, cute moments,
                 and things only Orion does. 😂
             </p>
+
         </button>
 
 
         <button class="memory-card" onclick="openWhatIKnow()">
+
             <div class="memory-icon">🐯</div>
+
             <h3>What I Know at Two</h3>
+
             <p>
                 All the wonderful things Orion
                 already knows at age two. ⭐
             </p>
+
         </button>
 
     </div>
 
 
-    <!-- ================= GAME 1 ================= -->
+    <!-- ================= GAMES ================= -->
 
     <section class="game-section">
+
+
+        <!-- ================= GAME 1 ================= -->
 
         <div class="game-card">
 
@@ -736,7 +781,9 @@ footer{
                     type="button"
                     class="game-start"
                     onclick="startSafariGame()">
+
                     🌿 Start Game 1 🐾
+
                 </button>
 
             </div>
@@ -749,10 +796,12 @@ footer{
                 </div>
 
                 <div class="progress-wrap">
+
                     <div
                         class="progress-bar"
                         id="gameProgress">
                     </div>
+
                 </div>
 
                 <div class="question" id="gameQuestion">
@@ -803,7 +852,9 @@ footer{
                     type="button"
                     class="play-again"
                     onclick="startSafariGame()">
+
                     🔄 Play Again
+
                 </button>
 
             </div>
@@ -826,17 +877,23 @@ footer{
                 </h3>
 
                 <p class="game-two-subtitle">
+
                     Drag the big animal to its baby!
+
                     <br>
+
                     On a phone or tablet, tap Mama first,
                     then tap Baby. 💕
+
                 </p>
 
                 <button
                     type="button"
                     class="match-start"
                     onclick="startMatchGame()">
+
                     💕 Start Baby Animal Game
+
                 </button>
 
             </div>
@@ -849,11 +906,14 @@ footer{
                 </div>
 
                 <div class="match-progress-bar">
+
                     <div
                         class="match-progress-fill"
                         id="matchProgress">
                     </div>
+
                 </div>
+
 
                 <div class="baby-prompt" id="babyPrompt">
                     Find the mama!
@@ -863,7 +923,9 @@ footer{
                     Tap the mama that belongs to the baby.
                 </div>
 
+
                 <div class="baby-stage">
+
 
                     <div class="baby-box">
 
@@ -874,20 +936,26 @@ footer{
                         <div
                             class="baby-emoji"
                             id="babyEmoji">
+
                             🐣
+
                         </div>
 
                         <div
                             class="baby-name"
                             id="babyName">
+
                             Baby
+
                         </div>
 
                     </div>
 
+
                     <div class="match-arrow">
                         ➡️
                     </div>
+
 
                     <div class="baby-box">
 
@@ -898,23 +966,29 @@ footer{
                         <div
                             class="baby-emoji"
                             id="selectedMamaEmoji">
+
                             ❓
+
                         </div>
 
                         <div
                             class="baby-name"
                             id="selectedMamaName">
+
                             Choose Mama
+
                         </div>
 
                     </div>
 
                 </div>
 
+
                 <div
                     class="match-message"
                     id="matchMessage">
                 </div>
+
 
                 <div
                     class="mama-choice-grid"
@@ -935,9 +1009,12 @@ footer{
                 </h3>
 
                 <p>
+
                     You matched all the little babies
                     with their mamas! 🥹💛
+
                     What a clever little animal explorer!
+
                 </p>
 
                 <div class="match-finish-animals">
@@ -948,7 +1025,9 @@ footer{
                     type="button"
                     class="play-again"
                     onclick="startMatchGame()">
+
                     🔄 Play Again
+
                 </button>
 
             </div>
@@ -1001,7 +1080,8 @@ footer{
         </p>
 
         <p>
-            Love always,<br>
+            Love always,
+            <br>
             <strong>Mama</strong> ❤️
         </p>
 
@@ -1016,11 +1096,17 @@ footer{
 
     <div class="popup">
 
-        <button class="close" onclick="closePopup('galleryPopup')">
+        <button
+            class="close"
+            onclick="closePopup('galleryPopup')">
+
             ×
+
         </button>
 
-        <h2>🦁 My Little Gallery 📸</h2>
+        <h2>
+            🦁 My Little Gallery 📸
+        </h2>
 
         <div class="gallery-grid">
 
@@ -1050,17 +1136,27 @@ footer{
 
     <div class="popup">
 
-        <button class="close" onclick="closePopup('favoritePopup')">
+        <button
+            class="close"
+            onclick="closePopup('favoritePopup')">
+
             ×
+
         </button>
 
-        <h2>🐘 My Favorite Things</h2>
+        <h2>
+            🐘 My Favorite Things
+        </h2>
+
 
         <div class="info-box">
 
-            <h3>🍎 Favorite Foods</h3>
+            <h3>
+                🍎 Favorite Foods
+            </h3>
 
             <ul>
+
                 <li>Bananas</li>
                 <li>Apples</li>
                 <li>Oranges</li>
@@ -1071,29 +1167,40 @@ footer{
                 <li>Carrots</li>
                 <li>Corn</li>
                 <li>Broccoli</li>
+
             </ul>
 
         </div>
 
+
         <div class="info-box">
 
-            <h3>🎨 Colors I Know</h3>
+            <h3>
+                🎨 Colors I Know
+            </h3>
 
             <p>
+
                 Yellow 💛 · Blue 💙 · Green 💚 · Pink 💗
                 · Black 🖤 · White 🤍 · Purple 💜
                 · Orange 🧡 · Red ❤️
+
             </p>
 
         </div>
 
+
         <div class="info-box">
 
-            <h3>🧸 Things I Love</h3>
+            <h3>
+                🧸 Things I Love
+            </h3>
 
             <p>
+
                 Cars 🚗 · Buses 🚌 · Trains 🚂 · Balloons 🎈
                 · Animals 🐾 · Books 📚 · My little study time ✏️
+
             </p>
 
         </div>
@@ -1109,17 +1216,27 @@ footer{
 
     <div class="popup">
 
-        <button class="close" onclick="closePopup('wordsPopup')">
+        <button
+            class="close"
+            onclick="closePopup('wordsPopup')">
+
             ×
+
         </button>
 
-        <h2>🦒 My Little Words</h2>
+        <h2>
+            🦒 My Little Words
+        </h2>
+
 
         <div class="info-box">
 
-            <h3>💬 Words Orion Says</h3>
+            <h3>
+                💬 Words Orion Says
+            </h3>
 
             <ul>
+
                 <li>Mama</li>
                 <li>Papa</li>
                 <li>Dada</li>
@@ -1131,13 +1248,17 @@ footer{
                 <li>Ba-ba / Buh-buh — ball</li>
                 <li>Broom / Boom boom — motorcycle</li>
                 <li>Baba — sheep</li>
+
             </ul>
 
         </div>
 
+
         <div class="info-box">
 
-            <h3>📣 How I Call People</h3>
+            <h3>
+                📣 How I Call People
+            </h3>
 
             <p>
                 Laaaa · Teeee · Taaa · Maaa · Loooo
@@ -1156,11 +1277,18 @@ footer{
 
     <div class="popup">
 
-        <button class="close" onclick="closePopup('animalPopup')">
+        <button
+            class="close"
+            onclick="closePopup('animalPopup')">
+
             ×
+
         </button>
 
-        <h2>🦓 Animal Sounds</h2>
+        <h2>
+            🦓 Animal Sounds
+        </h2>
+
 
         <div class="info-box">
 
@@ -1191,24 +1319,55 @@ footer{
 
     <div class="popup">
 
-        <button class="close" onclick="closePopup('funnyPopup')">
+        <button
+            class="close"
+            onclick="closePopup('funnyPopup')">
+
             ×
+
         </button>
 
-        <h2>🐒 Funny Little Orion</h2>
+        <h2>
+            🐒 Funny Little Orion
+        </h2>
+
 
         <div class="info-box">
 
-            <h3>😂 Little Things You Do</h3>
+            <h3>
+                😂 Little Things You Do
+            </h3>
 
             <ul>
-                <li>You love your little study time. 📚</li>
-                <li>You get excited when Mama praises you. 👏</li>
-                <li>You love animals and their sounds. 🐾</li>
-                <li>You imitate things you see Mama doing.</li>
-                <li>You like helping clean up your toys.</li>
-                <li>You remember where Mama keeps things.</li>
-                <li>You bring your bottle when you want milk. 🍼</li>
+
+                <li>
+                    You love your little study time. 📚
+                </li>
+
+                <li>
+                    You get excited when Mama praises you. 👏
+                </li>
+
+                <li>
+                    You love animals and their sounds. 🐾
+                </li>
+
+                <li>
+                    You imitate things you see Mama doing.
+                </li>
+
+                <li>
+                    You like helping clean up your toys.
+                </li>
+
+                <li>
+                    You remember where Mama keeps things.
+                </li>
+
+                <li>
+                    You bring your bottle when you want milk. 🍼
+                </li>
+
             </ul>
 
         </div>
@@ -1224,15 +1383,24 @@ footer{
 
     <div class="popup">
 
-        <button class="close" onclick="closePopup('knowPopup')">
+        <button
+            class="close"
+            onclick="closePopup('knowPopup')">
+
             ×
+
         </button>
 
-        <h2>🐯 What I Know at Two</h2>
+        <h2>
+            🐯 What I Know at Two
+        </h2>
+
 
         <div class="info-box">
 
-            <h3>🌈 Colors</h3>
+            <h3>
+                🌈 Colors
+            </h3>
 
             <p>
                 Yellow, blue, green, pink, black, white,
@@ -1241,9 +1409,12 @@ footer{
 
         </div>
 
+
         <div class="info-box">
 
-            <h3>🐾 Animals</h3>
+            <h3>
+                🐾 Animals
+            </h3>
 
             <p>
                 Orion enjoys learning animal names,
@@ -1252,9 +1423,12 @@ footer{
 
         </div>
 
+
         <div class="info-box">
 
-            <h3>📚 Learning</h3>
+            <h3>
+                📚 Learning
+            </h3>
 
             <p>
                 He loves picture books, animal cards,
@@ -1264,18 +1438,24 @@ footer{
 
         </div>
 
+
         <div class="video-wrap">
 
             <video controls playsinline>
+
                 <source src="AQOa8xwtuPFB4MEEvMkTPf10Kneey5naMsn5gkj-DthSmnxJGeJUDrpRC0p5hdMKfjSSPxmyxf07WQlC4Umb2gid5XzWuMx3h5joWWZjNrjVfA%20(1)%20(1).mp4">
+
             </video>
 
         </div>
 
+
         <div class="video-wrap">
 
             <video controls playsinline>
+
                 <source src="AQPYtIxS5GdQRHTP1ytyZkctSqyebi9EzyPPaqi4ZsfWZrzhhQrcF45VPB2oCl-akbd3C_NjAXinu2cUxdO8gJG2bNmqv4FZ95BAJv-ybg.mp4">
+
             </video>
 
         </div>
@@ -1291,115 +1471,207 @@ footer{
 
     <div class="popup photo-viewer">
 
-        <button class="close" onclick="closePopup('photoPopup')">
+        <button
+            class="close"
+            onclick="closePopup('photoPopup')">
+
             ×
+
         </button>
 
-        <img id="bigPhoto" src="" alt="Orion photo">
+        <img
+            id="bigPhoto"
+            src=""
+            alt="Orion photo">
 
     </div>
 
 </div>
 
 
+<!-- ================= FOOTER ================= -->
+
 <footer>
+
     Made with all the love in Mama's heart for Orion. 🦁💛
+
     <br>
+
     Orion's Little Safari — Age 2
+
 </footer>
 
 
 <script>
 
-/* =========================================================
-   BASIC POPUPS
-========================================================= */
+/* ================= POPUPS ================= */
 
 function closePopup(id){
-    document.getElementById(id).classList.remove("show");
+
+    document
+        .getElementById(id)
+        .classList
+        .remove("show");
+
 }
+
 
 function openGallery(){
-    document.getElementById("galleryPopup").classList.add("show");
+
+    document
+        .getElementById("galleryPopup")
+        .classList
+        .add("show");
+
 }
+
 
 function openFavoriteThings(){
-    document.getElementById("favoritePopup").classList.add("show");
+
+    document
+        .getElementById("favoritePopup")
+        .classList
+        .add("show");
+
 }
+
 
 function openLittleWords(){
-    document.getElementById("wordsPopup").classList.add("show");
+
+    document
+        .getElementById("wordsPopup")
+        .classList
+        .add("show");
+
 }
+
 
 function showAnimalSounds(){
-    document.getElementById("animalPopup").classList.add("show");
+
+    document
+        .getElementById("animalPopup")
+        .classList
+        .add("show");
+
 }
+
 
 function showFunnyOrion(){
-    document.getElementById("funnyPopup").classList.add("show");
+
+    document
+        .getElementById("funnyPopup")
+        .classList
+        .add("show");
+
 }
+
 
 function openWhatIKnow(){
-    document.getElementById("knowPopup").classList.add("show");
+
+    document
+        .getElementById("knowPopup")
+        .classList
+        .add("show");
+
 }
+
 
 function viewPhoto(src){
-    document.getElementById("bigPhoto").src = src;
-    document.getElementById("photoPopup").classList.add("show");
+
+    document
+        .getElementById("bigPhoto")
+        .src = src;
+
+    document
+        .getElementById("photoPopup")
+        .classList
+        .add("show");
+
 }
 
 
-/* Close popup when clicking outside */
+document
+    .querySelectorAll(".overlay")
+    .forEach(function(overlay){
 
-document.querySelectorAll(".overlay").forEach(function(overlay){
+        overlay.addEventListener("click",function(e){
 
-    overlay.addEventListener("click",function(e){
+            if(e.target === overlay){
 
-        if(e.target === overlay){
-            overlay.classList.remove("show");
-        }
+                overlay.classList.remove("show");
+
+            }
+
+        });
 
     });
 
-});
+
+/* ================= SHUFFLE ================= */
+
+function shuffle(array){
+
+    const copy = [...array];
+
+    for(
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ){
+
+        const j =
+            Math.floor(Math.random() * (i + 1));
+
+        [
+            copy[i],
+            copy[j]
+        ] = [
+            copy[j],
+            copy[i]
+        ];
+
+    }
+
+    return copy;
+
+}
 
 
-/* =========================================================
-   GAME 1 — FIND THE ANIMAL
-========================================================= */
+/* ================= GAME 1 ================= */
 
 const safariAnimals = [
 
-    {name:"Lion", emoji:"🦁"},
-    {name:"Elephant", emoji:"🐘"},
-    {name:"Giraffe", emoji:"🦒"},
-    {name:"Zebra", emoji:"🦓"},
-    {name:"Monkey", emoji:"🐒"},
-    {name:"Tiger", emoji:"🐯"},
-    {name:"Penguin", emoji:"🐧"},
-    {name:"Polar Bear", emoji:"🐻‍❄️"},
-    {name:"Bee", emoji:"🐝"},
-    {name:"Hippopotamus", emoji:"🦛"},
-    {name:"Pig", emoji:"🐷"},
-    {name:"Horse", emoji:"🐴"},
-    {name:"Sheep", emoji:"🐑"},
-    {name:"Dog", emoji:"🐶"},
-    {name:"Cat", emoji:"🐱"},
-    {name:"Panda", emoji:"🐼"},
-    {name:"Crocodile", emoji:"🐊"},
-    {name:"Flamingo", emoji:"🦩"},
-    {name:"Koala", emoji:"🐨"},
-    {name:"Kangaroo", emoji:"🦘"},
-    {name:"Rooster", emoji:"🐓"},
-    {name:"Bird", emoji:"🐦"},
-    {name:"Leopard", emoji:"🐆"},
-    {name:"Snake", emoji:"🐍"},
-    {name:"Camel", emoji:"🐫"},
-    {name:"Turtle", emoji:"🐢"},
-    {name:"Fish", emoji:"🐟"},
-    {name:"Octopus", emoji:"🐙"}
+    {name:"Lion",emoji:"🦁"},
+    {name:"Elephant",emoji:"🐘"},
+    {name:"Giraffe",emoji:"🦒"},
+    {name:"Zebra",emoji:"🦓"},
+    {name:"Monkey",emoji:"🐒"},
+    {name:"Tiger",emoji:"🐯"},
+    {name:"Penguin",emoji:"🐧"},
+    {name:"Polar Bear",emoji:"🐻‍❄️"},
+    {name:"Bee",emoji:"🐝"},
+    {name:"Hippopotamus",emoji:"🦛"},
+    {name:"Pig",emoji:"🐷"},
+    {name:"Horse",emoji:"🐴"},
+    {name:"Sheep",emoji:"🐑"},
+    {name:"Dog",emoji:"🐶"},
+    {name:"Cat",emoji:"🐱"},
+    {name:"Panda",emoji:"🐼"},
+    {name:"Crocodile",emoji:"🐊"},
+    {name:"Flamingo",emoji:"🦩"},
+    {name:"Koala",emoji:"🐨"},
+    {name:"Kangaroo",emoji:"🦘"},
+    {name:"Rooster",emoji:"🐓"},
+    {name:"Bird",emoji:"🐦"},
+    {name:"Leopard",emoji:"🐆"},
+    {name:"Snake",emoji:"🐍"},
+    {name:"Camel",emoji:"🐫"},
+    {name:"Turtle",emoji:"🐢"},
+    {name:"Fish",emoji:"🐟"},
+    {name:"Octopus",emoji:"🐙"}
 
 ];
+
 
 let safariQuestions = [];
 let safariIndex = 0;
@@ -1407,35 +1679,31 @@ let safariScore = 0;
 let safariLocked = false;
 
 
-function shuffle(array){
-
-    const copy = [...array];
-
-    for(let i = copy.length - 1; i > 0; i--){
-
-        const j = Math.floor(Math.random() * (i + 1));
-
-        [copy[i],copy[j]] = [copy[j],copy[i]];
-
-    }
-
-    return copy;
-}
-
-
 function startSafariGame(){
 
-    safariQuestions = shuffle(safariAnimals).slice(0,10);
+    safariQuestions =
+        shuffle(safariAnimals).slice(0,10);
 
     safariIndex = 0;
     safariScore = 0;
     safariLocked = false;
 
-    document.getElementById("gameStart").style.display = "none";
-    document.getElementById("gameFinish").classList.remove("show");
-    document.getElementById("gameArea").classList.add("show");
+    document
+        .getElementById("gameStart")
+        .style.display = "none";
+
+    document
+        .getElementById("gameFinish")
+        .classList
+        .remove("show");
+
+    document
+        .getElementById("gameArea")
+        .classList
+        .add("show");
 
     showSafariQuestion();
+
 }
 
 
@@ -1443,38 +1711,67 @@ function showSafariQuestion(){
 
     safariLocked = false;
 
-    const correct = safariQuestions[safariIndex];
+    const correct =
+        safariQuestions[safariIndex];
 
-    document.getElementById("gameScore").textContent =
+
+    document
+        .getElementById("gameScore")
+        .textContent =
         "⭐ " + safariScore + " / 10";
 
-    document.getElementById("gameProgress").style.width =
+
+    document
+        .getElementById("gameProgress")
+        .style.width =
         ((safariIndex / 10) * 100) + "%";
 
-    document.getElementById("gameQuestion").textContent =
+
+    document
+        .getElementById("gameQuestion")
+        .textContent =
         "Find the " + correct.name + "!";
 
-    document.getElementById("gameMessage").textContent = "";
+
+    document
+        .getElementById("gameMessage")
+        .textContent = "";
+
 
     let choices = [correct];
 
-    const wrongAnimals = shuffle(
-        safariAnimals.filter(a => a.name !== correct.name)
-    ).slice(0,2);
 
-    choices = shuffle(choices.concat(wrongAnimals));
+    const wrongAnimals =
+        shuffle(
+            safariAnimals.filter(
+                a => a.name !== correct.name
+            )
+        ).slice(0,2);
+
+
+    choices =
+        shuffle(
+            choices.concat(wrongAnimals)
+        );
+
 
     const container =
         document.getElementById("animalChoices");
 
+
     container.innerHTML = "";
+
 
     choices.forEach(function(animal){
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
         button.type = "button";
-        button.className = "animal-choice";
+
+        button.className =
+            "animal-choice";
+
 
         button.innerHTML =
             animal.emoji +
@@ -1482,11 +1779,20 @@ function showSafariQuestion(){
             animal.name +
             "</span>";
 
-        button.addEventListener("click",function(){
 
-            chooseSafariAnimal(button,animal,correct);
+        button.addEventListener(
+            "click",
+            function(){
 
-        });
+                chooseSafariAnimal(
+                    button,
+                    animal,
+                    correct
+                );
+
+            }
+        );
+
 
         container.appendChild(button);
 
@@ -1495,11 +1801,18 @@ function showSafariQuestion(){
 }
 
 
-function chooseSafariAnimal(button,animal,correct){
+function chooseSafariAnimal(
+    button,
+    animal,
+    correct
+){
 
     if(safariLocked){
+
         return;
+
     }
+
 
     if(animal.name === correct.name){
 
@@ -1509,18 +1822,29 @@ function chooseSafariAnimal(button,animal,correct){
 
         safariScore++;
 
-        document.getElementById("gameScore").textContent =
+
+        document
+            .getElementById("gameScore")
+            .textContent =
             "⭐ " + safariScore + " / 10";
 
-        document.getElementById("gameProgress").style.width =
+
+        document
+            .getElementById("gameProgress")
+            .style.width =
             ((safariScore / 10) * 100) + "%";
 
-        document.getElementById("gameMessage").textContent =
+
+        document
+            .getElementById("gameMessage")
+            .textContent =
             "🌟 Correct! Great job, Orion!";
+
 
         setTimeout(function(){
 
             safariIndex++;
+
 
             if(safariIndex >= 10){
 
@@ -1534,15 +1858,22 @@ function chooseSafariAnimal(button,animal,correct){
 
         },800);
 
+
     }else{
 
         button.classList.add("wrong");
 
-        document.getElementById("gameMessage").textContent =
+
+        document
+            .getElementById("gameMessage")
+            .textContent =
             "💛 Try again!";
 
+
         setTimeout(function(){
+
             button.classList.remove("wrong");
+
         },400);
 
     }
@@ -1552,16 +1883,21 @@ function chooseSafariAnimal(button,animal,correct){
 
 function finishSafariGame(){
 
-    document.getElementById("gameArea").classList.remove("show");
+    document
+        .getElementById("gameArea")
+        .classList
+        .remove("show");
 
-    document.getElementById("gameFinish").classList.add("show");
+
+    document
+        .getElementById("gameFinish")
+        .classList
+        .add("show");
 
 }
 
 
-/* =========================================================
-   GAME 2 — MATCH BABY TO MAMA
-========================================================= */
+/* ================= GAME 2 ================= */
 
 const babyAnimals = [
 
@@ -1623,6 +1959,7 @@ const babyAnimals = [
 
 ];
 
+
 let matchQuestions = [];
 let matchIndex = 0;
 let matchScore = 0;
@@ -1632,16 +1969,31 @@ let matchLocked = false;
 
 function startMatchGame(){
 
-    matchQuestions = shuffle(babyAnimals);
+    matchQuestions =
+        shuffle(babyAnimals);
 
     matchIndex = 0;
     matchScore = 0;
     selectedMama = null;
     matchLocked = false;
 
-    document.getElementById("matchStart").style.display = "none";
-    document.getElementById("matchFinish").classList.remove("show");
-    document.getElementById("matchArea").classList.add("show");
+
+    document
+        .getElementById("matchStart")
+        .style.display = "none";
+
+
+    document
+        .getElementById("matchFinish")
+        .classList
+        .remove("show");
+
+
+    document
+        .getElementById("matchArea")
+        .classList
+        .add("show");
+
 
     showMatchQuestion();
 
@@ -1653,48 +2005,85 @@ function showMatchQuestion(){
     matchLocked = false;
     selectedMama = null;
 
-    const current = matchQuestions[matchIndex];
 
-    document.getElementById("matchScore").textContent =
+    const current =
+        matchQuestions[matchIndex];
+
+
+    document
+        .getElementById("matchScore")
+        .textContent =
         "💕 " + matchScore + " / 8";
 
-    document.getElementById("matchProgress").style.width =
+
+    document
+        .getElementById("matchProgress")
+        .style.width =
         ((matchScore / 8) * 100) + "%";
 
-    document.getElementById("babyEmoji").textContent =
+
+    document
+        .getElementById("babyEmoji")
+        .textContent =
         current.baby;
 
-    document.getElementById("babyName").textContent =
+
+    document
+        .getElementById("babyName")
+        .textContent =
         current.babyName;
 
-    document.getElementById("selectedMamaEmoji").textContent =
+
+    document
+        .getElementById("selectedMamaEmoji")
+        .textContent =
         "❓";
 
-    document.getElementById("selectedMamaName").textContent =
+
+    document
+        .getElementById("selectedMamaName")
+        .textContent =
         "Choose Mama";
 
-    document.getElementById("matchMessage").textContent = "";
 
-    const choices = shuffle([
-        current,
-        ...shuffle(
-            babyAnimals.filter(
-                a => a.mamaName !== current.mamaName
-            )
-        ).slice(0,2)
-    ]);
+    document
+        .getElementById("matchMessage")
+        .textContent = "";
+
+
+    const choices =
+        shuffle([
+
+            current,
+
+            ...shuffle(
+                babyAnimals.filter(
+                    a =>
+                    a.mamaName !== current.mamaName
+                )
+            ).slice(0,2)
+
+        ]);
+
 
     const container =
         document.getElementById("mamaChoices");
 
+
     container.innerHTML = "";
+
 
     choices.forEach(function(animal){
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
+
 
         button.type = "button";
-        button.className = "mama-choice";
+
+        button.className =
+            "mama-choice";
+
 
         button.innerHTML =
             '<span class="mama-emoji">' +
@@ -1704,11 +2093,20 @@ function showMatchQuestion(){
             animal.mamaName +
             '</span>';
 
-        button.addEventListener("click",function(){
 
-            chooseMama(button,animal,current);
+        button.addEventListener(
+            "click",
+            function(){
 
-        });
+                chooseMama(
+                    button,
+                    animal,
+                    current
+                );
+
+            }
+        );
+
 
         container.appendChild(button);
 
@@ -1717,13 +2115,23 @@ function showMatchQuestion(){
 }
 
 
-function chooseMama(button,animal,current){
+function chooseMama(
+    button,
+    animal,
+    current
+){
 
     if(matchLocked){
+
         return;
+
     }
 
-    if(animal.mamaName === current.mamaName){
+
+    if(
+        animal.mamaName ===
+        current.mamaName
+    ){
 
         matchLocked = true;
 
@@ -1731,24 +2139,41 @@ function chooseMama(button,animal,current){
 
         matchScore++;
 
-        document.getElementById("selectedMamaEmoji").textContent =
+
+        document
+            .getElementById("selectedMamaEmoji")
+            .textContent =
             animal.mama;
 
-        document.getElementById("selectedMamaName").textContent =
+
+        document
+            .getElementById("selectedMamaName")
+            .textContent =
             animal.mamaName;
 
-        document.getElementById("matchScore").textContent =
+
+        document
+            .getElementById("matchScore")
+            .textContent =
             "💕 " + matchScore + " / 8";
 
-        document.getElementById("matchProgress").style.width =
+
+        document
+            .getElementById("matchProgress")
+            .style.width =
             ((matchScore / 8) * 100) + "%";
 
-        document.getElementById("matchMessage").textContent =
+
+        document
+            .getElementById("matchMessage")
+            .textContent =
             "💖 Correct! Baby found Mama!";
+
 
         setTimeout(function(){
 
             matchIndex++;
+
 
             if(matchIndex >= 8){
 
@@ -1762,12 +2187,17 @@ function chooseMama(button,animal,current){
 
         },900);
 
+
     }else{
 
         button.classList.add("wrong");
 
-        document.getElementById("matchMessage").textContent =
+
+        document
+            .getElementById("matchMessage")
+            .textContent =
             "💛 Try again!";
+
 
         setTimeout(function(){
 
@@ -1782,30 +2212,40 @@ function chooseMama(button,animal,current){
 
 function finishMatchGame(){
 
-    document.getElementById("matchArea").classList.remove("show");
+    document
+        .getElementById("matchArea")
+        .classList
+        .remove("show");
 
-    document.getElementById("matchFinish").classList.add("show");
+
+    document
+        .getElementById("matchFinish")
+        .classList
+        .add("show");
 
 }
 
 
-/* =========================================================
-   ESC KEY CLOSES POPUPS
-========================================================= */
+/* ================= ESCAPE KEY ================= */
 
-document.addEventListener("keydown",function(e){
+document.addEventListener(
+    "keydown",
+    function(e){
 
-    if(e.key === "Escape"){
+        if(e.key === "Escape"){
 
-        document.querySelectorAll(".overlay").forEach(function(popup){
+            document
+                .querySelectorAll(".overlay")
+                .forEach(function(popup){
 
-            popup.classList.remove("show");
+                    popup.classList.remove("show");
 
-        });
+                });
+
+        }
 
     }
-
-});
+);
 
 </script>
 
