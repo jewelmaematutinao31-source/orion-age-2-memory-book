@@ -550,16 +550,24 @@ button{
     z-index:2;
 }
 
+/* ORION'S FACE ONLY */
 .orion-riding{
     position:absolute;
-    left:42px;
-    bottom:70px;
-    width:105px;
-    height:105px;
-    object-fit:contain;
-    object-position:center bottom;
+    left:48px;
+    bottom:72px;
+    width:84px;
+    height:84px;
+
+    object-fit:cover;
+    object-position:center 18%;
+
+    border-radius:50%;
+
+    border:4px solid rgba(255,255,255,.95);
+
+    box-shadow:0 3px 8px rgba(0,0,0,.18);
+
     z-index:3;
-    filter:drop-shadow(0 3px 3px rgba(0,0,0,.18));
 }
 
 .rider.bobbing{
@@ -768,9 +776,11 @@ button{
     }
 
     .orion-riding{
-        width:95px;
-        height:95px;
-        left:38px;
+        width:76px;
+        height:76px;
+        left:42px;
+        bottom:70px;
+        object-position:center 18%;
     }
 
     .move-button{
@@ -1270,10 +1280,11 @@ const foodForAnimal = {
         choices:["🐟","🍎","🍌"]
     },
 
+    /* DOG NOW EATS A BONE */
     dog:{
-        correct:"🥕",
-        name:"treat",
-        choices:["🥕","🍎","🍌"]
+        correct:"🦴",
+        name:"bone",
+        choices:["🦴","🍎","🍌"]
     },
 
     chicken:{
@@ -1660,8 +1671,10 @@ const scenes = {
 let currentGame = 0;
 
 let game1Animal = null;
+let game1Index = 0;
 
 let game2Animal = null;
+let game2Index = 0;
 
 let currentGame3Animal = null;
 
@@ -1793,22 +1806,31 @@ function repeatGame2Animal(){
 
 /* =========================================================
    GAME 1
+   NOW MOVES TO A DIFFERENT ANIMAL AFTER EACH CORRECT ANSWER
 ========================================================= */
 
 function startGame1(){
 
-    const randomIndex =
+    game1Index =
         Math.floor(Math.random()*animals.length);
 
-    game1Animal =
-        animals[randomIndex].id;
+    loadGame1Round();
+
+}
+
+
+function loadGame1Round(){
 
     const target =
-        animals.find(a => a.id === game1Animal);
+        animals[game1Index];
+
+    game1Animal =
+        target.id;
 
     document
         .getElementById("game1Target")
-        .textContent = target.emoji;
+        .textContent =
+        target.emoji;
 
     createGame1Choices();
 
@@ -1817,6 +1839,7 @@ function startGame1(){
     },300);
 
 }
+
 
 function createGame1Choices(){
 
@@ -1854,6 +1877,7 @@ function createGame1Choices(){
 
 }
 
+
 function checkGame1(animal,button){
 
     if(animal.id === game1Animal){
@@ -1869,6 +1893,25 @@ function checkGame1(animal,button){
                 "Great job! 🎉",
                 "You found the " + animal.name + "!"
             );
+
+            /*
+               Automatically move to the next animal.
+               No need for Orion to press another button.
+            */
+
+            setTimeout(()=>{
+
+                closePopup();
+
+                game1Index++;
+
+                if(game1Index >= animals.length){
+                    game1Index = 0;
+                }
+
+                loadGame1Round();
+
+            },900);
 
         },350);
 
@@ -1889,19 +1932,28 @@ function checkGame1(animal,button){
 
 /* =========================================================
    GAME 2
+   ANIMAL + FOOD CHANGE TOGETHER
 ========================================================= */
 
 function startGame2(){
 
-    const randomIndex =
+    game2Index =
         Math.floor(Math.random()*animals.length);
 
+    loadGame2Round();
+
+}
+
+
+function loadGame2Round(){
+
     game2Animal =
-        animals[randomIndex].id;
+        animals[game2Index].id;
 
     renderGame2();
 
 }
+
 
 function renderGame2(){
 
@@ -1910,7 +1962,8 @@ function renderGame2(){
 
     document
         .getElementById("game2Animal")
-        .textContent = animal.emoji;
+        .textContent =
+        animal.emoji;
 
     const foodData =
         foodForAnimal[game2Animal];
@@ -1949,6 +2002,7 @@ function renderGame2(){
 
 }
 
+
 function checkGame2(food,button){
 
     const foodData =
@@ -1974,6 +2028,25 @@ function checkGame2(food,button){
                 foodData.name +
                 "!"
             );
+
+            /*
+               Automatically move to the next animal
+               and its matching food.
+            */
+
+            setTimeout(()=>{
+
+                closePopup();
+
+                game2Index++;
+
+                if(game2Index >= animals.length){
+                    game2Index = 0;
+                }
+
+                loadGame2Round();
+
+            },900);
 
         },350);
 
