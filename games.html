@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -22,9 +23,7 @@ html,body{
 }
 
 body{
-    background:
-        linear-gradient(rgba(238,228,194,.35),rgba(238,228,194,.35)),
-        #dce8bd;
+    background:#dce8bd;
     color:#5c4934;
     overflow-x:hidden;
 }
@@ -36,7 +35,7 @@ button{
 }
 
 /* =========================================================
-   MAIN APP
+   APP
 ========================================================= */
 
 .app{
@@ -63,7 +62,7 @@ button{
 
 .header{
     width:100%;
-    max-width:900px;
+    max-width:1000px;
     margin:0 auto 15px;
     display:flex;
     align-items:center;
@@ -111,7 +110,7 @@ button{
 
 .game-menu{
     width:100%;
-    max-width:650px;
+    max-width:700px;
     display:grid;
     gap:18px;
 }
@@ -121,7 +120,7 @@ button{
     min-height:110px;
     border:4px solid white;
     border-radius:30px;
-    background:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.93);
     box-shadow:0 10px 25px rgba(70,55,35,.16);
     padding:18px;
     text-align:left;
@@ -139,6 +138,10 @@ button{
     width:82px;
     height:82px;
     flex:none;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
 }
 
 .menu-text strong{
@@ -153,7 +156,7 @@ button{
 }
 
 /* =========================================================
-   GAME SCREEN
+   GAME
 ========================================================= */
 
 .game-screen{
@@ -195,7 +198,7 @@ button{
 
 .game-card{
     flex:1;
-    background:rgba(255,255,255,.9);
+    background:rgba(255,255,255,.92);
     border:3px solid rgba(255,255,255,.95);
     border-radius:32px;
     box-shadow:0 12px 35px rgba(70,55,35,.15);
@@ -219,26 +222,21 @@ button{
 }
 
 /* =========================================================
-   SVG ANIMALS
+   EMOJI ANIMALS
 ========================================================= */
 
-.animal-svg{
-    width:150px;
-    height:140px;
-}
-
-.target-animal{
-    width:min(250px,65vw);
-    height:min(230px,55vw);
-    margin:5px auto 15px;
-}
-
-.animal-face{
-    transform-origin:center;
-}
-
-.bounce{
+.target-emoji{
+    font-size:clamp(110px,28vw,180px);
+    line-height:1;
+    margin:5px auto 20px;
     animation:bounce .7s infinite alternate;
+}
+
+.animal-choice-emoji{
+    font-size:clamp(65px,16vw,105px);
+    line-height:1;
+    margin-bottom:5px;
+    animation:bounce .8s infinite alternate;
 }
 
 @keyframes bounce{
@@ -252,9 +250,9 @@ button{
 
 .choice-grid{
     width:100%;
-    max-width:850px;
+    max-width:900px;
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
@@ -288,6 +286,7 @@ button{
 .choice-name{
     font-weight:bold;
     font-size:15px;
+    text-transform:capitalize;
 }
 
 @keyframes shake{
@@ -300,10 +299,11 @@ button{
    GAME 2
 ========================================================= */
 
-.feed-animal{
-    width:min(260px,65vw);
-    height:min(240px,55vw);
-    margin-bottom:5px;
+.feed-emoji{
+    font-size:clamp(105px,27vw,175px);
+    line-height:1;
+    margin:0 auto 8px;
+    animation:bounce .7s infinite alternate;
 }
 
 .food-grid{
@@ -329,66 +329,197 @@ button{
 }
 
 /* =========================================================
-   GAME 3
+   GAME 3 - JUNGLE
 ========================================================= */
 
-.hungry-stage{
+.jungle-stage{
     width:100%;
-    max-width:800px;
+    max-width:1000px;
     flex:1;
-    min-height:330px;
+    min-height:430px;
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
     overflow:hidden;
-    border-radius:28px;
-    background:
-        radial-gradient(circle at 15% 25%,#f4df9d 0 4%,transparent 5%),
-        radial-gradient(circle at 80% 20%,#f4df9d 0 4%,transparent 5%),
-        #edf2d4;
+    border-radius:30px;
     margin:5px 0 12px;
+    background:
+        linear-gradient(
+            to bottom,
+            #8fd3e8 0%,
+            #bce7dc 42%,
+            #83b95d 43%,
+            #4f913f 100%
+        );
+    border:5px solid #fff;
+    box-shadow:inset 0 -50px 0 rgba(41,101,43,.18);
 }
 
-/*
-   IMPORTANT:
-   The animal is BELOW the food.
-   The food has a higher z-index and pointer-events enabled.
-*/
+/* jungle plants */
 
-.hungry-animal{
-    position:relative;
-    z-index:2;
-    width:min(310px,70vw);
-    height:270px;
-}
-
-.moving-food{
+.jungle-tree{
     position:absolute;
-    z-index:20;
-    width:75px;
-    height:75px;
+    bottom:0;
+    font-size:clamp(75px,15vw,150px);
+    z-index:1;
+    pointer-events:none;
+    user-select:none;
+}
+
+.tree1{left:-20px;}
+.tree2{right:-25px;}
+.tree3{left:24%;font-size:80px;bottom:-10px;}
+.tree4{right:24%;font-size:90px;bottom:-15px;}
+
+.jungle-bush{
+    position:absolute;
+    bottom:8px;
+    font-size:65px;
+    z-index:2;
+    pointer-events:none;
+}
+
+.bush1{left:12%;}
+.bush2{right:12%;}
+
+/* butterflies */
+
+.butterfly{
+    position:absolute;
+    z-index:4;
+    font-size:32px;
+    animation:flyAround 7s ease-in-out infinite;
+    pointer-events:none;
+}
+
+.b1{left:18%;top:15%;animation-delay:0s;}
+.b2{left:70%;top:24%;animation-delay:2s;}
+.b3{left:52%;top:8%;animation-delay:4s;}
+
+@keyframes flyAround{
+    0%{transform:translate(0,0) rotate(-8deg);}
+    25%{transform:translate(35px,20px) rotate(8deg);}
+    50%{transform:translate(-10px,45px) rotate(-8deg);}
+    75%{transform:translate(-35px,10px) rotate(8deg);}
+    100%{transform:translate(0,0) rotate(-8deg);}
+}
+
+/* little birds */
+
+.jungle-bird{
+    position:absolute;
+    z-index:3;
+    font-size:30px;
+    animation:birdFly 8s linear infinite;
+    pointer-events:none;
+}
+
+.bird1{top:12%;left:-50px;}
+.bird2{top:30%;left:-100px;animation-delay:3s;}
+
+@keyframes birdFly{
+    from{transform:translateX(-80px);}
+    to{transform:translateX(110vw);}
+}
+
+/* Orion + animal */
+
+.rider-area{
+    position:absolute;
+    left:50%;
+    bottom:45px;
+    transform:translateX(-50%);
+    width:min(420px,75vw);
+    height:310px;
+    z-index:8;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    pointer-events:none;
+}
+
+.selected-animal{
+    position:absolute;
+    bottom:0;
+    font-size:clamp(135px,30vw,210px);
+    line-height:1;
+    z-index:8;
+    filter:drop-shadow(0 7px 4px rgba(0,0,0,.2));
+}
+
+.orion-riding{
+    position:absolute;
+    z-index:10;
+    bottom:105px;
+    width:min(155px,32vw);
+    max-height:180px;
+    object-fit:contain;
+    object-position:center bottom;
+    filter:drop-shadow(0 6px 4px rgba(0,0,0,.2));
+}
+
+/* food always above animal and Orion */
+
+.jungle-food{
+    position:absolute;
+    z-index:30;
+    width:68px;
+    height:68px;
     display:flex;
     align-items:center;
     justify-content:center;
-    border:0;
+    border:3px solid white;
     border-radius:50%;
-    background:white;
-    box-shadow:0 8px 18px rgba(70,55,35,.22);
-    font-size:45px;
-    cursor:pointer;
-    pointer-events:auto;
-    transition:left .7s ease,top .7s ease,transform .2s;
+    background:rgba(255,255,255,.95);
+    box-shadow:0 7px 18px rgba(0,0,0,.22);
+    font-size:42px;
+    transition:.2s;
 }
 
-.moving-food:active{
-    transform:scale(.85);
+.jungle-food:active{
+    transform:scale(.8);
 }
 
-.hungry-message{
-    min-height:28px;
+.jungle-instruction{
+    position:absolute;
+    top:12px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:35;
+    background:rgba(255,255,255,.92);
+    border-radius:20px;
+    padding:10px 16px;
     font-weight:bold;
-    font-size:18px;
+    font-size:17px;
+    width:max-content;
+    max-width:90%;
+}
+
+.animal-picker{
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:40;
+    width:95%;
+    display:flex;
+    justify-content:center;
+    gap:6px;
+    flex-wrap:wrap;
+}
+
+.animal-pick{
+    border:2px solid white;
+    background:rgba(255,255,255,.92);
+    border-radius:18px;
+    width:52px;
+    height:52px;
+    font-size:31px;
+    padding:0;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+}
+
+.animal-pick.selected{
+    border:4px solid #f1b84b;
+    transform:scale(1.1);
 }
 
 /* =========================================================
@@ -498,7 +629,7 @@ button{
    MOBILE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     .screen{
         padding:12px;
@@ -510,17 +641,13 @@ button{
     }
 
     .choice-grid{
+        grid-template-columns:repeat(3,1fr);
         gap:8px;
     }
 
     .choice{
         min-height:125px;
         border-radius:19px;
-    }
-
-    .choice .animal-svg{
-        width:105px;
-        height:95px;
     }
 
     .food-grid{
@@ -532,14 +659,57 @@ button{
         font-size:45px;
     }
 
-    .hungry-stage{
-        min-height:330px;
+    .jungle-stage{
+        min-height:470px;
     }
 
-    .moving-food{
-        width:68px;
-        height:68px;
-        font-size:40px;
+    .animal-picker{
+        gap:4px;
+    }
+
+    .animal-pick{
+        width:43px;
+        height:43px;
+        font-size:26px;
+    }
+
+    .orion-riding{
+        width:125px;
+        bottom:100px;
+    }
+
+    .selected-animal{
+        font-size:150px;
+    }
+
+    .jungle-food{
+        width:58px;
+        height:58px;
+        font-size:35px;
+    }
+}
+
+@media(max-width:430px){
+
+    .choice{
+        min-height:110px;
+    }
+
+    .animal-choice-emoji{
+        font-size:65px;
+    }
+
+    .choice-name{
+        font-size:12px;
+    }
+
+    .jungle-stage{
+        min-height:460px;
+    }
+
+    .tree3,
+    .tree4{
+        display:none;
     }
 }
 
@@ -550,21 +720,17 @@ button{
         overflow-y:auto;
     }
 
-    .target-animal,
-    .feed-animal{
-        width:160px;
-        height:150px;
+    .target-emoji,
+    .feed-emoji{
+        font-size:100px;
     }
 
-    .choice{
-        min-height:110px;
-    }
-
-    .hungry-stage{
-        min-height:220px;
+    .jungle-stage{
+        min-height:300px;
     }
 }
 </style>
+
 </head>
 
 <body>
@@ -577,102 +743,55 @@ button{
 
 <section id="menuScreen" class="screen menu-screen show">
 
-    <h1 class="logo">Orion's Safari Games</h1>
+```
+<h1 class="logo">Orion's Safari Games 🦁</h1>
 
-    <p class="menu-subtitle">
-        🐾 Come play with the safari animals!
-    </p>
+<p class="menu-subtitle">
+    🐾 Come play with the safari animals!
+</p>
 
-    <div class="game-menu">
+<div class="game-menu">
 
-        <button class="game-menu-button"
-                onclick="startGame(1)">
+    <button class="game-menu-button"
+            onclick="startGame(1)">
 
-            <svg class="menu-animal"
-                 viewBox="0 0 200 180">
-                <ellipse cx="100" cy="100" rx="65" ry="55"
-                         fill="#d79a4a"/>
-                <circle cx="100" cy="70" r="48"
-                        fill="#e9b968"/>
-                <circle cx="62" cy="38" r="18"
-                        fill="#d79a4a"/>
-                <circle cx="138" cy="38" r="18"
-                        fill="#d79a4a"/>
-                <circle cx="82" cy="68" r="6"/>
-                <circle cx="118" cy="68" r="6"/>
-                <path d="M88 88 Q100 98 112 88"
-                      fill="none" stroke="#5c4934"
-                      stroke-width="5"/>
-                <circle cx="100" cy="82" r="5"/>
-            </svg>
+        <div class="menu-animal">🦁</div>
 
-            <div class="menu-text">
-                <strong>Find the Animal</strong>
-                <span>Can you find the same animal?</span>
-            </div>
+        <div class="menu-text">
+            <strong>Find the Animal</strong>
+            <span>Can you find the same animal?</span>
+        </div>
 
-        </button>
+    </button>
 
+    <button class="game-menu-button"
+            onclick="startGame(2)">
 
-        <button class="game-menu-button"
-                onclick="startGame(2)">
+        <div class="menu-animal">🐵</div>
 
-            <svg class="menu-animal"
-                 viewBox="0 0 200 180">
-                <circle cx="100" cy="85" r="58"
-                        fill="#c98542"/>
-                <circle cx="62" cy="38" r="23"
-                        fill="#a96735"/>
-                <circle cx="138" cy="38" r="23"
-                        fill="#a96735"/>
-                <circle cx="80" cy="80" r="7"/>
-                <circle cx="120" cy="80" r="7"/>
-                <ellipse cx="100" cy="105" rx="25" ry="18"
-                         fill="#e9bd82"/>
-                <circle cx="100" cy="102" r="5"/>
-            </svg>
+        <div class="menu-text">
+            <strong>Feed the Animal</strong>
+            <span>What yummy food does it want?</span>
+        </div>
 
-            <div class="menu-text">
-                <strong>Feed the Animal</strong>
-                <span>What yummy food does it want?</span>
-            </div>
+    </button>
 
-        </button>
+    <button class="game-menu-button"
+            onclick="startGame(3)">
 
+        <div class="menu-animal">🌴</div>
 
-        <button class="game-menu-button"
-                onclick="startGame(3)">
+        <div class="menu-text">
+            <strong>Orion's Jungle Adventure</strong>
+            <span>Choose an animal and explore the jungle!</span>
+        </div>
 
-            <svg class="menu-animal"
-                 viewBox="0 0 200 180">
-                <ellipse cx="100" cy="105" rx="70" ry="50"
-                         fill="#e0a83e"/>
-                <circle cx="100" cy="65" r="48"
-                        fill="#edbd53"/>
-                <path d="M65 38 L48 10 L82 28
-                         M135 38 L152 10 L118 28"
-                      fill="#edbd53"
-                      stroke="#8d6428"
-                      stroke-width="5"/>
-                <circle cx="82" cy="65" r="6"/>
-                <circle cx="118" cy="65" r="6"/>
-                <path d="M85 88 Q100 100 115 88"
-                      fill="none"
-                      stroke="#5c4934"
-                      stroke-width="5"/>
-            </svg>
+    </button>
 
-            <div class="menu-text">
-                <strong>Hungry Animal</strong>
-                <span>Catch the food and feed your friend!</span>
-            </div>
-
-        </button>
-
-    </div>
+</div>
+```
 
 </section>
-
 
 <!-- ======================================================
      GAME 1
@@ -682,40 +801,44 @@ button{
 
 <div class="game-container">
 
-    <div class="header">
-        <h2 class="header-title">Find the Animal</h2>
-        <button class="home-button"
-                onclick="showMenu()">🏠 Games</button>
-    </div>
+```
+<div class="header">
+    <h2 class="header-title">Find the Animal</h2>
 
-    <div class="score-row">
-        <span id="score1">⭐ 0</span>
-        <span id="round1">1 / 5</span>
-    </div>
+    <button class="home-button"
+            onclick="showMenu()">🏠 Games</button>
+</div>
 
-    <div class="progress">
-        <div id="progress1" class="progress-fill"></div>
-    </div>
+<div class="score-row">
+    <span id="score1">⭐ 0</span>
+    <span id="round1">1 / 5</span>
+</div>
 
-    <div class="game-card">
+<div class="progress">
+    <div id="progress1"
+         class="progress-fill"></div>
+</div>
 
-        <h2 class="game-title">
-            Can you find this animal?
-        </h2>
+<div class="game-card">
 
-        <p class="instruction">
-            Tap the same animal below.
-        </p>
+    <h2 class="game-title">
+        Can you find this animal?
+    </h2>
 
-        <div id="targetAnimal"></div>
+    <p class="instruction">
+        Tap the same animal below.
+    </p>
 
-        <div id="choices1" class="choice-grid"></div>
+    <div id="targetAnimal"></div>
 
-    </div>
+    <div id="choices1"
+         class="choice-grid"></div>
+
+</div>
+```
 
 </div>
 </section>
-
 
 <!-- ======================================================
      GAME 2
@@ -725,100 +848,205 @@ button{
 
 <div class="game-container">
 
-    <div class="header">
-        <h2 class="header-title">Feed the Animal</h2>
-        <button class="home-button"
-                onclick="showMenu()">🏠 Games</button>
-    </div>
+```
+<div class="header">
 
-    <div class="score-row">
-        <span id="score2">⭐ 0</span>
-        <span id="round2">1 / 5</span>
-    </div>
+    <h2 class="header-title">
+        Feed the Animal
+    </h2>
 
-    <div class="progress">
-        <div id="progress2" class="progress-fill"></div>
-    </div>
+    <button class="home-button"
+            onclick="showMenu()">
+        🏠 Games
+    </button>
 
-    <div class="game-card">
+</div>
 
-        <h2 id="feedTitle" class="game-title">
-            What food does the animal want?
-        </h2>
+<div class="score-row">
+    <span id="score2">⭐ 0</span>
+    <span id="round2">1 / 5</span>
+</div>
 
-        <div id="feedAnimal"></div>
+<div class="progress">
+    <div id="progress2"
+         class="progress-fill"></div>
+</div>
 
-        <p class="instruction">
-            Tap the yummy food!
-        </p>
+<div class="game-card">
 
-        <div id="foodChoices" class="food-grid"></div>
+    <h2 class="game-title">
+        What food does the animal want?
+    </h2>
 
-    </div>
+    <div id="feedAnimal"></div>
+
+    <p class="instruction">
+        Tap the yummy food!
+    </p>
+
+    <div id="foodChoices"
+         class="food-grid"></div>
+
+</div>
+```
 
 </div>
 </section>
 
-
 <!-- ======================================================
-     GAME 3
+     GAME 3 - JUNGLE ADVENTURE
 ======================================================= -->
 
 <section id="game3" class="screen game-screen">
 
 <div class="game-container">
 
-    <div class="header">
-        <h2 class="header-title">Hungry Animal</h2>
-        <button class="home-button"
-                onclick="showMenu()">🏠 Games</button>
-    </div>
+```
+<div class="header">
 
-    <div class="score-row">
-        <span id="score3">⭐ 0</span>
-        <span id="round3">1 / 5</span>
-    </div>
+    <h2 class="header-title">
+        Jungle Adventure
+    </h2>
 
-    <div class="progress">
-        <div id="progress3" class="progress-fill"></div>
-    </div>
+    <button class="home-button"
+            onclick="showMenu()">
+        🏠 Games
+    </button>
 
-    <div class="game-card">
+</div>
 
-        <h2 class="game-title">
-            Feed the hungry animal!
-        </h2>
+<div class="score-row">
+    <span id="score3">⭐ 0</span>
+    <span id="round3">1 / 5</span>
+</div>
 
-        <p class="instruction">
-            Tap the food before it moves away.
-        </p>
+<div class="progress">
+    <div id="progress3"
+         class="progress-fill"></div>
+</div>
 
-        <div id="hungryStage" class="hungry-stage">
+<div class="game-card">
 
-            <!-- ANIMAL LAYER -->
-            <div id="hungryAnimal"
-                 class="hungry-animal">
+    <h2 class="game-title">
+        🌴 Orion's Jungle Adventure
+    </h2>
+
+    <p class="instruction">
+        Choose an animal for Orion to ride!
+    </p>
+
+    <div id="jungleStage"
+         class="jungle-stage">
+
+        <div class="jungle-instruction">
+            👆 Choose an animal below!
+        </div>
+
+        <!-- JUNGLE -->
+
+        <div class="jungle-tree tree1">🌴</div>
+        <div class="jungle-tree tree2">🌴</div>
+        <div class="jungle-tree tree3">🌳</div>
+        <div class="jungle-tree tree4">🌳</div>
+
+        <div class="jungle-bush bush1">🌿</div>
+        <div class="jungle-bush bush2">🌿</div>
+
+        <div class="butterfly b1">🦋</div>
+        <div class="butterfly b2">🦋</div>
+        <div class="butterfly b3">🦋</div>
+
+        <div class="jungle-bird bird1">🐦</div>
+        <div class="jungle-bird bird2">🐦</div>
+
+        <!-- ANIMAL + ORION -->
+
+        <div class="rider-area">
+
+            <div id="selectedAnimal"
+                 class="selected-animal">
+                🦁
             </div>
 
-            <!-- FOOD LAYER
-                 Higher z-index than animal -->
-            <button id="movingFood"
-                    class="moving-food"
-                    onclick="catchFood()">
-                🍎
-            </button>
+            <img id="orionRiding"
+                 class="orion-riding"
+                 src="riding.png.png"
+                 alt="Orion riding an animal">
 
         </div>
 
-        <div id="hungryMessage"
-             class="hungry-message">
-        </div>
+        <!-- FOOD -->
 
+        <button id="jungleFood1"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🍎
+        </button>
+
+        <button id="jungleFood2"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🍌
+        </button>
+
+        <button id="jungleFood3"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🍉
+        </button>
+
+        <button id="jungleFood4"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🍊
+        </button>
+
+        <button id="jungleFood5"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🍓
+        </button>
+
+        <button id="jungleFood6"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🥭
+        </button>
+
+        <button id="jungleFood7"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🍍
+        </button>
+
+        <button id="jungleFood8"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🥕
+        </button>
+
+        <button id="jungleFood9"
+                class="jungle-food"
+                onclick="collectJungleFood(this)">
+            🌽
+        </button>
+
+        <!-- ANIMAL PICKER -->
+
+        <div id="animalPicker"
+             class="animal-picker"></div>
+
+    </div>
+
+    <div id="jungleMessage"
+         class="hungry-message">
     </div>
 
 </div>
-</section>
+```
 
+</div>
+</section>
 
 <!-- ======================================================
      SUCCESS POPUP
@@ -827,172 +1055,126 @@ button{
 <div id="popup"
      class="popup">
 
-    <div class="popup-box">
+```
+<div class="popup-box">
 
-        <div class="popup-stars">
-            ⭐🌟⭐
-        </div>
+    <div class="popup-stars">
+        ⭐🌟⭐
+    </div>
 
-        <h2 id="popupTitle"
-            class="popup-title">
-            Great job, Orion!
-        </h2>
+    <h2 id="popupTitle"
+        class="popup-title">
+        Great job, Orion!
+    </h2>
 
-        <p id="popupText"
-           class="popup-text">
-            You found it!
-        </p>
+    <p id="popupText"
+       class="popup-text">
+        You found it!
+    </p>
 
-        <div class="popup-buttons">
+    <div class="popup-buttons">
 
-            <button class="popup-button"
-                    onclick="popupNext()">
-                ➡️ Next
-            </button>
+        <button id="popupNextButton"
+                class="popup-button"
+                onclick="popupNext()">
+            ➡️ Next
+        </button>
 
-            <button class="popup-button secondary"
-                    onclick="showMenu()">
-                🏠 Games
-            </button>
-
-        </div>
+        <button class="popup-button secondary"
+                onclick="showMenu()">
+            🏠 Games
+        </button>
 
     </div>
-</div>
 
+</div>
+```
+
+</div>
 
 <script>
 
 /* =========================================================
-   DATA
+   ANIMALS ORION KNOWS
 ========================================================= */
 
 const animals = [
-    "lion",
-    "elephant",
-    "monkey",
-    "giraffe",
-    "zebra",
-    "panda"
+
+    {name:"lion",emoji:"🦁"},
+    {name:"elephant",emoji:"🐘"},
+    {name:"monkey",emoji:"🐵"},
+    {name:"giraffe",emoji:"🦒"},
+    {name:"zebra",emoji:"🦓"},
+    {name:"panda",emoji:"🐼"},
+
+    {name:"bird",emoji:"🐦"},
+    {name:"leopard",emoji:"🐆"},
+    {name:"fish",emoji:"🐟"},
+    {name:"bee",emoji:"🐝"},
+    {name:"penguin",emoji:"🐧"},
+    {name:"polar bear",emoji:"🐻‍❄️"},
+
+    {name:"horse",emoji:"🐴"},
+    {name:"duck",emoji:"🦆"},
+    {name:"cat",emoji:"🐱"},
+    {name:"dog",emoji:"🐶"},
+    {name:"chicken",emoji:"🐔"}
+
 ];
 
+
+/* =========================================================
+   GAME 2 FOOD
+   KEEPING THE ORIGINAL FOOD STYLE
+========================================================= */
+
 const foodForAnimal = {
-    lion:"🥩",
+
+    lion:"🍎",
     elephant:"🍉",
     monkey:"🍌",
     giraffe:"🍃",
     zebra:"🥕",
-    panda:"🎋"
+    panda:"🎋",
+
+    bird:"🍓",
+    leopard:"🍖",
+    fish:"🦐",
+    bee:"🌸",
+    penguin:"🐟",
+    "polar bear":"🐟",
+
+    horse:"🥕",
+    duck:"🌽",
+    cat:"🐟",
+    dog:"🦴",
+    chicken:"🌽"
+
 };
 
-const animalColors = {
-    lion:"#e0a83e",
-    elephant:"#9b9b9b",
-    monkey:"#a86d42",
-    giraffe:"#e3b83f",
-    zebra:"#eeeeee",
-    panda:"#eeeeee"
-};
+
+/* =========================================================
+   GAME STATE
+========================================================= */
 
 let currentGame = 0;
 let round = 0;
 let score = 0;
-let target = "";
+let target = null;
 let correctFood = "";
 let totalRounds = 5;
 
 
 /* =========================================================
-   SIMPLE ANIMAL SVG
+   GET RANDOM ANIMAL
 ========================================================= */
 
-function animalSVG(name){
+function randomAnimal(){
 
-    let color = animalColors[name];
+    return animals[
+        Math.floor(Math.random()*animals.length)
+    ];
 
-    if(name === "zebra"){
-        color = "#eeeeee";
-    }
-
-    if(name === "panda"){
-        color = "#f5f5f5";
-    }
-
-    let extra = "";
-
-    if(name === "giraffe"){
-        extra = `
-            <circle cx="65" cy="50" r="8" fill="#a8752e"/>
-            <circle cx="135" cy="45" r="8" fill="#a8752e"/>
-            <rect x="75" y="75" width="50" height="65"
-                  rx="20" fill="${color}"/>
-        `;
-    }
-
-    if(name === "zebra"){
-        extra = `
-            <path d="M65 50 L135 95
-                     M65 75 L135 120
-                     M135 50 L65 95"
-                  stroke="#333"
-                  stroke-width="10"/>
-        `;
-    }
-
-    if(name === "panda"){
-        extra = `
-            <ellipse cx="78" cy="72" rx="13" ry="18"
-                     fill="#222" transform="rotate(-25 78 72)"/>
-            <ellipse cx="122" cy="72" rx="13" ry="18"
-                     fill="#222" transform="rotate(25 122 72)"/>
-        `;
-    }
-
-    return `
-    <svg class="animal-svg bounce"
-         viewBox="0 0 200 180">
-
-        <ellipse cx="100" cy="120"
-                 rx="65" ry="45"
-                 fill="${color}"/>
-
-        <circle cx="100" cy="72"
-                r="52"
-                fill="${color}"/>
-
-        <circle cx="65" cy="38"
-                r="20"
-                fill="${color}"/>
-
-        <circle cx="135" cy="38"
-                r="20"
-                fill="${color}"/>
-
-        ${extra}
-
-        <circle cx="82" cy="68"
-                r="6"
-                fill="#222"/>
-
-        <circle cx="118" cy="68"
-                r="6"
-                fill="#222"/>
-
-        <ellipse cx="100" cy="91"
-                 rx="18" ry="12"
-                 fill="#f2d4a4"/>
-
-        <circle cx="100" cy="88"
-                r="5"
-                fill="#5c4934"/>
-
-        <path d="M88 98 Q100 108 112 98"
-              fill="none"
-              stroke="#5c4934"
-              stroke-width="4"
-              stroke-linecap="round"/>
-
-    </svg>`;
 }
 
 
@@ -1004,9 +1186,12 @@ function hideScreens(){
 
     document
         .querySelectorAll(".screen")
-        .forEach(s => s.classList.remove("show"));
+        .forEach(s =>
+            s.classList.remove("show")
+        );
 
 }
+
 
 function showMenu(){
 
@@ -1019,6 +1204,7 @@ function showMenu(){
     closePopup();
 
 }
+
 
 function startGame(number){
 
@@ -1071,32 +1257,40 @@ function updateGame(){
 
 function loadGame1(){
 
-    target =
-        animals[Math.floor(Math.random()*animals.length)];
+    target = randomAnimal();
 
     document
         .getElementById("targetAnimal")
-        .innerHTML =
-        animalSVG(target);
+        .innerHTML = `
+            <div class="target-emoji">
+                ${target.emoji}
+            </div>
+        `;
 
     const choices =
         document.getElementById("choices1");
 
     choices.innerHTML = "";
 
+    /*
+       Show 6 choices from the full animal collection.
+       The target is always included.
+    */
+
     let shuffled =
         [...animals]
-        .sort(() => Math.random()-.5)
-        .slice(0,3);
+        .sort(() => Math.random()-.5);
 
-    if(!shuffled.includes(target)){
-        shuffled[0] = target;
-    }
+    let selected =
+        shuffled
+        .filter(a => a.name !== target.name)
+        .slice(0,5);
 
-    shuffled =
-        shuffled.sort(() => Math.random()-.5);
+    selected.push(target);
 
-    shuffled.forEach(name => {
+    selected.sort(() => Math.random()-.5);
+
+    selected.forEach(animal => {
 
         const button =
             document.createElement("button");
@@ -1104,14 +1298,17 @@ function loadGame1(){
         button.className = "choice";
 
         button.innerHTML = `
-            ${animalSVG(name)}
+            <div class="animal-choice-emoji">
+                ${animal.emoji}
+            </div>
+
             <span class="choice-name">
-                ${name}
+                ${animal.name}
             </span>
         `;
 
         button.onclick = () =>
-            answerGame1(button,name);
+            answerGame1(button,animal);
 
         choices.appendChild(button);
 
@@ -1125,11 +1322,13 @@ function loadGame1(){
 
     document.getElementById("progress1").style.width =
         (round / totalRounds * 100) + "%";
+
 }
 
-function answerGame1(button,name){
 
-    if(name !== target){
+function answerGame1(button,animal){
+
+    if(animal.name !== target.name){
 
         button.classList.add("wrong");
 
@@ -1145,10 +1344,12 @@ function answerGame1(button,name){
     score++;
 
     setTimeout(() => {
+
         showSuccess(
-            "Great job, Orion! 🦁",
+            "Great job, Orion! 🌟",
             "You found the same animal!"
         );
+
     },350);
 
 }
@@ -1160,28 +1361,75 @@ function answerGame1(button,name){
 
 function loadGame2(){
 
-    target =
-        animals[Math.floor(Math.random()*animals.length)];
+    target = randomAnimal();
 
     correctFood =
-        foodForAnimal[target];
+        foodForAnimal[target.name];
 
-    document.getElementById("feedAnimal")
-        .innerHTML =
-        animalSVG(target);
+    document
+        .getElementById("feedAnimal")
+        .innerHTML = `
+            <div class="feed-emoji">
+                ${target.emoji}
+            </div>
+        `;
 
-    const foods = [
+
+    /*
+       Keep the original simple food-choice idea.
+       The correct food is shown with two other foods.
+    */
+
+    let foods = [
+
         correctFood,
         "🍎",
         "🍌"
+
     ];
 
+    /*
+       Remove duplicates if the correct answer
+       is already one of the two standard foods.
+    */
+
+    foods = [...new Set(foods)];
+
+
+    while(foods.length < 3){
+
+        const extraFoods = [
+            "🍉",
+            "🍓",
+            "🍊",
+            "🥭",
+            "🍍",
+            "🥕",
+            "🌽"
+        ];
+
+        const extra =
+            extraFoods[
+                Math.floor(
+                    Math.random()*extraFoods.length
+                )
+            ];
+
+        if(!foods.includes(extra)){
+            foods.push(extra);
+        }
+
+    }
+
+
     foods.sort(() => Math.random()-.5);
+
 
     const container =
         document.getElementById("foodChoices");
 
     container.innerHTML = "";
+
 
     foods.forEach(food => {
 
@@ -1189,6 +1437,7 @@ function loadGame2(){
             document.createElement("button");
 
         button.className = "food-button";
+
         button.textContent = food;
 
         button.onclick = () =>
@@ -1197,6 +1446,7 @@ function loadGame2(){
         container.appendChild(button);
 
     });
+
 
     document.getElementById("score2").textContent =
         "⭐ " + score;
@@ -1209,22 +1459,28 @@ function loadGame2(){
 
 }
 
+
 function answerGame2(button,food){
 
     if(food !== correctFood){
 
         button.animate(
+
             [
                 {transform:"translateX(0)"},
                 {transform:"translateX(-8px)"},
                 {transform:"translateX(8px)"},
                 {transform:"translateX(0)"}
             ],
+
             {duration:350}
+
         );
 
         return;
+
     }
+
 
     score++;
 
@@ -1238,20 +1494,29 @@ function answerGame2(button,food){
 
 /* =========================================================
    GAME 3
+   JUNGLE ADVENTURE
 ========================================================= */
 
-let foodTimer;
+let jungleFoodTimer;
+
+
+/* ---------------------------------------------------------
+   LOAD GAME 3
+--------------------------------------------------------- */
 
 function loadGame3(){
 
-    clearTimeout(foodTimer);
+    document.getElementById("jungleMessage")
+        .textContent =
+        "";
 
-    target =
-        animals[Math.floor(Math.random()*animals.length)];
+    target = randomAnimal();
 
-    document.getElementById("hungryAnimal")
-        .innerHTML =
-        animalSVG(target);
+    setJungleAnimal(target);
+
+    createAnimalPicker();
+
+    placeAllJungleFood();
 
     document.getElementById("score3").textContent =
         "⭐ " + score;
@@ -1262,61 +1527,295 @@ function loadGame3(){
     document.getElementById("progress3").style.width =
         (round / totalRounds * 100) + "%";
 
-    const food =
-        document.getElementById("movingFood");
+}
 
-    food.textContent =
-        foodForAnimal[target];
 
-    moveFood();
+/* ---------------------------------------------------------
+   SELECT ANIMAL
+--------------------------------------------------------- */
+
+function setJungleAnimal(animal){
+
+    target = animal;
+
+    document
+        .getElementById("selectedAnimal")
+        .textContent =
+        animal.emoji;
+
+    document
+        .getElementById("jungleMessage")
+        .textContent =
+        "Orion is riding the " +
+        animal.name +
+        "! 🥰";
+
+    updatePickerSelection();
 
 }
 
 
-/*
-   FOOD ALWAYS STAYS ABOVE ANIMAL.
-   z-index:20 in CSS
-   animal z-index:2
-*/
+/* ---------------------------------------------------------
+   ANIMAL PICKER
+--------------------------------------------------------- */
 
-function moveFood(){
+function createAnimalPicker(){
+
+    const picker =
+        document.getElementById("animalPicker");
+
+    picker.innerHTML = "";
+
+    animals.forEach(animal => {
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "animal-pick";
+
+        button.textContent =
+            animal.emoji;
+
+        button.title =
+            animal.name;
+
+        button.onclick = function(){
+
+            setJungleAnimal(animal);
+
+            makeSmallConfetti();
+
+        };
+
+        picker.appendChild(button);
+
+    });
+
+    updatePickerSelection();
+
+}
+
+
+function updatePickerSelection(){
+
+    document
+        .querySelectorAll(".animal-pick")
+        .forEach(button => {
+
+            button.classList.remove("selected");
+
+            if(
+                target &&
+                button.title === target.name
+            ){
+
+                button.classList.add("selected");
+
+            }
+
+        });
+
+}
+
+
+/* ---------------------------------------------------------
+   FOOD
+--------------------------------------------------------- */
+
+function placeAllJungleFood(){
 
     const stage =
-        document.getElementById("hungryStage");
+        document.getElementById("jungleStage");
 
-    const food =
-        document.getElementById("movingFood");
+    const foods =
+        document.querySelectorAll(".jungle-food");
 
-    const maxX =
-        Math.max(10, stage.clientWidth - 90);
+    foods.forEach((food,index) => {
 
-    const maxY =
-        Math.max(10, stage.clientHeight - 90);
+        /*
+           Keep food away from the animal/photo
+           in the center.
 
-    const x =
-        Math.random() * maxX;
+           Food remains z-index 30,
+           while animal/photo are z-index 8/10.
+        */
 
-    const y =
-        Math.random() * maxY;
+        let x;
+        let y;
 
-    food.style.left = x + "px";
-    food.style.top = y + "px";
+        if(index % 2 === 0){
+
+            x =
+                20 +
+                Math.random() *
+                Math.max(20,stage.clientWidth - 100);
+
+        }else{
+
+            x =
+                15 +
+                Math.random() *
+                Math.max(20,stage.clientWidth - 95);
+
+        }
+
+        y =
+            55 +
+            Math.random() *
+            Math.max(20,stage.clientHeight - 180);
+
+
+        food.style.left =
+            x + "px";
+
+        food.style.top =
+            y + "px";
+
+        food.style.display =
+            "flex";
+
+        food.dataset.collected =
+            "false";
+
+    });
 
 }
 
-function catchFood(){
 
-    clearTimeout(foodTimer);
+/* ---------------------------------------------------------
+   COLLECT FOOD
+--------------------------------------------------------- */
+
+function collectJungleFood(button){
+
+    if(button.dataset.collected === "true"){
+        return;
+    }
+
+    button.dataset.collected =
+        "true";
+
+    button.animate(
+
+        [
+            {
+                transform:"scale(1)",
+                opacity:1
+            },
+
+            {
+                transform:"scale(1.5)",
+                opacity:.7
+            },
+
+            {
+                transform:"scale(0)",
+                opacity:0
+            }
+
+        ],
+
+        {
+            duration:350,
+            easing:"ease-out"
+        }
+
+    );
+
 
     score++;
 
-    document.getElementById("hungryMessage")
+    document.getElementById("score3")
         .textContent =
-        "Yummy! Great job! ⭐";
+        "⭐ " + score;
 
-    showSuccess(
-        "Yummy! 🐾",
-        "You fed the hungry animal!"
+    document.getElementById("jungleMessage")
+        .textContent =
+        "Yummy! Orion found the food! 🍎⭐";
+
+
+    setTimeout(() => {
+
+        button.style.display =
+            "none";
+
+    },350);
+
+
+    makeSmallConfetti();
+
+
+    /*
+       After collecting a food,
+       another one appears somewhere new.
+    */
+
+    setTimeout(() => {
+
+        respawnJungleFood(button);
+
+    },700);
+
+}
+
+
+/* ---------------------------------------------------------
+   RESPAWN FOOD
+--------------------------------------------------------- */
+
+function respawnJungleFood(button){
+
+    const stage =
+        document.getElementById("jungleStage");
+
+    const x =
+        15 +
+        Math.random() *
+        Math.max(20,stage.clientWidth - 100);
+
+    const y =
+        55 +
+        Math.random() *
+        Math.max(20,stage.clientHeight - 180);
+
+
+    button.style.left =
+        x + "px";
+
+    button.style.top =
+        y + "px";
+
+    button.style.display =
+        "flex";
+
+    button.dataset.collected =
+        "false";
+
+    button.animate(
+
+        [
+            {
+                transform:"scale(0)",
+                opacity:0
+            },
+
+            {
+                transform:"scale(1.15)",
+                opacity:1
+            },
+
+            {
+                transform:"scale(1)",
+                opacity:1
+            }
+
+        ],
+
+        {
+            duration:400
+        }
+
     );
 
 }
@@ -1329,10 +1828,12 @@ function catchFood(){
 function showSuccess(title,text){
 
     document.getElementById("popupTitle")
-        .textContent = title;
+        .textContent =
+        title;
 
     document.getElementById("popupText")
-        .textContent = text;
+        .textContent =
+        text;
 
     document
         .getElementById("popup")
@@ -1342,6 +1843,7 @@ function showSuccess(title,text){
 
 }
 
+
 function closePopup(){
 
     document
@@ -1349,6 +1851,7 @@ function closePopup(){
         .classList.remove("show");
 
 }
+
 
 function popupNext(){
 
@@ -1367,8 +1870,6 @@ function popupNext(){
 
 function finishGame(){
 
-    clearTimeout(foodTimer);
-
     document.getElementById("popupTitle")
         .textContent =
         "Amazing, Orion! 🌟";
@@ -1376,21 +1877,25 @@ function finishGame(){
     document.getElementById("popupText")
         .textContent =
         "You finished the game! You got " +
-        score + " out of " +
-        totalRounds + " stars!";
+        score + " stars!";
 
-    document
-        .querySelector(".popup-button")
-        .textContent =
+    const nextButton =
+        document.getElementById(
+            "popupNextButton"
+        );
+
+    nextButton.textContent =
         "🔄 Play Again";
 
-    document
-        .querySelector(".popup-button")
-        .onclick =
+    nextButton.onclick =
         function(){
+
             closePopup();
+
             startGame(currentGame);
+
         };
+
 
     document
         .getElementById("popup")
@@ -1412,7 +1917,8 @@ function makeConfetti(){
         const piece =
             document.createElement("div");
 
-        piece.className = "confetti";
+        piece.className =
+            "confetti";
 
         piece.style.left =
             Math.random()*100 + "vw";
@@ -1421,12 +1927,15 @@ function makeConfetti(){
             "-20px";
 
         piece.style.background =
-            ["#7e9b45",
-             "#d38b70",
-             "#e6b85c",
-             "#8aa6c1",
-             "#b98bb5"]
-             [Math.floor(Math.random()*5)];
+            [
+                "#7e9b45",
+                "#d38b70",
+                "#e6b85c",
+                "#8aa6c1",
+                "#b98bb5"
+            ][
+                Math.floor(Math.random()*5)
+            ];
 
         piece.style.animationDelay =
             Math.random()*.5 + "s";
@@ -1436,6 +1945,36 @@ function makeConfetti(){
         setTimeout(() => {
             piece.remove();
         },1800);
+
+    }
+
+}
+
+
+function makeSmallConfetti(){
+
+    for(let i=0;i<8;i++){
+
+        const piece =
+            document.createElement("div");
+
+        piece.className =
+            "confetti";
+
+        piece.style.left =
+            (40 + Math.random()*20) + "vw";
+
+        piece.style.top =
+            (35 + Math.random()*20) + "vh";
+
+        piece.style.background =
+            "#e6b85c";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => {
+            piece.remove();
+        },1500);
 
     }
 
