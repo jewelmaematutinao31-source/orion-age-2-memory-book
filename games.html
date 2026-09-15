@@ -101,6 +101,11 @@ button{
     background:#e67b45;
 }
 
+/* GAME 4 MENU BUTTON */
+.game4-btn{
+    background:#8b6cc7;
+}
+
 .small-note{
     margin-top:30px;
     font-size:14px;
@@ -338,7 +343,7 @@ button{
     top:0;
     width:2400px;
     height:100%;
-    transition:background .4s ease;
+    transition:background .4s ease, transform .4s ease;
 }
 
 /* ---------------------------------------------------------
@@ -648,6 +653,113 @@ button{
     box-shadow:inset 0 0 0 4px #f3ae32;
 }
 
+
+/* =========================================================
+   GAME 4 - FIND THE COLOR
+========================================================= */
+
+#game4{
+    background:linear-gradient(#fff8d9,#e2f8ff);
+}
+
+.color-target-box{
+    width:min(430px,92vw);
+    margin:18px auto 25px;
+    background:white;
+    padding:22px 18px;
+    border-radius:32px;
+    box-shadow:0 7px 20px rgba(0,0,0,.12);
+}
+
+.color-question{
+    font-size:24px;
+    font-weight:bold;
+    color:#4b683c;
+    margin-bottom:16px;
+}
+
+.color-target{
+    width:125px;
+    height:125px;
+    margin:auto;
+    border-radius:50%;
+    border:8px solid white;
+    box-shadow:
+        0 5px 0 rgba(0,0,0,.08),
+        0 8px 18px rgba(0,0,0,.16);
+}
+
+.color-choice-grid{
+    width:min(700px,94vw);
+    margin:20px auto;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.color-choice{
+    min-height:150px;
+    background:white;
+    border-radius:30px;
+    box-shadow:0 6px 15px rgba(0,0,0,.12);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.15s;
+    padding:18px;
+}
+
+.color-choice:active{
+    transform:scale(.91);
+}
+
+.color-choice-circle{
+    width:105px;
+    height:105px;
+    border-radius:50%;
+    border:7px solid white;
+    box-shadow:
+        0 4px 0 rgba(0,0,0,.08),
+        0 6px 13px rgba(0,0,0,.15);
+}
+
+.color-choice.correct-color{
+    animation:colorCorrect .65s ease;
+}
+
+@keyframes colorCorrect{
+    0%{transform:scale(1);}
+    45%{transform:scale(1.3);}
+    75%{transform:scale(.95);}
+    100%{transform:scale(1);}
+}
+
+.color-choice.wrong-color{
+    animation:colorWrong .4s ease;
+}
+
+@keyframes colorWrong{
+    0%,100%{transform:translateX(0);}
+    25%{transform:translateX(-10px);}
+    75%{transform:translateX(10px);}
+}
+
+.color-feedback{
+    min-height:80px;
+    margin:15px auto;
+    font-size:25px;
+    font-weight:bold;
+    color:#4f813c;
+}
+
+.color-feedback-small{
+    display:block;
+    font-size:18px;
+    margin-top:5px;
+    color:#777;
+}
+
+
 /* ---------------------------------------------------------
    POPUPS
 --------------------------------------------------------- */
@@ -795,6 +907,30 @@ button{
     .big-tree{
         font-size:125px;
     }
+
+    /* GAME 4 MOBILE */
+    .color-question{
+        font-size:21px;
+    }
+
+    .color-target{
+        width:110px;
+        height:110px;
+    }
+
+    .color-choice-grid{
+        gap:12px;
+    }
+
+    .color-choice{
+        min-height:135px;
+    }
+
+    .color-choice-circle{
+        width:90px;
+        height:90px;
+    }
+
 }
 
 </style>
@@ -828,6 +964,10 @@ button{
 
         <button class="menu-button game3-btn" onclick="openGame(3)">
             🎮 Safari Adventure 🌴
+        </button>
+
+        <button class="menu-button game4-btn" onclick="openGame(4)">
+            🎨 Find the Color 🌈
         </button>
 
     </div>
@@ -1021,6 +1161,59 @@ button{
         <div id="game3AnimalSelector" class="selector-grid"></div>
 
     </div>
+
+</section>
+
+
+<!-- =======================================================
+     GAME 4 - FIND THE COLOR
+======================================================= -->
+
+<section id="game4" class="game-screen hidden">
+
+    <div class="top-bar">
+
+        <button class="back-button" onclick="showMenu()">
+            ← Menu
+        </button>
+
+        <button class="sound-button" onclick="repeatGame4Color()">
+            🔊 Sound
+        </button>
+
+    </div>
+
+    <h1 class="game-title">
+        Find the Color! 🌈
+    </h1>
+
+    <p class="game-instruction">
+        Look carefully and tap the same color!
+    </p>
+
+    <div class="color-target-box">
+
+        <div id="game4Question" class="color-question">
+            Where is the BLUE color?
+        </div>
+
+        <div
+            id="game4Target"
+            class="color-target"
+            aria-label="Target color"
+        ></div>
+
+    </div>
+
+    <div
+        id="game4Feedback"
+        class="color-feedback"
+    ></div>
+
+    <div
+        id="game4Choices"
+        class="color-choice-grid"
+    ></div>
 
 </section>
 
@@ -1743,6 +1936,11 @@ function openGame(number){
 
     if(number === 3){
         startGame3();
+    }
+
+    /* GAME 4 */
+    if(number === 4){
+        startGame4();
     }
 
 }
@@ -2794,6 +2992,430 @@ function updateSelector(){
             );
 
         });
+
+}
+
+
+/* =========================================================
+   GAME 4 - FIND THE COLOR
+========================================================= */
+
+const game4Colors = [
+
+    {
+        name:"YELLOW",
+        color:"#FFD83D"
+    },
+
+    {
+        name:"BLUE",
+        color:"#4A90E2"
+    },
+
+    {
+        name:"GREEN",
+        color:"#62B84F"
+    },
+
+    {
+        name:"PINK",
+        color:"#F58BB5"
+    },
+
+    {
+        name:"BLACK",
+        color:"#222222"
+    },
+
+    {
+        name:"WHITE",
+        color:"#FFFFFF"
+    },
+
+    {
+        name:"PURPLE",
+        color:"#9B59B6"
+    },
+
+    {
+        name:"ORANGE",
+        color:"#F39C32"
+    },
+
+    {
+        name:"RED",
+        color:"#E74C3C"
+    }
+
+];
+
+let game4Index = 0;
+
+
+function startGame4(){
+
+    game4Index = 0;
+
+    loadGame4Round();
+
+}
+
+
+function loadGame4Round(){
+
+    const target =
+        game4Colors[game4Index];
+
+    /*
+       Show the target color name.
+    */
+
+    document
+        .getElementById("game4Question")
+        .textContent =
+        "Where is the " +
+        target.name +
+        " color?";
+
+
+    /*
+       Show the big target color.
+    */
+
+    const targetCircle =
+        document.getElementById(
+            "game4Target"
+        );
+
+    targetCircle.style.background =
+        target.color;
+
+    /*
+       Give white a visible outline.
+    */
+
+    if(target.name === "WHITE"){
+
+        targetCircle.style.border =
+            "8px solid #d9d9d9";
+
+    }else{
+
+        targetCircle.style.border =
+            "8px solid white";
+
+    }
+
+
+    /*
+       Get three different colors.
+    */
+
+    const otherColors =
+        game4Colors.filter(
+            color =>
+                color.name !== target.name
+        );
+
+    /*
+       Shuffle the other colors.
+    */
+
+    const shuffledOthers =
+        shuffleArray(otherColors);
+
+    /*
+       Make four choices:
+       target + three different colors.
+    */
+
+    const choices = [
+
+        target,
+
+        shuffledOthers[0],
+
+        shuffledOthers[1],
+
+        shuffledOthers[2]
+
+    ];
+
+    /*
+       Shuffle all four choices so the
+       correct answer appears in a random position.
+    */
+
+    const shuffledChoices =
+        shuffleArray(choices);
+
+
+    const container =
+        document.getElementById(
+            "game4Choices"
+        );
+
+    container.innerHTML = "";
+
+
+    document
+        .getElementById(
+            "game4Feedback"
+        )
+        .innerHTML = "";
+
+
+    /*
+       Create the four large color buttons.
+    */
+
+    shuffledChoices.forEach(color=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "color-choice";
+
+        button.setAttribute(
+            "aria-label",
+            color.name
+        );
+
+
+        const circle =
+            document.createElement("div");
+
+        circle.className =
+            "color-choice-circle";
+
+        circle.style.background =
+            color.color;
+
+
+        /*
+           White needs a darker border so Orion
+           can actually see the white circle.
+        */
+
+        if(color.name === "WHITE"){
+
+            circle.style.border =
+                "7px solid #d9d9d9";
+
+        }
+
+
+        button.appendChild(circle);
+
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+                checkGame4Color(
+                    color,
+                    button
+                );
+
+            }
+        );
+
+
+        container.appendChild(button);
+
+    });
+
+
+    /*
+       Say the question aloud.
+    */
+
+    setTimeout(()=>{
+
+        speak(
+            "Where is the " +
+            target.name +
+            " color?"
+        );
+
+    },300);
+
+}
+
+
+function checkGame4Color(color,button){
+
+    const target =
+        game4Colors[game4Index];
+
+
+    /*
+       CORRECT ANSWER
+    */
+
+    if(color.name === target.name){
+
+        button.classList.add(
+            "correct-color"
+        );
+
+
+        const feedback =
+            document.getElementById(
+                "game4Feedback"
+            );
+
+
+        feedback.innerHTML =
+
+            "🎉 YES! " +
+            target.name +
+            "!" +
+
+            '<span class="color-feedback-small">' +
+
+            "⭐ Great job, Orion!" +
+
+            "</span>";
+
+
+        speak(
+            "Yes! " +
+            target.name +
+            "! Great job, Orion!"
+        );
+
+
+        createConfetti();
+
+
+        /*
+           Move automatically to the next color.
+        */
+
+        setTimeout(()=>{
+
+            game4Index++;
+
+
+            /*
+               All 9 colors completed.
+            */
+
+            if(
+                game4Index >=
+                game4Colors.length
+            ){
+
+                finishGame4();
+
+                return;
+
+            }
+
+
+            loadGame4Round();
+
+        },1200);
+
+
+    }else{
+
+
+        /*
+           WRONG ANSWER
+        */
+
+        button.classList.add(
+            "wrong-color"
+        );
+
+
+        document
+            .getElementById(
+                "game4Feedback"
+            )
+            .innerHTML =
+            "🌈 Try again!";
+
+
+        speak(
+            "Try again!"
+        );
+
+
+        setTimeout(()=>{
+
+            button.classList.remove(
+                "wrong-color"
+            );
+
+        },450);
+
+    }
+
+}
+
+
+function repeatGame4Color(){
+
+    const target =
+        game4Colors[game4Index];
+
+
+    if(!target){
+        return;
+    }
+
+
+    speak(
+        "Where is the " +
+        target.name +
+        " color?"
+    );
+
+}
+
+
+function finishGame4(){
+
+    document
+        .getElementById(
+            "game4Feedback"
+        )
+        .innerHTML =
+
+        "🌈 AMAZING, ORION!" +
+
+        '<span class="color-feedback-small">' +
+
+        "⭐ You found all the colors!" +
+
+        "</span>";
+
+
+    speak(
+        "Amazing, Orion! " +
+        "You found all the colors!"
+    );
+
+
+    createConfetti();
+
+
+    /*
+       Restart the color game after the
+       celebration.
+    */
+
+    setTimeout(()=>{
+
+        game4Index = 0;
+
+        loadGame4Round();
+
+    },2200);
 
 }
 
