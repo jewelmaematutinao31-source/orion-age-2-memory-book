@@ -1680,6 +1680,9 @@ let currentGame3Animal = null;
 
 let game3FoodCount = 0;
 
+/* NEW: prevents multiple food taps while Orion is moving */
+let game3MovingToFood = false;
+
 let riderX = 480;
 
 let speechAvailable =
@@ -1935,6 +1938,39 @@ function checkGame1(animal,button){
    ANIMAL + FOOD CHANGE TOGETHER
 ========================================================= */
 
+/* NEW: randomizes the food choices */
+function shuffleArray(array){
+
+    const shuffled =
+        [...array];
+
+    for(
+        let i = shuffled.length - 1;
+        i > 0;
+        i--
+    ){
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [
+            shuffled[i],
+            shuffled[j]
+        ] =
+        [
+            shuffled[j],
+            shuffled[i]
+        ];
+
+    }
+
+    return shuffled;
+
+}
+
+
 function startGame2(){
 
     game2Index =
@@ -1973,7 +2009,11 @@ function renderGame2(){
 
     container.innerHTML = "";
 
-    foodData.choices.forEach(food=>{
+    /* NEW: shuffle the food positions every round */
+    const shuffledChoices =
+        shuffleArray(foodData.choices);
+
+    shuffledChoices.forEach(food=>{
 
         const button =
             document.createElement("button");
@@ -2132,6 +2172,9 @@ function chooseGame3Animal(animalId){
         animalId;
 
     game3FoodCount = 0;
+
+    /* NEW: stop any previous food movement */
+    game3MovingToFood = false;
 
     riderX = 480;
 
@@ -2364,6 +2407,7 @@ function updateFoodCounter(){
 
 /* =========================================================
    COLLECT FOOD
+   ORION NOW RIDES TO THE FOOD FIRST
 ========================================================= */
 
 function collectFood(button){
@@ -2372,84 +2416,242 @@ function collectFood(button){
         return;
     }
 
-    button.dataset.collected =
-        "true";
+    /*
+       Prevent Orion from starting several
+       food movements at the same time.
+    */
 
-    button.style.pointerEvents =
-        "none";
+    if(game3MovingToFood){
+        return;
+    }
 
-    button.animate(
-        [
-            {
-                transform:"scale(1)",
-                opacity:1
-            },
-            {
-                transform:"scale(1.6)",
-                opacity:0
-            }
-        ],
-        {
-            duration:350,
-            easing:"ease-out"
-        }
-    );
-
-    game3FoodCount++;
-
-    const animal =
-        animals.find(
-            a=>a.id===currentGame3Animal
-        );
-
-    speak(
-        game3FoodCount < 5
-        ? "Yummy!"
-        : "Yummy! The " +
-          animal.name +
-          " is full!"
-    );
-
-    updateFoodCounter();
+    game3MovingToFood = true;
 
     /*
-       Make Orion and the animal bounce
-       together when food is eaten.
+       Get the food's position in the safari world.
     */
+
+    const foodX =
+        parseInt(
+            button.style.left,
+            10
+        );
+
+    /*
+       Move Orion toward the food first.
+    */
+
+    moveRiderToFood(foodX);
+
+    /*
+       Wait for the rider to reach the food.
+       Then collect it.
+    */
+
+    setTimeout(()=>{
+
+        /*
+           Make sure the food has not already
+           been collected.
+        */
+
+        if(button.dataset.collected === "true"){
+
+            game3MovingToFood = false;
+
+            return;
+
+        }
+
+        button.dataset.collected =
+            "true";
+
+        button.style.pointerEvents =
+            "none";
+
+        button.animate(
+            [
+                {
+                    transform:"scale(1)",
+                    opacity:1
+                },
+                {
+                    transform:"scale(1.6)",
+                    opacity:0
+                }
+            ],
+            {
+                duration:350,
+                easing:"ease-out"
+            }
+        );
+
+        game3FoodCount++;
+
+        const animal =
+            animals.find(
+                a=>a.id===currentGame3Animal
+            );
+
+        speak(
+            game3FoodCount < 5
+            ? "Yummy!"
+            : "Yummy! The " +
+              animal.name +
+              " is full!"
+        );
+
+        updateFoodCounter();
+
+        /*
+           Make Orion and the animal bounce
+           together when food is eaten.
+        */
+
+        const rider =
+            document.getElementById("rider");
+
+        if(rider){
+
+            rider.animate(
+                [
+                    {
+                        transform:
+                        "translateY(0) scale(1)"
+                    },
+                    {
+                        transform:
+                        "translateY(-16px) scale(1.06)"
+                    },
+                    {
+                        transform:
+                        "translateY(0) scale(1)"
+                    }
+                ],
+                {
+                    duration:500
+                }
+            );
+
+        }
+
+        game3MovingToFood = false;
+
+        if(game3FoodCount >= 5){
+
+            setTimeout(()=>{
+
+                finishGame3();
+
+            },700);
+
+        }
+
+    },500);
+
+}
+
+
+/* =========================================================
+   MOVE RIDER TO FOOD
+========================================================= */
+
+function moveRiderToFood(foodX){
+
+    const worldWidth = 2400;
+
+    const riderWidth = 180;
+
+    /*
+       Place Orion's rider slightly before the food
+       so the food appears in front of him.
+    */
+
+    let targetX =
+        foodX - 50;
+
+    if(targetX < 50){
+        targetX = 50;
+    }
+
+    if(
+        targetX >
+        worldWidth -
+        riderWidth -
+        50
+    ){
+
+        targetX =
+            worldWidth -
+            riderWidth -
+            50;
+
+    }
+
+    riderX =
+        targetX;
 
     const rider =
         document.getElementById("rider");
 
-    if(rider){
+    if(!rider){
 
-        rider.animate(
-            [
-                {
-                    transform:"translateY(0) scale(1)"
-                },
-                {
-                    transform:"translateY(-16px) scale(1.06)"
-                },
-                {
-                    transform:"translateY(0) scale(1)"
-                }
-            ],
-            {
-                duration:500
-            }
+        game3MovingToFood = false;
+
+        return;
+
+    }
+
+    /*
+       The existing CSS transition on .rider
+       makes this movement smooth.
+    */
+
+    rider.style.left =
+        riderX + "px";
+
+    /*
+       Move the safari world camera so Orion
+       stays visible while he travels.
+    */
+
+    const viewport =
+        document.querySelector(
+            ".jungle-viewport"
         );
 
+    const world =
+        document.getElementById(
+            "jungleWorld"
+        );
+
+    if(!viewport || !world){
+        return;
     }
 
-    if(game3FoodCount >= 5){
+    const viewportWidth =
+        viewport.clientWidth;
 
-        setTimeout(()=>{
+    let cameraX =
+        riderX -
+        viewportWidth / 2;
 
-            finishGame3();
+    const maxCamera =
+        worldWidth -
+        viewportWidth;
 
-        },700);
-
+    if(cameraX < 0){
+        cameraX = 0;
     }
+
+    if(cameraX > maxCamera){
+        cameraX = maxCamera;
+    }
+
+    world.style.transform =
+        "translateX(-" +
+        cameraX +
+        "px)";
 
 }
 
@@ -2487,6 +2689,15 @@ function finishGame3(){
 ========================================================= */
 
 function moveRider(direction){
+
+    /*
+       If Orion is already riding toward a food,
+       do not interrupt that movement.
+    */
+
+    if(game3MovingToFood){
+        return;
+    }
 
     const worldWidth = 2400;
 
