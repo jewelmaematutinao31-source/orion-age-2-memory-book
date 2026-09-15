@@ -1,541 +1,658 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0,
-      maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Orion's Safari Games 🦁</title>
 
 <style>
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
-    margin:0;
-    width:100%;
-    min-height:100%;
-    font-family:Arial,sans-serif;
-}
-
 body{
-    background:#dce8bd;
-    color:#5c4934;
+    margin:0;
+    font-family:"Trebuchet MS", Arial, sans-serif;
+    background:linear-gradient(#dff7c8,#fff8d9);
+    color:#31502c;
     overflow-x:hidden;
 }
 
 button{
     font-family:inherit;
     cursor:pointer;
-    touch-action:manipulation;
+    border:none;
 }
 
-/* =========================================================
-   APP
-========================================================= */
-
-.app{
-    min-height:100vh;
-    width:100%;
-    position:relative;
-}
-
-.screen{
-    display:none;
-    min-height:100vh;
-    width:100%;
-    padding:20px;
-}
-
-.screen.show{
-    display:flex;
-    flex-direction:column;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-.header{
-    width:100%;
-    max-width:1000px;
-    margin:0 auto 15px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-
-.header-title{
-    font-size:clamp(24px,7vw,42px);
-    color:#765126;
-    margin:0;
-}
-
-.home-button{
-    border:0;
-    background:white;
-    border-radius:18px;
-    padding:12px 16px;
-    font-size:17px;
-    font-weight:bold;
-    color:#765126;
-    box-shadow:0 5px 15px rgba(70,55,35,.15);
+.hidden{
+    display:none !important;
 }
 
 /* =========================================================
    MENU
 ========================================================= */
 
-.menu-screen{
-    justify-content:center;
-    align-items:center;
+#menu{
+    min-height:100vh;
+    padding:35px 18px 50px;
     text-align:center;
+    background:
+        radial-gradient(circle at 10% 15%, #fff5a8 0 45px, transparent 46px),
+        radial-gradient(circle at 90% 20%, #c9f0b4 0 55px, transparent 56px),
+        linear-gradient(#e9ffd9,#fff6c9);
 }
 
 .logo{
-    font-size:clamp(36px,10vw,65px);
-    color:#765126;
-    margin:0 0 8px;
+    font-size:48px;
+    margin-bottom:5px;
+}
+
+.menu-title{
+    font-size:clamp(28px,7vw,48px);
+    color:#497b35;
+    margin:5px 0;
 }
 
 .menu-subtitle{
     font-size:18px;
-    margin:0 auto 28px;
+    margin:0 auto 30px;
+    max-width:650px;
+    color:#6b6540;
 }
 
-.game-menu{
-    width:100%;
-    max-width:700px;
+.menu-buttons{
+    max-width:520px;
+    margin:auto;
     display:grid;
     gap:18px;
 }
 
-.game-menu-button{
-    width:100%;
-    min-height:110px;
-    border:4px solid white;
-    border-radius:30px;
-    background:rgba(255,255,255,.93);
-    box-shadow:0 10px 25px rgba(70,55,35,.16);
-    padding:18px;
-    text-align:left;
-    display:flex;
-    align-items:center;
-    gap:20px;
+.menu-button{
+    padding:22px 18px;
+    border-radius:28px;
+    font-size:22px;
+    font-weight:bold;
+    color:white;
+    box-shadow:0 7px 0 rgba(0,0,0,.12);
     transition:.15s;
 }
 
-.game-menu-button:active{
-    transform:scale(.97);
+.menu-button:active{
+    transform:translateY(5px);
+    box-shadow:0 2px 0 rgba(0,0,0,.12);
 }
 
-.menu-animal{
-    width:82px;
-    height:82px;
-    flex:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:70px;
+.game1-btn{
+    background:#f4a62a;
 }
 
-.menu-text strong{
-    display:block;
-    color:#765126;
-    font-size:24px;
-    margin-bottom:5px;
+.game2-btn{
+    background:#65a94f;
 }
 
-.menu-text span{
-    font-size:15px;
+.game3-btn{
+    background:#e67b45;
+}
+
+.small-note{
+    margin-top:30px;
+    font-size:14px;
+    color:#777;
 }
 
 /* =========================================================
-   GAME
+   GAME SCREEN
 ========================================================= */
 
 .game-screen{
-    padding:12px;
+    min-height:100vh;
+    padding:15px 12px 35px;
+    text-align:center;
+    position:relative;
 }
 
-.game-container{
-    width:100%;
+.top-bar{
     max-width:1000px;
     margin:auto;
-    flex:1;
-    display:flex;
-    flex-direction:column;
-}
-
-.score-row{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin:5px 4px 10px;
-    font-size:19px;
+    gap:10px;
+    position:relative;
+    z-index:100;
+}
+
+.back-button{
+    background:white;
+    color:#496c3c;
+    padding:10px 15px;
+    border-radius:18px;
+    font-size:16px;
     font-weight:bold;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
 }
 
-.progress{
-    height:14px;
-    background:#eadfc9;
-    border-radius:999px;
-    overflow:hidden;
-    margin-bottom:15px;
-}
-
-.progress-fill{
-    height:100%;
-    width:0%;
-    background:#7e9b45;
-    transition:.3s;
-}
-
-.game-card{
-    flex:1;
-    background:rgba(255,255,255,.92);
-    border:3px solid rgba(255,255,255,.95);
-    border-radius:32px;
-    box-shadow:0 12px 35px rgba(70,55,35,.15);
-    padding:20px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+.sound-button{
+    background:#fff;
+    padding:10px 14px;
+    border-radius:18px;
+    font-size:17px;
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
 }
 
 .game-title{
-    color:#765126;
-    font-size:clamp(27px,7vw,40px);
-    margin:0 0 8px;
+    font-size:clamp(26px,6vw,42px);
+    color:#477936;
+    margin:15px 0 4px;
 }
 
-.instruction{
-    font-size:clamp(17px,4.5vw,21px);
-    margin:0 0 18px;
-}
-
-/* =========================================================
-   EMOJI ANIMALS
-========================================================= */
-
-.target-emoji{
-    font-size:clamp(110px,28vw,180px);
-    line-height:1;
-    margin:5px auto 20px;
-    animation:bounce .7s infinite alternate;
-}
-
-.animal-choice-emoji{
-    font-size:clamp(65px,16vw,105px);
-    line-height:1;
-    margin-bottom:5px;
-    animation:bounce .8s infinite alternate;
-}
-
-@keyframes bounce{
-    from{transform:translateY(0)}
-    to{transform:translateY(-8px)}
+.game-instruction{
+    font-size:18px;
+    color:#625d40;
+    margin:0 auto 18px;
 }
 
 /* =========================================================
    GAME 1
 ========================================================= */
 
-.choice-grid{
-    width:100%;
-    max-width:900px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
+#game1{
+    background:linear-gradient(#efffdc,#fff7cb);
 }
 
-.choice{
-    border:3px solid #eadfc9;
+.target-animal{
+    background:white;
+    width:min(230px,70vw);
+    margin:12px auto 20px;
+    padding:18px;
+    border-radius:35px;
+    box-shadow:0 7px 20px rgba(0,0,0,.12);
+}
+
+.target-label{
+    font-size:17px;
+    color:#777;
+    margin-bottom:4px;
+}
+
+.target-emoji{
+    font-size:100px;
+    line-height:1.1;
+}
+
+.animal-choice-grid{
+    width:min(1000px,100%);
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(105px,1fr));
+    gap:12px;
+    max-height:52vh;
+    overflow-y:auto;
+    padding:8px;
+}
+
+.animal-choice{
+    min-height:105px;
     background:white;
     border-radius:24px;
-    min-height:145px;
-    padding:8px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
+    font-size:62px;
+    box-shadow:0 4px 12px rgba(0,0,0,.1);
     transition:.15s;
 }
 
-.choice:active{
+.animal-choice:active{
     transform:scale(.94);
 }
 
-.choice.correct{
-    border-color:#7e9b45;
-    background:#eef6dc;
+.correct{
+    animation:correctPop .55s ease;
 }
 
-.choice.wrong{
-    border-color:#c77b6b;
-    animation:shake .35s;
+.wrong{
+    animation:wrongShake .4s ease;
 }
 
-.choice-name{
-    font-weight:bold;
-    font-size:15px;
-    text-transform:capitalize;
+@keyframes correctPop{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.25)}
+    100%{transform:scale(1)}
 }
 
-@keyframes shake{
+@keyframes wrongShake{
     0%,100%{transform:translateX(0)}
-    25%{transform:translateX(-7px)}
-    75%{transform:translateX(7px)}
+    25%{transform:translateX(-8px)}
+    75%{transform:translateX(8px)}
 }
 
 /* =========================================================
    GAME 2
 ========================================================= */
 
-.feed-emoji{
-    font-size:clamp(105px,27vw,175px);
-    line-height:1;
-    margin:0 auto 8px;
-    animation:bounce .7s infinite alternate;
+#game2{
+    background:linear-gradient(#e6ffd9,#fff8ce);
+}
+
+.game2-animal{
+    background:white;
+    width:min(220px,65vw);
+    margin:15px auto;
+    padding:15px;
+    border-radius:30px;
+    box-shadow:0 6px 16px rgba(0,0,0,.12);
+}
+
+.game2-animal-emoji{
+    font-size:90px;
 }
 
 .food-grid{
-    width:100%;
     max-width:650px;
+    margin:20px auto;
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:12px;
-    margin-top:8px;
+    gap:15px;
 }
 
-.food-button{
-    min-height:105px;
-    border:3px solid #eadfc9;
-    border-radius:22px;
+.food-choice{
     background:white;
-    font-size:55px;
+    min-height:125px;
+    border-radius:28px;
+    font-size:68px;
+    box-shadow:0 5px 14px rgba(0,0,0,.12);
     transition:.15s;
 }
 
-.food-button:active{
-    transform:scale(.9);
+.food-choice:active{
+    transform:scale(.93);
+}
+
+.food-name{
+    display:block;
+    font-size:14px;
+    color:#777;
+    margin-top:5px;
 }
 
 /* =========================================================
-   GAME 3 - JUNGLE
+   GAME 3 - SAFARI ADVENTURE
 ========================================================= */
 
-.jungle-stage{
-    width:100%;
-    max-width:1000px;
-    flex:1;
-    min-height:430px;
+#game3{
+    background:#ccecae;
+    padding-bottom:15px;
+}
+
+.adventure-header{
     position:relative;
+    z-index:100;
+}
+
+.scene-name{
+    display:inline-block;
+    background:rgba(255,255,255,.92);
+    padding:8px 17px;
+    border-radius:20px;
+    font-weight:bold;
+    color:#4b6d35;
+    margin-bottom:6px;
+}
+
+.food-counter{
+    display:inline-block;
+    background:#fff;
+    padding:8px 17px;
+    border-radius:20px;
+    font-weight:bold;
+    margin-left:5px;
+    box-shadow:0 3px 8px rgba(0,0,0,.1);
+}
+
+/* ---------------------------------------------------------
+   VIEWPORT
+--------------------------------------------------------- */
+
+.jungle-viewport{
+    position:relative;
+    width:100%;
+    height:min(68vh,600px);
+    min-height:470px;
+    margin:10px auto;
     overflow:hidden;
     border-radius:30px;
-    margin:5px 0 12px;
+    border:5px solid rgba(255,255,255,.8);
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+    background:#91d47a;
+    touch-action:none;
+}
+
+.jungle-world{
+    position:absolute;
+    left:0;
+    top:0;
+    width:2400px;
+    height:100%;
+    transition:background .4s ease;
+}
+
+/* ---------------------------------------------------------
+   SCENE TYPES
+--------------------------------------------------------- */
+
+.scene-monkey{
     background:
-        linear-gradient(
-            to bottom,
-            #8fd3e8 0%,
-            #bce7dc 42%,
-            #83b95d 43%,
-            #4f913f 100%
-        );
-    border:5px solid #fff;
-    box-shadow:inset 0 -50px 0 rgba(41,101,43,.18);
+        linear-gradient(to bottom,#8ed8ef 0 42%,#7fc75f 42% 100%);
 }
 
-/* jungle plants */
+.scene-elephant{
+    background:
+        linear-gradient(to bottom,#a9e5f4 0 43%,#79c65e 43% 100%);
+}
 
-.jungle-tree{
+.scene-giraffe{
+    background:
+        linear-gradient(to bottom,#9eddf0 0 50%,#91cb5c 50% 100%);
+}
+
+.scene-panda{
+    background:
+        linear-gradient(to bottom,#b9e4ef 0 45%,#70a85a 45% 100%);
+}
+
+.scene-lion{
+    background:
+        linear-gradient(to bottom,#9bdcf2 0 48%,#d7bd59 48% 100%);
+}
+
+.scene-zebra{
+    background:
+        linear-gradient(to bottom,#a8e3f1 0 48%,#8ec85c 48% 100%);
+}
+
+.scene-bird{
+    background:
+        linear-gradient(to bottom,#72cfee 0 65%,#7bc15b 65% 100%);
+}
+
+.scene-leopard{
+    background:
+        linear-gradient(to bottom,#86d1e8 0 43%,#4e9b55 43% 100%);
+}
+
+.scene-fish{
+    background:
+        linear-gradient(to bottom,#55cbe7 0,#258dbd 100%);
+}
+
+.scene-bee{
+    background:
+        linear-gradient(to bottom,#b9e9fa 0 45%,#77c85b 45% 100%);
+}
+
+.scene-penguin{
+    background:
+        linear-gradient(to bottom,#b9e7f4 0 45%,#dff7ff 45% 100%);
+}
+
+.scene-polarbear{
+    background:
+        linear-gradient(to bottom,#bce8f5 0 48%,#eafaff 48% 100%);
+}
+
+.scene-horse{
+    background:
+        linear-gradient(to bottom,#a4def2 0 50%,#7fc65d 50% 100%);
+}
+
+.scene-duck{
+    background:
+        linear-gradient(to bottom,#9edff2 0 42%,#69bdd0 42% 100%);
+}
+
+.scene-cat{
+    background:
+        linear-gradient(to bottom,#a9e4f4 0 50%,#83c75d 50% 100%);
+}
+
+.scene-dog{
+    background:
+        linear-gradient(to bottom,#a7e1f4 0 50%,#82c55e 50% 100%);
+}
+
+.scene-chicken{
+    background:
+        linear-gradient(to bottom,#a7def0 0 47%,#b8c85b 47% 100%);
+}
+
+/* ---------------------------------------------------------
+   DECORATIONS
+--------------------------------------------------------- */
+
+.decoration{
     position:absolute;
-    bottom:0;
-    font-size:clamp(75px,15vw,150px);
-    z-index:1;
-    pointer-events:none;
     user-select:none;
-}
-
-.tree1{left:-20px;}
-.tree2{right:-25px;}
-.tree3{left:24%;font-size:80px;bottom:-10px;}
-.tree4{right:24%;font-size:90px;bottom:-15px;}
-
-.jungle-bush{
-    position:absolute;
-    bottom:8px;
-    font-size:65px;
-    z-index:2;
     pointer-events:none;
+    z-index:5;
 }
 
-.bush1{left:12%;}
-.bush2{right:12%;}
+.tree{
+    font-size:110px;
+    line-height:1;
+}
 
-/* butterflies */
+.big-tree{
+    font-size:145px;
+}
+
+.cloud{
+    font-size:70px;
+    opacity:.8;
+}
+
+.flower{
+    font-size:42px;
+}
 
 .butterfly{
+    font-size:38px;
+    animation:flutter 2.5s ease-in-out infinite;
+}
+
+.bird-deco{
+    font-size:48px;
+}
+
+.rock{
+    font-size:55px;
+}
+
+.bamboo{
+    font-size:110px;
+}
+
+.ice{
+    font-size:120px;
+}
+
+.flower-field{
+    font-size:45px;
+}
+
+.water{
+    font-size:100px;
+}
+
+/* ---------------------------------------------------------
+   FOOD
+--------------------------------------------------------- */
+
+.world-food{
     position:absolute;
-    z-index:4;
-    font-size:32px;
-    animation:flyAround 7s ease-in-out infinite;
-    pointer-events:none;
-}
-
-.b1{left:18%;top:15%;animation-delay:0s;}
-.b2{left:70%;top:24%;animation-delay:2s;}
-.b3{left:52%;top:8%;animation-delay:4s;}
-
-@keyframes flyAround{
-    0%{transform:translate(0,0) rotate(-8deg);}
-    25%{transform:translate(35px,20px) rotate(8deg);}
-    50%{transform:translate(-10px,45px) rotate(-8deg);}
-    75%{transform:translate(-35px,10px) rotate(8deg);}
-    100%{transform:translate(0,0) rotate(-8deg);}
-}
-
-/* little birds */
-
-.jungle-bird{
-    position:absolute;
-    z-index:3;
-    font-size:30px;
-    animation:birdFly 8s linear infinite;
-    pointer-events:none;
-}
-
-.bird1{top:12%;left:-50px;}
-.bird2{top:30%;left:-100px;animation-delay:3s;}
-
-@keyframes birdFly{
-    from{transform:translateX(-80px);}
-    to{transform:translateX(110vw);}
-}
-
-/* Orion + animal */
-
-.rider-area{
-    position:absolute;
-    left:50%;
-    bottom:45px;
-    transform:translateX(-50%);
-    width:min(420px,75vw);
-    height:310px;
-    z-index:8;
+    z-index:55;
+    width:76px;
+    height:76px;
+    border-radius:50%;
+    background:rgba(255,255,255,.82);
     display:flex;
-    align-items:flex-end;
     justify-content:center;
+    align-items:center;
+    font-size:52px;
+    box-shadow:0 4px 10px rgba(0,0,0,.16);
+    cursor:pointer;
+    user-select:none;
+    transition:.18s;
+}
+
+.world-food:hover{
+    transform:scale(1.1);
+}
+
+.world-food:active{
+    transform:scale(.82);
+}
+
+.food-tree{
+    background:rgba(255,255,255,.9);
+}
+
+/* ---------------------------------------------------------
+   RIDER
+--------------------------------------------------------- */
+
+.rider{
+    position:absolute;
+    left:480px;
+    bottom:105px;
+    width:180px;
+    height:190px;
+    z-index:35;
+    transition:left .35s ease;
     pointer-events:none;
 }
 
-.selected-animal{
+.rider-animal{
     position:absolute;
+    left:34px;
     bottom:0;
-    font-size:clamp(135px,30vw,210px);
+    width:112px;
+    height:112px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:105px;
     line-height:1;
-    z-index:8;
-    filter:drop-shadow(0 7px 4px rgba(0,0,0,.2));
+    z-index:2;
 }
 
 .orion-riding{
     position:absolute;
-    z-index:10;
-    bottom:105px;
-    width:min(155px,32vw);
-    max-height:180px;
+    left:42px;
+    bottom:70px;
+    width:105px;
+    height:105px;
     object-fit:contain;
     object-position:center bottom;
-    filter:drop-shadow(0 6px 4px rgba(0,0,0,.2));
+    z-index:3;
+    filter:drop-shadow(0 3px 3px rgba(0,0,0,.18));
 }
 
-/* food always above animal and Orion */
+.rider.bobbing{
+    animation:riderBounce .8s ease-in-out infinite alternate;
+}
 
-.jungle-food{
+@keyframes riderBounce{
+    from{transform:translateY(0)}
+    to{transform:translateY(-7px)}
+}
+
+/* ---------------------------------------------------------
+   MOVEMENT BUTTONS
+--------------------------------------------------------- */
+
+.move-controls{
     position:absolute;
-    z-index:30;
-    width:68px;
-    height:68px;
+    left:15px;
+    right:15px;
+    bottom:15px;
+    z-index:90;
     display:flex;
-    align-items:center;
-    justify-content:center;
-    border:3px solid white;
+    justify-content:space-between;
+    pointer-events:none;
+}
+
+.move-button{
+    pointer-events:auto;
+    width:70px;
+    height:70px;
     border-radius:50%;
-    background:rgba(255,255,255,.95);
-    box-shadow:0 7px 18px rgba(0,0,0,.22);
-    font-size:42px;
-    transition:.2s;
+    background:rgba(255,255,255,.94);
+    font-size:38px;
+    box-shadow:0 5px 15px rgba(0,0,0,.2);
 }
 
-.jungle-food:active{
-    transform:scale(.8);
+.move-button:active{
+    transform:scale(.9);
 }
 
-.jungle-instruction{
-    position:absolute;
-    top:12px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:35;
+/* ---------------------------------------------------------
+   ANIMAL SELECTOR
+--------------------------------------------------------- */
+
+.animal-selector{
+    position:relative;
+    z-index:100;
     background:rgba(255,255,255,.92);
-    border-radius:20px;
-    padding:10px 16px;
-    font-weight:bold;
+    border-radius:25px;
+    padding:13px;
+    max-width:1000px;
+    margin:12px auto 0;
+}
+
+.selector-title{
     font-size:17px;
-    width:max-content;
-    max-width:90%;
+    font-weight:bold;
+    margin-bottom:9px;
 }
 
-.animal-picker{
-    position:absolute;
-    bottom:10px;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:40;
-    width:95%;
+.selector-grid{
     display:flex;
-    justify-content:center;
-    gap:6px;
-    flex-wrap:wrap;
+    gap:8px;
+    overflow-x:auto;
+    padding:4px;
 }
 
-.animal-pick{
-    border:2px solid white;
-    background:rgba(255,255,255,.92);
-    border-radius:18px;
-    width:52px;
-    height:52px;
-    font-size:31px;
-    padding:0;
-    box-shadow:0 4px 10px rgba(0,0,0,.15);
+.selector-animal{
+    flex:0 0 70px;
+    height:70px;
+    border-radius:20px;
+    background:#f4f4f4;
+    font-size:42px;
 }
 
-.animal-pick.selected{
-    border:4px solid #f1b84b;
-    transform:scale(1.1);
+.selector-animal.active{
+    background:#ffe18c;
+    box-shadow:inset 0 0 0 4px #f3ae32;
 }
 
-/* =========================================================
-   POPUP
-========================================================= */
+/* ---------------------------------------------------------
+   POPUPS
+--------------------------------------------------------- */
 
 .popup{
     position:fixed;
     inset:0;
+    background:rgba(0,0,0,.48);
     z-index:1000;
     display:none;
     align-items:center;
     justify-content:center;
     padding:20px;
-    background:rgba(45,38,25,.45);
-    backdrop-filter:blur(4px);
 }
 
 .popup.show{
@@ -543,62 +660,42 @@ button{
 }
 
 .popup-box{
-    width:min(480px,94vw);
-    background:white;
-    border:5px solid #eadfc9;
+    width:min(470px,94vw);
+    background:#fffdf1;
     border-radius:35px;
     padding:30px 20px;
-    text-align:center;
-    box-shadow:0 20px 60px rgba(0,0,0,.25);
+    box-shadow:0 12px 35px rgba(0,0,0,.3);
     animation:popupIn .3s ease;
 }
 
 @keyframes popupIn{
-    from{
-        opacity:0;
-        transform:scale(.75);
-    }
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
+    from{transform:scale(.7);opacity:0}
+    to{transform:scale(1);opacity:1}
 }
 
-.popup-stars{
-    font-size:48px;
-    letter-spacing:5px;
+.popup-animal{
+    font-size:100px;
 }
 
-.popup-title{
-    color:#765126;
-    font-size:32px;
-    margin:10px 0;
+.popup h2{
+    color:#4e8239;
+    margin:8px 0;
+    font-size:30px;
 }
 
-.popup-text{
+.popup p{
     font-size:19px;
-    margin:8px 0 22px;
-}
-
-.popup-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:10px;
+    color:#666;
 }
 
 .popup-button{
-    border:0;
-    border-radius:20px;
-    padding:14px 20px;
-    font-size:17px;
-    font-weight:bold;
-    background:#7e9b45;
+    background:#66a84d;
     color:white;
-}
-
-.popup-button.secondary{
-    background:#d38b70;
+    padding:14px 25px;
+    border-radius:20px;
+    font-size:19px;
+    font-weight:bold;
+    margin-top:10px;
 }
 
 /* =========================================================
@@ -607,21 +704,16 @@ button{
 
 .confetti{
     position:fixed;
-    z-index:1100;
-    width:10px;
-    height:18px;
-    pointer-events:none;
-    animation:fall 1.3s linear forwards;
+    width:12px;
+    height:20px;
+    top:-30px;
+    z-index:2000;
+    animation:confettiFall 2.4s linear forwards;
 }
 
-@keyframes fall{
-    from{
-        transform:translateY(-20px) rotate(0);
-        opacity:1;
-    }
+@keyframes confettiFall{
     to{
-        transform:translateY(100vh) rotate(720deg);
-        opacity:0;
+        transform:translateY(110vh) rotate(720deg);
     }
 }
 
@@ -629,624 +721,1072 @@ button{
    MOBILE
 ========================================================= */
 
-@media(max-width:700px){
+@media(max-width:600px){
 
-    .screen{
-        padding:12px;
+    .logo{
+        font-size:40px;
     }
 
-    .game-card{
-        padding:14px 10px;
-        border-radius:25px;
+    .menu-title{
+        font-size:31px;
     }
 
-    .choice-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:8px;
-    }
-
-    .choice{
-        min-height:125px;
-        border-radius:19px;
+    .menu-button{
+        font-size:19px;
+        padding:20px 12px;
     }
 
     .food-grid{
-        gap:8px;
+        gap:9px;
     }
 
-    .food-button{
-        min-height:90px;
-        font-size:45px;
+    .food-choice{
+        min-height:105px;
+        font-size:55px;
     }
 
-    .jungle-stage{
-        min-height:470px;
+    .jungle-viewport{
+        min-height:440px;
+        height:62vh;
+        border-radius:24px;
     }
 
-    .animal-picker{
-        gap:4px;
+    .world-food{
+        width:68px;
+        height:68px;
+        font-size:46px;
     }
 
-    .animal-pick{
-        width:43px;
-        height:43px;
-        font-size:26px;
+    .rider{
+        width:160px;
+        height:180px;
+    }
+
+    .rider-animal{
+        font-size:90px;
+        left:30px;
     }
 
     .orion-riding{
-        width:125px;
-        bottom:100px;
+        width:95px;
+        height:95px;
+        left:38px;
     }
 
-    .selected-animal{
-        font-size:150px;
+    .move-button{
+        width:64px;
+        height:64px;
     }
 
-    .jungle-food{
-        width:58px;
-        height:58px;
-        font-size:35px;
-    }
-}
-
-@media(max-width:430px){
-
-    .choice{
-        min-height:110px;
+    .tree{
+        font-size:95px;
     }
 
-    .animal-choice-emoji{
-        font-size:65px;
-    }
-
-    .choice-name{
-        font-size:12px;
-    }
-
-    .jungle-stage{
-        min-height:460px;
-    }
-
-    .tree3,
-    .tree4{
-        display:none;
+    .big-tree{
+        font-size:125px;
     }
 }
 
-@media(orientation:landscape) and (max-height:550px){
-
-    .game-card{
-        justify-content:flex-start;
-        overflow-y:auto;
-    }
-
-    .target-emoji,
-    .feed-emoji{
-        font-size:100px;
-    }
-
-    .jungle-stage{
-        min-height:300px;
-    }
-}
 </style>
-
 </head>
 
 <body>
 
-<div class="app">
-
-<!-- ======================================================
-     GAME MENU
+<!-- =======================================================
+     MENU
 ======================================================= -->
 
-<section id="menuScreen" class="screen menu-screen show">
+<section id="menu">
 
-```
-<h1 class="logo">Orion's Safari Games 🦁</h1>
+    <div class="logo">🦁🌴🐒</div>
 
-<p class="menu-subtitle">
-    🐾 Come play with the safari animals!
-</p>
+    <h1 class="menu-title">Orion's Safari Games</h1>
 
-<div class="game-menu">
+    <p class="menu-subtitle">
+        Come explore, find animals, feed them, and go on a little safari adventure! 🐾
+    </p>
 
-    <button class="game-menu-button"
-            onclick="startGame(1)">
+    <div class="menu-buttons">
 
-        <div class="menu-animal">🦁</div>
+        <button class="menu-button game1-btn" onclick="openGame(1)">
+            🔎 Find the Animal 🐾
+        </button>
 
-        <div class="menu-text">
-            <strong>Find the Animal</strong>
-            <span>Can you find the same animal?</span>
-        </div>
+        <button class="menu-button game2-btn" onclick="openGame(2)">
+            🍎 Feed the Animal 😋
+        </button>
 
-    </button>
+        <button class="menu-button game3-btn" onclick="openGame(3)">
+            🎮 Safari Adventure 🌴
+        </button>
 
-    <button class="game-menu-button"
-            onclick="startGame(2)">
+    </div>
 
-        <div class="menu-animal">🐵</div>
-
-        <div class="menu-text">
-            <strong>Feed the Animal</strong>
-            <span>What yummy food does it want?</span>
-        </div>
-
-    </button>
-
-    <button class="game-menu-button"
-            onclick="startGame(3)">
-
-        <div class="menu-animal">🌴</div>
-
-        <div class="menu-text">
-            <strong>Orion's Jungle Adventure</strong>
-            <span>Choose an animal and explore the jungle!</span>
-        </div>
-
-    </button>
-
-</div>
-```
+    <div class="small-note">
+        Made especially for Orion's little safari adventure ❤️
+    </div>
 
 </section>
 
-<!-- ======================================================
+
+<!-- =======================================================
      GAME 1
 ======================================================= -->
 
-<section id="game1" class="screen game-screen">
+<section id="game1" class="game-screen hidden">
 
-<div class="game-container">
+    <div class="top-bar">
 
-```
-<div class="header">
-    <h2 class="header-title">Find the Animal</h2>
+        <button class="back-button" onclick="showMenu()">
+            ← Menu
+        </button>
 
-    <button class="home-button"
-            onclick="showMenu()">🏠 Games</button>
-</div>
+        <button class="sound-button" onclick="repeatGame1Animal()">
+            🔊 Sound
+        </button>
 
-<div class="score-row">
-    <span id="score1">⭐ 0</span>
-    <span id="round1">1 / 5</span>
-</div>
+    </div>
 
-<div class="progress">
-    <div id="progress1"
-         class="progress-fill"></div>
-</div>
-
-<div class="game-card">
-
-    <h2 class="game-title">
+    <h1 class="game-title">
         Can you find this animal?
-    </h2>
+    </h1>
 
-    <p class="instruction">
-        Tap the same animal below.
+    <p class="game-instruction">
+        Tap the same animal below. 🐾
     </p>
 
-    <div id="targetAnimal"></div>
+    <div class="target-animal">
 
-    <div id="choices1"
-         class="choice-grid"></div>
+        <div class="target-label">
+            Find this animal:
+        </div>
 
-</div>
-```
+        <div id="game1Target" class="target-emoji">
+            🦁
+        </div>
 
-</div>
+    </div>
+
+    <div id="game1Choices" class="animal-choice-grid"></div>
+
 </section>
 
-<!-- ======================================================
+
+<!-- =======================================================
      GAME 2
 ======================================================= -->
 
-<section id="game2" class="screen game-screen">
+<section id="game2" class="game-screen hidden">
 
-<div class="game-container">
+    <div class="top-bar">
 
-```
-<div class="header">
+        <button class="back-button" onclick="showMenu()">
+            ← Menu
+        </button>
 
-    <h2 class="header-title">
-        Feed the Animal
-    </h2>
+        <button class="sound-button" onclick="repeatGame2Animal()">
+            🔊 Sound
+        </button>
 
-    <button class="home-button"
-            onclick="showMenu()">
-        🏠 Games
-    </button>
+    </div>
 
-</div>
-
-<div class="score-row">
-    <span id="score2">⭐ 0</span>
-    <span id="round2">1 / 5</span>
-</div>
-
-<div class="progress">
-    <div id="progress2"
-         class="progress-fill"></div>
-</div>
-
-<div class="game-card">
-
-    <h2 class="game-title">
+    <h1 class="game-title">
         What food does the animal want?
-    </h2>
+    </h1>
 
-    <div id="feedAnimal"></div>
-
-    <p class="instruction">
-        Tap the yummy food!
+    <p class="game-instruction">
+        Tap the yummy food! 🍎🍌🍉
     </p>
 
-    <div id="foodChoices"
-         class="food-grid"></div>
+    <div class="game2-animal">
 
-</div>
-```
-
-</div>
-</section>
-
-<!-- ======================================================
-     GAME 3 - JUNGLE ADVENTURE
-======================================================= -->
-
-<section id="game3" class="screen game-screen">
-
-<div class="game-container">
-
-```
-<div class="header">
-
-    <h2 class="header-title">
-        Jungle Adventure
-    </h2>
-
-    <button class="home-button"
-            onclick="showMenu()">
-        🏠 Games
-    </button>
-
-</div>
-
-<div class="score-row">
-    <span id="score3">⭐ 0</span>
-    <span id="round3">1 / 5</span>
-</div>
-
-<div class="progress">
-    <div id="progress3"
-         class="progress-fill"></div>
-</div>
-
-<div class="game-card">
-
-    <h2 class="game-title">
-        🌴 Orion's Jungle Adventure
-    </h2>
-
-    <p class="instruction">
-        Choose an animal for Orion to ride!
-    </p>
-
-    <div id="jungleStage"
-         class="jungle-stage">
-
-        <div class="jungle-instruction">
-            👆 Choose an animal below!
+        <div id="game2Animal" class="game2-animal-emoji">
+            🐒
         </div>
 
-        <!-- JUNGLE -->
+    </div>
 
-        <div class="jungle-tree tree1">🌴</div>
-        <div class="jungle-tree tree2">🌴</div>
-        <div class="jungle-tree tree3">🌳</div>
-        <div class="jungle-tree tree4">🌳</div>
+    <div id="game2Foods" class="food-grid"></div>
 
-        <div class="jungle-bush bush1">🌿</div>
-        <div class="jungle-bush bush2">🌿</div>
+</section>
 
-        <div class="butterfly b1">🦋</div>
-        <div class="butterfly b2">🦋</div>
-        <div class="butterfly b3">🦋</div>
 
-        <div class="jungle-bird bird1">🐦</div>
-        <div class="jungle-bird bird2">🐦</div>
+<!-- =======================================================
+     GAME 3
+======================================================= -->
 
-        <!-- ANIMAL + ORION -->
+<section id="game3" class="game-screen hidden">
 
-        <div class="rider-area">
+    <div class="top-bar">
 
-            <div id="selectedAnimal"
-                 class="selected-animal">
-                🦁
+        <button class="back-button" onclick="showMenu()">
+            ← Menu
+        </button>
+
+        <button class="sound-button" onclick="speakCurrentAnimal()">
+            🔊 Animal Sound
+        </button>
+
+    </div>
+
+    <div class="adventure-header">
+
+        <h1 class="game-title">
+            Safari Adventure 🌴
+        </h1>
+
+        <div id="sceneName" class="scene-name">
+            🐒 Monkey Jungle
+        </div>
+
+        <div id="foodCounter" class="food-counter">
+            🍌 0 / 5
+        </div>
+
+        <p id="game3Instruction" class="game-instruction">
+            Find the food!
+        </p>
+
+    </div>
+
+
+    <!-- WORLD -->
+
+    <div class="jungle-viewport">
+
+        <div id="jungleWorld" class="jungle-world">
+
+            <!-- decorations generated by JavaScript -->
+
+            <!-- rider -->
+            <div id="rider" class="rider bobbing">
+
+                <div id="riderAnimal" class="rider-animal">
+                    🐒
+                </div>
+
+                <img
+                    id="orionRiding"
+                    class="orion-riding"
+                    src="riding.png.png"
+                    alt="Orion riding"
+                >
+
             </div>
 
-            <img id="orionRiding"
-                 class="orion-riding"
-                 src="riding.png.png"
-                 alt="Orion riding an animal">
+        </div>
+
+
+        <div class="move-controls">
+
+            <button
+                class="move-button"
+                onclick="moveRider(-1)"
+                aria-label="Move left"
+            >
+                ◀️
+            </button>
+
+            <button
+                class="move-button"
+                onclick="moveRider(1)"
+                aria-label="Move right"
+            >
+                ▶️
+            </button>
 
         </div>
 
-        <!-- FOOD -->
+    </div>
 
-        <button id="jungleFood1"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🍎
-        </button>
 
-        <button id="jungleFood2"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🍌
-        </button>
+    <!-- ANIMAL SELECTOR -->
 
-        <button id="jungleFood3"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🍉
-        </button>
+    <div class="animal-selector">
 
-        <button id="jungleFood4"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🍊
-        </button>
+        <div class="selector-title">
+            🐾 Choose another animal
+        </div>
 
-        <button id="jungleFood5"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🍓
-        </button>
-
-        <button id="jungleFood6"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🥭
-        </button>
-
-        <button id="jungleFood7"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🍍
-        </button>
-
-        <button id="jungleFood8"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🥕
-        </button>
-
-        <button id="jungleFood9"
-                class="jungle-food"
-                onclick="collectJungleFood(this)">
-            🌽
-        </button>
-
-        <!-- ANIMAL PICKER -->
-
-        <div id="animalPicker"
-             class="animal-picker"></div>
+        <div id="game3AnimalSelector" class="selector-grid"></div>
 
     </div>
 
-    <div id="jungleMessage"
-         class="hungry-message">
-    </div>
-
-</div>
-```
-
-</div>
 </section>
 
-<!-- ======================================================
-     SUCCESS POPUP
+
+<!-- =======================================================
+     POPUP
 ======================================================= -->
 
-<div id="popup"
-     class="popup">
+<div id="gamePopup" class="popup">
 
-```
-<div class="popup-box">
+    <div class="popup-box">
 
-    <div class="popup-stars">
-        ⭐🌟⭐
-    </div>
+        <div id="popupAnimal" class="popup-animal">
+            🐒
+        </div>
 
-    <h2 id="popupTitle"
-        class="popup-title">
-        Great job, Orion!
-    </h2>
+        <h2 id="popupTitle">
+            Yummy!
+        </h2>
 
-    <p id="popupText"
-       class="popup-text">
-        You found it!
-    </p>
+        <p id="popupMessage">
+            Great job!
+        </p>
 
-    <div class="popup-buttons">
-
-        <button id="popupNextButton"
-                class="popup-button"
-                onclick="popupNext()">
-            ➡️ Next
-        </button>
-
-        <button class="popup-button secondary"
-                onclick="showMenu()">
-            🏠 Games
+        <button class="popup-button" onclick="closePopup()">
+            Let's Go! 🌴
         </button>
 
     </div>
 
 </div>
-```
 
-</div>
 
 <script>
 
 /* =========================================================
-   ANIMALS ORION KNOWS
+   ANIMALS
 ========================================================= */
 
 const animals = [
 
-    {name:"lion",emoji:"🦁"},
-    {name:"elephant",emoji:"🐘"},
-    {name:"monkey",emoji:"🐵"},
-    {name:"giraffe",emoji:"🦒"},
-    {name:"zebra",emoji:"🦓"},
-    {name:"panda",emoji:"🐼"},
+    {
+        id:"lion",
+        emoji:"🦁",
+        name:"Lion",
+        sound:"Roar!"
+    },
 
-    {name:"bird",emoji:"🐦"},
-    {name:"leopard",emoji:"🐆"},
-    {name:"fish",emoji:"🐟"},
-    {name:"bee",emoji:"🐝"},
-    {name:"penguin",emoji:"🐧"},
-    {name:"polar bear",emoji:"🐻‍❄️"},
+    {
+        id:"elephant",
+        emoji:"🐘",
+        name:"Elephant",
+        sound:"Pawooo!"
+    },
 
-    {name:"horse",emoji:"🐴"},
-    {name:"duck",emoji:"🦆"},
-    {name:"cat",emoji:"🐱"},
-    {name:"dog",emoji:"🐶"},
-    {name:"chicken",emoji:"🐔"}
+    {
+        id:"monkey",
+        emoji:"🐒",
+        name:"Monkey",
+        sound:"Ooh ooh ah ah!"
+    },
+
+    {
+        id:"giraffe",
+        emoji:"🦒",
+        name:"Giraffe",
+        sound:"Mmm!"
+    },
+
+    {
+        id:"zebra",
+        emoji:"🦓",
+        name:"Zebra",
+        sound:"Bray!"
+    },
+
+    {
+        id:"panda",
+        emoji:"🐼",
+        name:"Panda",
+        sound:"Panda!"
+    },
+
+    {
+        id:"bird",
+        emoji:"🐦",
+        name:"Bird",
+        sound:"Tweet tweet!"
+    },
+
+    {
+        id:"leopard",
+        emoji:"🐆",
+        name:"Leopard",
+        sound:"Grrr!"
+    },
+
+    {
+        id:"fish",
+        emoji:"🐟",
+        name:"Fish",
+        sound:"Blub blub!"
+    },
+
+    {
+        id:"bee",
+        emoji:"🐝",
+        name:"Bee",
+        sound:"Bzzzz!"
+    },
+
+    {
+        id:"penguin",
+        emoji:"🐧",
+        name:"Penguin",
+        sound:"Wonk wonk!"
+    },
+
+    {
+        id:"polarbear",
+        emoji:"🐻‍❄️",
+        name:"Polar Bear",
+        sound:"Grrr!"
+    },
+
+    {
+        id:"horse",
+        emoji:"🐴",
+        name:"Horse",
+        sound:"Neigh!"
+    },
+
+    {
+        id:"duck",
+        emoji:"🦆",
+        name:"Duck",
+        sound:"Quack quack!"
+    },
+
+    {
+        id:"cat",
+        emoji:"🐱",
+        name:"Cat",
+        sound:"Meow!"
+    },
+
+    {
+        id:"dog",
+        emoji:"🐶",
+        name:"Dog",
+        sound:"Woof woof!"
+    },
+
+    {
+        id:"chicken",
+        emoji:"🐔",
+        name:"Chicken",
+        sound:"Cluck cluck!"
+    }
 
 ];
 
 
 /* =========================================================
-   GAME 2 FOOD
-   KEEPING THE ORIGINAL FOOD STYLE
+   ANIMAL FOOD DATA
 ========================================================= */
 
 const foodForAnimal = {
 
-    lion:"🍎",
-    elephant:"🍉",
-    monkey:"🍌",
-    giraffe:"🍃",
-    zebra:"🥕",
-    panda:"🎋",
+    lion:{
+        correct:"🍖",
+        name:"meat",
+        choices:["🍖","🍎","🍌"]
+    },
 
-    bird:"🍓",
-    leopard:"🍖",
-    fish:"🦐",
-    bee:"🌸",
-    penguin:"🐟",
-    "polar bear":"🐟",
+    elephant:{
+        correct:"🍉",
+        name:"watermelon",
+        choices:["🍉","🍌","🍎"]
+    },
 
-    horse:"🥕",
-    duck:"🌽",
-    cat:"🐟",
-    dog:"🦴",
-    chicken:"🌽"
+    monkey:{
+        correct:"🍌",
+        name:"banana",
+        choices:["🍌","🍎","🍊"]
+    },
+
+    giraffe:{
+        correct:"🌿",
+        name:"leaves",
+        choices:["🌿","🍌","🍉"]
+    },
+
+    zebra:{
+        correct:"🌿",
+        name:"grass",
+        choices:["🌿","🍎","🍌"]
+    },
+
+    panda:{
+        correct:"🎋",
+        name:"bamboo",
+        choices:["🎋","🍎","🍉"]
+    },
+
+    bird:{
+        correct:"🌾",
+        name:"seeds",
+        choices:["🌾","🍌","🍉"]
+    },
+
+    leopard:{
+        correct:"🍖",
+        name:"meat",
+        choices:["🍖","🍎","🍌"]
+    },
+
+    fish:{
+        correct:"🦐",
+        name:"little shrimp",
+        choices:["🦐","🍎","🍌"]
+    },
+
+    bee:{
+        correct:"🌸",
+        name:"flower",
+        choices:["🌸","🍌","🍉"]
+    },
+
+    penguin:{
+        correct:"🐟",
+        name:"fish",
+        choices:["🐟","🍎","🍌"]
+    },
+
+    polarbear:{
+        correct:"🐟",
+        name:"fish",
+        choices:["🐟","🍎","🍉"]
+    },
+
+    horse:{
+        correct:"🥕",
+        name:"carrot",
+        choices:["🥕","🍎","🍌"]
+    },
+
+    duck:{
+        correct:"🌾",
+        name:"seeds",
+        choices:["🌾","🍎","🍌"]
+    },
+
+    cat:{
+        correct:"🐟",
+        name:"fish",
+        choices:["🐟","🍎","🍌"]
+    },
+
+    dog:{
+        correct:"🥕",
+        name:"treat",
+        choices:["🥕","🍎","🍌"]
+    },
+
+    chicken:{
+        correct:"🌽",
+        name:"corn",
+        choices:["🌽","🍎","🍌"]
+    }
 
 };
 
 
 /* =========================================================
-   GAME STATE
+   GAME 3 SCENE DATA
+========================================================= */
+
+const scenes = {
+
+    monkey:{
+        sceneClass:"scene-monkey",
+        title:"🐒 Monkey Jungle",
+        instruction:"Help the monkey find 5 yummy bananas!",
+        food:"🍌",
+        foods:["🍌","🍌","🍎","🍊"],
+        decorations:[
+            ["🌴",100,250,"big-tree"],
+            ["🌴",390,230,"tree"],
+            ["🌳",720,255,"big-tree"],
+            ["🌴",1050,225,"tree"],
+            ["🌳",1400,250,"big-tree"],
+            ["🌴",1760,220,"tree"],
+            ["🌳",2080,250,"big-tree"],
+            ["🦋",280,90,"butterfly"],
+            ["🦋",830,110,"butterfly"],
+            ["🦋",1500,90,"butterfly"],
+            ["🦋",1940,120,"butterfly"],
+            ["🐦",560,90,"bird-deco"],
+            ["🐦",1250,100,"bird-deco"],
+            ["☁️",180,35,"cloud"],
+            ["☁️",900,25,"cloud"],
+            ["☁️",1600,40,"cloud"]
+        ]
+    },
+
+    elephant:{
+        sceneClass:"scene-elephant",
+        title:"🐘 Elephant Pond",
+        instruction:"Help the elephant find 5 yummy foods!",
+        food:"🍉",
+        foods:["🍉","🍌","🌽","🍊"],
+        decorations:[
+            ["🌳",80,245,"big-tree"],
+            ["🌳",460,245,"tree"],
+            ["💧",700,270,"water"],
+            ["🌴",1000,235,"tree"],
+            ["🌳",1330,245,"big-tree"],
+            ["🌴",1680,235,"tree"],
+            ["🌳",2050,245,"big-tree"],
+            ["🦋",330,100,"butterfly"],
+            ["🦋",1250,90,"butterfly"],
+            ["🦋",1860,100,"butterfly"],
+            ["🐦",520,80,"bird-deco"],
+            ["☁️",170,40,"cloud"],
+            ["☁️",1200,35,"cloud"]
+        ]
+    },
+
+    giraffe:{
+        sceneClass:"scene-giraffe",
+        title:"🦒 Tall Tree Meadow",
+        instruction:"Help the giraffe find 5 yummy leaves!",
+        food:"🌿",
+        foods:["🌿","🌿","🍃","🌿"],
+        decorations:[
+            ["🌳",80,210,"big-tree"],
+            ["🌳",430,185,"big-tree"],
+            ["🌳",800,205,"big-tree"],
+            ["🌳",1160,180,"big-tree"],
+            ["🌳",1500,205,"big-tree"],
+            ["🌳",1900,180,"big-tree"],
+            ["🌳",2220,205,"big-tree"],
+            ["🦋",250,80,"butterfly"],
+            ["🦋",980,90,"butterfly"],
+            ["🦋",1750,80,"butterfly"],
+            ["🌼",300,370,"flower"],
+            ["🌼",720,380,"flower"],
+            ["🌼",1450,380,"flower"],
+            ["🌼",2050,380,"flower"]
+        ]
+    },
+
+    panda:{
+        sceneClass:"scene-panda",
+        title:"🐼 Bamboo Forest",
+        instruction:"Help the panda find 5 pieces of bamboo!",
+        food:"🎋",
+        foods:["🎋","🎋","🌿","🎋"],
+        decorations:[
+            ["🎋",80,220,"bamboo"],
+            ["🎋",400,200,"bamboo"],
+            ["🎋",760,230,"bamboo"],
+            ["🎋",1100,190,"bamboo"],
+            ["🎋",1450,220,"bamboo"],
+            ["🎋",1780,190,"bamboo"],
+            ["🎋",2120,220,"bamboo"],
+            ["🦋",270,100,"butterfly"],
+            ["🦋",900,80,"butterfly"],
+            ["🦋",1600,90,"butterfly"],
+            ["🐦",1200,80,"bird-deco"]
+        ]
+    },
+
+    lion:{
+        sceneClass:"scene-lion",
+        title:"🦁 Lion Savannah",
+        instruction:"Help the lion find 5 yummy foods!",
+        food:"🍖",
+        foods:["🍖","🍖","🍎","🍉"],
+        decorations:[
+            ["🌳",100,255,"tree"],
+            ["🌳",520,250,"big-tree"],
+            ["🌳",980,255,"tree"],
+            ["🌳",1400,250,"big-tree"],
+            ["🌳",1870,250,"tree"],
+            ["🌳",2200,250,"big-tree"],
+            ["🪨",300,365,"rock"],
+            ["🪨",1180,365,"rock"],
+            ["🪨",2050,365,"rock"],
+            ["☁️",200,50,"cloud"],
+            ["☁️",1300,40,"cloud"]
+        ]
+    },
+
+    zebra:{
+        sceneClass:"scene-zebra",
+        title:"🦓 Zebra Grassland",
+        instruction:"Help the zebra find 5 yummy foods!",
+        food:"🌿",
+        foods:["🌿","🌿","🍎","🥕"],
+        decorations:[
+            ["🌳",80,250,"tree"],
+            ["🌳",450,245,"tree"],
+            ["🌳",900,250,"big-tree"],
+            ["🌳",1350,240,"tree"],
+            ["🌳",1770,250,"big-tree"],
+            ["🌳",2180,240,"tree"],
+            ["🌼",280,370,"flower"],
+            ["🌼",750,375,"flower"],
+            ["🌼",1550,375,"flower"],
+            ["🌼",2000,375,"flower"]
+        ]
+    },
+
+    bird:{
+        sceneClass:"scene-bird",
+        title:"🐦 Bird Tree Tops",
+        instruction:"Help the bird find 5 yummy seeds!",
+        food:"🌾",
+        foods:["🌾","🌾","🍓","🌾"],
+        decorations:[
+            ["🌳",70,270,"big-tree"],
+            ["🌳",450,250,"big-tree"],
+            ["🌳",850,280,"tree"],
+            ["🌳",1200,250,"big-tree"],
+            ["🌳",1600,270,"tree"],
+            ["🌳",1980,250,"big-tree"],
+            ["☁️",200,60,"cloud"],
+            ["☁️",900,45,"cloud"],
+            ["☁️",1700,55,"cloud"],
+            ["🦋",500,150,"butterfly"],
+            ["🦋",1450,120,"butterfly"]
+        ]
+    },
+
+    leopard:{
+        sceneClass:"scene-leopard",
+        title:"🐆 Deep Jungle",
+        instruction:"Help the leopard find 5 yummy foods!",
+        food:"🍖",
+        foods:["🍖","🍖","🍎","🍌"],
+        decorations:[
+            ["🌴",80,220,"big-tree"],
+            ["🌴",400,230,"tree"],
+            ["🌳",760,220,"big-tree"],
+            ["🌴",1120,230,"tree"],
+            ["🌳",1480,220,"big-tree"],
+            ["🌴",1830,230,"tree"],
+            ["🌳",2180,220,"big-tree"],
+            ["🦋",250,90,"butterfly"],
+            ["🦋",1000,90,"butterfly"],
+            ["🦋",1700,80,"butterfly"]
+        ]
+    },
+
+    fish:{
+        sceneClass:"scene-fish",
+        title:"🐟 Underwater World",
+        instruction:"Help the fish find 5 yummy foods!",
+        food:"🦐",
+        foods:["🦐","🦐","🌿","🪸"],
+        decorations:[
+            ["🪸",80,250,"tree"],
+            ["🌿",390,280,"tree"],
+            ["🪸",750,250,"tree"],
+            ["🌿",1100,280,"tree"],
+            ["🪸",1450,250,"tree"],
+            ["🌿",1800,280,"tree"],
+            ["🪸",2160,250,"tree"],
+            ["🫧",280,80,"cloud"],
+            ["🫧",900,100,"cloud"],
+            ["🫧",1600,70,"cloud"],
+            ["🐠",500,150,"bird-deco"],
+            ["🐠",1300,130,"bird-deco"]
+        ]
+    },
+
+    bee:{
+        sceneClass:"scene-bee",
+        title:"🐝 Flower Garden",
+        instruction:"Help the bee find 5 beautiful flowers!",
+        food:"🌸",
+        foods:["🌸","🌼","🌺","🌷"],
+        decorations:[
+            ["🌸",80,350,"flower-field"],
+            ["🌼",420,360,"flower-field"],
+            ["🌺",760,350,"flower-field"],
+            ["🌷",1100,360,"flower-field"],
+            ["🌸",1450,350,"flower-field"],
+            ["🌼",1800,360,"flower-field"],
+            ["🌺",2150,350,"flower-field"],
+            ["🌳",300,250,"tree"],
+            ["🌳",1200,240,"tree"],
+            ["🌳",2000,245,"tree"],
+            ["🦋",550,90,"butterfly"],
+            ["🦋",1550,100,"butterfly"]
+        ]
+    },
+
+    penguin:{
+        sceneClass:"scene-penguin",
+        title:"🐧 Penguin Ice World",
+        instruction:"Help the penguin find 5 yummy fish!",
+        food:"🐟",
+        foods:["🐟","🐟","🦐","🐟"],
+        decorations:[
+            ["🧊",80,260,"ice"],
+            ["🧊",480,240,"ice"],
+            ["🧊",900,260,"ice"],
+            ["🧊",1300,240,"ice"],
+            ["🧊",1700,260,"ice"],
+            ["🧊",2150,240,"ice"],
+            ["❄️",250,90,"cloud"],
+            ["❄️",700,100,"cloud"],
+            ["❄️",1300,80,"cloud"],
+            ["❄️",1900,100,"cloud"]
+        ]
+    },
+
+    polarbear:{
+        sceneClass:"scene-polarbear",
+        title:"🐻‍❄️ Arctic Adventure",
+        instruction:"Help the polar bear find 5 yummy fish!",
+        food:"🐟",
+        foods:["🐟","🐟","🦐","🐟"],
+        decorations:[
+            ["🧊",100,260,"ice"],
+            ["🧊",520,250,"ice"],
+            ["🧊",940,270,"ice"],
+            ["🧊",1400,250,"ice"],
+            ["🧊",1800,270,"ice"],
+            ["🧊",2200,250,"ice"],
+            ["❄️",300,70,"cloud"],
+            ["❄️",1000,80,"cloud"],
+            ["❄️",1700,60,"cloud"]
+        ]
+    },
+
+    horse:{
+        sceneClass:"scene-horse",
+        title:"🐴 Happy Meadow",
+        instruction:"Help the horse find 5 yummy treats!",
+        food:"🥕",
+        foods:["🥕","🍎","🌿","🥕"],
+        decorations:[
+            ["🌳",80,250,"tree"],
+            ["🌳",500,245,"big-tree"],
+            ["🌳",950,250,"tree"],
+            ["🌳",1400,245,"big-tree"],
+            ["🌳",1850,250,"tree"],
+            ["🌳",2200,245,"big-tree"],
+            ["🌼",250,370,"flower"],
+            ["🌼",700,370,"flower"],
+            ["🌼",1300,370,"flower"],
+            ["🌼",2000,370,"flower"]
+        ]
+    },
+
+    duck:{
+        sceneClass:"scene-duck",
+        title:"🦆 Duck Pond",
+        instruction:"Help the duck find 5 yummy foods!",
+        food:"🌾",
+        foods:["🌾","🌾","🍓","🌾"],
+        decorations:[
+            ["💧",100,270,"water"],
+            ["🌳",500,240,"tree"],
+            ["💧",850,280,"water"],
+            ["🌳",1250,240,"tree"],
+            ["💧",1600,280,"water"],
+            ["🌳",2000,240,"tree"],
+            ["🌸",350,380,"flower"],
+            ["🌸",1400,380,"flower"],
+            ["🌸",2100,380,"flower"]
+        ]
+    },
+
+    cat:{
+        sceneClass:"scene-cat",
+        title:"🐱 Garden Adventure",
+        instruction:"Help the cat find 5 yummy treats!",
+        food:"🐟",
+        foods:["🐟","🍎","🍓","🥕"],
+        decorations:[
+            ["🌳",80,245,"tree"],
+            ["🌷",350,360,"flower-field"],
+            ["🌳",650,250,"tree"],
+            ["🌷",950,360,"flower-field"],
+            ["🌳",1250,245,"tree"],
+            ["🌷",1550,360,"flower-field"],
+            ["🌳",1850,245,"tree"],
+            ["🌷",2150,360,"flower-field"],
+            ["🦋",450,100,"butterfly"],
+            ["🦋",1450,90,"butterfly"]
+        ]
+    },
+
+    dog:{
+        sceneClass:"scene-dog",
+        title:"🐶 Doggy Park",
+        instruction:"Help the dog find 5 yummy treats!",
+        food:"🥕",
+        foods:["🥕","🍎","🍪","🌿"],
+        decorations:[
+            ["🌳",80,245,"tree"],
+            ["🌳",500,250,"tree"],
+            ["🌳",900,245,"big-tree"],
+            ["🌳",1350,250,"tree"],
+            ["🌳",1800,245,"big-tree"],
+            ["🌳",2200,250,"tree"],
+            ["🌼",300,370,"flower"],
+            ["🌼",1100,370,"flower"],
+            ["🌼",2000,370,"flower"],
+            ["🦋",700,100,"butterfly"],
+            ["🦋",1600,100,"butterfly"]
+        ]
+    },
+
+    chicken:{
+        sceneClass:"scene-chicken",
+        title:"🐔 Little Farm",
+        instruction:"Help the chicken find 5 yummy foods!",
+        food:"🌽",
+        foods:["🌽","🌾","🍓","🌽"],
+        decorations:[
+            ["🌳",80,245,"tree"],
+            ["🌾",350,350,"flower-field"],
+            ["🌳",650,245,"tree"],
+            ["🌾",950,350,"flower-field"],
+            ["🌳",1250,245,"tree"],
+            ["🌾",1550,350,"flower-field"],
+            ["🌳",1850,245,"tree"],
+            ["🌾",2150,350,"flower-field"],
+            ["☁️",250,50,"cloud"],
+            ["☁️",1300,45,"cloud"]
+        ]
+    }
+
+};
+
+
+/* =========================================================
+   GLOBAL VARIABLES
 ========================================================= */
 
 let currentGame = 0;
-let round = 0;
-let score = 0;
-let target = null;
-let correctFood = "";
-let totalRounds = 5;
+
+let game1Animal = null;
+
+let game2Animal = null;
+
+let currentGame3Animal = null;
+
+let game3FoodCount = 0;
+
+let riderX = 480;
+
+let speechAvailable =
+    "speechSynthesis" in window;
 
 
 /* =========================================================
-   GET RANDOM ANIMAL
+   SCREEN MANAGEMENT
 ========================================================= */
 
-function randomAnimal(){
-
-    return animals[
-        Math.floor(Math.random()*animals.length)
-    ];
-
-}
-
-
-/* =========================================================
-   SCREEN CONTROL
-========================================================= */
-
-function hideScreens(){
+function hideAllGames(){
 
     document
-        .querySelectorAll(".screen")
-        .forEach(s =>
-            s.classList.remove("show")
-        );
+        .querySelectorAll(".game-screen")
+        .forEach(screen=>{
+            screen.classList.add("hidden");
+        });
 
 }
-
 
 function showMenu(){
 
-    hideScreens();
+    hideAllGames();
 
     document
-        .getElementById("menuScreen")
-        .classList.add("show");
+        .getElementById("menu")
+        .classList.remove("hidden");
 
-    closePopup();
+    currentGame = 0;
+
+    if(speechAvailable){
+        window.speechSynthesis.cancel();
+    }
 
 }
 
-
-function startGame(number){
-
-    currentGame = number;
-    round = 0;
-    score = 0;
-
-    hideScreens();
+function openGame(number){
 
     document
-        .getElementById("game" + number)
-        .classList.add("show");
+        .getElementById("menu")
+        .classList.add("hidden");
 
-    updateGame();
+    hideAllGames();
+
+    document
+        .getElementById("game"+number)
+        .classList.remove("hidden");
+
+    currentGame = number;
+
+    if(number === 1){
+        startGame1();
+    }
+
+    if(number === 2){
+        startGame2();
+    }
+
+    if(number === 3){
+        startGame3();
+    }
 
 }
 
 
 /* =========================================================
-   GAME CONTROL
+   SPEECH / ANIMAL SOUNDS
 ========================================================= */
 
-function updateGame(){
+function speak(text){
 
-    if(round >= totalRounds){
-
-        finishGame();
+    if(!speechAvailable){
         return;
-
     }
 
-    if(currentGame === 1){
-        loadGame1();
+    window.speechSynthesis.cancel();
+
+    const utterance =
+        new SpeechSynthesisUtterance(text);
+
+    utterance.rate = .82;
+    utterance.pitch = 1.15;
+    utterance.volume = 1;
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function animalSound(animal){
+
+    if(!animal){
+        return;
     }
 
-    if(currentGame === 2){
-        loadGame2();
-    }
+    speak(animal.sound);
+}
 
-    if(currentGame === 3){
-        loadGame3();
-    }
+function speakCurrentAnimal(){
+
+    const animal =
+        animals.find(a => a.id === currentGame3Animal);
+
+    animalSound(animal);
+
+}
+
+function repeatGame1Animal(){
+
+    const animal =
+        animals.find(a => a.id === game1Animal);
+
+    animalSound(animal);
+
+}
+
+function repeatGame2Animal(){
+
+    const animal =
+        animals.find(a => a.id === game2Animal);
+
+    animalSound(animal);
 
 }
 
@@ -1255,102 +1795,94 @@ function updateGame(){
    GAME 1
 ========================================================= */
 
-function loadGame1(){
+function startGame1(){
 
-    target = randomAnimal();
+    const randomIndex =
+        Math.floor(Math.random()*animals.length);
+
+    game1Animal =
+        animals[randomIndex].id;
+
+    const target =
+        animals.find(a => a.id === game1Animal);
 
     document
-        .getElementById("targetAnimal")
-        .innerHTML = `
-            <div class="target-emoji">
-                ${target.emoji}
-            </div>
-        `;
+        .getElementById("game1Target")
+        .textContent = target.emoji;
 
-    const choices =
-        document.getElementById("choices1");
+    createGame1Choices();
 
-    choices.innerHTML = "";
+    setTimeout(()=>{
+        animalSound(target);
+    },300);
 
-    /*
-       Show 6 choices from the full animal collection.
-       The target is always included.
-    */
+}
 
-    let shuffled =
-        [...animals]
-        .sort(() => Math.random()-.5);
+function createGame1Choices(){
 
-    let selected =
-        shuffled
-        .filter(a => a.name !== target.name)
-        .slice(0,5);
+    const container =
+        document.getElementById("game1Choices");
 
-    selected.push(target);
+    container.innerHTML = "";
 
-    selected.sort(() => Math.random()-.5);
-
-    selected.forEach(animal => {
+    animals.forEach(animal=>{
 
         const button =
             document.createElement("button");
 
-        button.className = "choice";
+        button.className =
+            "animal-choice";
 
-        button.innerHTML = `
-            <div class="animal-choice-emoji">
-                ${animal.emoji}
-            </div>
+        button.textContent =
+            animal.emoji;
 
-            <span class="choice-name">
-                ${animal.name}
-            </span>
-        `;
+        button.setAttribute(
+            "aria-label",
+            animal.name
+        );
 
-        button.onclick = () =>
-            answerGame1(button,animal);
+        button.addEventListener(
+            "click",
+            ()=>{
+                checkGame1(animal,button);
+            }
+        );
 
-        choices.appendChild(button);
+        container.appendChild(button);
 
     });
 
-    document.getElementById("score1").textContent =
-        "⭐ " + score;
-
-    document.getElementById("round1").textContent =
-        (round+1) + " / " + totalRounds;
-
-    document.getElementById("progress1").style.width =
-        (round / totalRounds * 100) + "%";
-
 }
 
+function checkGame1(animal,button){
 
-function answerGame1(button,animal){
+    if(animal.id === game1Animal){
 
-    if(animal.name !== target.name){
+        button.classList.add("correct");
+
+        speak("Yes! " + animal.name + "!");
+
+        setTimeout(()=>{
+
+            showPopup(
+                animal.emoji,
+                "Great job! 🎉",
+                "You found the " + animal.name + "!"
+            );
+
+        },350);
+
+    }else{
 
         button.classList.add("wrong");
 
-        setTimeout(() => {
+        speak("Try again!");
+
+        setTimeout(()=>{
             button.classList.remove("wrong");
-        },400);
+        },450);
 
-        return;
     }
-
-    button.classList.add("correct");
-
-    score++;
-
-    setTimeout(() => {
-
-        showSuccess(
-            "Great job, Orion! 🌟",
-            "You found the same animal!"
-        );
-
-    },350);
 
 }
 
@@ -1359,220 +1891,140 @@ function answerGame1(button,animal){
    GAME 2
 ========================================================= */
 
-function loadGame2(){
+function startGame2(){
 
-    target = randomAnimal();
+    const randomIndex =
+        Math.floor(Math.random()*animals.length);
 
-    correctFood =
-        foodForAnimal[target.name];
+    game2Animal =
+        animals[randomIndex].id;
+
+    renderGame2();
+
+}
+
+function renderGame2(){
+
+    const animal =
+        animals.find(a=>a.id===game2Animal);
 
     document
-        .getElementById("feedAnimal")
-        .innerHTML = `
-            <div class="feed-emoji">
-                ${target.emoji}
-            </div>
-        `;
+        .getElementById("game2Animal")
+        .textContent = animal.emoji;
 
-
-    /*
-       Keep the original simple food-choice idea.
-       The correct food is shown with two other foods.
-    */
-
-    let foods = [
-
-        correctFood,
-        "🍎",
-        "🍌"
-
-    ];
-
-    /*
-       Remove duplicates if the correct answer
-       is already one of the two standard foods.
-    */
-
-    foods = [...new Set(foods)];
-
-
-    while(foods.length < 3){
-
-        const extraFoods = [
-            "🍉",
-            "🍓",
-            "🍊",
-            "🥭",
-            "🍍",
-            "🥕",
-            "🌽"
-        ];
-
-        const extra =
-            extraFoods[
-                Math.floor(
-                    Math.random()*extraFoods.length
-                )
-            ];
-
-        if(!foods.includes(extra)){
-            foods.push(extra);
-        }
-
-    }
-
-
-    foods.sort(() => Math.random()-.5);
-
+    const foodData =
+        foodForAnimal[game2Animal];
 
     const container =
-        document.getElementById("foodChoices");
+        document.getElementById("game2Foods");
 
     container.innerHTML = "";
 
-
-    foods.forEach(food => {
-
-        const button =
-            document.createElement("button");
-
-        button.className = "food-button";
-
-        button.textContent = food;
-
-        button.onclick = () =>
-            answerGame2(button,food);
-
-        container.appendChild(button);
-
-    });
-
-
-    document.getElementById("score2").textContent =
-        "⭐ " + score;
-
-    document.getElementById("round2").textContent =
-        (round+1) + " / " + totalRounds;
-
-    document.getElementById("progress2").style.width =
-        (round / totalRounds * 100) + "%";
-
-}
-
-
-function answerGame2(button,food){
-
-    if(food !== correctFood){
-
-        button.animate(
-
-            [
-                {transform:"translateX(0)"},
-                {transform:"translateX(-8px)"},
-                {transform:"translateX(8px)"},
-                {transform:"translateX(0)"}
-            ],
-
-            {duration:350}
-
-        );
-
-        return;
-
-    }
-
-
-    score++;
-
-    showSuccess(
-        "Yummy! 🐾",
-        "The animal loved its food!"
-    );
-
-}
-
-
-/* =========================================================
-   GAME 3
-   JUNGLE ADVENTURE
-========================================================= */
-
-let jungleFoodTimer;
-
-
-/* ---------------------------------------------------------
-   LOAD GAME 3
---------------------------------------------------------- */
-
-function loadGame3(){
-
-    document.getElementById("jungleMessage")
-        .textContent =
-        "";
-
-    target = randomAnimal();
-
-    setJungleAnimal(target);
-
-    createAnimalPicker();
-
-    placeAllJungleFood();
-
-    document.getElementById("score3").textContent =
-        "⭐ " + score;
-
-    document.getElementById("round3").textContent =
-        (round+1) + " / " + totalRounds;
-
-    document.getElementById("progress3").style.width =
-        (round / totalRounds * 100) + "%";
-
-}
-
-
-/* ---------------------------------------------------------
-   SELECT ANIMAL
---------------------------------------------------------- */
-
-function setJungleAnimal(animal){
-
-    target = animal;
-
-    document
-        .getElementById("selectedAnimal")
-        .textContent =
-        animal.emoji;
-
-    document
-        .getElementById("jungleMessage")
-        .textContent =
-        "Orion is riding the " +
-        animal.name +
-        "! 🥰";
-
-    updatePickerSelection();
-
-}
-
-
-/* ---------------------------------------------------------
-   ANIMAL PICKER
---------------------------------------------------------- */
-
-function createAnimalPicker(){
-
-    const picker =
-        document.getElementById("animalPicker");
-
-    picker.innerHTML = "";
-
-    animals.forEach(animal => {
+    foodData.choices.forEach(food=>{
 
         const button =
             document.createElement("button");
 
         button.className =
-            "animal-pick";
+            "food-choice";
+
+        button.innerHTML =
+            food +
+            '<span class="food-name">Tap me!</span>';
+
+        button.addEventListener(
+            "click",
+            ()=>{
+                checkGame2(food,button);
+            }
+        );
+
+        container.appendChild(button);
+
+    });
+
+    setTimeout(()=>{
+        animalSound(animal);
+    },300);
+
+}
+
+function checkGame2(food,button){
+
+    const foodData =
+        foodForAnimal[game2Animal];
+
+    const animal =
+        animals.find(a=>a.id===game2Animal);
+
+    if(food === foodData.correct){
+
+        button.classList.add("correct");
+
+        speak("Yummy! " + foodData.name + "!");
+
+        setTimeout(()=>{
+
+            showPopup(
+                animal.emoji,
+                "Yummy! 😋",
+                "The " +
+                animal.name +
+                " likes " +
+                foodData.name +
+                "!"
+            );
+
+        },350);
+
+    }else{
+
+        button.classList.add("wrong");
+
+        speak("Not that one!");
+
+        setTimeout(()=>{
+            button.classList.remove("wrong");
+        },450);
+
+    }
+
+}
+
+
+/* =========================================================
+   GAME 3 START
+========================================================= */
+
+function startGame3(){
+
+    createGame3AnimalSelector();
+
+    const randomAnimal =
+        animals[
+            Math.floor(Math.random()*animals.length)
+        ];
+
+    chooseGame3Animal(randomAnimal.id);
+
+}
+
+function createGame3AnimalSelector(){
+
+    const container =
+        document.getElementById(
+            "game3AnimalSelector"
+        );
+
+    container.innerHTML = "";
+
+    animals.forEach(animal=>{
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "selector-animal";
 
         button.textContent =
             animal.emoji;
@@ -1580,114 +2032,268 @@ function createAnimalPicker(){
         button.title =
             animal.name;
 
-        button.onclick = function(){
+        button.addEventListener(
+            "click",
+            ()=>{
+                chooseGame3Animal(animal.id);
+            }
+        );
 
-            setJungleAnimal(animal);
+        button.dataset.animal =
+            animal.id;
 
-            makeSmallConfetti();
-
-        };
-
-        picker.appendChild(button);
+        container.appendChild(button);
 
     });
 
-    updatePickerSelection();
+}
+
+
+/* =========================================================
+   CHOOSE GAME 3 ANIMAL
+========================================================= */
+
+function chooseGame3Animal(animalId){
+
+    currentGame3Animal =
+        animalId;
+
+    game3FoodCount = 0;
+
+    riderX = 480;
+
+    const animal =
+        animals.find(a=>a.id===animalId);
+
+    const scene =
+        scenes[animalId];
+
+    if(!scene){
+        return;
+    }
+
+    const world =
+        document.getElementById("jungleWorld");
+
+    world.className =
+        "jungle-world " +
+        scene.sceneClass;
+
+    world.innerHTML = "";
+
+    createSceneDecorations(scene);
+
+    createRider(animal);
+
+    createFoods(scene);
+
+    updateGame3Header(scene);
+
+    updateSelector();
+
+    animalSound(animal);
 
 }
 
 
-function updatePickerSelection(){
+/* =========================================================
+   SCENE DECORATIONS
+========================================================= */
 
-    document
-        .querySelectorAll(".animal-pick")
-        .forEach(button => {
+function createSceneDecorations(scene){
 
-            button.classList.remove("selected");
+    const world =
+        document.getElementById("jungleWorld");
 
-            if(
-                target &&
-                button.title === target.name
-            ){
+    scene.decorations.forEach(item=>{
 
-                button.classList.add("selected");
+        const emoji = item[0];
+        const x = item[1];
+        const y = item[2];
+        const className = item[3];
 
-            }
+        const element =
+            document.createElement("div");
 
-        });
+        element.className =
+            "decoration " +
+            className;
 
-}
+        element.textContent =
+            emoji;
 
-
-/* ---------------------------------------------------------
-   FOOD
---------------------------------------------------------- */
-
-function placeAllJungleFood(){
-
-    const stage =
-        document.getElementById("jungleStage");
-
-    const foods =
-        document.querySelectorAll(".jungle-food");
-
-    foods.forEach((food,index) => {
-
-        /*
-           Keep food away from the animal/photo
-           in the center.
-
-           Food remains z-index 30,
-           while animal/photo are z-index 8/10.
-        */
-
-        let x;
-        let y;
-
-        if(index % 2 === 0){
-
-            x =
-                20 +
-                Math.random() *
-                Math.max(20,stage.clientWidth - 100);
-
-        }else{
-
-            x =
-                15 +
-                Math.random() *
-                Math.max(20,stage.clientWidth - 95);
-
-        }
-
-        y =
-            55 +
-            Math.random() *
-            Math.max(20,stage.clientHeight - 180);
-
-
-        food.style.left =
+        element.style.left =
             x + "px";
 
-        food.style.top =
+        element.style.top =
             y + "px";
 
-        food.style.display =
-            "flex";
-
-        food.dataset.collected =
-            "false";
+        world.appendChild(element);
 
     });
 
 }
 
 
-/* ---------------------------------------------------------
-   COLLECT FOOD
---------------------------------------------------------- */
+/* =========================================================
+   CREATE RIDER
+========================================================= */
 
-function collectJungleFood(button){
+function createRider(animal){
+
+    const world =
+        document.getElementById("jungleWorld");
+
+    const rider =
+        document.createElement("div");
+
+    rider.id = "rider";
+
+    rider.className =
+        "rider bobbing";
+
+    rider.innerHTML = `
+
+        <div
+            id="riderAnimal"
+            class="rider-animal"
+        >
+            ${animal.emoji}
+        </div>
+
+        <img
+            id="orionRiding"
+            class="orion-riding"
+            src="riding.png.png"
+            alt="Orion riding"
+        >
+
+    `;
+
+    world.appendChild(rider);
+
+    rider.style.left =
+        riderX + "px";
+
+}
+
+
+/* =========================================================
+   CREATE FOOD
+========================================================= */
+
+function createFoods(scene){
+
+    const world =
+        document.getElementById("jungleWorld");
+
+    /*
+       12 food locations are created.
+       Only 5 need to be collected.
+    */
+
+    const positions = [
+
+        [250,210],
+        [580,130],
+        [880,300],
+        [1160,155],
+        [1450,310],
+        [1710,135],
+        [2020,290],
+        [2250,150],
+        [740,390],
+        [1280,390],
+        [1880,390],
+        [350,390]
+
+    ];
+
+    positions.forEach((position,index)=>{
+
+        const food =
+            scene.foods[
+                index %
+                scene.foods.length
+            ];
+
+        const button =
+            document.createElement("button");
+
+        button.className =
+            "world-food";
+
+        button.textContent =
+            food;
+
+        button.style.left =
+            position[0] + "px";
+
+        button.style.top =
+            position[1] + "px";
+
+        button.dataset.food =
+            food;
+
+        button.addEventListener(
+            "click",
+            ()=>{
+                collectFood(button);
+            }
+        );
+
+        world.appendChild(button);
+
+    });
+
+}
+
+
+/* =========================================================
+   GAME 3 HEADER
+========================================================= */
+
+function updateGame3Header(scene){
+
+    document
+        .getElementById("sceneName")
+        .textContent =
+        scene.title;
+
+    document
+        .getElementById("game3Instruction")
+        .textContent =
+        scene.instruction;
+
+    updateFoodCounter();
+
+}
+
+function updateFoodCounter(){
+
+    const scene =
+        scenes[currentGame3Animal];
+
+    if(!scene){
+        return;
+    }
+
+    document
+        .getElementById("foodCounter")
+        .textContent =
+        scene.food +
+        " " +
+        game3FoodCount +
+        " / 5";
+
+}
+
+
+/* =========================================================
+   COLLECT FOOD
+========================================================= */
+
+function collectFood(button){
 
     if(button.dataset.collected === "true"){
         return;
@@ -1696,212 +2302,250 @@ function collectJungleFood(button){
     button.dataset.collected =
         "true";
 
-    button.animate(
+    button.style.pointerEvents =
+        "none";
 
+    button.animate(
         [
             {
                 transform:"scale(1)",
                 opacity:1
             },
-
             {
-                transform:"scale(1.5)",
-                opacity:.7
-            },
-
-            {
-                transform:"scale(0)",
+                transform:"scale(1.6)",
                 opacity:0
             }
-
         ],
-
         {
             duration:350,
             easing:"ease-out"
         }
-
     );
 
+    game3FoodCount++;
 
-    score++;
+    const animal =
+        animals.find(
+            a=>a.id===currentGame3Animal
+        );
 
-    document.getElementById("score3")
-        .textContent =
-        "⭐ " + score;
+    speak(
+        game3FoodCount < 5
+        ? "Yummy!"
+        : "Yummy! The " +
+          animal.name +
+          " is full!"
+    );
 
-    document.getElementById("jungleMessage")
-        .textContent =
-        "Yummy! Orion found the food! 🍎⭐";
-
-
-    setTimeout(() => {
-
-        button.style.display =
-            "none";
-
-    },350);
-
-
-    makeSmallConfetti();
-
+    updateFoodCounter();
 
     /*
-       After collecting a food,
-       another one appears somewhere new.
+       Make Orion and the animal bounce
+       together when food is eaten.
     */
 
-    setTimeout(() => {
+    const rider =
+        document.getElementById("rider");
 
-        respawnJungleFood(button);
+    if(rider){
 
-    },700);
-
-}
-
-
-/* ---------------------------------------------------------
-   RESPAWN FOOD
---------------------------------------------------------- */
-
-function respawnJungleFood(button){
-
-    const stage =
-        document.getElementById("jungleStage");
-
-    const x =
-        15 +
-        Math.random() *
-        Math.max(20,stage.clientWidth - 100);
-
-    const y =
-        55 +
-        Math.random() *
-        Math.max(20,stage.clientHeight - 180);
-
-
-    button.style.left =
-        x + "px";
-
-    button.style.top =
-        y + "px";
-
-    button.style.display =
-        "flex";
-
-    button.dataset.collected =
-        "false";
-
-    button.animate(
-
-        [
+        rider.animate(
+            [
+                {
+                    transform:"translateY(0) scale(1)"
+                },
+                {
+                    transform:"translateY(-16px) scale(1.06)"
+                },
+                {
+                    transform:"translateY(0) scale(1)"
+                }
+            ],
             {
-                transform:"scale(0)",
-                opacity:0
-            },
-
-            {
-                transform:"scale(1.15)",
-                opacity:1
-            },
-
-            {
-                transform:"scale(1)",
-                opacity:1
+                duration:500
             }
+        );
 
-        ],
+    }
 
-        {
-            duration:400
-        }
+    if(game3FoodCount >= 5){
 
-    );
+        setTimeout(()=>{
+
+            finishGame3();
+
+        },700);
+
+    }
 
 }
 
 
 /* =========================================================
-   SUCCESS POPUP
+   FINISH GAME 3
 ========================================================= */
 
-function showSuccess(title,text){
+function finishGame3(){
 
-    document.getElementById("popupTitle")
-        .textContent =
-        title;
+    const animal =
+        animals.find(
+            a=>a.id===currentGame3Animal
+        );
 
-    document.getElementById("popupText")
-        .textContent =
-        text;
+    createConfetti();
 
-    document
-        .getElementById("popup")
-        .classList.add("show");
+    showPopup(
+        animal.emoji,
+        "Safari Complete! 🎉",
+        "The " +
+        animal.name +
+        " found all 5 foods and is full! 😋"
+    );
 
-    makeConfetti();
+    setTimeout(()=>{
+        animalSound(animal);
+    },300);
 
 }
 
+
+/* =========================================================
+   MOVE RIDER
+========================================================= */
+
+function moveRider(direction){
+
+    const worldWidth = 2400;
+
+    const riderWidth = 180;
+
+    const movement = 190;
+
+    riderX +=
+        direction *
+        movement;
+
+    if(riderX < 50){
+        riderX = 50;
+    }
+
+    if(riderX > worldWidth-riderWidth-50){
+        riderX =
+            worldWidth-riderWidth-50;
+    }
+
+    const rider =
+        document.getElementById("rider");
+
+    if(rider){
+
+        rider.style.left =
+            riderX + "px";
+
+        rider.classList.remove("bobbing");
+
+        void rider.offsetWidth;
+
+        rider.classList.add("bobbing");
+
+    }
+
+    /*
+       Make the world gently follow Orion's rider.
+       This gives the feeling that he is traveling
+       through the animal's world.
+    */
+
+    const viewport =
+        document.querySelector(".jungle-viewport");
+
+    const world =
+        document.getElementById("jungleWorld");
+
+    if(!viewport || !world){
+        return;
+    }
+
+    const viewportWidth =
+        viewport.clientWidth;
+
+    let cameraX =
+        riderX -
+        viewportWidth/2;
+
+    const maxCamera =
+        2400 -
+        viewportWidth;
+
+    if(cameraX < 0){
+        cameraX = 0;
+    }
+
+    if(cameraX > maxCamera){
+        cameraX = maxCamera;
+    }
+
+    world.style.transform =
+        "translateX(-" +
+        cameraX +
+        "px)";
+
+}
+
+
+/* =========================================================
+   UPDATE ANIMAL SELECTOR
+========================================================= */
+
+function updateSelector(){
+
+    document
+        .querySelectorAll(".selector-animal")
+        .forEach(button=>{
+
+            button.classList.toggle(
+                "active",
+                button.dataset.animal ===
+                currentGame3Animal
+            );
+
+        });
+
+}
+
+
+/* =========================================================
+   POPUP
+========================================================= */
+
+function showPopup(animal,title,message){
+
+    document
+        .getElementById("popupAnimal")
+        .textContent =
+        animal;
+
+    document
+        .getElementById("popupTitle")
+        .textContent =
+        title;
+
+    document
+        .getElementById("popupMessage")
+        .textContent =
+        message;
+
+    document
+        .getElementById("gamePopup")
+        .classList.add("show");
+
+}
 
 function closePopup(){
 
     document
-        .getElementById("popup")
+        .getElementById("gamePopup")
         .classList.remove("show");
-
-}
-
-
-function popupNext(){
-
-    closePopup();
-
-    round++;
-
-    updateGame();
-
-}
-
-
-/* =========================================================
-   FINISH
-========================================================= */
-
-function finishGame(){
-
-    document.getElementById("popupTitle")
-        .textContent =
-        "Amazing, Orion! 🌟";
-
-    document.getElementById("popupText")
-        .textContent =
-        "You finished the game! You got " +
-        score + " stars!";
-
-    const nextButton =
-        document.getElementById(
-            "popupNextButton"
-        );
-
-    nextButton.textContent =
-        "🔄 Play Again";
-
-    nextButton.onclick =
-        function(){
-
-            closePopup();
-
-            startGame(currentGame);
-
-        };
-
-
-    document
-        .getElementById("popup")
-        .classList.add("show");
-
-    makeConfetti();
 
 }
 
@@ -1910,7 +2554,10 @@ function finishGame(){
    CONFETTI
 ========================================================= */
 
-function makeConfetti(){
+function createConfetti(){
+
+    const emojis =
+        ["🌿","🍌","⭐","🌸","🎉","🍎","💚"];
 
     for(let i=0;i<35;i++){
 
@@ -1920,61 +2567,31 @@ function makeConfetti(){
         piece.className =
             "confetti";
 
-        piece.style.left =
-            Math.random()*100 + "vw";
-
-        piece.style.top =
-            "-20px";
-
-        piece.style.background =
-            [
-                "#7e9b45",
-                "#d38b70",
-                "#e6b85c",
-                "#8aa6c1",
-                "#b98bb5"
-            ][
-                Math.floor(Math.random()*5)
+        piece.textContent =
+            emojis[
+                Math.floor(
+                    Math.random()*
+                    emojis.length
+                )
             ];
 
-        piece.style.animationDelay =
-            Math.random()*.5 + "s";
-
-        document.body.appendChild(piece);
-
-        setTimeout(() => {
-            piece.remove();
-        },1800);
-
-    }
-
-}
-
-
-function makeSmallConfetti(){
-
-    for(let i=0;i<8;i++){
-
-        const piece =
-            document.createElement("div");
-
-        piece.className =
-            "confetti";
-
         piece.style.left =
-            (40 + Math.random()*20) + "vw";
+            Math.random()*100 +
+            "vw";
 
-        piece.style.top =
-            (35 + Math.random()*20) + "vh";
+        piece.style.animationDelay =
+            Math.random()*.7 +
+            "s";
 
-        piece.style.background =
-            "#e6b85c";
+        piece.style.fontSize =
+            (12+Math.random()*15) +
+            "px";
 
         document.body.appendChild(piece);
 
-        setTimeout(() => {
+        setTimeout(()=>{
             piece.remove();
-        },1500);
+        },3000);
 
     }
 
@@ -1982,14 +2599,36 @@ function makeSmallConfetti(){
 
 
 /* =========================================================
-   INITIALIZE
+   INITIAL STATE
 ========================================================= */
 
 showMenu();
 
-</script>
 
-</div>
+/* =========================================================
+   KEYBOARD SUPPORT
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event=>{
+
+        if(currentGame === 3){
+
+            if(event.key === "ArrowLeft"){
+                moveRider(-1);
+            }
+
+            if(event.key === "ArrowRight"){
+                moveRider(1);
+            }
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
